@@ -116,6 +116,10 @@
 
 - Étendre la table `recipes` pour inclure ces colonnes.
 - Mapper `contributor_id` vers la table `users`.
+** Idées de thèmes 
+- Faire de la recherche documentaire en sélectionnant le meilleur nom de recette parmi les noms disponibles à partir d'une liste d'ingrédients.
+- Faire du NLP pour prédire le meilleur nom de recette à partir d'une liste d'ingrédients.
+- Faire de l'IA générative pour générer le nom d'une recette en se basant sur les ingrédients.
 
 
 
