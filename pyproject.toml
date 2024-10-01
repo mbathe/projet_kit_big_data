@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "TP"
+version = "0.1.0"
+description = ""
+authors = ["mbathe <mbathepaul@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.38.0"
+numpy = "^2.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
