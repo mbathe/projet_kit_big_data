@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "TP"
+name = "BGDIA700"
 version = "0.1.0"
 description = ""
-authors = ["mbathe <mbathepaul@gmail.com>"]
+authors = ["mbathe <mbathepaul@gmail.com>", ]
 readme = "README.md"
 
 [tool.poetry.dependencies]
