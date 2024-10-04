@@ -14,9 +14,9 @@ PASSWORD = ""
 HOST = os.getenv('HOST')
 PORT = os.getenv('PORT')
 
-    
-db_name = "PROJET_FOOD_MSIA" 
-recreate_db = False  
+
+db_name = "PROJET_FOOD_MSIA"
+recreate_db = False
 """
 db = DatabaseManagement(db_name, recreate_db,USER,PASSWORD,HOST,PORT)
 
@@ -52,12 +52,16 @@ recettes_df = pd.DataFrame({
 })
 
 # Conversion des ingrédients en listes si nécessaire
+
+
 def convert_ingredients(x):
     if isinstance(x, str):
         return ast.literal_eval(x)
     return x
 
-recettes_df['ingredients'] = recettes_df['ingredients'].apply(convert_ingredients)
+
+recettes_df['ingredients'] = recettes_df['ingredients'].apply(
+    convert_ingredients)
 
 st.title("Recherche de Recettes")
 
@@ -69,9 +73,11 @@ if 'selected_ingredients' not in st.session_state:
 search_query = st.text_input("Rechercher un ingrédient")
 
 if search_query:
-    produits_filtres = produits_df[produits_df['nom_produit'].str.contains(search_query, case=False, na=False)]
+    produits_filtres = produits_df[produits_df['nom_produit'].str.contains(
+        search_query, case=False, na=False)]
     if not produits_filtres.empty:
-        selected = st.selectbox("Sélectionnez un ingrédient", produits_filtres['nom_produit'].tolist())
+        selected = st.selectbox(
+            "Sélectionnez un ingrédient", produits_filtres['nom_produit'].tolist())
         if st.button("Ajouter"):
             if selected not in st.session_state.selected_ingredients:
                 st.session_state.selected_ingredients.append(selected)
@@ -88,22 +94,25 @@ for ingr in st.session_state.selected_ingredients:
 if st.button("Rechercher des Recettes"):
     if st.session_state.selected_ingredients:
         # Calcul de la similarité
-        recettes_df['ingredients_str'] = recettes_df['ingredients'].apply(lambda x: ' '.join(x))
-        
+        recettes_df['ingredients_str'] = recettes_df['ingredients'].apply(
+            lambda x: ' '.join(x))
+
         vectorizer = TfidfVectorizer().fit(recettes_df['ingredients_str'])
         recettes_vectors = vectorizer.transform(recettes_df['ingredients_str'])
-        
+
         # Vectorisation des ingrédients sélectionnés
         selected_str = ' '.join(st.session_state.selected_ingredients)
         selected_vector = vectorizer.transform([selected_str])
-        
+
         # Calcul de la similarité cosine
-        cosine_sim = cosine_similarity(selected_vector, recettes_vectors).flatten()
+        cosine_sim = cosine_similarity(
+            selected_vector, recettes_vectors).flatten()
         recettes_df['similarity'] = cosine_sim
-        
+
         # Tri des recettes par similarité décroissante
-        recettes_similaires = recettes_df.sort_values(by='similarity', ascending=False).head(10)
-        
+        recettes_similaires = recettes_df.sort_values(
+            by='similarity', ascending=False).head(10)
+
         # Affichage des recettes
         st.subheader("Recettes Similaires")
         for index, row in recettes_similaires.iterrows():
