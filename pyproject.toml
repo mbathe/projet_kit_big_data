@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "TP"
+name = "src"
 version = "0.1.0"
 description = "création d'une webapp Streamlit d'analyse de données"
 authors = ["mbathe <mbathepaul@gmail.com>", ]
