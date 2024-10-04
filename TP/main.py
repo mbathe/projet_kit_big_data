@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import tensorflow as tf
 
 from keras import models, layers
@@ -29,3 +30,12 @@ model.compile(loss='categorical_crossentropy',
 model.fit(x_train, y_train, epochs=10, batch_size=128, shuffle=True)
 
 model.evaluate(x_test, y_test)
+=======
+from dotenv import load_dotenv
+from TP.utils.streamlit import st
+load_dotenv()
+
+
+if __name__ == "__main__":
+  print('test')
+>>>>>>> develop
