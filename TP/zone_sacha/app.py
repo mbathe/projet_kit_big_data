@@ -1,6 +1,6 @@
 import os
 
-# from TP.utils.streamlit import st
+from TP.utils.streamlit import st
 import streamlit as st
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -9,8 +9,9 @@ import ast
 from db_mapping import DatabaseManagement , IngrMap , Recipe , Interaction
 from sqlalchemy import func
 
+
 USER = os.getenv('USER')
-PASSWORD = os.getenv('PASSWORD')
+PASSWORD = ""
 HOST = os.getenv('HOST')
 PORT = os.getenv('PORT')
 
