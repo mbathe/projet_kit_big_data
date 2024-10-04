@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pylab as plt
-from TP.utils.helper_data import load_dataset
+from src.utils.helper_data import load_dataset
 import os
 
 dataframes = load_dataset(os.getenv("DIR_DATASET"), all_contents=True)
