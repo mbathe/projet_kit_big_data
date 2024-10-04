@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
-from utils.streamlit import st
-from zone_sacha.app import *
+from TP.utils.streamlit import st
+from TP.zone_sacha.app import *
 load_dotenv()
 
 
