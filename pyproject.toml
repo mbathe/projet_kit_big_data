@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "TP"
+name = "src"
 version = "0.1.0"
 description = "création d'une webapp Streamlit d'analyse de données"
 authors = ["mbathe <mbathepaul@gmail.com>", ]
@@ -20,11 +20,11 @@ seaborn = "^0.13.2"
 sqlalchemy = "^2.0.35"
 tqdm = "^4.66.5"
 sqlalchemy-utils = "^0.41.2"
+requests = "^2.32.3"
+gdown = "^5.2.0"
+googledriver = "^0.1.7"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
-[tool.poetry.scripts]
-start = "poetry run streamlit run myapp.py"
