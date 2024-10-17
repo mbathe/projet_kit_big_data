@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
-from src.utils.streamlit import st
-from src.zone_sacha.app import *
+from TP_BGDIA700.src.utils.streamlit import st
+from TP_BGDIA700.src.zone_sacha.app import *
 load_dotenv()
 
 

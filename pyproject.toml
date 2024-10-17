@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "TP"
+name = "TP_BGDIA700"
 version = "0.1.0"
 description = "création d'une webapp Streamlit d'analyse de données"
-authors = ["mbathe <mbathepaul@gmail.com>", ]
+authors = ["mbathe <mbathepaul@gmail.com>","movsessian <alexandre.movsessian@gmail.com>" ]
 readme = "README.md"
 
 [tool.poetry.dependencies]
