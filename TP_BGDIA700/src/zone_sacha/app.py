@@ -1,6 +1,6 @@
 import os
 
-from src.utils.streamlit import st
+from TP_BGDIA700.src.utils.streamlit import st
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
