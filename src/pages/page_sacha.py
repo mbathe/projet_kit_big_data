@@ -1,0 +1,67 @@
+import streamlit as st
+import plotly.express as px
+import plotly.graph_objects as go
+import pandas as pd
+
+from src.visualizations.graphiques.histogramme import Histogramme
+from src.visualizations.graphiques.boxplot import BoxPlot
+from src.visualizations.graphiques.scatterplot import ScatterPlot
+from src.visualizations.graphiques.donut import Donut
+from src.visualizations.graphiques.linechart import LineChart
+from src.visualizations.graphiques.heatmap import Heatmap
+from src.visualizations.graphiques.barchart import BarChart
+from src.visualizations.graphiques.treemap import Treemap
+from src.visualizations.grille import Grille
+
+
+
+if __name__ == "__main__":
+    # Configuration de la page pour une largeur maximale
+    st.set_page_config(layout="wide")
+
+# Chargement du CSS personnalisé
+path_to_css = 'src/css_pages/page_sacha.css'
+def load_css(path_to_css):
+    with open(path_to_css) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+load_css(path_to_css)
+
+# Chargement des données exemple
+df = px.data.tips()
+
+# Importation du dataset gapminder
+df_gapminder = px.data.gapminder()
+df_france = df_gapminder[df_gapminder['country'] == 'France']
+
+# Création des graphiques en dur avec des hauteurs spécifiques
+graphique1 = Histogramme(df, x='total_bill', height=300, bin_size=5)
+# graphique2 = Histogramme(df, x='tip', height=300)
+graphique2 = BoxPlot(df, x='day', y='total_bill', height=300)
+# graphique2 = BarChart(df, x='day', y='total_bill', height=300)
+
+graphique3 = ScatterPlot(df, x='total_bill', y='tip', height=300)
+
+graphique4 = Donut(df, names='day', values='total_bill', height=300)
+graphique5 = LineChart(df_france, x='year', y='lifeExp', height=300)
+# graphique6 = Donut(df, names='smoker', values='tip', height=300)
+graphique6 = Heatmap(df, x='total_bill', y='tip', z='size', height=300)
+# graphique6 = Treemap(df, path=['day', 'time'], values='total_bill', height=300)
+
+# Liste des graphiques à afficher
+graphiques = [
+            graphique1, 
+            graphique2, 
+            graphique3, 
+            graphique4,
+            graphique5,
+            graphique6
+              ]
+
+# Définition de la grille (2 lignes, 2 colonnes)
+nb_lignes = 2
+nb_colonnes = 3
+largeurs_colonnes = [0.7, 1+0.3,1]  # Les poids relatifs des colonnes
+
+grille = Grille(nb_lignes, nb_colonnes, largeurs_colonnes)
+grille.afficher(graphiques)

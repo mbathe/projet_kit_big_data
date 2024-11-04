@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import ast
-# from TP.zone_sacha.db_mapping import DatabaseManagement, IngrMap, Recipe, Interaction
+from src.zone_sacha.db_mapping import DatabaseManagement, IngrMap, Recipe, Interaction
 from sqlalchemy import func
 
 
@@ -17,7 +17,7 @@ PORT = os.getenv('PORT')
 
 db_name = "PROJET_FOOD_MSIA"
 recreate_db = False
-"""
+
 db = DatabaseManagement(db_name, recreate_db,USER,PASSWORD,HOST,PORT)
 
 session = db.SessionLocal()
@@ -39,15 +39,15 @@ Recipes = session.query(
 ).all()
 Recipe_dict = {name : ([id_to_produits[int(id_)] for id_ in produits[1:-1].split(',')],rate)  for (_,name,produits,rate) in Recipes if produits}
 
-"""
+
 
 produits_df = pd.DataFrame({
-    'nom_produit': []
+    'nom_produit': [ ele[0] for ele in produits]
 })
 recettes_df = pd.DataFrame({
-    'nom_recette': [],
-    'ingredients': [],
-    'notation': []
+    'nom_recette' : [recip for recip in Recipe_dict],
+    'ingredients': [Recipe_dict[recip][0] for recip in Recipe_dict],
+    'notation' : [Recipe_dict[recip][1] for recip in Recipe_dict]
 
 })
 
