@@ -20,10 +20,11 @@ seaborn = "^0.13.2"
 sqlalchemy = "^2.0.35"
 tqdm = "^4.66.5"
 sqlalchemy-utils = "^0.41.2"
-psycopg2 = "^2.9.9"
 gdown = "^5.2.0"
 googledriver = "^0.1.7"
 plotly = "^5.24.1"
+wordcloud = "^1.9.4"
+streamlit-echarts = "^0.4.0"
 
 [build-system]
 requires = ["poetry-core"]
