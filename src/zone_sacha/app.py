@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 """ import os
-=======
-import os
->>>>>>> 601a7a15331ce1944996c25ea542c6a25da39240
 
 from src.utils.streamlit import st
 import pandas as pd
@@ -131,7 +127,4 @@ if st.button("Rechercher des Recettes"):
                 st.write(stars)
     else:
         st.warning("Veuillez ajouter au moins un ingrédient à la liste.")
-<<<<<<< HEAD
  """
-=======
->>>>>>> 601a7a15331ce1944996c25ea542c6a25da39240
