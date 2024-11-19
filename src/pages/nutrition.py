@@ -1,16 +1,11 @@
 import seaborn as sns
 import streamlit as st
 import pandas as pd
-from pathlib import Path
-import numpy as np
-from pygwalker.api.streamlit import StreamlitRenderer
-import pandas as pd
-import numpy as np
 import ast
-
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
+from pathlib import Path
+
+cwd = str(Path.cwd())
 
 st.set_page_config(
     page_title="INTERACTIONS_PAGE",
@@ -19,10 +14,9 @@ st.set_page_config(
 
 st.subheader("NUTRITION")
 
-df_RAW_recipes = pd.read_csv(
-    'C:\\Users\\Utilisateur\\Desktop\\Code\\Projects\\tp_bgdia700\\data\\dataset\\RAW_recipes.csv')
+df_RAW_recipes = pd.read_csv(cwd + '\\data\\RAW_recipes.csv')
 df_RAW_interactions = pd.read_csv(
-    'C:\\Users\\Utilisateur\\Desktop\\Code\\Projects\\tp_bgdia700\\data\\dataset\\RAW_interactions.csv')
+    cwd + '\\data\\RAW_interactions.csv')
 
 # On ne garde que la moyenne des notes de la recette
 df_mean_rating = df_RAW_interactions[[
@@ -31,8 +25,7 @@ df_mean_rating = df_RAW_interactions[[
 df_count_rating = df_RAW_interactions[[
     'recipe_id', 'rating']].groupby(['recipe_id']).count()
 
-df_nutrition = df_RAW_recipes[[
-    'id', 'name', 'nutrition']]
+df_nutrition = df_RAW_recipes[['id', 'name', 'nutrition']]
 
 merged_df = df_nutrition.merge(df_mean_rating, left_on='id', right_on='recipe_id').merge(
     df_count_rating, left_on='id', right_on='recipe_id')
