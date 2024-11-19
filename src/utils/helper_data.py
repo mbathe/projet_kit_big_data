@@ -1,7 +1,12 @@
 import os
 import pandas as pd
+import dotenv
+from dotenv import load_dotenv
+import streamlit as st
+load_dotenv()
 
 
+@st.cache_data
 def load_dataset(dir_name: str, all_contents=True):
     """
     Load a dataset from a directory containing CSV files or a single CSV file.

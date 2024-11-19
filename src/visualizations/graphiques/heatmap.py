@@ -10,6 +10,26 @@ class Heatmap(Graphique):
         self.z = z
         self.height = height
 
+    def __init__(self, data, x, y, z, height=400):
+        """
+        Initialize a Heatmap object with the given data and parameters.
+
+        Parameters:
+        - data (pandas.DataFrame): The dataset to visualize.
+        - x (str): The column name for the x-axis values.
+        - y (str): The column name for the y-axis values.
+        - z (str): The column name for the z-axis values (representing the color intensity).
+        - height (int, optional): The height of the heatmap in pixels. Default is 400.
+
+        Returns:
+        - None
+        """
+        super().__init__(data)
+        self.x = x
+        self.y = y
+        self.z = z
+        self.height = height
+
     def afficher(self):
         fig = px.density_heatmap(
             self.data,

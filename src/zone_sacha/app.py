@@ -1,4 +1,4 @@
-import os
+""" import os
 
 from src.utils.streamlit import st
 import pandas as pd
@@ -127,3 +127,4 @@ if st.button("Rechercher des Recettes"):
                 st.write(stars)
     else:
         st.warning("Veuillez ajouter au moins un ingrédient à la liste.")
+ """

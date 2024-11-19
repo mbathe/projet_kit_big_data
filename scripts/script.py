@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+import kagglehub
+import os
+from dotenv import load_dotenv
+load_dotenv()
+def download_dataset():
+    print("Downloading dataset...")
+    path = kagglehub.dataset_download(
+        "shuyangli94/food-com-recipes-and-user-interactions", path=os.getenv('DATA_DIR'))
+    print("Path to dataset files:", path)
+=======
 import gdown
 import zipfile
 import os
@@ -40,3 +51,4 @@ def save_response_content(response, destination):
         for chunk in response.iter_content(CHUNK_SIZE):
             if chunk:  # filter out keep-alive new chunks
                 f.write(chunk)
+>>>>>>> 601a7a15331ce1944996c25ea542c6a25da39240
