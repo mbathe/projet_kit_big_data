@@ -4,8 +4,7 @@ import pandas as pd
 import ast
 import matplotlib.pyplot as plt
 from pathlib import Path
-
-cwd = str(Path.cwd())
+import os
 
 st.set_page_config(
     page_title="INTERACTIONS_PAGE",
@@ -14,9 +13,8 @@ st.set_page_config(
 
 st.subheader("NUTRITION")
 
-df_RAW_recipes = pd.read_csv(cwd + '\\data\\RAW_recipes.csv')
-df_RAW_interactions = pd.read_csv(
-    cwd + '\\data\\RAW_interactions.csv')
+df_RAW_recipes = pd.read_csv(os.path.join('data','RAW_recipes.csv'))
+df_RAW_interactions = pd.read_csv(os.path.join('data','RAW_interactions.csv'))
 
 # On ne garde que la moyenne des notes de la recette
 df_mean_rating = df_RAW_interactions[[
