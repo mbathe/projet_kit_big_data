@@ -31,3 +31,6 @@ def load_dataset(dir_name: str, all_contents=True):
         file = os.path.basename(dir_name)
         dataframes[os.path.splitext(file)[0]] = pd.read_csv(dir_name)
         return dataframes
+
+
+load_dataset
