@@ -5,6 +5,13 @@ import plotly.express as px
 class Treemap(Graphique):
     def __init__(self, data, path, values, height=400):
         super().__init__(data)
+
+        # Vérification que les colonnes existent dans le DataFrame
+        missing_cols = [col for col in path + [values] if col not in data.columns]
+        if missing_cols:
+            raise KeyError(f"Les colonnes suivantes sont manquantes dans le DataFrame : {', '.join(missing_cols)}")
+
+
         self.path = path  # Liste des colonnes pour la hiérarchie
         self.values = values
         self.height = height

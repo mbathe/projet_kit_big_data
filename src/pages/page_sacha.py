@@ -3,15 +3,18 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-from src.visualizations.graphiques.histogramme import Histogramme
-from src.visualizations.graphiques.boxplot import BoxPlot
-from src.visualizations.graphiques.scatterplot import ScatterPlot
-from src.visualizations.graphiques.donut import Donut
-from src.visualizations.graphiques.linechart import LineChart
-from src.visualizations.graphiques.heatmap import Heatmap
-from src.visualizations.graphiques.barchart import BarChart
-from src.visualizations.graphiques.treemap import Treemap
-from src.visualizations.grille import Grille
+from src.visualizations.graphiques import (
+    Histogramme,
+    BoxPlot,
+    ScatterPlot,
+    Donut,
+    LineChart,
+    Heatmap,
+    )
+
+from src.visualizations import Grille
+
+
 
 
 

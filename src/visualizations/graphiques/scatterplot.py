@@ -5,6 +5,13 @@ import plotly.express as px
 class ScatterPlot(Graphique):
     def __init__(self, data, x, y, height=400):
         super().__init__(data)
+        
+        # Vérification que les colonnes existent dans le DataFrame
+        missing_cols = [col for col in [x, y] if col not in data.columns]
+        if missing_cols:
+            raise KeyError(f"Les colonnes suivantes sont manquantes dans le DataFrame : {', '.join(missing_cols)}")
+
+
         self.x = x
         self.y = y
         self.height = height

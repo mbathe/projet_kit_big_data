@@ -3,8 +3,9 @@ import pandas as pd
 from pathlib import Path
 import numpy as np
 from pygwalker.api.streamlit import StreamlitRenderer
+import os
 
-path = Path(__file__).parent / "../../data/dataset/RAW_interactions.csv"
+path = os.path.join('data','RAW_interactions.csv')
 st.set_page_config(
     page_title="INTERACTIONS_PAGE",
     layout="wide"

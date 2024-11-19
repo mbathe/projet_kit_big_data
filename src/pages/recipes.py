@@ -1,8 +1,8 @@
 
 from collections import Counter
 import os
-from src.visualizations.graphiques.heatmap import Heatmap
-from src.visualizations.graphiques.histogramme import Histogramme
+from src.visualizations.graphiques import Heatmap
+from src.visualizations.graphiques import Histogramme
 from src.utils.helper_data import load_dataset
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -16,10 +16,6 @@ from streamlit_echarts import st_echarts
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
-
-
-
-
 
 
 
