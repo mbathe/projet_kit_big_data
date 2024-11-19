@@ -121,6 +121,6 @@
 - Faire du NLP pour prédire le meilleur nom de recette à partir d'une liste d'ingrédients.
 - Faire de l'IA générative pour générer le nom d'une recette en se basant sur les ingrédients.
 
-
+Utiliser Streamlit Cloud pour partager sur internet, pas besoin de serveurs.
 
 
