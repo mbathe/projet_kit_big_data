@@ -48,7 +48,7 @@ def test_histogramme_afficher(mock_plotly_chart, sample_data):
     layout = fig.layout
     assert layout.plot_bgcolor == 'white', "La couleur de fond du plot n'est pas 'white'."
     assert layout.paper_bgcolor == 'white', "La couleur de fond du papier n'est pas 'white'."
-    assert layout.margin.l == 30, "La marge gauche n'est pas 30."
+    assert layout.margin.l == 40, "La marge gauche n'est pas 40."
     assert layout.margin.r == 30, "La marge droite n'est pas 30."
     assert layout.margin.t == 30, "La marge supérieure n'est pas 30."
     assert layout.margin.b == 30, "La marge inférieure n'est pas 30."
