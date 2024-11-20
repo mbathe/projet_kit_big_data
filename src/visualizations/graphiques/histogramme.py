@@ -1,28 +1,37 @@
-import streamlit as st
 from src.visualizations.graphique import Graphique
-import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
 
 class Histogramme(Graphique):
-    def __init__(self, data, x, height=400,  bin_size=None):
+    def __init__(self, data, x, height=400, bin_size=None, bar_color='rgb(100, 149, 237)', line_color='rgb(8,48,107)'):
+        """
+        Classe pour afficher un histogramme avec Plotly.
+
+        Paramètres :
+        - data (pd.DataFrame) : Données source
+        - x (str) : Colonne à analyser
+        - height (int) : Hauteur du graphique
+        - bin_size (float) : Taille des bins
+        - bar_color (str) : Couleur des barres
+        - line_color (str) : Couleur des lignes autour des barres
+        """
         super().__init__(data)
         self.x = x
         self.height = height
         self.bin_size = bin_size
+        self.bar_color = bar_color
+        self.line_color = line_color
 
-    def afficher(self):
-        # Création d'un histogramme avec espacement et coins arrondis
+    def afficher(self,key=None):
         fig = go.Figure()
 
-        # Ajout de l'histogramme avec la taille des bins spécifiée
+        # Ajout de l'histogramme
         fig.add_trace(go.Histogram(
             x=self.data[self.x],
-            xbins=dict(
-                size=self.bin_size  # Taille des bins
-            ) if self.bin_size else None,
+            xbins=dict(size=self.bin_size) if self.bin_size else None,
             marker=dict(
-                color='rgb(100, 149, 237)',  # Couleur des barres
-                line=dict(color='rgb(8,48,107)', width=1),
+                color=self.bar_color,
+                line=dict(color=self.line_color, width=1),
             ),
             hovertemplate='Intervalle: %{x}<br>Nombre: %{y}',
         ))
@@ -30,28 +39,26 @@ class Histogramme(Graphique):
         # Mise à jour de la mise en page
         fig.update_layout(
             height=self.height,
-            bargap=0.1,  # Espace entre les barres (0 à 1)
-            plot_bgcolor='white',  # Fond du graphique
-            paper_bgcolor='white',  # Fond du conteneur
-            margin=dict(l=30, r=30, t=30, b=30),
+            bargap=0.1,
+            plot_bgcolor='white',
+            paper_bgcolor='white',
+            margin=dict(l=40, r=30, t=30, b=30),
             xaxis=dict(
                 showgrid=False,
                 zeroline=False,
                 showticklabels=True,
-                color='black',  # Couleur des labels de l'axe X
-                title='',  # Suppression du titre de l'axe X
+                color='black',
+                title='',
             ),
             yaxis=dict(
                 showgrid=True,
                 zeroline=False,
                 showticklabels=True,
-                color='black',  # Couleur des labels de l'axe Y
-                title='',  # Suppression du titre de l'axe Y
+                color='black',
+                title='',
             ),
-
         )
 
-        # Assurer que les ticks sont noirs
         fig.update_xaxes(
             tickfont=dict(color='black'),
             title_font=dict(color='black'),
@@ -63,5 +70,4 @@ class Histogramme(Graphique):
             automargin=False,
         )
 
-
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True,  key=key)

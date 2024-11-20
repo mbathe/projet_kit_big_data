@@ -3,7 +3,7 @@ from src.visualizations.graphique import Graphique
 import plotly.express as px
 
 class LineChart(Graphique):
-    def __init__(self, data, x, y, height=400):
+    def __init__(self, data, x, y, height=400,line_color=None):
         super().__init__(data)
 
         # Vérification que les colonnes existent dans le DataFrame
@@ -14,6 +14,7 @@ class LineChart(Graphique):
         self.x = x
         self.y = y
         self.height = height
+        self.line_color = line_color
 
     def afficher(self):
         fig = px.line(
@@ -21,7 +22,11 @@ class LineChart(Graphique):
             x=self.x,
             y=self.y,
             height=self.height,
+            
         )
+        # Appliquer la couleur de la ligne si elle est définie
+        if self.line_color:
+            fig.update_traces(line=dict(color=self.line_color))
 
         fig.update_layout(
             plot_bgcolor='white',

@@ -17,7 +17,9 @@ class Grille:
                         # Conteneur pour le style personnalisé
                         container = st.container()
                         with container:
-                            graphiques[idx_graphique].afficher()
+                            if graphiques[idx_graphique]['titre'] : 
+                                st.write(f"{graphiques[idx_graphique]['titre']}")
+                            graphiques[idx_graphique]['graphique'].afficher()
                         # Ajouter une classe personnalisée au conteneur
                         container.markdown('<div class="graph-container"></div>', unsafe_allow_html=True)
                     idx_graphique += 1

@@ -1,7 +1,5 @@
 import streamlit as st
 import plotly.express as px
-import plotly.graph_objects as go
-import pandas as pd
 
 from src.visualizations.graphiques import (
     Histogramme,
@@ -12,7 +10,7 @@ from src.visualizations.graphiques import (
     Heatmap,
     )
 
-from src.visualizations import Grille
+from src.visualizations import Grille, load_css
 
 
 
@@ -24,10 +22,6 @@ if __name__ == "__main__":
 
 # Chargement du CSS personnalisé
 path_to_css = 'src/css_pages/page_sacha.css'
-def load_css(path_to_css):
-    with open(path_to_css) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
 load_css(path_to_css)
 
 # Chargement des données exemple
@@ -53,12 +47,30 @@ graphique6 = Heatmap(df, x='total_bill', y='tip', z='size', height=300)
 
 # Liste des graphiques à afficher
 graphiques = [
-            graphique1, 
-            graphique2, 
-            graphique3, 
-            graphique4,
-            graphique5,
-            graphique6
+        {
+            "titre": "",
+            "graphique": graphique1,
+        },
+        {
+            "titre": "",
+            "graphique": graphique2,
+        },
+        {
+            "titre": "",
+            "graphique": graphique3,
+        },
+         {
+            "titre": "",
+            "graphique": graphique4,
+        },
+        {
+            "titre": "",
+            "graphique": graphique5,
+        },
+        {
+            "titre": "",
+            "graphique": graphique6,
+        },
               ]
 
 # Définition de la grille (2 lignes, 2 colonnes)
