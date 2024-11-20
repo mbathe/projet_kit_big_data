@@ -117,7 +117,6 @@ else:
 ##############################################
 
 
-# Interface principale Streamlit
 st.title("Analyse notes moyennes mensuelle")
 
  # Vérification des colonnes nécessaires
@@ -155,7 +154,6 @@ st.title("Analyse de Fréquences")
 # Frequence globale des notes 
 ##-------------------------------------------
 
-# Interface principale Streamlit
 st.subheader("Fréquence globale des notes")
 
 if 'rating' in data.columns:
