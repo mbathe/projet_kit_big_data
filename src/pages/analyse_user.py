@@ -134,6 +134,37 @@ class StreamlitPage:
             analyzer = DataAnalyzer(self.data)
             self.data = analyzer.preprocess()
 
+            # Ratings frequencies
+            st.title("Analyse de Fréquences")
+            if 'rating' in self.data.columns:
+                VisualizationManager.display_histogram(self.data, 'rating', "Fréquence globale des notes")
+            else:
+                st.warning("La colonne 'rating' est absente du fichier.")
+            
+            # Frequencies over time
+            st.title("Fréquence des notes au fil du temps")
+            if 'date' in self.data.columns and 'rating' in self.data.columns:
+                frequency_data = analyzer.analyze_ratings_frequencies()
+                VisualizationManager.display_ratings_frequencies(frequency_data, x='year', title="Fréquence des Notes au fil du temps")
+            
+
+            # Monthly average ratings
+            st.title("Analyse des notes moyennes mensuelles")
+            if 'rating' in self.data.columns and 'date' in self.data.columns:
+                monthly_ratings = analyzer.analyze_monthly_ratings()
+                VisualizationManager.display_line_chart(monthly_ratings, 'Mois', 'Note moyenne',
+                                                        "Notation moyenne hebdomadaire au fil du temps")
+
+            # User frequencies
+            st.title("Fréquence des Notes par utilisateur au fil du temps")
+            if 'user_id' in self.data.columns:
+                user_id = st.number_input("Entrez l'ID utilisateur à analyser :", min_value=0, key=2)
+                user_frequency_data = analyzer.analyze_user_ratings_frequencies(user_id)
+                if user_frequency_data:
+                    VisualizationManager.display_ratings_frequencies(user_frequency_data, x='year', title=f"Fréquence des Notes pour l'utilisateur {user_id}")
+                else:
+                    st.error(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
+
             # User analysis
             st.title("Analyse des notes par utilisateur")
             if 'user_id' in self.data.columns:
@@ -147,35 +178,6 @@ class StreamlitPage:
             else:
                 st.error("La colonne 'user_id' est absente du fichier.")
 
-            # Monthly average ratings
-            st.title("Analyse des notes moyennes mensuelles")
-            if 'rating' in self.data.columns and 'date' in self.data.columns:
-                monthly_ratings = analyzer.analyze_monthly_ratings()
-                VisualizationManager.display_line_chart(monthly_ratings, 'Mois', 'Note moyenne',
-                                                        "Notation moyenne hebdomadaire au fil du temps")
-
-            # Ratings frequencies
-            st.title("Analyse de Fréquences")
-            if 'rating' in self.data.columns:
-                VisualizationManager.display_histogram(self.data, 'rating', "Fréquence globale des notes")
-            else:
-                st.warning("La colonne 'rating' est absente du fichier.")
-
-            # Frequencies over time
-            st.title("Fréquence des notes au fil du temps")
-            if 'date' in self.data.columns and 'rating' in self.data.columns:
-                frequency_data = analyzer.analyze_ratings_frequencies()
-                VisualizationManager.display_ratings_frequencies(frequency_data, x='year', title="Fréquence des Notes au fil du temps")
-
-            # User frequencies
-            st.title("Fréquence des Notes par utilisateur au fil du temps")
-            if 'user_id' in self.data.columns:
-                user_id = st.number_input("Entrez l'ID utilisateur à analyser :", min_value=0, key=2)
-                user_frequency_data = analyzer.analyze_user_ratings_frequencies(user_id)
-                if user_frequency_data:
-                    VisualizationManager.display_ratings_frequencies(user_frequency_data, x='year', title=f"Fréquence des Notes pour l'utilisateur {user_id}")
-                else:
-                    st.error(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
 
     def run(self):
         st.set_page_config(layout="wide")
