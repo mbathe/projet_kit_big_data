@@ -2,14 +2,17 @@ import streamlit as st
 from src.visualizations.graphique import Graphique
 import plotly.express as px
 
+
 class LineChart(Graphique):
-    def __init__(self, data, x, y, height=400,line_color=None):
+    def __init__(self, data, x, y, height=400, line_color=None):
         super().__init__(data)
 
         # Vérification que les colonnes existent dans le DataFrame
         missing_cols = [col for col in [x, y] if col not in data.columns]
         if missing_cols:
-            raise KeyError(f"Les colonnes suivantes sont manquantes dans le DataFrame : {', '.join(missing_cols)}")
+            raise KeyError(
+                f"Les colonnes suivantes sont manquantes dans le DataFrame : {', '.join(missing_cols)}"
+            )
 
         self.x = x
         self.y = y
@@ -22,40 +25,39 @@ class LineChart(Graphique):
             x=self.x,
             y=self.y,
             height=self.height,
-            
         )
         # Appliquer la couleur de la ligne si elle est définie
         if self.line_color:
             fig.update_traces(line=dict(color=self.line_color))
 
         fig.update_layout(
-            plot_bgcolor='white',
-            paper_bgcolor='white',
+            plot_bgcolor="white",
+            paper_bgcolor="white",
             margin=dict(l=30, r=30, t=30, b=30),
             xaxis=dict(
                 showgrid=True,
                 zeroline=False,
                 showticklabels=True,
-                color='black',
-                title='',
+                color="black",
+                title="",
             ),
             yaxis=dict(
                 showgrid=True,
                 zeroline=False,
                 showticklabels=True,
-                color='black',
-                title='',
+                color="black",
+                title="",
             ),
         )
 
         fig.update_xaxes(
-            tickfont=dict(color='black'),
-            title_font=dict(color='black'),
+            tickfont=dict(color="black"),
+            title_font=dict(color="black"),
             automargin=False,
         )
         fig.update_yaxes(
-            tickfont=dict(color='black'),
-            title_font=dict(color='black'),
+            tickfont=dict(color="black"),
+            title_font=dict(color="black"),
             automargin=False,
         )
 

@@ -3,6 +3,7 @@ import pandas as pd
 import dotenv
 from dotenv import load_dotenv
 import streamlit as st
+
 load_dotenv()
 
 
@@ -20,11 +21,11 @@ def load_dataset(dir_name: str, all_contents=True):
     """
     dataframes = {}
     if all_contents:
-        csv_files = [file for file in os.listdir(
-            dir_name) if file.endswith('.csv')]
+        csv_files = [file for file in os.listdir(dir_name) if file.endswith(".csv")]
         for file in csv_files:
             dataframes[os.path.splitext(file)[0]] = pd.read_csv(
-                os.path.join(dir_name, file))
+                os.path.join(dir_name, file)
+            )
         return dataframes
 
     else:

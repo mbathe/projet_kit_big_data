@@ -1,4 +1,5 @@
 import os
+
 # from src.zone_sacha.app import *
 from dotenv import load_dotenv
 import sys
@@ -7,10 +8,10 @@ import sys
 # from PIL import Image
 # import base64
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 if __name__ == "__main__":
-    print('APPLICATION STARTED...')
+    print("APPLICATION STARTED...")
     # st.set_page_config(page_title="Big Data", page_icon=":bar_chart:", layout="wide")
 
 # path_to_css = 'src/css_pages/main.css'
@@ -39,4 +40,3 @@ if __name__ == "__main__":
 # <div class="footer"><p>© 2023 Big Data. Tous droits réservés.</p></div>
 
 # """, unsafe_allow_html=True)
-

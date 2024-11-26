@@ -2,6 +2,7 @@ import streamlit as st
 from src.visualizations.graphique import Graphique
 import plotly.express as px
 
+
 class BoxPlot(Graphique):
     def __init__(self, data, x, y=None, height=400):
         super().__init__(data)
@@ -18,33 +19,33 @@ class BoxPlot(Graphique):
         )
 
         fig.update_layout(
-            plot_bgcolor='white',
-            paper_bgcolor='white',
+            plot_bgcolor="white",
+            paper_bgcolor="white",
             margin=dict(l=30, r=30, t=30, b=30),
             xaxis=dict(
                 showgrid=False,
                 zeroline=False,
                 showticklabels=True,
-                color='black',
-                title='',
+                color="black",
+                title="",
             ),
             yaxis=dict(
                 showgrid=False,
                 zeroline=False,
                 showticklabels=True,
-                color='black',
-                title='',
+                color="black",
+                title="",
             ),
         )
 
         fig.update_xaxes(
-            tickfont=dict(color='black'),
-            title_font=dict(color='black'),
+            tickfont=dict(color="black"),
+            title_font=dict(color="black"),
             automargin=False,
         )
         fig.update_yaxes(
-            tickfont=dict(color='black'),
-            title_font=dict(color='black'),
+            tickfont=dict(color="black"),
+            title_font=dict(color="black"),
             automargin=False,
         )
 

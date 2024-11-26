@@ -2,6 +2,7 @@ import streamlit as st
 from src.visualizations.graphique import Graphique
 import plotly.express as px
 
+
 class Heatmap(Graphique):
     def __init__(self, data, x, y, z, height=400):
         super().__init__(data)
@@ -39,42 +40,41 @@ class Heatmap(Graphique):
             nbinsx=20,
             nbinsy=20,
             height=self.height,
-            color_continuous_scale='Viridis',
+            color_continuous_scale="Viridis",
         )
 
         fig.update_layout(
-            plot_bgcolor='white',
-            paper_bgcolor='white',
+            plot_bgcolor="white",
+            paper_bgcolor="white",
             margin=dict(l=30, r=0, t=20, b=30),
             xaxis=dict(
                 showgrid=False,
                 zeroline=False,
                 showticklabels=True,
-                color='black',
-                title='',
+                color="black",
+                title="",
             ),
             yaxis=dict(
                 showgrid=False,
                 zeroline=False,
                 showticklabels=True,
-                color='black',
-                title='',
+                color="black",
+                title="",
             ),
-            
             coloraxis_colorbar=dict(
-                tickfont=dict(color='black'),
-                titlefont=dict(color='black'),
+                tickfont=dict(color="black"),
+                titlefont=dict(color="black"),
             ),
         )
 
         fig.update_xaxes(
-            tickfont=dict(color='black'),
-            title_font=dict(color='black'),
+            tickfont=dict(color="black"),
+            title_font=dict(color="black"),
             automargin=False,
         )
         fig.update_yaxes(
-            tickfont=dict(color='black'),
-            title_font=dict(color='black'),
+            tickfont=dict(color="black"),
+            title_font=dict(color="black"),
             automargin=False,
         )
 

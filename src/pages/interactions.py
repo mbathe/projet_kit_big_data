@@ -5,11 +5,8 @@ import numpy as np
 from pygwalker.api.streamlit import StreamlitRenderer
 import os
 
-path = os.path.join('data','RAW_interactions.csv')
-st.set_page_config(
-    page_title="INTERACTIONS_PAGE",
-    layout="wide"
-)
+path = os.path.join("data", "RAW_interactions.csv")
+st.set_page_config(page_title="INTERACTIONS_PAGE", layout="wide")
 st.subheader("INTERACTIONS")
 
 

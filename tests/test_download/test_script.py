@@ -1,12 +1,13 @@
 from scripts import (
-                    download_dataset_from_kaggle,
-                    deplacer_fichiers,
-                    download_dataset,
-                    )
+    download_dataset_from_kaggle,
+    deplacer_fichiers,
+    download_dataset,
+)
 from unittest.mock import patch, MagicMock
 import shutil
 
 import pytest
+
 
 @pytest.fixture
 def temp_directories(tmp_path):
@@ -32,7 +33,8 @@ def test_download_dataset_from_kaggle(mock_dataset_download):
     path = download_dataset_from_kaggle()
 
     mock_dataset_download.assert_called_once_with(
-        "shuyangli94/food-com-recipes-and-user-interactions")
+        "shuyangli94/food-com-recipes-and-user-interactions"
+    )
     assert path == "/mock/path/to/dataset"
 
 
@@ -53,7 +55,13 @@ def test_deplacer_fichiers(temp_directories):
 @patch("scripts.script.deplacer_fichiers")
 @patch("scripts.script.os.path.exists")
 @patch("scripts.script.os.rmdir")
-def test_download_dataset(mock_rmdir, mock_exists, mock_deplacer_fichiers, mock_download_dataset_from_kaggle, tmp_path):
+def test_download_dataset(
+    mock_rmdir,
+    mock_exists,
+    mock_deplacer_fichiers,
+    mock_download_dataset_from_kaggle,
+    tmp_path,
+):
     """Teste la fonction download_dataset."""
     mock_exists.return_value = False
     mock_download_dataset_from_kaggle.return_value = str(tmp_path / "kaggle_data")
@@ -83,7 +91,9 @@ def test_download_dataset(mock_rmdir, mock_exists, mock_deplacer_fichiers, mock_
 
 
 @patch("scripts.script.os.makedirs")
-def test_deplacer_fichiers_cree_dossier_si_non_existant(mock_makedirs, temp_directories):
+def test_deplacer_fichiers_cree_dossier_si_non_existant(
+    mock_makedirs, temp_directories
+):
     """Teste que la fonction deplacer_fichiers crée le dossier destination s'il n'existe pas."""
     source, destination = temp_directories
 

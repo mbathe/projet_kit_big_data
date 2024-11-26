@@ -7,11 +7,15 @@ import pytest
 
 @pytest.fixture
 def sample_data():
-    return pd.DataFrame({
-        "user_id": [1, 1, 2, 2],
-        "rating": [5, 4, 3, 2],
-        "date": pd.to_datetime(["2024-01-01", "2024-01-02", "2024-01-03", "2024-01-04"])
-    })
+    return pd.DataFrame(
+        {
+            "user_id": [1, 1, 2, 2],
+            "rating": [5, 4, 3, 2],
+            "date": pd.to_datetime(
+                ["2024-01-01", "2024-01-02", "2024-01-03", "2024-01-04"]
+            ),
+        }
+    )
 
 
 def test_preprocess(sample_data):
@@ -36,6 +40,7 @@ def test_analyze_monthly_ratings(sample_data):
     monthly_avg = analyzer.analyze_monthly_ratings()
     assert "Mois" in monthly_avg.columns
     assert "Note moyenne" in monthly_avg.columns
+
 
 def test_analyze_ratings_frequencies(sample_data):
     analyzer = DataAnalyzer(sample_data)
