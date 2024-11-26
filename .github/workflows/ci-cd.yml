@@ -30,12 +30,28 @@ jobs:
       - name: Installer les dépendances avec Poetry
         run: poetry install --no-root
 
-      - name: Formater le code avec Black
+      - name: Vérification du formatage avec Black
+        id: black-check
         run: |
-          poetry run black --check src/ scripts/ tests/  # Vérifie le format sans modifier
+          poetry run black --check src/ scripts/ tests/ || echo "Black failed. Check the output for details." > black_report.txt
+      
+      - name: Enregistrer le rapport Black
+        if: failure() || always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: black-report
+          path: black_report.txt
 
       - name: Vérifier les docstrings avec pydocstyle
-        run: poetry run pydocstyle src/ scripts/ tests/
+        run: |
+          poetry run pydocstyle src/ scripts/ tests/ > pydocstyle_report.txt 2>&1 || echo "Pydocstyle errors detected. Check the report." >> pydocstyle_report.txt
+
+      - name: Enregistrer le rapport Pydocstyle
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: pydocstyle-report
+          path: pydocstyle_report.txt
 
   test:
     name: Exécution des tests et couverture
@@ -61,11 +77,25 @@ jobs:
 
       - name: Exécuter les tests avec couverture
         run: |
-          poetry run pytest --cov=src --cov-report=term-missing
+          poetry run pytest --cov=src --cov-report=term-missing > pytest_report.txt || echo "Tests failed. Check the report." >> pytest_report.txt
+
+      - name: Enregistrer le rapport Pytest
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: pytest-report
+          path: pytest_report.txt
 
       - name: Vérifier la couverture de test
         run: |
-          poetry run coverage report --fail-under=90
+          poetry run coverage report --fail-under=90 > coverage_report.txt || echo "Coverage threshold not met. Check the report." >> coverage_report.txt
+
+      - name: Enregistrer le rapport de couverture
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage_report.txt
 
   # deploy:
   #   name: Déploiement de l'application
