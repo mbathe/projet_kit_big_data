@@ -44,7 +44,7 @@ jobs:
 
       - name: Vérifier les docstrings avec pydocstyle
         run: |
-          poetry run pydocstyle src/ scripts/ tests/ || echo "Pydocstyle errors detected. Check the report." > pydocstyle_report.txt
+          poetry run pydocstyle src/ scripts/ tests/ > pydocstyle_report.txt 2>&1 || echo "Pydocstyle errors detected. Check the report." >> pydocstyle_report.txt
 
       - name: Enregistrer le rapport Pydocstyle
         if: always()
