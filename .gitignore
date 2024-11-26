@@ -5,6 +5,7 @@ data/
 .DS_Store
 data/*
 *.zip
+.coverage
 
 venv/
 
