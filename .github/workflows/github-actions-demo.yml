@@ -6,7 +6,8 @@ on:
       - 'review/**'   # Exécute le workflow sur les branches de review
   pull_request:
     branches:
-      - main          # Exécute le workflow lors des pull requests vers main
+      - main
+      - master          # Exécute le workflow lors des pull requests vers main
 
 jobs:
   lint-format:
