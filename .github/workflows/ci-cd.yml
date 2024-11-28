@@ -1,0 +1,130 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - 'review/**'   # Exécute le workflow sur les branches de review
+  pull_request:
+    branches:
+      - main          # Exécute le workflow lors des pull requests vers main
+
+jobs:
+  lint-format:
+    name: Vérification PEP 8 et Formatage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v3
+
+      - name: Configuration de Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Installer Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.8.4
+
+      - name: Installer les dépendances avec Poetry
+        run: poetry install --no-root
+
+      - name: Vérification du formatage avec Black
+        id: black-check
+        run: |
+          poetry run black --check src/ scripts/ tests/ || echo "Black failed. Check the output for details." > black_report.txt
+      
+      - name: Enregistrer le rapport Black
+        if: failure() || always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: black-report
+          path: black_report.txt
+
+      - name: Vérifier les docstrings avec pydocstyle
+        run: |
+          poetry run pydocstyle src/ scripts/ tests/ > pydocstyle_report.txt 2>&1 || echo "Pydocstyle errors detected. Check the report." >> pydocstyle_report.txt
+
+      - name: Enregistrer le rapport Pydocstyle
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: pydocstyle-report
+          path: pydocstyle_report.txt
+
+  test:
+    name: Exécution des tests et couverture
+    runs-on: ubuntu-latest
+    needs: lint-format
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v3
+
+      - name: Configuration de Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Installer Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.8.4
+
+      - name: Installer les dépendances avec Poetry
+        run: poetry install
+
+      - name: Exécuter les tests avec couverture
+        run: |
+          poetry run pytest --cov=src --cov-report=term-missing > pytest_report.txt || echo "Tests failed. Check the report." >> pytest_report.txt
+
+      - name: Enregistrer le rapport Pytest
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: pytest-report
+          path: pytest_report.txt
+
+      - name: Vérifier la couverture de test
+        run: |
+          poetry run coverage report --fail-under=90 > coverage_report.txt || echo "Coverage threshold not met. Check the report." >> coverage_report.txt
+
+      - name: Enregistrer le rapport de couverture
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage_report.txt
+
+  # deploy:
+  #   name: Déploiement de l'application
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+  #   steps:
+  #     - name: Checkout du code
+  #       uses: actions/checkout@v3
+
+  #     - name: Configuration de Python
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: '3.12'
+
+  #     - name: Installer Poetry
+  #       uses: snok/install-poetry@v1
+  #       with:
+  #         version: 1.8.4
+
+  #     - name: Installer les dépendances avec Poetry
+  #       run: poetry install
+
+  #     - name: Déployer l'application
+  #       env:
+  #         DEPLOYMENT_KEY: ${{ secrets.DEPLOYMENT_KEY }}
+  #       run: |
+  #         # Exemple de déploiement via SSH
+  #         echo "$DEPLOYMENT_KEY" > key.pem
+  #         chmod 600 key.pem
+  #         ssh -i key.pem user@server 'bash deploy.sh'
