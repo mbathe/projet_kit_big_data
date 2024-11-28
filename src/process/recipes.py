@@ -17,9 +17,15 @@ from src.utils.static import recipe_columns_description
 
 load_dotenv()
 
-# Configurer le logger
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+# Configurer le logger pour écrire dans un fichier
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app.log"),
+        logging.StreamHandler()
+    ]
+)
 
 # Type definitions
 class NutritionStats(TypedDict):
