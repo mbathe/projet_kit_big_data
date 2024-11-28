@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = "création d'une webapp Streamlit d'analyse de données"
+authors = ["mbathe <mbathepaul@gmail.com>", ]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.38.0"
+matplotlib = "^3.9.2"
+pandas = "^2.2.3"
+scikit-learn = "^1.5.2"
+ipykernel = "^6.29.5"
+python-dotenv = "^1.0.1"
+autopep8 = "^2.3.1"
+pep8 = "^1.7.1"
+seaborn = "^0.13.2"
+sqlalchemy = "^2.0.35"
+tqdm = "^4.66.5"
+sqlalchemy-utils = "^0.41.2"
+gdown = "^5.2.0"
+googledriver = "^0.1.7"
+plotly = "^5.24.1"
+kagglehub = "^0.3.3"
+pygwalker = "^0.4.9.13"
+pyqt6 = "^6.7.1"
+matplotlib-venn = "^1.1.1"
+wordcloud = "^1.9.4"
+streamlit-echarts = "^0.4.0"
+pytest = "^8.3.3"
+openpyxl = "^3.1.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest-cov = "^6.0.0"
+coverage = "^7.6.8"
+pydocstyle = "^6.3.0"
+black = "^24.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
