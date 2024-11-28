@@ -9,3 +9,36 @@ Traceback (most recent call last):
     pd.DataFrame] = self.detect_dataframe_anomalies()
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'Recipe' object has no attribute 'detect_dataframe_anomalies'
+2024-11-28 21:08:45 - root - INFO - [recipes.py:88] - Initialisation de l'analyse des recettes : RAW_recipes
+2024-11-28 21:08:45 - root - INFO - [recipes.py:122] - Chargement du dataset : RAW_recipes
+2024-11-28 21:08:54 - root - INFO - [recipes.py:138] - Filtrage des données entre 1999-01-01 00:00:00 et 2018-12-31 00:00:00
+2024-11-28 21:08:54 - root - INFO - [recipes.py:145] - Nombre de recettes après filtrage : 231637
+2024-11-28 21:08:54 - root - INFO - [recipes.py:92] - État de session initialisé avec succès
+2024-11-28 21:08:54 - root - ERROR - [recipes.py:104] - Erreur lors de la détection des anomalies : 'Recipe' object has no attribute 'detect_dataframe_anomalies'
+Traceback (most recent call last):
+  File "/home/paul/Cours/BGDIA700/projet_big_data/src/process/recipes.py", line 101, in __init__
+    pd.DataFrame] = self.detect_dataframe_anomalies()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Recipe' object has no attribute 'detect_dataframe_anomalies'
+2024-11-28 21:11:17 - root - INFO - [recipes.py:497] - Initialisation de l'analyse des recettes : RAW_recipes
+2024-11-28 21:11:17 - root - INFO - [recipes.py:497] - Initialisation de l'analyse des recettes : RAW_recipes
+2024-11-28 21:11:17 - root - INFO - [recipes.py:531] - Chargement du dataset : RAW_recipes
+2024-11-28 21:11:17 - root - INFO - [recipes.py:531] - Chargement du dataset : RAW_recipes
+2024-11-28 21:11:18 - root - INFO - [recipes.py:547] - Filtrage des données entre 1999-01-01 00:00:00 et 2018-12-31 00:00:00
+2024-11-28 21:11:18 - root - INFO - [recipes.py:547] - Filtrage des données entre 1999-01-01 00:00:00 et 2018-12-31 00:00:00
+2024-11-28 21:11:18 - root - INFO - [recipes.py:554] - Nombre de recettes après filtrage : 231637
+2024-11-28 21:11:18 - root - INFO - [recipes.py:554] - Nombre de recettes après filtrage : 231637
+2024-11-28 21:11:18 - root - INFO - [recipes.py:501] - État de session initialisé avec succès
+2024-11-28 21:11:18 - root - INFO - [recipes.py:501] - État de session initialisé avec succès
+2024-11-28 21:11:18 - root - ERROR - [recipes.py:513] - Erreur lors de la détection des anomalies : 'Recipe' object has no attribute 'detect_dataframe_anomalies'
+Traceback (most recent call last):
+  File "/home/paul/Cours/BGDIA700/projet_big_data/src/process/recipes.py", line 510, in __init__
+    pd.DataFrame] = self.detect_dataframe_anomalies()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Recipe' object has no attribute 'detect_dataframe_anomalies'
+2024-11-28 21:11:18 - root - ERROR - [recipes.py:513] - Erreur lors de la détection des anomalies : 'Recipe' object has no attribute 'detect_dataframe_anomalies'
+Traceback (most recent call last):
+  File "/home/paul/Cours/BGDIA700/projet_big_data/src/process/recipes.py", line 510, in __init__
+    pd.DataFrame] = self.detect_dataframe_anomalies()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Recipe' object has no attribute 'detect_dataframe_anomalies'
