@@ -1,0 +1,41 @@
+.metric-container {
+    background-color: #f0f2f6;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.metric-container:hover {
+    transform: scale(1.02);
+}
+
+.metric-label {
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 18px;
+    /* Augmentation de la taille de police */
+    text-transform: uppercase;
+    /* Optionnel: mise en majuscules */
+}
+
+.metric-value {
+    font-size: 24px;
+    color: #1e3a8a;
+    font-weight: bold;
+}
+
+.metric-delta {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.positive-delta {
+    color: green;
+}
+
+.negative-delta {
+    color: red;
+}

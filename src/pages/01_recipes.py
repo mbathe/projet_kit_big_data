@@ -10,14 +10,20 @@ from src.utils.static import mois
 import locale
 from src.visualizations import load_css
 from src.utils.static import submissions_data
+from src.utils.static import recipe_columns_description
+from collections import Counter
+from streamlit_echarts import st_echarts
+
+
+
 
 
 load_dotenv()
 locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 
-
 class CSSLoader:
     """Class responsible for loading CSS."""
+
     @staticmethod
     def load(path_to_css):
         load_css(path_to_css)
@@ -55,10 +61,15 @@ class DataManager:
 class DisplayManager:
     def __init__(self, data_manager):
         self.data_manager = data_manager
+        self.load_css()
 
     def load_css(self):
-        path_to_css = 'src/css_pages/analyse_user.css'
-        CSSLoader.load(path_to_css)
+        path_to_css_user = 'src/css_pages/analyse_user.css'
+        path_to_css_recipe = 'src/css_pages/recipe.css'
+        CSSLoader.load(path_to_css_user)
+        CSSLoader.load(path_to_css_recipe)
+
+
 
     def sidebar(self):
         with st.sidebar:
@@ -71,10 +82,14 @@ class DisplayManager:
                 value=(datetime(1999, 1, 1), datetime(2018, 12, 31)),
                 key='date_filter'
             )
-            print(date_range)
-            start_datetime = pd.Timestamp(date_range[0].date)
-            end_datetime = pd.Timestamp(date_range[1].date)
+           # print(date_range)
+            start_datetime = pd.Timestamp(date_range[0])
+            end_datetime = pd.Timestamp(date_range[1])
             self.data_manager.set_date_range(start_datetime, end_datetime)
+            show_toogle = st.toggle(
+                "Utiliser les données nettoyées", value=True)
+            if show_toogle:
+                self.data_manager.get_recipe_data().clean_dataframe()
             st.header("📥 Exporter")
             export_format = st.radio("Format d'export", ["CSV", "JSON"])
             if export_format == "CSV":
@@ -90,17 +105,27 @@ class DisplayManager:
         st.title("🏠 Analyse de Recettes")
         columns_to_show = ["name", "submitted", "nutrition",
                            "description", "tags", "ingredients"]
-        coll = st.columns(len(columns_to_show))
+        coll = st.columns(len(columns_to_show)-1)
         i = 0
         for index, row in self.data_manager.get_recipe_data().annomalis["column_info"].iterrows():
             if index in columns_to_show:
                 with coll[i]:
                     if index == "submitted":
-                        st.metric(str(index), str(
-                            row["Unique Count"]), f"{-row['Unique Percentage']}%", delta_color="inverse")
+                        st.markdown(f"""
+                        <div class="metric-container">
+                            <div class="metric-label">{str(index)}</div>
+                            <div class="metric-label">{str(int(row["Unique Count"]))}</div>
+                            <div class="metric-value">{str(int(row['Unique Percentage']))}%</div>
+                        </div>
+                        """, unsafe_allow_html=True)
                     else:
-                        st.metric(str(index), str(row["Unique Count"]), f"{
-                                  row['Unique Percentage']}%")
+                        st.markdown(f"""
+                        <div class="metric-container">
+                           <div class="metric-label">{str(index)}</div>
+                            <div class="metric-label">{str(int(row["Unique Count"]))}</div>
+                            <div class="metric-value">{str(int(row['Unique Percentage']))}%</div>
+                        </div>
+                        """, unsafe_allow_html=True)
                 i += 1
 
         option = st.selectbox("Sélectionnez une page", [
@@ -113,12 +138,12 @@ class DisplayManager:
                 default=["name", "description", "submitted"]
             )
             search_term = st.text_input("🔍 Rechercher dans le dataset")
-            self.data_manager.get_recipe_data().display_data_structures(
+            self.display_data_structures(
                 columns_to_show=columns_to_show, search_term=search_term)
-            self.data_manager.get_recipe_data().display_anomalies_values()
+            self.display_anomalies_values()
 
         elif option == "Colonne Ingredient":
-            self.data_manager.get_recipe_data().analyze_ingredients()
+            self.analyze_ingredients()
             st.sidebar.header("Filtres Ingrédients")
             ingredient_type = st.sidebar.multiselect(
                 "Type d'ingrédients",
@@ -789,11 +814,93 @@ class DisplayManager:
                 title='Comparaison des distributions des nutriments', showlegend=False, height=500)
             st.plotly_chart(fig_box, use_container_width=True)
 
+    def display_data_structures(self, columns_to_show=None, search_term=None):
+        if columns_to_show is None:
+            columns_to_show = self.data_manager.get_recipe_data().columns
+        number_of_rows = st.selectbox(
+            "Sélectionnez le nombre d'éléments à afficher :",
+            options=[5, 10, 20, 50],
+            index=0,
+            key='selectbox_dist'
+        )
+        st.subheader(f'Afficharger des {
+            number_of_rows} premiers elements du dataset')
+        if search_term:
+            mask = self.data_manager.get_recipe_data().st.session_state.data['description'].str.contains(
+                search_term, case=False)
+            mask = mask.fillna(False)
+            st.dataframe(
+                self.data_manager.get_recipe_data().st.session_state.data[mask][columns_to_show].head(number_of_rows))
+        else:
+            st.dataframe(
+                self.data_manager.get_recipe_data().st.session_state.data[columns_to_show].head(number_of_rows))
+
+        colonnes_preview = st.checkbox("Afficher la description des colonnes")
+        if colonnes_preview:
+            st.write("Ce tableau fournit une description détaillée des colonnes utilisées dans la base de données des recettes. Chaque colonne contient des informations spécifiques permettant d’identifier et de décrire les recettes et leurs attributs.")
+            st.markdown("---")
+            df = pd.DataFrame(recipe_columns_description)
+            st.table(df)
+
+    def display_anomalies_values(self):
+        colonnes_preview = st.checkbox("Afficher les valeurs abérantes")
+        if colonnes_preview:
+            st.subheader("Valeurs manquantes")
+            df = pd.DataFrame(
+                self.data_manager.get_recipe_data().annomalis["missing_values"])
+            st.table(df)
+            st.markdown("---")
+            st.subheader("valeurs aberrantes std")
+            df = pd.DataFrame(
+                self.data_manager.get_recipe_data().annomalis["std_outliers"])
+            st.table(df)
+            st.markdown("---")
+            st.subheader("score valeurs aberrantes")
+            df = pd.DataFrame(
+                self.data_manager.get_recipe_data().annomalis["z_score_outliers"])
+            st.table(df)
+            st.markdown("---")
+            st.subheader("Infos sur les colonnes")
+            df = pd.DataFrame(
+                self.data_manager.get_recipe_data().annomalis["column_info"])
+            st.table(df)
+
+    def analyze_ingredients(self):
+        ingredient_sample = self.data_manager.get_recipe_data().st.session_state.data["ingredients"].apply(
+            eval)
+        flat_ingredients = [
+            item.lower() for sublist in ingredient_sample for item in sublist]
+        ingredient_freq = Counter(flat_ingredients)
+        print("\nAnalyse des ingrédients les plus communs:")
+        ingredients = []
+        frequences = []
+        for ingredient, count in ingredient_freq.most_common(10):
+            ingredients.append(ingredient)
+            frequences.append(count)
+
+        df = pd.DataFrame({"Ingrédient": ingredients, "Frequence": frequences})
+        st.write("10 ingrédients les plus frequents dans les recettes")
+        st.table(df)
+        data = [
+            {"name": name, "value": value} for name, value in ingredient_freq.items()
+        ]
+        wordcloud_option = {"series": [{"type": "wordCloud", "data": data}]}
+        st.write("Nuage de mots")
+        st_echarts(wordcloud_option)
+
+    def display_tab(self):
+        tabs = st.tabs(["Accueil", "Analyse", "Prediction"])
+        with tabs[0]:
+            self.home_tab()
+        with tabs[1]:
+            manager.analysis_tab()
+
+
+
 
 if __name__ == "__main__":
     data_manager = DataManager()
     manager = DisplayManager(data_manager=data_manager)
     manager.load_css()
-    manager.home_tab()
     manager.sidebar()
-    manager.analysis_tab()
+    manager.display_tab()
