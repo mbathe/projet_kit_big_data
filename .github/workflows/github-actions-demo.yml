@@ -6,7 +6,6 @@ on:
       - 'review/**'   # Exécute le workflow sur les branches de review
   pull_request:
     branches:
-      - main
       - master          # Exécute le workflow lors des pull requests vers main
 
 jobs:
