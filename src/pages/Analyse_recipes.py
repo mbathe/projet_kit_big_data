@@ -129,7 +129,7 @@ class DisplayManager:
 
     def home_tab(self):
         try:
-            # st.title("🏠 Analyse de Recettes")
+            st.title("🏠 Analyse de Recettes")
            # st.markdown("#### Valeurs distintes")
             columns_to_show = ["name", "submitted",
                                "nutrition", "description", "tags", "ingredients"]
@@ -630,8 +630,8 @@ class DisplayManager:
 
     def display_submission_analysis(self):
         try:
-            # st.title("📊 Analyse des Soumissions")
-            st.markdown("### Analyse des Soumissions")
+            st.title("📊 Analyse des Soumissions")
+            # st.markdown("### Analyse des Soumissions")
             col1, col2 = st.columns(2)
             with col1:
                 start_year = st.slider("Année de début", 1999, 2018, 1999)

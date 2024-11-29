@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 # Remplacez 'src.pages.Analyse_recipes' par le nom de votre module
 from src.pages.Analyse_recipes import DisplayManager, DataManager
 
