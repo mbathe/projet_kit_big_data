@@ -130,3 +130,29 @@ jobs:
   #         echo "$DEPLOYMENT_KEY" > key.pem
   #         chmod 600 key.pem
   #         ssh -i key.pem user@server 'bash deploy.sh'
+
+
+  deploy:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v2
+    
+    - name: Build Docker image
+      run: |
+        docker build -t mon-app-streamlit .
+    
+    - name: Stop and remove existing container if exists
+      run: |
+        docker stop mon-app-streamlit || true
+        docker rm mon-app-streamlit || true
+    
+    - name: Run Docker container
+      run: |
+        docker run -d \
+          --name mon-app-streamlit \
+          -p 8501:8501 \
+          mon-app-streamlit

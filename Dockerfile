@@ -1,6 +1,14 @@
 # Utiliser l'image officielle de Python 3.12
 FROM python:3.12-slim
 
+
+RUN apt-get update && apt-get install -y locales
+RUN locale-gen fr_FR.UTF-8
+ENV LC_ALL fr_FR.UTF-8
+ENV LANG fr_FR.UTF-8
+ENV LANGUAGE fr_FR.UTF-8
+
+
 # Installer les dépendances système nécessaires
 RUN apt-get update && \
     apt-get install -y graphviz nano libpq-dev curl && \
@@ -29,12 +37,16 @@ COPY pyproject.toml poetry.lock ./
 # Installer les dépendances avec Poetry
 RUN poetry install --no-root
 
+
 # Copier tous les fichiers de l'application
 COPY . .
 
 ENV PYTHONPATH="/streamlit-docker/src:$PYTHONPATH"
 
 # Commande pour lancer l'application lorsque le conteneur est exécuté
+
+RUN poetry run python setup.py
+
 CMD ["sh", "-c", "poetry run streamlit run ./src/main.py"]
 
 # Configurer les commandes spécifiques à Streamlit

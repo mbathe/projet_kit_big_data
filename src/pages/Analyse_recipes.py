@@ -2,10 +2,9 @@ import logging
 import numpy as np
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime
+from datetime import datetime, date
 from src.process.recipes import Recipe
 from src.utils.static import mois
 import locale
@@ -14,14 +13,20 @@ from src.utils.static import submissions_data
 from src.utils.static import recipe_columns_description
 from collections import Counter
 from streamlit_echarts import st_echarts
+from src.utils.static import constribution_data
 
 
 # Configuration du logger
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-load_dotenv()
-locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
+
+try:
+    locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
+except locale.Error:
+    # Fallback to a default locale or skip locale setting
+    locale.setlocale(locale.LC_TIME, '')
+
 
 
 class CSSLoader:
@@ -104,11 +109,19 @@ class DisplayManager:
                     "Langue", ["Français", "English"], key='langue')
                 date_range = st.date_input(
                     "Période d'analyse",
-                    value=(datetime(1999, 1, 1), datetime(2018, 12, 31)),
-                    key='date_filter'
+                    value=(date(1999, 1, 1), date(2018, 12, 31)),
+                    key='date_filter',
+                    min_value=date(1999, 1, 1),
+                    max_value=date(2018, 12, 31),
                 )
-                start_datetime = pd.Timestamp(date_range[0])
-                end_datetime = pd.Timestamp(date_range[1])
+                if date_range[1] <= date_range[0]:
+                    raise ValueError(
+                        "La date de fin ne peut pas etre plus petite que la date de début")
+                start_datetime = pd.Timestamp(date_range[0]) if date_range[0] > date(
+                    1999, 1, 1) else pd.Timestamp(datetime(1999, 1, 1))
+                end_datetime = pd.Timestamp(date_range[1]) if date_range[1] > date(
+                    1999, 1, 1) and date_range[1] < date(2018, 12, 31) else pd.Timestamp(datetime(2018, 1, 1))
+
                 self.data_manager.set_date_range(start_datetime, end_datetime)
                 show_toogle = st.toggle(
                     "Utiliser les données nettoyées", value=True)
@@ -173,13 +186,6 @@ class DisplayManager:
             elif option == "Colonne Ingredient":
                 self.analyze_ingredients()
                 st.sidebar.header("Filtres Ingrédients")
-                ingredient_type = st.sidebar.multiselect(
-                    "Type d'ingrédients",
-                    ["Légumes", "Viandes", "Poissons", "Épices"],
-                    default=["Légumes"]
-                )
-                chart_type = st.radio("Type de visualisation", [
-                                      "Barres", "Camembert", "Treemap"])
 
             elif option == "Colonne Description":
                 st.title("Page d'analyse")
@@ -221,26 +227,7 @@ class DisplayManager:
         Provides metrics, distribution charts, and detailed insights about contributors.
         """
         try:
-            data = {
-                'total_contributors': 27926,
-                'contributions_per_user': {
-                    'mean': 8.29,
-                    'median': 1.0,
-                    'max': 3118
-                },
-                'top_contributors': {
-                    89831: 3118,
-                    37779: 2553,
-                    37449: 2493,
-                    1533: 1595,
-                    58104: 1522,
-                    169430: 1378,
-                    4470: 1125,
-                    80353: 1104,
-                    283251: 1004,
-                    21752: 971
-                }
-            }
+            data = constribution_data
 
             top_contrib_df = pd.DataFrame(
                 list(data['top_contributors'].items()),
@@ -784,10 +771,6 @@ class DisplayManager:
             nutrition_data = self.data_manager.analyze_nutrition()
 
             st.sidebar.header("Filtres Nutritionnels")
-            calories_range = st.sidebar.slider("Calories", 0, 1000, (0, 1000))
-            nutrients = st.multiselect("Nutriments à afficher", [
-                "calories", "protein", "fat", "carbs"], default=["calories", "protein"])
-            normalize = st.checkbox("Normaliser les données")
 
             st.title("📊 Analyse des Données")
             tab1, tab2 = st.tabs(
