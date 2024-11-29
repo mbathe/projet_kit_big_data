@@ -347,7 +347,7 @@ class Recipe:
         except Exception as e:
             logging.error(f"Error analyzing temporal distribution: {e}")
             raise
-
+        print(temporal_stats)
         return temporal_stats
 
     def analyze_tags(self) -> TagStats:
@@ -456,5 +456,6 @@ class Recipe:
         except Exception as e:
             logging.error(f"Error analyzing recipe complexity: {e}")
             raise
-
+        print("conplexité......")
+        print(complexity_stats)
         return complexity_stats

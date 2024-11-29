@@ -22,16 +22,29 @@ logging.basicConfig(level=logging.INFO,
 load_dotenv()
 locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 
+""" 
 class CSSLoader:
-    """Class responsible for loading CSS."""
-
     @staticmethod
     def load(path_to_css):
         try:
             load_css(path_to_css)
             logging.info(f"CSS loaded from {path_to_css}")
         except Exception as e:
-            logging.error(f"Failed to load CSS from {path_to_css}: {e}")
+            logging.error(f"Failed to load CSS from {path_to_css}: {e}") """
+
+
+class CSSLoader:
+    """Class responsible for loading CSS."""
+    @staticmethod
+    def load(css_file):
+        try:
+            load_css(css_file)
+            logging.info(f"CSS loaded from {css_file}")
+        except Exception as e:
+            logging.error(f"Failed to load CSS from {css_file}: {e}")
+            raise Exception(f"Failed to load CSS: {str(e)}")
+
+
 
 class DataManager:
     def __init__(self):
@@ -109,7 +122,8 @@ class DisplayManager:
                 show_toogle = st.toggle(
                     "Utiliser les données nettoyées", value=True)
                 if show_toogle:
-                    self.data_manager.get_recipe_data().clean_dataframe()
+                    # self.data_manager.get_recipe_data().clean_dataframe()
+                    print("data")
                 st.header("📥 Exporter")
                 export_format = st.radio("Format d'export", ["CSV", "JSON"])
                 if export_format == "CSV":
@@ -961,7 +975,7 @@ class DisplayManager:
             ]
             wordcloud_option = {"series": [
                 {"type": "wordCloud", "data": data}]}
-            st.write("Nuage de mots")
+            st.markdown("### Nuage de mots")
             st_echarts(wordcloud_option)
         except Exception as e:
             logging.error(f"Error in analyze_ingredients: {e}")
@@ -985,3 +999,6 @@ if __name__ == "__main__":
         manager.display_tab()
     except Exception as e:
         logging.error(f"Error in main: {e}")
+
+
+# TODO: Implémenter la fonction de calcul

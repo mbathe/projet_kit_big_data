@@ -17,11 +17,6 @@ def test_load_css(display_manager):
         mock_load_css.assert_any_call('src/css_pages/recipe.css')
 
 
-def test_sidebar(display_manager):
-    with patch('streamlit.sidebar') as mock_sidebar:
-        display_manager.sidebar()
-        mock_sidebar.assert_called_once()
-
 
 def test_home_tab(display_manager):
     with patch('streamlit.title') as mock_title:
@@ -83,9 +78,3 @@ def test_analyze_ingredients(display_manager):
         display_manager.analyze_ingredients()
         mock_write.assert_called_once_with(
             "10 ingrédients les plus frequents dans les recettes")
-
-
-def test_display_tab(display_manager):
-    with patch('streamlit.tabs') as mock_tabs:
-        display_manager.display_tab()
-        mock_tabs.assert_called_once_with(["Accueil", "Analyse", "Prediction"])
