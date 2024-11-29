@@ -1,19 +1,15 @@
 import logging
 from src.utils.helper_data import load_dataset
-from collections import Counter
 import os
 from typing import (
-    Any, Dict, List, Optional, Union, Tuple,
-    Callable, Sequence, TypedDict, cast
+    Any, Dict, List, Union, TypedDict
 )
 import pandas as pd
 import streamlit as st
-from streamlit_echarts import st_echarts
 from dotenv import load_dotenv
 from datetime import datetime
 import numpy as np
 from scipy import stats
-from src.utils.static import recipe_columns_description
 
 load_dotenv()
 
