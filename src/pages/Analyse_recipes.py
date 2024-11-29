@@ -15,22 +15,13 @@ from src.utils.static import recipe_columns_description
 from collections import Counter
 from streamlit_echarts import st_echarts
 
+
 # Configuration du logger
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 load_dotenv()
 locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
-
-""" 
-class CSSLoader:
-    @staticmethod
-    def load(path_to_css):
-        try:
-            load_css(path_to_css)
-            logging.info(f"CSS loaded from {path_to_css}")
-        except Exception as e:
-            logging.error(f"Failed to load CSS from {path_to_css}: {e}") """
 
 
 class CSSLoader:
@@ -43,7 +34,6 @@ class CSSLoader:
         except Exception as e:
             logging.error(f"Failed to load CSS from {css_file}: {e}")
             raise Exception(f"Failed to load CSS: {str(e)}")
-
 
 
 class DataManager:
@@ -93,6 +83,7 @@ class DataManager:
         except Exception as e:
             logging.error(f"Failed to analyze tags: {e}")
 
+
 class DisplayManager:
     def __init__(self, data_manager):
         self.data_manager = data_manager
@@ -122,8 +113,7 @@ class DisplayManager:
                 show_toogle = st.toggle(
                     "Utiliser les données nettoyées", value=True)
                 if show_toogle:
-                    # self.data_manager.get_recipe_data().clean_dataframe()
-                    print("data")
+                    self.data_manager.get_recipe_data().clean_dataframe()
                 st.header("📥 Exporter")
                 export_format = st.radio("Format d'export", ["CSV", "JSON"])
                 if export_format == "CSV":
@@ -139,7 +129,8 @@ class DisplayManager:
 
     def home_tab(self):
         try:
-            st.title("🏠 Analyse de Recettes")
+            # st.title("🏠 Analyse de Recettes")
+           # st.markdown("#### Valeurs distintes")
             columns_to_show = ["name", "submitted",
                                "nutrition", "description", "tags", "ingredients"]
             coll = st.columns(len(columns_to_show) - 1)
@@ -639,7 +630,8 @@ class DisplayManager:
 
     def display_submission_analysis(self):
         try:
-            st.title("📊 Analyse des Soumissions")
+            # st.title("📊 Analyse des Soumissions")
+            st.markdown("### Analyse des Soumissions")
             col1, col2 = st.columns(2)
             with col1:
                 start_year = st.slider("Année de début", 1999, 2018, 1999)
@@ -959,7 +951,6 @@ class DisplayManager:
             flat_ingredients = [
                 item.lower() for sublist in ingredient_sample for item in sublist]
             ingredient_freq = Counter(flat_ingredients)
-            print("\nAnalyse des ingrédients les plus communs:")
             ingredients = []
             frequences = []
             for ingredient, count in ingredient_freq.most_common(10):
@@ -982,13 +973,20 @@ class DisplayManager:
 
     def display_tab(self):
         try:
-            tabs = st.tabs(["Accueil", "Analyse", "Prediction"])
+            # Create tabs with icons
+            tabs = st.tabs([
+                "🏠 Accueil",
+                "📊 Analyse",
+                "📈 Prediction"
+            ])
+
             with tabs[0]:
                 self.home_tab()
             with tabs[1]:
                 self.analysis_tab()
         except Exception as e:
             logging.error(f"Error in display_tab: {e}")
+
 
 if __name__ == "__main__":
     try:

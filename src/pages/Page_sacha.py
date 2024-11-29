@@ -8,12 +8,9 @@ from src.visualizations.graphiques import (
     Donut,
     LineChart,
     Heatmap,
-    )
+)
 
 from src.visualizations import Grille, load_css
-
-
-
 
 
 if __name__ == "__main__":
@@ -47,36 +44,36 @@ graphique6 = Heatmap(df, x='total_bill', y='tip', z='size', height=300)
 
 # Liste des graphiques à afficher
 graphiques = [
-        {
-            "titre": "",
-            "graphique": graphique1,
-        },
-        {
-            "titre": "",
-            "graphique": graphique2,
-        },
-        {
-            "titre": "",
-            "graphique": graphique3,
-        },
-         {
-            "titre": "",
-            "graphique": graphique4,
-        },
-        {
-            "titre": "",
-            "graphique": graphique5,
-        },
-        {
-            "titre": "",
-            "graphique": graphique6,
-        },
-              ]
+    {
+        "titre": "",
+        "graphique": graphique1,
+    },
+    {
+        "titre": "",
+        "graphique": graphique2,
+    },
+    {
+        "titre": "",
+        "graphique": graphique3,
+    },
+    {
+        "titre": "",
+        "graphique": graphique4,
+    },
+    {
+        "titre": "",
+        "graphique": graphique5,
+    },
+    {
+        "titre": "",
+        "graphique": graphique6,
+    },
+]
 
 # Définition de la grille (2 lignes, 2 colonnes)
 nb_lignes = 2
 nb_colonnes = 3
-largeurs_colonnes = [0.7, 1+0.3,1]  # Les poids relatifs des colonnes
+largeurs_colonnes = [0.7, 1+0.3, 1]  # Les poids relatifs des colonnes
 
 grille = Grille(nb_lignes, nb_colonnes, largeurs_colonnes)
 grille.afficher(graphiques)

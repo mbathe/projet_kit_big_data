@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
-# Remplacez 'src.pages.recipes' par le nom de votre module
-from src.pages.recipes import DisplayManager, DataManager
+# Remplacez 'src.pages.Analyse_recipes' par le nom de votre module
+from src.pages.Analyse_recipes import DisplayManager, DataManager
 
 
 @pytest.fixture
@@ -11,7 +11,7 @@ def display_manager():
 
 
 def test_load_css(display_manager):
-    with patch('src.pages.recipes.CSSLoader.load') as mock_load_css:
+    with patch('src.pages.Analyse_recipes.CSSLoader.load') as mock_load_css:
         display_manager.load_css()
         mock_load_css.assert_any_call('src/css_pages/analyse_user.css')
         mock_load_css.assert_any_call('src/css_pages/recipe.css')
