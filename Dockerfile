@@ -47,7 +47,7 @@ ENV PYTHONPATH="/tpbigdata/src:$PYTHONPATH"
 
 RUN poetry run python setup.py
 
-CMD ["sh", "-c", "poetry run streamlit run ./src/main.py"]
+CMD ["sh", "-c", "poetry run streamlit run ./src/main.py --server.headless true"]
 
 # Configurer les commandes spécifiques à Streamlit
 ENV LC_ALL=C.UTF-8
