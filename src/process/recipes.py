@@ -67,7 +67,7 @@ class Recipe:
     def __init__(
         self,
         name: str = "RAW_recipes",
-        date_start: datetime = datetime(1999, 1, 1),
+        date_start: datetime = datetime(2015, 1, 1),
         date_end: datetime = datetime(2018, 12, 31)
     ):
         self.name: str = name
@@ -98,7 +98,7 @@ class Recipe:
                 with self.st.spinner("Chargement des données depuis MongoDB..."):
                     self.st.session_state.data = self.fetch_data_from_mongodb(
                         CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
-            elif (start_date != self.st.session_state.start_date and start_date != date(1999, 1, 1)) or (end_date != self.st.session_state.end_date and end_date != date(2018, 12, 31)):
+            elif (start_date != self.st.session_state.start_date and start_date != date(2015, 1, 1)) or (end_date != self.st.session_state.end_date and end_date != date(2018, 12, 31)):
                 with self.st.spinner("Chargement des données depuis MongoDB..."):
                     self.st.session_state.data = self.fetch_data_from_mongodb(
                         CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
@@ -512,3 +512,30 @@ class Recipe:
             return pd.DataFrame()
         finally:
             client.close()
+
+
+""" 
+ def initialize_session_state(self, name: str) -> None:
+        Initialize session state with filtered dataset.
+        try:
+            if 'data' not in self.st.session_state:
+                dataset_dir = os.getenv("DIR_DATASET_2")
+                assert dataset_dir is not None, "Dataset directory not set"
+                
+                self.st.session_state.data = load_dataset(
+                    dir_name=dataset_dir,
+                    all_contents=True
+                ).get(name)
+
+            self.st.session_state.data['submitted'] = pd.to_datetime(
+                self.st.session_state.data['submitted']
+            )
+
+            mask = (
+                (self.st.session_state.data['submitted'] >= self.date_start) &
+                (self.st.session_state.data['submitted'] <= self.date_end)
+            )
+            self.st.session_state.data = self.st.session_state.data[mask]
+        except Exception as e:
+            logging.error(f"Error in initialize_session_state: {e}")
+            raise """
