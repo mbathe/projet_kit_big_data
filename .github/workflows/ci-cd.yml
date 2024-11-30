@@ -121,7 +121,4 @@ jobs:
     
     - name: Run Docker container
       run: |
-        docker run -d \
-          --name mon-app-streamlit \
-          -p 8501:8501 \
-          mon-app-streamlit
+        docker run -d --name mon-app-streamlit --memory="512m" -p 8501:8501 mon-app-streamlit
