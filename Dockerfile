@@ -29,7 +29,7 @@ ENV PATH="/root/.local/bin:$PATH"
 EXPOSE 8501
 
 # Créer le répertoire de l'application
-WORKDIR /streamlit-docker
+WORKDIR /tpbigdata
 
 # Copier les fichiers de configuration de Poetry
 COPY pyproject.toml ./
@@ -41,7 +41,7 @@ RUN poetry install --no-root
 # Copier tous les fichiers de l'application
 COPY . .
 
-ENV PYTHONPATH="/streamlit-docker/src:$PYTHONPATH"
+ENV PYTHONPATH="/tpbigdata/src:$PYTHONPATH"
 
 # Commande pour lancer l'application lorsque le conteneur est exécuté
 
