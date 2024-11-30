@@ -46,15 +46,13 @@ def download_dataset_from_drive(file_id, output_directory):
         return None
 
 
-def download_dataset_from_kaggle(path):
-    # print("Downloading dataset...", path)
-    """kagglehub.dataset_download(
-        "shuyangli94/food-com-recipes-and-user-interactions", path)
-    print("Path to dataset files:") """
-    pathe = kagglehub.dataset_download(
-        handle="shuyangli94/food-com-recipes-and-user-interactions", path=path)
+def download_dataset_from_kaggle():
+    print("Downloading dataset...")
+    path = kagglehub.dataset_download(
+        "shuyangli94/food-com-recipes-and-user-interactions")
+    print("Path to dataset files:", path)
+    return path
 
-    print("Path to dataset files:", pathe)
 
 def deplacer_fichiers(chemin_source, chemin_destination):
     """
@@ -89,5 +87,5 @@ def download_dataset():
 
 if __name__ == "__main__":
     download_dataset()
-
+    
 

@@ -1,7 +1,8 @@
-import os
 from src.visualizations.graphiques import LineChart, Histogramme
 from src.visualizations import Grille, load_css
+from scripts import MongoDBConnector
 
+import os
 from pathlib import Path
 import streamlit as st
 import pandas as pd
@@ -121,25 +122,37 @@ class VisualizationManager:
 class StreamlitPage:
     def __init__(self):
         self.data = None
+        self.CONNECTION_STRING = os.getenv("CONNECTION_STRING")
+        self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
+        self.COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
 
     def load_css(self):
         path_to_css = 'src/css_pages/analyse_user.css'
         CSSLoader.load(path_to_css)
 
     def load_data(self):
-        st.title("Chargement d'un dataframe")
-        data_dir = Path(os.getenv("DIR_DATASET_2"))
-        csv_files = list(data_dir.glob("*.csv"))
+        # OLD
+        # st.title("Chargement d'un dataframe")
+        # data_dir = Path(os.getenv("DIR_DATASET_3"))
+        # csv_files = list(data_dir.glob("*.csv"))
 
-        if csv_files:
-            file_selected = st.selectbox(
-                "Sélectionnez un fichier CSV à analyser :", csv_files)
-            if file_selected:
-                st.write(f"Chargement du fichier : `{file_selected}`")
-                self.data = DataLoader.load_large_csv(file_selected)
-                st.write("Aperçu des données :", self.data.head())
-        else:
-            st.warning("Aucun fichier CSV trouvé dans le dossier `data`.")
+        # if csv_files:
+        #     file_selected = st.selectbox(
+        #         "Sélectionnez un fichier CSV à analyser :", csv_files)
+        #     if file_selected:
+        #         st.write(f"Chargement du fichier : `{file_selected}`")
+        #         self.data = DataLoader.load_large_csv(file_selected)
+        #         st.write("Aperçu des données :", self.data.head())
+        # else:
+        #     st.warning("Aucun fichier CSV trouvé dans le dossier `data`.")
+       
+        # NEW
+        # Initialiser la classe
+        connector = MongoDBConnector(self.CONNECTION_STRING, self.DATABASE_NAME)
+        connector.connect()
+        self.data = connector.load_collection_as_dataframe(self.COLLECTION_RAW_INTERACTIONS,limit=2000)
+        connector.close()
+        st.write("Aperçu des données :", self.data.head())
 
     def run_analysis(self):
         if self.data is not None:

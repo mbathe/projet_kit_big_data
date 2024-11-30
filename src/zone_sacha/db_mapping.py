@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 """ import json
-=======
-import json
->>>>>>> 601a7a15331ce1944996c25ea542c6a25da39240
 import ast
 from tqdm import tqdm
 
@@ -184,13 +180,13 @@ class DatabaseManagement:
         self.SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=self.engine)
     
     def create_db(self):
-        """Crée la base de données et les tables."""
+        
         create_database(self.engine.url)
         Base.metadata.create_all(self.engine)
         print(f"Base de données '{self.db_name}' créée avec succès.")
     
     def query(self, sql_query: str):
-        """Exécute une requête SQL et retourne les résultats."""
+        
         with self.engine.connect() as conn:
             result = conn.execute(text(sql_query))  # Utilise text() pour envelopper la requête
             return result.fetchall()
@@ -450,7 +446,7 @@ class DatabaseManagement:
                 session.close()
 
     def initialize_database(self):
-        """Initialise la base de données en créant les tables et en y insérant les données."""
+       
         
         # Créer les tables dans la base de données
         Base.metadata.create_all(self.engine)
@@ -492,7 +488,4 @@ class DatabaseManagement:
             session.rollback()
         finally:
             session.close()
-<<<<<<< HEAD
  """
-=======
->>>>>>> 601a7a15331ce1944996c25ea542c6a25da39240
