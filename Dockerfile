@@ -32,7 +32,7 @@ EXPOSE 8501
 WORKDIR /streamlit-docker
 
 # Copier les fichiers de configuration de Poetry
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml ./
 
 # Installer les dépendances avec Poetry
 RUN poetry install --no-root
