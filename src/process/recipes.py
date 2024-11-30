@@ -1,5 +1,6 @@
 import logging
 from src.utils.helper_data import load_dataset
+from datetime import date
 import os
 from typing import (
     Any, Dict, List, Union, TypedDict
@@ -10,8 +11,17 @@ from dotenv import load_dotenv
 from datetime import datetime
 import numpy as np
 from scipy import stats
+import pandas as pd
+from pymongo import MongoClient
+from pymongo.errors import ServerSelectionTimeoutError
+from dotenv import load_dotenv
+import os
 
 load_dotenv()
+
+CONNECTION_STRING = os.getenv("CONNECTION_STRING")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
 
 # Configurer le logger pour écrire dans un fichier
 logging.basicConfig(
@@ -65,7 +75,7 @@ class Recipe:
         self.date_start: datetime = date_start
         self.date_end: datetime = date_end
         try:
-            self.initialize_session_state(name)
+            self.initialize_session_state(date_start, date_end)
         except Exception as e:
             logging.error(f"Error initializing session state: {e}")
             raise
@@ -77,26 +87,23 @@ class Recipe:
             raise
         self.columns: List[str] = list(self.st.session_state.data.columns)
 
-    def initialize_session_state(self, name: str) -> None:
+    def initialize_session_state(self, start_date, end_date) -> None:
         """Initialize session state with filtered dataset."""
         try:
             if 'data' not in self.st.session_state:
-                dataset_dir = os.getenv("DIR_DATASET_2")
-                assert dataset_dir is not None, "Dataset directory not set"
-                self.st.session_state.data = load_dataset(
-                    dir_name=dataset_dir,
-                    all_contents=True
-                ).get(name)
-
-            self.st.session_state.data['submitted'] = pd.to_datetime(
-                self.st.session_state.data['submitted']
-            )
-
-            mask = (
-                (self.st.session_state.data['submitted'] >= self.date_start) &
-                (self.st.session_state.data['submitted'] <= self.date_end)
-            )
-            self.st.session_state.data = self.st.session_state.data[mask]
+                if 'start_date' not in self.st.session_state:
+                    self.st.session_state.start_date = start_date
+                if 'end_date' not in self.st.session_state:
+                    self.st.session_state.end_date = end_date
+                with self.st.spinner("Chargement des données depuis MongoDB..."):
+                    self.st.session_state.data = self.fetch_data_from_mongodb(
+                        CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+            elif (start_date != self.st.session_state.start_date and start_date != date(1999, 1, 1)) or (end_date != self.st.session_state.end_date and end_date != date(2018, 12, 31)):
+                with self.st.spinner("Chargement des données depuis MongoDB..."):
+                    self.st.session_state.data = self.fetch_data_from_mongodb(
+                        CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+                self.st.session_state.start_date = start_date
+                self.st.session_state.end_date = end_date
         except Exception as e:
             logging.error(f"Error in initialize_session_state: {e}")
             raise
@@ -456,3 +463,52 @@ class Recipe:
             logging.error(f"Error analyzing recipe complexity: {e}")
             raise
         return complexity_stats
+
+    def fetch_data_from_mongodb(self, connection_string, database_name, collection_name, start_date, end_date):
+        """
+        Charge les données depuis MongoDB en fonction d'un intervalle de dates et retourne un DataFrame.
+
+        :param connection_string: URI de connexion à MongoDB
+        :param database_name: Nom de la base de données
+        :param collection_name: Nom de la collection
+        :param start_date: Date de début (string ou datetime)
+        :param end_date: Date de fin (string ou datetime)
+        :return: DataFrame contenant les données
+        """
+        try:
+            # Connexion à MongoDB
+            client = MongoClient(
+                connection_string,
+                serverSelectionTimeoutMS=5000,  # Timeout pour la sélection du serveur
+            )
+
+            # Tester la connexion
+            client.admin.command('ping')
+
+            # Sélectionner la collection
+            db = client[database_name]
+            collection = db[collection_name]
+
+            # Filtrer par intervalle de dates
+            query = {"submitted": {"$gte": pd.to_datetime(
+                start_date), "$lte": pd.to_datetime(end_date)}}
+            projection = {"_id": 0}  # Exclure le champ `_id`
+
+            # Charger les données dans un DataFrame
+            data = list(collection.find(query, projection))
+            if not data:
+                st.warning(
+                    "Aucune donnée trouvée pour cet intervalle de dates.")
+                return pd.DataFrame()  # DataFrame vide si aucune donnée
+
+            df = pd.DataFrame(data)
+            return df
+
+        except ServerSelectionTimeoutError as e:
+            st.error(f"Erreur de connexion à MongoDB : {e}")
+            return pd.DataFrame()
+        except Exception as e:
+            st.error(f"Erreur lors de la récupération des données : {e}")
+            return pd.DataFrame()
+        finally:
+            client.close()

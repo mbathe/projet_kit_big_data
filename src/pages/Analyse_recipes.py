@@ -114,15 +114,17 @@ class DisplayManager:
                     min_value=date(1999, 1, 1),
                     max_value=date(2018, 12, 31),
                 )
-                if date_range[1] <= date_range[0]:
-                    raise ValueError(
-                        "La date de fin ne peut pas etre plus petite que la date de début")
-                start_datetime = pd.Timestamp(date_range[0]) if date_range[0] > date(
-                    1999, 1, 1) else pd.Timestamp(datetime(1999, 1, 1))
-                end_datetime = pd.Timestamp(date_range[1]) if date_range[1] > date(
-                    1999, 1, 1) and date_range[1] < date(2018, 12, 31) else pd.Timestamp(datetime(2018, 1, 1))
 
-                self.data_manager.set_date_range(start_datetime, end_datetime)
+                if st.button("Charger les données"):
+                    start_date = date_range[0]
+                    end_date = date_range[1]
+                    if start_date > end_date:
+                        st.error(
+                            "La date de début doit être antérieure ou égale à la date de fin.")
+                    else:
+                        st.success(f"Période d'analyse: {
+                                   start_date} à {end_date}")
+                        self.data_manager.set_date_range(start_date, end_date)
                 show_toogle = st.toggle(
                     "Utiliser les données nettoyées", value=True)
                 if show_toogle:
