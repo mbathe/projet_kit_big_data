@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-import dotenv
 from dotenv import load_dotenv
 import streamlit as st
 load_dotenv()
@@ -39,3 +38,16 @@ def clean_excel_data(df):
         df[col] = df[col].astype(str).str.replace(
             '\n', ' ').str.replace('\r', '')
     return df
+
+
+@st.cache_data
+def load_dataset_from_file(dir_folder, date_start, date_end):
+    df = pd.read_csv(dir_folder,
+                     parse_dates=['submitted'],
+                     infer_datetime_format=True,
+                     chunksize=1000)
+    df_filtered = pd.concat(chunk[(chunk['submitted'] >= date_start) &
+                                  (chunk['submitted'] <= date_end)]
+                            for chunk in df)
+    df_filtered = df_filtered.reset_index(drop=True)
+    return df_filtered

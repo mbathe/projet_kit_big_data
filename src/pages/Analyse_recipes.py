@@ -109,9 +109,9 @@ class DisplayManager:
                     "Langue", ["Français", "English"], key='langue')
                 date_range = st.date_input(
                     "Période d'analyse",
-                    value=(date(2015, 1, 1), date(2018, 12, 31)),
+                    value=(date(1999, 1, 1), date(2018, 12, 31)),
                     key='date_filter',
-                    min_value=date(2015, 1, 1),
+                    min_value=date(1999, 1, 1),
                     max_value=date(2018, 12, 31),
                 )
 

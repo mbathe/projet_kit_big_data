@@ -787,3 +787,63 @@
 2024-11-30 10:24:13,089 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 10:24:13,090 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 10:24:13,090 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:04:51,628 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:04:51,630 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:04:51,631 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:04:51,631 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:06:31,037 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:06:31,038 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:06:31,039 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:06:31,040 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:07:10,919 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:07:10,920 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:07:10,922 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:07:10,923 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:07:32,708 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/Row_recipes.csv'
+2024-11-30 12:07:32,709 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/Row_recipes.csv'
+2024-11-30 12:07:32,709 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/Row_recipes.csv'
+2024-11-30 12:08:50,037 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/Raw_recipes.csv'
+2024-11-30 12:08:50,037 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/Raw_recipes.csv'
+2024-11-30 12:08:50,037 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/Raw_recipes.csv'
+2024-11-30 12:09:10,579 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/Raw_recipes.csv'
+2024-11-30 12:09:10,579 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/Raw_recipes.csv'
+2024-11-30 12:09:10,579 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/Raw_recipes.csv'
+2024-11-30 12:56:43,225 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 12:56:43,225 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 12:56:43,225 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:34:10,059 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:34:10,059 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:34:10,059 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:35:23,976 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:35:23,976 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:35:23,976 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:37:00,265 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:37:00,265 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:37:00,265 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:38:28,646 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:38:28,647 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:38:28,647 - ERROR - Error in main: [Errno 2] No such file or directory: '../../data/dataset/recipe/RAW_recipes.csv'
+2024-11-30 13:39:46,652 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:39:46,654 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:39:46,655 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:39:46,655 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:43:13,252 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:43:13,253 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:43:13,253 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:43:13,254 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:43:36,517 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:43:36,518 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:43:36,519 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:43:36,519 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:44:01,341 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:44:01,342 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:44:01,343 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:44:01,344 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:44:15,081 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:44:15,082 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:44:15,082 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:44:15,082 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:45:26,845 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:45:26,846 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 13:45:26,846 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 13:45:26,847 - INFO - CSS loaded from src/css_pages/recipe.css
