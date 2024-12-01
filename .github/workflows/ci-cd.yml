@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'review/**'   # Exécute le workflow sur les branches de review
-      - main          # Exécute le workflow lors des pull requests vers main
-      - master           # Exécute le workflow sur toutes les branches
+      - main          # Exécute le workflow lors des push sur main
+      - '*'           # Exécute le workflow sur toutes les branches
   pull_request:
     branches:
       - main          # Exécute le workflow lors des pull requests vers main
@@ -29,16 +29,16 @@ jobs:
         with:
           version: 1.8.4
 
-      - name: Installer les dependances avec Poetry
+      - name: Installer les dépendances avec Poetry
         run: poetry install --no-root
 
       - name: Vérification du formatage avec Black
         id: black-check
         run: |
           poetry run black --check src/ scripts/ tests/ || echo "Black failed. Check the output for details." > black_report.txt
-      
+
       - name: Enregistrer le rapport Black
-        if: failure() || always()
+        if: ${{ failure() || always() }}
         uses: actions/upload-artifact@v3
         with:
           name: black-report
@@ -99,26 +99,25 @@ jobs:
           name: coverage-report
           path: coverage_report.txt
 
-
   deploy:
     name: Déploiement de l'application
     runs-on: self-hosted
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Set up Docker
-      uses: docker/setup-buildx-action@v2
-    
-    - name: Build Docker image
-      run: |
-        docker build -t mon-app-streamlit .
-    
-    - name: Stop and remove existing container if exists
-      run: |
-        docker stop mon-app-streamlit || true
-        docker rm mon-app-streamlit || true
-    
-    - name: Run Docker container
-      run: |
-        docker run -d --name mon-app-streamlit --memory="512m" -p 8501:8501 mon-app-streamlit
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Build Docker image
+        run: |
+          docker build -t mon-app-streamlit .
+      
+      - name: Stop and remove existing container if exists
+        run: |
+          docker stop mon-app-streamlit || true
+          docker rm mon-app-streamlit || true
+      
+      - name: Run Docker container
+        run: |
+          docker run -d --name mon-app-streamlit --memory="512m" -p 8501:8501 mon-app-streamlit
