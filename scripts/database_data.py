@@ -4,14 +4,11 @@ from typing import List, Dict
 import pandas as pd
 from pymongo import MongoClient
 from pymongo.errors import AutoReconnect, ServerSelectionTimeoutError, BulkWriteError
-from bson import ObjectId
 from dotenv import load_dotenv
 
 
-# Charger les variables d'environnement
 load_dotenv()
 
-# Fonction sécurisée pour évaluer des chaînes de type JSON ou listes
 
 def safe_eval(value, default=None):
     try:
