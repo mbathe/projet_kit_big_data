@@ -1,26 +1,16 @@
-<<<<<<< HEAD
 from src.visualizations.graphiques import LineChart, Histogramme
 from src.visualizations import Grille, load_css
 from scripts import MongoDBConnector
 
 import os
-=======
-from src.visualizations.graphiques import LineChart , Histogramme
-from src.visualizations import Grille, load_css
-
->>>>>>> origin/main
 from pathlib import Path
 import streamlit as st
 import pandas as pd
 
-<<<<<<< HEAD
 from dotenv import load_dotenv
 load_dotenv()
 
-## OLD
-=======
-
->>>>>>> origin/main
+# OLD
 class DataLoader:
     """Class responsible for loading data."""
     @staticmethod
@@ -28,7 +18,6 @@ class DataLoader:
     def load_large_csv(file_path):
         return pd.read_csv(file_path)
 
-<<<<<<< HEAD
 ## NEW
 class DataLoaderMango:
     """Class responsible for loading data from MongoDB."""
@@ -83,8 +72,6 @@ class DataLoaderMango:
             self.collection_name,
             self.limit
         )
-=======
->>>>>>> origin/main
 
 class CSSLoader:
     """Class responsible for loading CSS."""
@@ -95,10 +82,6 @@ class CSSLoader:
 
 class DataAnalyzer:
     """Class for analyzing the data."""
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
     def __init__(self, data):
         self.data = data
 
@@ -109,7 +92,6 @@ class DataAnalyzer:
         return self.data
 
     def analyze_user(self, user_id):
-<<<<<<< HEAD
         user_data = self.data[self.data['user_id']
                               == user_id].copy()  # Copie explicite
         if not user_data.empty:
@@ -117,25 +99,14 @@ class DataAnalyzer:
             monthly_avg = user_data.groupby('year_month')['rating'].mean()
             monthly_avg.index = monthly_avg.index.astype(
                 str)  # Convert PeriodIndex to string
-=======
-        user_data = self.data[self.data['user_id'] == user_id]
-        if not user_data.empty:
-            user_data['year_month'] = user_data['date'].dt.to_period('M')
-            monthly_avg = user_data.groupby('year_month')['rating'].mean()
-            monthly_avg.index = monthly_avg.index.astype(str)  # Convert PeriodIndex to string
->>>>>>> origin/main
             monthly_avg = monthly_avg.reset_index()  # Convert to DataFrame
             monthly_avg.columns = ['Mois', 'Note moyenne']
             return monthly_avg
         return None
 
     def analyze_monthly_ratings(self):
-<<<<<<< HEAD
         monthly_average_rating = self.data.set_index('date').resample('ME')[
             'rating'].mean().reset_index()
-=======
-        monthly_average_rating = self.data.set_index('date').resample('ME')['rating'].mean().reset_index()
->>>>>>> origin/main
         monthly_average_rating.columns = ['Mois', 'Note moyenne']
         return monthly_average_rating
 
@@ -164,12 +135,8 @@ class VisualizationManager:
     @staticmethod
     def display_line_chart(data, x, y, title):
         st.subheader(title)
-<<<<<<< HEAD
         line_chart = LineChart(data=data, x=x, y=y,
                                height=400, line_color='rgb(26, 28, 35)')
-=======
-        line_chart = LineChart(data=data, x=x, y=y, height=400, line_color='rgb(26, 28, 35)')
->>>>>>> origin/main
         graphiques = [{"titre": "", "graphique": line_chart}]
         grille = Grille(nb_lignes=1, nb_colonnes=1, largeurs_colonnes=[1])
         grille.afficher(graphiques)
@@ -177,12 +144,8 @@ class VisualizationManager:
     @staticmethod
     def display_histogram(data, x, title, bin_size=1):
         st.subheader(title)
-<<<<<<< HEAD
         histogram = Histogramme(
             data=data, x=x, bin_size=bin_size, height=400, bar_color='rgb(26, 28, 35)')
-=======
-        histogram = Histogramme(data=data, x=x, bin_size=bin_size, height=400, bar_color='rgb(26, 28, 35)')
->>>>>>> origin/main
         graphiques = [{"titre": "", "graphique": histogram}]
         grille = Grille(nb_lignes=1, nb_colonnes=1, largeurs_colonnes=[1])
         grille.afficher(graphiques)
@@ -204,7 +167,6 @@ class VisualizationManager:
                 "titre": f"Fréquence de la note {int(rating)}",
                 "graphique": histogram,
             })
-<<<<<<< HEAD
         grille = Grille(nb_lignes=2, nb_colonnes=3,
                         largeurs_colonnes=[1, 1, 1])
         grille.afficher(graphiques)
@@ -220,23 +182,14 @@ class StreamlitPage(DataLoaderMango):
         self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
         self.COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
         
-        super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME, self.COLLECTION_RAW_INTERACTIONS, limit=2000)
-=======
-        grille = Grille(nb_lignes=2, nb_colonnes=3, largeurs_colonnes=[1, 1, 1])
-        grille.afficher(graphiques)
-
-
-class StreamlitPage:
-    def __init__(self):
-        self.data = None
->>>>>>> origin/main
+        super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME,
+                         self.COLLECTION_RAW_INTERACTIONS, limit=2000)
 
     def load_css(self):
         path_to_css = 'src/css_pages/analyse_user.css'
         CSSLoader.load(path_to_css)
 
     def load_data(self):
-<<<<<<< HEAD
         # OLD
         # st.title("Chargement d'un dataframe")
         # data_dir = Path(os.getenv("DIR_DATASET_3"))
@@ -258,20 +211,6 @@ class StreamlitPage:
         self.data = self.get_data()
 
         st.write("Aperçu des données :", self.data.head())
-=======
-        st.title("Chargement d'un dataframe")
-        data_dir = Path("data")
-        csv_files = list(data_dir.glob("*.csv"))
-
-        if csv_files:
-            file_selected = st.selectbox("Sélectionnez un fichier CSV à analyser :", csv_files)
-            if file_selected:
-                st.write(f"Chargement du fichier : `{file_selected}`")
-                self.data = DataLoader.load_large_csv(file_selected)
-                st.write("Aperçu des données :", self.data.head())
-        else:
-            st.warning("Aucun fichier CSV trouvé dans le dossier `data`.")
->>>>>>> origin/main
 
     def run_analysis(self):
         if self.data is not None:
@@ -281,29 +220,17 @@ class StreamlitPage:
             # Ratings frequencies
             st.title("Analyse de Fréquences")
             if 'rating' in self.data.columns:
-<<<<<<< HEAD
                 VisualizationManager.display_histogram(
                     self.data, 'rating', "Fréquence globale des notes")
             else:
                 st.warning("La colonne 'rating' est absente du fichier.")
 
-=======
-                VisualizationManager.display_histogram(self.data, 'rating', "Fréquence globale des notes")
-            else:
-                st.warning("La colonne 'rating' est absente du fichier.")
-            
->>>>>>> origin/main
             # Frequencies over time
             st.title("Fréquence des notes au fil du temps")
             if 'date' in self.data.columns and 'rating' in self.data.columns:
                 frequency_data = analyzer.analyze_ratings_frequencies()
-<<<<<<< HEAD
                 VisualizationManager.display_ratings_frequencies(
                     frequency_data, x='year', title="Fréquence des Notes au fil du temps")
-=======
-                VisualizationManager.display_ratings_frequencies(frequency_data, x='year', title="Fréquence des Notes au fil du temps")
-            
->>>>>>> origin/main
 
             # Monthly average ratings
             st.title("Analyse des notes moyennes mensuelles")
@@ -315,7 +242,6 @@ class StreamlitPage:
             # User frequencies
             st.title("Fréquence des Notes par utilisateur au fil du temps")
             if 'user_id' in self.data.columns:
-<<<<<<< HEAD
                 user_id = st.number_input(
                     "Entrez l'ID utilisateur à analyser :", min_value=0, key=2)
                 user_frequency_data = analyzer.analyze_user_ratings_frequencies(
@@ -326,42 +252,22 @@ class StreamlitPage:
                 else:
                     st.error(
                         f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
-=======
-                user_id = st.number_input("Entrez l'ID utilisateur à analyser :", min_value=0, key=2)
-                user_frequency_data = analyzer.analyze_user_ratings_frequencies(user_id)
-                if user_frequency_data:
-                    VisualizationManager.display_ratings_frequencies(user_frequency_data, x='year', title=f"Fréquence des Notes pour l'utilisateur {user_id}")
-                else:
-                    st.error(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
->>>>>>> origin/main
 
             # User analysis
             st.title("Analyse des notes par utilisateur")
             if 'user_id' in self.data.columns:
-<<<<<<< HEAD
                 user_id = st.number_input(
                     "Entrez l'ID utilisateur à analyser :", min_value=0)
-=======
-                user_id = st.number_input("Entrez l'ID utilisateur à analyser :", min_value=0)
->>>>>>> origin/main
                 user_analysis = analyzer.analyze_user(user_id)
                 if user_analysis is not None:
                     VisualizationManager.display_line_chart(user_analysis, 'Mois', 'Note moyenne',
                                                             "Aperçu des notes utilisateur au fil du temps")
                 else:
-<<<<<<< HEAD
                     st.error(
                         f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
             else:
                 st.error("La colonne 'user_id' est absente du fichier.")
 
-=======
-                    st.error(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
-            else:
-                st.error("La colonne 'user_id' est absente du fichier.")
-
-
->>>>>>> origin/main
     def run(self):
         st.set_page_config(layout="wide")
         self.load_css()
