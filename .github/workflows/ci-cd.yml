@@ -8,7 +8,7 @@ on:
       - master           # Exécute le workflow sur toutes les branches
   pull_request:
     branches:
-      - main          # Exécute le workflow lors des pull requests vers main#
+      - main          # Exécute le workflow lors des pull requests vers main
 
 jobs:
   lint-format:
