@@ -30,10 +30,7 @@ jobs:
           version: 1.8.4
 
       - name: Installer les dépendances avec Poetry
-        run: |
-          poetry install --no-root
-          poetry env list
-          poetry debug
+        run: poetry install --no-root
 
       - name: Vérification du formatage avec Black
         id: black-check
@@ -124,4 +121,4 @@ jobs:
     
     - name: Run Docker container
       run: |
-        docker run -d --name mon-app-streamlit --memory="512m" -p 8501:8501
+        docker run -d --name mon-app-streamlit --memory="512m" -p 8501:8501 mon-app-streamlit
