@@ -105,9 +105,6 @@ class DisplayManager:
         try:
             with st.sidebar:
                 st.title("⚙️ Configuration")
-                theme = st.selectbox("Thème", ["Clair", "Sombre"], key='theme')
-                langue = st.selectbox(
-                    "Langue", ["Français", "English"], key='langue')
                 date_range = st.date_input(
                     "Période d'analyse",
                     value=(date(YEAR_MIN, 1, 1), date(YEAR_MAX, 12, 31)),
