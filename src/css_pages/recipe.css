@@ -29,7 +29,7 @@
 
 .metric-delta {
     font-size: 16px;
-    margin-top: 5px;
+    
 }
 
 .positive-delta {
@@ -83,4 +83,43 @@
     align-items: center;
     width: 100%;
     height: 100%;
+}
+.reportview-container .main .block-container {
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Réduction de l'espace dans les blocs verticaux */
+[data-testid="stVerticalBlock"] {
+    padding-top: 0rem;
+    margin-top: -10px;
+}
+
+/* Réduction de l'espace entre les éléments */
+[data-testid="stBlockContainer"] {
+    margin-top: -10px;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Réduction de l'espace des tabs */
+.stTabs>div {
+    gap: 0;
+}
+
+/* Enlever les marges supplémentaires des titres */
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Ajustement général pour réduire l'espace */
+.stApp {
+    max-width: 100%;
+    padding: 0;
 }

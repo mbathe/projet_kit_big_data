@@ -987,3 +987,337 @@
 2024-12-01 05:28:24,367 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-01 05:28:24,368 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-01 05:28:24,368 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:03,242 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:03,243 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:03,243 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:03,244 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:06,552 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:37:15,610 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:15,611 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:15,612 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:15,612 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:18,582 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:37:23,381 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:23,382 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:23,382 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:23,382 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:26,232 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:37:31,709 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:31,710 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:31,710 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:31,711 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:31,722 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:37:31,723 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:37:31,723 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:37:34,421 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:37:48,830 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:48,831 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:48,831 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:48,832 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:51,527 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:37:58,939 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:58,940 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:37:58,940 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:37:58,941 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:01,432 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:38:03,655 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:03,657 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:03,657 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:03,658 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:03,670 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:38:03,670 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:38:03,670 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:38:06,027 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:38:14,781 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:14,782 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:14,783 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:14,783 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:21,681 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:21,683 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:21,683 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:21,684 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:30,114 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:30,114 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:30,115 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:30,115 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:32,691 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:38:49,738 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:49,738 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:49,739 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:38:49,739 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:38:52,532 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:39:01,703 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:01,704 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:01,704 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:01,705 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:04,767 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:39:08,575 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:08,576 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:08,577 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:08,577 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:13,072 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:13,073 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:13,074 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:13,074 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:13,088 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:39:13,088 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:39:13,088 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:39:15,708 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:39:21,781 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:21,781 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:21,781 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:21,782 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:33,967 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:33,968 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:33,968 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:33,968 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:36,546 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:39:43,584 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:43,584 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:43,585 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:43,585 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:55,675 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:55,676 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:55,676 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:39:55,677 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:39:58,279 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:42:01,621 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:01,622 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:01,623 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:01,623 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:04,852 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:42:11,416 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:11,416 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:11,417 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:11,417 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:14,365 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:42:22,500 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:22,501 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:22,502 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:22,502 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:27,214 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:27,216 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:27,216 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:42:27,217 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:42:27,228 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:42:27,228 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:42:27,228 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:42:29,933 - ERROR - Error in display_submission_analysis: 'DataManager' object has no attribute 'date_start'
+2024-12-01 05:46:30,628 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:30,628 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:30,629 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:30,629 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:33,873 - ERROR - Error in display_submission_analysis: Slider `min_value` must be less than the `max_value`.
+The values were 1999 and 1999.
+2024-12-01 05:46:37,287 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:37,288 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:37,288 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:37,289 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:40,275 - ERROR - Error in display_submission_analysis: Slider `min_value` must be less than the `max_value`.
+The values were 1999 and 1999.
+2024-12-01 05:46:47,805 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:47,805 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:47,806 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:47,807 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:52,574 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:52,574 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:52,576 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:46:52,576 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:46:52,588 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:46:52,589 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:46:52,590 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:46:55,275 - ERROR - Error in display_submission_analysis: Slider `min_value` must be less than the `max_value`.
+The values were 1999 and 1999.
+2024-12-01 05:48:02,573 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:02,574 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:02,574 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:02,575 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:13,360 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:13,361 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:13,361 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:13,361 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:23,011 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:23,012 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:23,013 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:23,013 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:28,830 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:28,830 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:28,831 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:48:28,831 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:48:28,843 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:48:28,844 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:48:28,845 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:53:37,833 - ERROR - Error in initialize_session_state: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 05:53:37,833 - ERROR - Error initializing session state: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 05:53:37,833 - ERROR - Error in main: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 05:54:50,378 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:54:50,379 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:54:50,380 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:54:50,381 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:55:18,111 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:55:18,111 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:55:18,112 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:55:18,112 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:55:25,962 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:55:25,963 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:55:25,963 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:55:25,963 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:55:25,975 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:55:25,975 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:55:25,975 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:59:13,626 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:59:13,627 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:59:13,627 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:59:13,627 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:59:24,180 - ERROR - Error in initialize_session_state: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 05:59:24,180 - ERROR - Error initializing session state: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 05:59:24,180 - ERROR - Error in main: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 06:01:32,117 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:01:32,119 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:01:32,119 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:01:32,119 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:01:43,095 - ERROR - Error in initialize_session_state: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 06:01:43,095 - ERROR - Error initializing session state: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 06:01:43,096 - ERROR - Error in main: 'datetime.datetime' object cannot be interpreted as an integer
+2024-12-01 06:11:41,408 - ERROR - Error in initialize_session_state: Recipe._ensure_datetime() takes 1 positional argument but 2 were given
+2024-12-01 06:11:41,408 - ERROR - Error initializing session state: Recipe._ensure_datetime() takes 1 positional argument but 2 were given
+2024-12-01 06:11:41,408 - ERROR - Error in main: Recipe._ensure_datetime() takes 1 positional argument but 2 were given
+2024-12-01 06:12:18,950 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:18,951 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:18,951 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:18,952 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:31,955 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:31,956 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:31,957 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:31,957 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:42,325 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:42,326 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:42,326 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:42,327 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:53,755 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:53,756 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:53,757 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:12:53,757 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:12:53,771 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 06:12:53,771 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 06:12:53,771 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 06:19:43,076 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:19:43,077 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:19:43,078 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:19:43,079 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:19:54,828 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:19:54,829 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:19:54,829 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:19:54,830 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:20:02,173 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:20:02,173 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:20:02,174 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:20:02,174 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:20:12,461 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:20:12,461 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:20:12,462 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:20:12,463 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:20:12,475 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 06:20:12,475 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 06:20:12,475 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 06:22:19,875 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:19,876 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:19,877 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:19,877 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:27,410 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:27,411 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:27,412 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:27,412 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:33,515 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:33,516 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:33,516 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:33,516 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:39,642 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:39,642 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:39,643 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:22:39,643 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:22:42,010 - INFO - Date range set from 1999-01-14 to 2003-01-17
+2024-12-01 06:24:55,035 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:24:55,035 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:24:55,035 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:24:55,037 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:24:55,037 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:24:55,037 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:24:57,001 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:24:57,002 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:24:57,002 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:24:57,003 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:25:08,395 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:25:08,396 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:25:08,397 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:25:08,397 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:25:24,794 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:25:24,794 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:25:24,795 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:25:24,795 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:25:29,564 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:25:29,565 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:25:29,565 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:25:29,566 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:25:33,580 - INFO - Date range set from 1999-01-13 to 2008-01-17
+2024-12-01 06:26:04,559 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:26:04,559 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:26:04,559 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:26:50,360 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:26:50,361 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:26:50,362 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:27:24,468 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:27:24,468 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:27:24,468 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:29:45,234 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:29:45,235 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:29:45,236 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:29:45,236 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:29:56,660 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:29:56,661 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:29:56,661 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:32:31,122 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:32:31,123 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:32:31,123 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:32:31,124 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:37:44,804 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:37:44,804 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:37:44,805 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:37:44,806 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:37:44,806 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:37:44,806 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:37:47,032 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:37:47,033 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:37:47,033 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:37:47,034 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:38:04,617 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:38:04,618 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:38:04,618 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:38:04,619 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:39:25,314 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:39:25,314 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:39:25,315 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:39:25,315 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:41:28,811 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:41:28,813 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:41:28,814 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:41:28,814 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:41:44,117 - WARNING - Python-dotenv could not parse statement starting at line 14
+2024-12-01 06:41:44,118 - WARNING - Python-dotenv could not parse statement starting at line 33
+2024-12-01 06:41:44,118 - WARNING - Python-dotenv could not parse statement starting at line 39
+2024-12-01 06:42:02,992 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:42:02,993 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:42:02,993 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:42:02,994 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:43:01,679 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:43:01,680 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:43:01,680 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:43:01,681 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:43:45,710 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:43:45,710 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:43:45,710 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:43:45,711 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:53:08,881 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:53:08,881 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 06:53:08,882 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 06:53:08,882 - INFO - CSS loaded from src/css_pages/recipe.css

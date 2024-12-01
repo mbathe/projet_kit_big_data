@@ -94,13 +94,14 @@ class Recipe:
         """Initialize session state with filtered dataset."""
         try:
             print(DEPLOIEMENT_SITE)
-            print(os.getenv("DIR_DATASET_2"))
             if DEPLOIEMENT_SITE == "ONLINE":
                 if 'data' not in self.st.session_state:
                     if 'start_date' not in self.st.session_state:
-                        self.st.session_state.start_date = start_date
+                        self.st.session_state.start_date = self._ensure_date(
+                            start_date)
                     if 'end_date' not in self.st.session_state:
-                        self.st.session_state.end_date = end_date
+                        self.st.session_state.end_date = self._ensure_date(
+                            end_date)
                     with self.st.spinner("Chargement des données depuis MongoDB..."):
                         self.st.session_state.data = self.fetch_data_from_mongodb(
                             CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
@@ -108,25 +109,47 @@ class Recipe:
                     with self.st.spinner("Chargement des données depuis MongoDB..."):
                         self.st.session_state.data = self.fetch_data_from_mongodb(
                             CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
-                    self.st.session_state.start_date = start_date
-                    self.st.session_state.end_date = end_date
+                    self.st.session_state.start_date = self._ensure_date(
+                        start_date)
+                    self.st.session_state.end_date = self._ensure_date(
+                        end_date)
             else:
                 if 'data' not in self.st.session_state:
                     dataset_dir = os.getenv("DIR_DATASET_2")
                     self.st.session_state.data = load_dataset_from_file(
                         os.path.join(dataset_dir, "RAW_recipes.csv"), start_date, end_date)
-                    self.st.session_state.start_date = start_date
-                    self.st.session_state.end_date = end_date
-                elif (start_date != self.st.session_state.start_date and start_date != date(1999, 1, 1)) or (end_date != self.st.session_state.end_date and end_date != date(2018, 12, 31)):
+                    self.st.session_state.start_date = self._ensure_date(
+                        start_date)
+                    self.st.session_state.end_date = self._ensure_date(
+                        end_date)
+                elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(1999, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(2018, 12, 31)):
                     dataset_dir = os.getenv("DIR_DATASET_2")
 
                     self.st.session_state.data = load_dataset_from_file(
-                        os.path.join(dataset_dir, "RAW_recipes.csv"), start_date, end_date)
-                    self.st.session_state.start_date = start_date
-                    self.st.session_state.end_date = end_date
+                        os.path.join(dataset_dir, "RAW_recipes.csv"), self._ensure_datetime(start_date), self._ensure_datetime(end_date))
+                    self.st.session_state.start_date = self._ensure_date(
+                        start_date)
+                    self.st.session_state.end_date = self._ensure_date(
+                        end_date)
         except Exception as e:
             logging.error(f"Error in initialize_session_state: {e}")
             raise
+
+    def _ensure_datetime(self, obj):
+        if isinstance(obj, datetime):
+            return obj
+        elif isinstance(obj, date):
+            return datetime.combine(obj, datetime.min.time())
+        else:
+            raise TypeError("L'objet doit être de type datetime ou date.")
+
+    def _ensure_date(sefl, obj):
+        if isinstance(obj, date):
+            return obj
+        elif isinstance(obj, datetime):
+            return obj.date()
+        else:
+            raise TypeError("L'objet doit être de type date ou datetime.")
 
     def detect_dataframe_anomalies(
         self,

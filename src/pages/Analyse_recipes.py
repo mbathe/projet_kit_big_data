@@ -27,7 +27,13 @@ except locale.Error:
     # Fallback to a default locale or skip locale setting
     locale.setlocale(locale.LC_TIME, '')
 
-
+""" st.set_page_config(
+    page_title="Votre Titre",
+    page_icon=":chart:",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
+ """
 
 class CSSLoader:
     """Class responsible for loading CSS."""
@@ -122,9 +128,9 @@ class DisplayManager:
                         st.error(
                             "La date de début doit être antérieure ou égale à la date de fin.")
                     else:
+                        self.data_manager.set_date_range(start_date, end_date)
                         st.success(f"Période d'analyse: {
                                    start_date} à {end_date}")
-                        self.data_manager.set_date_range(start_date, end_date)
                 show_toogle = st.toggle(
                     "Utiliser les données nettoyées", value=True)
                 if show_toogle:
@@ -623,13 +629,16 @@ class DisplayManager:
             # st.markdown("### Analyse des Soumissions")
             col1, col2 = st.columns(2)
             with col1:
-                start_year = st.slider("Année de début", 1999, 2018, 1999)
+                start_year = st.slider(
+                    "Année de début", self.data_manager.get_recipe_data().date_start.year, self.data_manager.get_recipe_data().date_end.year, self.data_manager.get_recipe_data().date_start.year)
             with col2:
-                end_year = st.slider("Année de fin", 1999, 2018, 2018)
+                end_year = st.slider("Année de fin", 1999,
+                                     self.data_manager.get_recipe_data().date_end.year, self.data_manager.get_recipe_data().date_end.year)
             date_start = datetime(start_year, 1, 1)
             date_end = datetime(end_year, 12, 31)
             start_datetime = pd.Timestamp(date_start)
             end_datetime = pd.Timestamp(date_end)
+            print(start_datetime, end_datetime)
             data = self.data_manager.analyze_temporal_distribution(
                 start_datetime, end_datetime)
             submissions_per_year = data.get("submissions_per_year")
