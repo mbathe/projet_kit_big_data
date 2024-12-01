@@ -787,7 +787,6 @@
 2024-11-30 10:24:13,089 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 10:24:13,090 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 10:24:13,090 - INFO - CSS loaded from src/css_pages/recipe.css
-<<<<<<< HEAD
 2024-11-30 12:04:51,628 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 12:04:51,630 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 12:04:51,631 - INFO - CSS loaded from src/css_pages/analyse_user.css
@@ -848,7 +847,6 @@
 2024-11-30 13:45:26,846 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 13:45:26,846 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 13:45:26,847 - INFO - CSS loaded from src/css_pages/recipe.css
-=======
 2024-11-30 12:54:01,617 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 12:54:01,618 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 12:54:01,619 - INFO - CSS loaded from src/css_pages/analyse_user.css
@@ -959,6 +957,7 @@
 2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/recipe.css
+<<<<<<< HEAD
 >>>>>>> sacha
 2024-12-01 05:26:56,969 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-01 05:26:56,970 - INFO - CSS loaded from src/css_pages/recipe.css
@@ -1492,3 +1491,9 @@ The values were 1999 and 1999.
 2024-12-01 08:40:09,852 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-01 08:40:09,853 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-01 08:40:09,854 - INFO - CSS loaded from src/css_pages/recipe.css
+=======
+2024-12-01 08:56:27,042 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 08:56:27,043 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 08:56:27,043 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 08:56:27,044 - INFO - CSS loaded from src/css_pages/recipe.css
+>>>>>>> develop
