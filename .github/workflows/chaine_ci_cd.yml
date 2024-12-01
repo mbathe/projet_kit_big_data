@@ -1,0 +1,45 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - 'review/**'   # Exécute le workflow sur les branches de review
+      - main          # Exécute le workflow lors des push sur main
+  pull_request:
+    branches:
+      - main          # Exécute le workflow lors des pull requests vers main
+
+jobs:
+  lint-format:
+    name: Vérification PEP 8 et Formatage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4  # Mise à jour vers la dernière version
+
+      - name: Configuration de Python
+        uses: actions/setup-python@v5  # Mise à jour vers la dernière version
+        with:
+          python-version: '3.12'
+          cache: 'pip'  # Mise en cache des dépendances pip
+
+      - name: Installer Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: latest  # Utiliser la dernière version de Poetry
+
+      - name: Installer les dépendances
+        run: |
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.in-project true
+          poetry install --no-interaction
+
+      - name: Vérification du formatage avec Black
+        run: poetry run black --check .
+
+      - name: Vérification des imports avec isort
+        run: poetry run isort --check .
+
+      - name: Linter avec Flake8
+        run: poetry run flake8 .
