@@ -1,10 +1,14 @@
+from scripts import MongoDBConnector
+
+from pathlib import Path
+import os
+
 import seaborn as sns
 import streamlit as st
 import pandas as pd
 import ast
 import matplotlib.pyplot as plt
-from pathlib import Path
-import os
+from dotenv import load_dotenv
 
 st.set_page_config(
     page_title="INTERACTIONS_PAGE",
@@ -13,8 +17,28 @@ st.set_page_config(
 
 st.subheader("NUTRITION")
 
-df_RAW_recipes = pd.read_csv(os.path.join('data','RAW_recipes.csv'))
-df_RAW_interactions = pd.read_csv(os.path.join('data','RAW_interactions.csv'))
+load_dotenv()
+CONNECTION_STRING = os.getenv("CONNECTION_STRING")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
+
+COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
+COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
+
+# Initialiser la classe
+connector = MongoDBConnector(CONNECTION_STRING, DATABASE_NAME)
+
+# Se connecter à MongoDB
+connector.connect()
+
+# OLD
+# df_RAW_recipes = pd.read_csv(os.path.join('data','RAW_recipes.csv'))
+# df_RAW_interactions = pd.read_csv(os.path.join('data','RAW_interactions.csv'))
+
+# NEW
+fields = {"id": 1, "name": 1, "nutrition": 1, "_id": 0}
+df_RAW_recipes = connector.load_collection_as_dataframe(COLLECTION_NAME, limit=2000, fields=fields)
+df_RAW_interactions = connector.load_collection_as_dataframe(COLLECTION_RAW_INTERACTIONS,limit=2000)
+connector.close()
 
 # On ne garde que la moyenne des notes de la recette
 df_mean_rating = df_RAW_interactions[[
@@ -31,8 +55,15 @@ merged_df = df_nutrition.merge(df_mean_rating, left_on='id', right_on='recipe_id
 merged_df.rename(columns={'rating_x': 'Moyenne des notes',
                           'rating_y': 'Nombre de notes'}, inplace=True)
 
+
+# Vérifier et évaluer uniquement les chaînes
+def safe_literal_eval(val):
+    if isinstance(val, str):  # Si la valeur est une chaîne, essayer de l'évaluer
+        return ast.literal_eval(val)
+    return val  # Si ce n'est pas une chaîne, la retourner telle quelle
+
 # Convertir les chaînes de caractères en listes
-merged_df['nutrition'] = merged_df['nutrition'].apply(ast.literal_eval)
+merged_df['nutrition'] = merged_df['nutrition'].apply(safe_literal_eval)
 
 # Convertir la colonne de listes en plusieurs colonnes
 valeurs_df = pd.DataFrame(

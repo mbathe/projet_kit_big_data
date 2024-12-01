@@ -787,6 +787,7 @@
 2024-11-30 10:24:13,089 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 10:24:13,090 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 10:24:13,090 - INFO - CSS loaded from src/css_pages/recipe.css
+<<<<<<< HEAD
 2024-11-30 12:04:51,628 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 12:04:51,630 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 12:04:51,631 - INFO - CSS loaded from src/css_pages/analyse_user.css
@@ -847,3 +848,115 @@
 2024-11-30 13:45:26,846 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-11-30 13:45:26,846 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 13:45:26,847 - INFO - CSS loaded from src/css_pages/recipe.css
+=======
+2024-11-30 12:54:01,617 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:54:01,618 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:54:01,619 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:54:01,619 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:17,192 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:17,193 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:17,194 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:17,194 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:17,426 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:17,426 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:17,427 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:17,427 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:21,239 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:21,241 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:21,241 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:21,242 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:25,782 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:25,782 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:25,783 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:25,783 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:25,815 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:25,816 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:25,854 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-11-30 12:56:46,263 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:46,263 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:46,263 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:46,264 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:46,296 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:46,296 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:46,332 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-11-30 12:56:47,467 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:47,467 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:47,468 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:47,468 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:47,503 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:47,503 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:47,538 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-11-30 12:56:52,383 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:52,383 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:52,383 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 12:56:52,384 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 12:56:52,399 - INFO - Date range set from 2015-01-01 to 2018-12-31
+2024-11-30 12:56:52,424 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:52,424 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-11-30 12:56:52,461 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-11-30 14:54:34,426 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 14:54:34,427 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 14:54:34,427 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 14:54:34,427 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:02:42,526 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:02:42,527 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:02:42,528 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:02:42,528 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:02:52,945 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:02:52,946 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:02:52,948 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:02:52,967 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:02:53,000 - ERROR - Error in analyze_ingredients: eval() arg 1 must be a string, bytes or code object
+2024-11-30 15:02:55,753 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:02:55,754 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:02:55,755 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:02:55,755 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:00,880 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:00,880 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:00,881 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:00,882 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:05,766 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:05,766 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:05,766 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:05,767 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:06,679 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:06,679 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:06,679 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:06,680 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:13,583 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:13,584 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:13,584 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:13,585 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:21,424 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:21,425 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:21,426 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:21,426 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:26,380 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:26,380 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:26,381 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:26,382 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:36,371 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:36,372 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:36,373 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:36,373 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:37,205 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:37,205 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:37,206 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:37,206 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:38,660 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:38,660 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 15:03:38,661 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 15:03:38,661 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 16:24:59,911 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 16:24:59,913 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 16:24:59,913 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 16:24:59,913 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 16:25:02,769 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 16:25:02,770 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 16:25:02,770 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 16:25:02,771 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 16:36:34,022 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/recipe.css
+>>>>>>> sacha

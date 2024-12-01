@@ -1,7 +1,8 @@
-import os
 from src.visualizations.graphiques import LineChart, Histogramme
 from src.visualizations import Grille, load_css
+from scripts import MongoDBConnector
 
+import os
 from pathlib import Path
 import streamlit as st
 import pandas as pd
@@ -9,7 +10,7 @@ import pandas as pd
 from dotenv import load_dotenv
 load_dotenv()
 
-
+## OLD
 class DataLoader:
     """Class responsible for loading data."""
     @staticmethod
@@ -17,6 +18,60 @@ class DataLoader:
     def load_large_csv(file_path):
         return pd.read_csv(file_path)
 
+## NEW
+class DataLoaderMango:
+    """Class responsible for loading data from MongoDB."""
+
+    def __init__(self, connection_string, database_name, collection_name, limit=2000):
+        """
+        Initialise les paramètres de connexion à MongoDB.
+        
+        Args:
+            connection_string (str): URI de connexion à MongoDB.
+            database_name (str): Nom de la base de données.
+            collection_name (str): Nom de la collection à charger.
+            limit (int): Nombre maximum de documents à charger.
+        """
+        self.connection_string = connection_string
+        self.database_name = database_name
+        self.collection_name = collection_name
+        self.limit = limit
+
+    @staticmethod
+    @st.cache_data
+    def load_dataframe(connection_string, database_name, collection_name, limit):
+        """
+        Charge les données depuis MongoDB et les met en cache.
+
+        Args:
+            connection_string (str): URI de connexion à MongoDB.
+            database_name (str): Nom de la base de données.
+            collection_name (str): Nom de la collection à charger.
+            limit (int): Nombre maximum de documents à charger.
+
+        Returns:
+            pd.DataFrame: DataFrame contenant les données de la collection.
+        """
+        # Initialiser la connexion MongoDB
+        connector = MongoDBConnector(connection_string, database_name)
+        connector.connect()
+        
+        # Charger les données depuis la collection
+        data = connector.load_collection_as_dataframe(collection_name, limit=limit)
+        
+        # Fermer la connexion
+        connector.close()
+        
+        return data
+
+    def get_data(self):
+        """Retourne les données chargées depuis MongoDB."""
+        return self.load_dataframe(
+            self.connection_string,
+            self.database_name,
+            self.collection_name,
+            self.limit
+        )
 
 class CSSLoader:
     """Class responsible for loading CSS."""
@@ -118,28 +173,44 @@ class VisualizationManager:
         grille.afficher(graphiques)
 
 
-class StreamlitPage:
+class StreamlitPage(DataLoaderMango):
     def __init__(self):
+        """
+        Initialise les paramètres de DataLoader et Streamlit.
+        """
         self.data = None
+        self.CONNECTION_STRING = os.getenv("CONNECTION_STRING")
+        self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
+        self.COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
+        
+        super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME, self.COLLECTION_RAW_INTERACTIONS, limit=2000)
 
     def load_css(self):
         path_to_css = 'src/css_pages/analyse_user.css'
         CSSLoader.load(path_to_css)
 
     def load_data(self):
-        st.title("Chargement d'un dataframe")
-        data_dir = Path(os.getenv("DIR_DATASET_2"))
-        csv_files = list(data_dir.glob("*.csv"))
+        # OLD
+        # st.title("Chargement d'un dataframe")
+        # data_dir = Path(os.getenv("DIR_DATASET_3"))
+        # csv_files = list(data_dir.glob("*.csv"))
 
-        if csv_files:
-            file_selected = st.selectbox(
-                "Sélectionnez un fichier CSV à analyser :", csv_files)
-            if file_selected:
-                st.write(f"Chargement du fichier : `{file_selected}`")
-                self.data = DataLoader.load_large_csv(file_selected)
-                st.write("Aperçu des données :", self.data.head())
-        else:
-            st.warning("Aucun fichier CSV trouvé dans le dossier `data`.")
+        # if csv_files:
+        #     file_selected = st.selectbox(
+        #         "Sélectionnez un fichier CSV à analyser :", csv_files)
+        #     if file_selected:
+        #         st.write(f"Chargement du fichier : `{file_selected}`")
+        #         self.data = DataLoader.load_large_csv(file_selected)
+        #         st.write("Aperçu des données :", self.data.head())
+        # else:
+        #     st.warning("Aucun fichier CSV trouvé dans le dossier `data`.")
+       
+        # NEW
+        # Initialiser la classe
+
+        self.data = self.get_data()
+
+        st.write("Aperçu des données :", self.data.head())
 
     def run_analysis(self):
         if self.data is not None:

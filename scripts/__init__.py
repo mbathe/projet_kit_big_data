@@ -3,3 +3,5 @@ from .script import (
                     deplacer_fichiers,
                     download_dataset,
                     )
+
+from .MongoDBConnector import MongoDBConnector
