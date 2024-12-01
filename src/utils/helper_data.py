@@ -1,9 +1,5 @@
 import os
 import pandas as pd
-<<<<<<< HEAD
-=======
-import dotenv
->>>>>>> origin/main
 from dotenv import load_dotenv
 import streamlit as st
 load_dotenv()
@@ -36,7 +32,6 @@ def load_dataset(dir_name: str, all_contents=True):
         return dataframes
 
 
-<<<<<<< HEAD
 def clean_excel_data(df):
     # Convertir tous les types de colonnes en chaîne de caractères et nettoyer
     for col in df.columns:
@@ -56,6 +51,3 @@ def load_dataset_from_file(dir_folder, date_start, date_end):
                             for chunk in df)
     df_filtered = df_filtered.reset_index(drop=True)
     return df_filtered
-=======
-load_dataset
->>>>>>> origin/main
