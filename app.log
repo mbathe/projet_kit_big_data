@@ -1511,3 +1511,111 @@ The values were 1999 and 1999.
 2024-12-01 13:02:57,959 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-01 13:02:57,960 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-01 13:02:57,960 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 13:41:02,936 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 13:41:02,937 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 13:41:02,938 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 13:41:02,939 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:15:21,553 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:15:21,554 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:15:21,646 - ERROR - Error in main: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2024-12-01 14:18:52,857 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:18:52,858 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:18:52,858 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:18:52,858 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:22:04,855 - ERROR - Error in main: DisplayManager.load_css() missing 1 required positional argument: 'self'
+2024-12-01 14:23:32,700 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:23:32,701 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:23:32,701 - ERROR - Error in main: DisplayManager.show_welcom() missing 1 required positional argument: 'self'
+2024-12-01 14:24:05,438 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:24:05,439 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:24:05,440 - ERROR - Error in main: DisplayManager.display_welcome_screen() missing 1 required positional argument: 'self'
+2024-12-01 14:24:35,951 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:24:35,952 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:28:53,360 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:28:53,361 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:31:30,594 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:31:30,595 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:41:08,992 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:41:08,993 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 14:59:24,868 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 14:59:24,869 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:02:58,473 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:02:58,474 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:08:03,164 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:08:03,165 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:10:35,427 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:10:35,429 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:13:34,783 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:13:34,784 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:17:54,660 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:17:54,661 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:20:00,926 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:20:00,927 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:21:43,852 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:21:43,853 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:27:12,161 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:27:12,162 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:28:00,928 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-01 15:28:00,928 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-01 15:28:00,929 - ERROR - Error in main: 'NoneType' object has no attribute 'isnull'
+2024-12-01 15:32:50,395 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:32:50,397 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:34:01,671 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:34:01,672 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:34:05,951 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:34:05,952 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:34:09,794 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:34:09,795 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:34:24,127 - INFO - Date range set from 2016-01-08 to 2018-01-13
+2024-12-01 15:42:25,994 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:42:25,995 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:57:03,119 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:57:03,121 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 15:58:51,246 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 15:58:51,247 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:01:18,458 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:01:18,459 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:03:28,617 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:03:28,618 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:03:29,791 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:03:29,793 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:04:14,855 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:04:14,856 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:06:11,855 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:06:11,856 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:08:40,734 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:08:40,735 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:10:04,863 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:10:04,865 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:21:34,573 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:21:34,575 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:21:44,514 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:21:44,515 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:23:06,984 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:23:06,985 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:26:00,131 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:26:00,133 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:28:06,683 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:28:06,685 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:28:09,120 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:28:09,121 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:29:09,119 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:29:09,120 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:30:30,341 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:30:30,342 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:31:51,313 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:31:51,314 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:32:45,757 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:32:45,759 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:35:28,600 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:35:28,602 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:35:31,273 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:35:31,274 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:36:34,839 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:36:34,841 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:39:40,282 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:39:40,284 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 16:39:50,637 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 16:39:50,638 - INFO - CSS loaded from src/css_pages/recipe.css

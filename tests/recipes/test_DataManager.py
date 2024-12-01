@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 # Remplacez 'src.pages.recipes' par le nom de votre module
-from src.pages.Analyse_recipes import DataManager, Recipe
+from src.pages.recipes.Analyse_recipes import DataManager, Recipe
 import json
 import csv
 from io import StringIO
@@ -12,7 +12,7 @@ def data_manager():
 
 
 def test_set_date_range(data_manager):
-    with patch('src.pages.Analyse_recipes.Recipe') as mock_recipe:
+    with patch('src.pages.recipes.Analyse_recipes.Recipe') as mock_recipe:
         mock_recipe.return_value = MagicMock()
         data_manager.set_date_range('2020-01-01', '2020-12-31')
         mock_recipe.assert_called_once_with(
@@ -26,7 +26,7 @@ def test_export_data_csv(data_manager):
     # Simuler des données au format CSV
     expected_csv_data = "column1,column2\nvalue1,value2\nvalue3,value4\n"
 
-    with patch('src.pages.Analyse_recipes.Recipe') as mock_recipe:
+    with patch('src.pages.recipes.Analyse_recipes.Recipe') as mock_recipe:
         mock_recipe.return_value.st.session_state.data.to_csv.return_value = expected_csv_data
         result = data_manager.export_data("CSV")
 
@@ -45,7 +45,7 @@ def test_export_data_json(data_manager):
     # Simuler le retour d'une méthode qui renvoie des données au format JSON
     expected_json_data = json.dumps(
         {"key": "value"})  # Exemple de données JSON
-    with patch('src.pages.Analyse_recipes.Recipe') as mock_recipe:
+    with patch('src.pages.recipes.Analyse_recipes.Recipe') as mock_recipe:
         mock_recipe.return_value.st.session_state.data.to_json.return_value = expected_json_data
         result = data_manager.export_data("JSON")
         assert isinstance(result, str), "Result should be a string"
@@ -56,7 +56,7 @@ def test_export_data_json(data_manager):
 
 
 def test_analyze_temporal_distribution(data_manager):
-    with patch('src.pages.Analyse_recipes.Recipe') as mock_recipe:
+    with patch('src.pages.recipes.Analyse_recipes.Recipe') as mock_recipe:
         mock_recipe.return_value.analyze_temporal_distribution.return_value = "temporal_data"
         result = data_manager.analyze_temporal_distribution(
             '2020-01-01', '2020-12-31')
@@ -67,7 +67,7 @@ def test_analyze_temporal_distribution(data_manager):
 
 def test_analyze_recipe_complexity(data_manager):
 
-    with patch('src.pages.Analyse_recipes.Recipe') as mock_recipe:
+    with patch('src.pages.recipes.Analyse_recipes.Recipe') as mock_recipe:
         mock_recipe.return_value.analyze_recipe_complexity.return_value = "complexity_data"
         result = data_manager.analyze_recipe_complexity()
         for key in expected_data_complexity.keys():
@@ -93,7 +93,7 @@ def test_analyze_recipe_complexity(data_manager):
         assert result['time_stats']['max_minutes'] == expected_data_complexity['time_stats']['max_minutes'], "Max minutes does not match"
 
 def test_analyze_nutrition(data_manager):
-    with patch('src.pages.Analyse_recipes.Recipe') as mock_recipe:
+    with patch('src.pages.recipes.Analyse_recipes.Recipe') as mock_recipe:
         mock_recipe.return_value.analyze_nutrition.return_value = "nutrition_data"
         result = data_manager.analyze_nutrition()
         for key in expected_nutrition_data.keys():
@@ -106,7 +106,7 @@ def test_analyze_nutrition(data_manager):
 
 def test_analyze_tags_old(data_manager):
 
-    with patch('src.pages.Analyse_recipes.Recipe') as mock_recipe:
+    with patch('src.pages.recipes.Analyse_recipes.Recipe') as mock_recipe:
         mock_recipe.return_value.analyze_tags.return_value = "tags_data"
         result = data_manager.analyze_tags()
         for key in expected_tags_data.keys():

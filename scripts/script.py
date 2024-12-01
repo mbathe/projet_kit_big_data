@@ -3,7 +3,15 @@ import os
 import shutil
 import gdown
 import zipfile
-
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("script.log"),
+        logging.StreamHandler()
+    ]
+)
 
 def download_dataset_from_drive(file_id, output_directory):
     """
@@ -27,22 +35,23 @@ def download_dataset_from_drive(file_id, output_directory):
 
     try:
         # Télécharger le fichier
-        print(f"Téléchargement du fichier depuis : {url}")
+        logging.info(f"Téléchargement du fichier depuis : {url}")
         gdown.download(url, output_zip, quiet=False)
 
         # Décompresser le fichier
-        print(f"Décompression du fichier dans : {output_directory}")
+        logging.info(f"Décompression du fichier dans : {output_directory}")
         with zipfile.ZipFile(output_zip, 'r') as zip_ref:
             zip_ref.extractall(output_directory)
 
         # Supprimer le fichier ZIP après décompression (optionnel)
         os.remove(output_zip)
 
-        print("Téléchargement et décompression terminés avec succès.")
+        logging.info("Téléchargement et décompression terminés avec succès.")
         return output_zip
 
     except Exception as e:
-        print(f"Erreur lors du téléchargement ou de la décompression : {e}")
+        logging.error(
+            f"Erreur lors du téléchargement ou de la décompression : {e}")
         return None
 
 
@@ -50,7 +59,6 @@ def download_dataset_from_kaggle():
     print("Downloading dataset...")
     path = kagglehub.dataset_download(
         "shuyangli94/food-com-recipes-and-user-interactions")
-    print("Path to dataset files:", path)
     return path
 
 def deplacer_fichiers(chemin_source, chemin_destination):
@@ -73,12 +81,12 @@ def deplacer_fichiers(chemin_source, chemin_destination):
                 shutil.move(chemin_fichier, chemin_destination)
                 print(f"Le fichier '{fichier}' a été déplacé vers '{chemin_destination}'.")
     except Exception as e:
-        print(f"Une erreur s'est produite : {e}")
+        logging.error(f"Une erreur s'est produite : {e}")
 
 def download_dataset():
     path_to_data = os.path.join('data')
     if os.path.exists(path_to_data) : 
-        print(f"Deja chargé")
+        logging.error(f"Deja chargé")
     else : 
         path = download_dataset_from_kaggle()
         deplacer_fichiers(path, path_to_data)

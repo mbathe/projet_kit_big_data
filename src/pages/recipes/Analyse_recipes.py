@@ -16,6 +16,7 @@ from streamlit_echarts import st_echarts
 from src.utils.static import constribution_data
 from dotenv import load_dotenv
 import os
+
 st.set_page_config(
     page_title="Food.com Recipes Explorer",
     page_icon="🍳",
@@ -36,6 +37,8 @@ except locale.Error:
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
 YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
 YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
+
+
 class CSSLoader:
     """Class responsible for loading CSS."""
     @staticmethod
@@ -639,6 +642,7 @@ class DisplayManager:
             date_end = datetime(end_year, 12, 31)
             start_datetime = pd.Timestamp(date_start)
             end_datetime = pd.Timestamp(date_end)
+            print(start_datetime, end_datetime)
             data = self.data_manager.analyze_temporal_distribution(
                 start_datetime, end_datetime)
             submissions_per_year = data.get("submissions_per_year")
@@ -1020,12 +1024,6 @@ class DisplayManager:
 
         # Chargement des données
         DisplayManager.load_data()
-
-
-
-
-
-
 
 
 if __name__ == "__main__":
