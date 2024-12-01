@@ -1497,3 +1497,17 @@ The values were 1999 and 1999.
 2024-12-01 08:56:27,043 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-01 08:56:27,044 - INFO - CSS loaded from src/css_pages/recipe.css
 >>>>>>> develop
+2024-12-01 13:02:06,047 - WARNING - Python-dotenv could not parse statement starting at line 36
+2024-12-01 13:02:06,048 - WARNING - Python-dotenv could not parse statement starting at line 38
+2024-12-01 13:02:06,048 - WARNING - Python-dotenv could not parse statement starting at line 40
+2024-12-01 13:02:15,588 - WARNING - Python-dotenv could not parse statement starting at line 36
+2024-12-01 13:02:15,588 - WARNING - Python-dotenv could not parse statement starting at line 38
+2024-12-01 13:02:15,589 - WARNING - Python-dotenv could not parse statement starting at line 40
+2024-12-01 13:02:53,486 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 13:02:53,487 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 13:02:53,488 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 13:02:53,488 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 13:02:57,958 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 13:02:57,959 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 13:02:57,960 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 13:02:57,960 - INFO - CSS loaded from src/css_pages/recipe.css
