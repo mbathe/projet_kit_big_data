@@ -1,4 +1,4 @@
-from src.pages.analyse_user import CSSLoader
+from src.pages.pages import CSSLoader
 
 from unittest.mock import patch
 

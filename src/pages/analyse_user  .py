@@ -3,7 +3,6 @@ from src.visualizations import Grille, load_css
 from scripts import MongoDBConnector
 
 import os
-from pathlib import Path
 import streamlit as st
 import pandas as pd
 
@@ -11,6 +10,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # OLD
+
+
 class DataLoader:
     """Class responsible for loading data."""
     @staticmethod
@@ -18,7 +19,9 @@ class DataLoader:
     def load_large_csv(file_path):
         return pd.read_csv(file_path)
 
-## NEW
+# NEW
+
+
 class DataLoaderMango:
     """Class responsible for loading data from MongoDB."""
 
@@ -55,13 +58,14 @@ class DataLoaderMango:
         # Initialiser la connexion MongoDB
         connector = MongoDBConnector(connection_string, database_name)
         connector.connect()
-        
+
         # Charger les données depuis la collection
-        data = connector.load_collection_as_dataframe(collection_name, limit=limit)
-        
+        data = connector.load_collection_as_dataframe(
+            collection_name, limit=limit)
+
         # Fermer la connexion
         connector.close()
-        
+
         return data
 
     def get_data(self):
@@ -73,6 +77,7 @@ class DataLoaderMango:
             self.limit
         )
 
+
 class CSSLoader:
     """Class responsible for loading CSS."""
     @staticmethod
@@ -82,6 +87,7 @@ class CSSLoader:
 
 class DataAnalyzer:
     """Class for analyzing the data."""
+
     def __init__(self, data):
         self.data = data
 
@@ -180,8 +186,9 @@ class StreamlitPage(DataLoaderMango):
         self.data = None
         self.CONNECTION_STRING = os.getenv("CONNECTION_STRING")
         self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
-        self.COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
-        
+        self.COLLECTION_RAW_INTERACTIONS = os.getenv(
+            "COLLECTION_RAW_INTERACTIONS", "raw_interaction")
+
         super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME,
                          self.COLLECTION_RAW_INTERACTIONS, limit=2000)
 
@@ -204,7 +211,7 @@ class StreamlitPage(DataLoaderMango):
         #         st.write("Aperçu des données :", self.data.head())
         # else:
         #     st.warning("Aucun fichier CSV trouvé dans le dossier `data`.")
-       
+
         # NEW
         # Initialiser la classe
 

@@ -1,7 +1,8 @@
 import pytest
 from unittest.mock import patch, MagicMock
 # Remplacez 'src.pages.recipes' par le nom de votre module
-from src.pages.recipes.Analyse_recipes import DataManager, Recipe
+from src.pages.recipes.Analyse_recipes import DataManager
+from src.process.recipes import Recipe
 import json
 import csv
 from io import StringIO

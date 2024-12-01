@@ -1,4 +1,4 @@
-from src.pages.Analyse_recipes import CSSLoader
+from src.pages.recipes.Analyse_recipes import CSSLoader
 import pytest
 from unittest.mock import patch
 
