@@ -32,13 +32,6 @@ def load_dataset(dir_name: str, all_contents=True):
         return dataframes
 
 
-def clean_excel_data(df):
-    # Convertir tous les types de colonnes en chaîne de caractères et nettoyer
-    for col in df.columns:
-        df[col] = df[col].astype(str).str.replace(
-            '\n', ' ').str.replace('\r', '')
-    return df
-
 
 @st.cache_data
 def load_dataset_from_file(dir_folder, date_start, date_end):

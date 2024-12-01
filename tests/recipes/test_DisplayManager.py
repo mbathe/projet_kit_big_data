@@ -54,9 +54,9 @@ def test_display_steps_and_time_analysis(display_manager):
 
 
 def test_display_nutrition_analysis(display_manager):
-    with patch('streamlit.title') as mock_title:
+    with patch('streamlit.sidebar.header') as mock_title:
         display_manager.display_nutrition_analysis()
-        mock_title.assert_called_once_with("📊 Analyse des Données")
+        mock_title.assert_called_once_with("Filtres Nutritionnels")
 
 
 def test_display_data_structures(display_manager):
