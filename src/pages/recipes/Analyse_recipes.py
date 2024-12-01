@@ -18,11 +18,10 @@ from dotenv import load_dotenv
 import os
 
 st.set_page_config(
-    page_title="Food.com Recipes Explorer",
+    page_title="Recipes Explorer",
     page_icon="🍳",
-    layout="wide"
+    layout="wide",
 )
-
 load_dotenv()
 
 logging.basicConfig(level=logging.INFO,
