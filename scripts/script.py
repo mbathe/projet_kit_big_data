@@ -53,7 +53,6 @@ def download_dataset_from_kaggle():
     print("Path to dataset files:", path)
     return path
 
-
 def deplacer_fichiers(chemin_source, chemin_destination):
     """
     Déplace tous les fichiers du dossier chemin_source vers chemin_destination.

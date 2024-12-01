@@ -1,14 +1,6 @@
 # Utiliser l'image officielle de Python 3.12
 FROM python:3.12-slim
 
-
-RUN apt-get update && apt-get install -y locales
-RUN locale-gen fr_FR.UTF-8
-ENV LC_ALL fr_FR.UTF-8
-ENV LANG fr_FR.UTF-8
-ENV LANGUAGE fr_FR.UTF-8
-
-
 # Installer les dépendances système nécessaires
 RUN apt-get update && \
     apt-get install -y graphviz nano libpq-dev curl && \
@@ -29,10 +21,10 @@ ENV PATH="/root/.local/bin:$PATH"
 EXPOSE 8501
 
 # Créer le répertoire de l'application
-WORKDIR /tpbigdata
+WORKDIR /streamlit-docker
 
 # Copier les fichiers de configuration de Poetry
-COPY pyproject.toml ./
+COPY pyproject.toml poetry.lock ./
 
 # Installer les dépendances avec Poetry
 RUN poetry install --no-root
