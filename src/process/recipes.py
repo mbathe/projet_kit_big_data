@@ -1,17 +1,14 @@
 import logging
-from src.utils.helper_data import load_dataset, load_dataset_from_file
+from src.utils.helper_data import load_dataset_from_file
 from datetime import date
-import os
 from typing import (
     Any, Dict, List, Union, TypedDict
 )
 import pandas as pd
 import streamlit as st
-from dotenv import load_dotenv
 from datetime import datetime
 import numpy as np
 from scipy import stats
-import pandas as pd
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from dotenv import load_dotenv
@@ -23,6 +20,11 @@ CONNECTION_STRING = os.getenv("CONNECTION_STRING")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE", "LOCAL")
+
+
+DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
+YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
+YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
 
 # Configurer le logger pour écrire dans un fichier
 logging.basicConfig(
@@ -68,8 +70,8 @@ class Recipe:
     def __init__(
         self,
         name: str = "RAW_recipes",
-        date_start: datetime = datetime(1999, 1, 1),
-        date_end: datetime = datetime(2018, 12, 31)
+        date_start: datetime = datetime(YEAR_MIN, 1, 1),
+        date_end: datetime = datetime(YEAR_MAX, 12, 31)
     ):
         self.name: str = name
         self.st: Any = st
@@ -105,7 +107,7 @@ class Recipe:
                     with self.st.spinner("Chargement des données depuis MongoDB..."):
                         self.st.session_state.data = self.fetch_data_from_mongodb(
                             CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
-                elif (start_date != self.st.session_state.start_date and start_date != date(1999, 1, 1)) or (end_date != self.st.session_state.end_date and end_date != date(2018, 12, 31)):
+                elif (start_date != self.st.session_state.start_date and start_date != date(YEAR_MIN, 1, 1)) or (end_date != self.st.session_state.end_date and end_date != date(YEAR_MAX, 12, 31)):
                     with self.st.spinner("Chargement des données depuis MongoDB..."):
                         self.st.session_state.data = self.fetch_data_from_mongodb(
                             CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
@@ -122,7 +124,7 @@ class Recipe:
                         start_date)
                     self.st.session_state.end_date = self._ensure_date(
                         end_date)
-                elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(1999, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(2018, 12, 31)):
+                elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(YEAR_MIN, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(YEAR_MAX, 12, 31)):
                     dataset_dir = os.getenv("DIR_DATASET_2")
 
                     self.st.session_state.data = load_dataset_from_file(
@@ -337,8 +339,10 @@ class Recipe:
         try:
             df = self.st.session_state.data
 
-            df['nutrition_list'] = df['nutrition'].apply(eval)
-
+            if DEPLOIEMENT_SITE != "ONLINE":
+                df['nutrition_list'] = df['nutrition'].apply(eval)
+            else:
+                df['nutrition_list'] = df['nutrition']
             nutrition_columns = [
                 'calories', 'total_fat', 'sugar',
                 'sodium', 'protein', 'saturated_fat', 'carbohydrates'
@@ -408,7 +412,10 @@ class Recipe:
         """
         try:
             df = self.st.session_state.data
-            df['tags_list'] = df['tags'].apply(eval)
+            if DEPLOIEMENT_SITE != "ONLINE":
+                df['tags_list'] = df['tags'].apply(eval)
+            else:
+                df['tags_list'] = df['tags']
 
             all_tags = [tag for tags in df['tags_list'] for tag in tags]
             tag_counts = pd.Series(all_tags).value_counts()

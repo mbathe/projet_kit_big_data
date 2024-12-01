@@ -1321,3 +1321,154 @@ The values were 1999 and 1999.
 2024-12-01 06:53:08,881 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-01 06:53:08,882 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-01 06:53:08,882 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:19:12,590 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:19:12,591 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:19:12,591 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:19:12,592 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:19:52,859 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:19:52,859 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:19:52,860 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:19:52,860 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:20:45,449 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:20:45,450 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:20:45,450 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:20:45,451 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:20:45,497 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:20:45,497 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:20:45,498 - ERROR - Error in display_nutrition_analysis: 'Recipe' object has no attribute 'start_date'
+2024-12-01 07:23:37,334 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:23:37,335 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:23:37,335 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:23:37,336 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:23:44,873 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:23:44,874 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:23:44,875 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:23:44,876 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:23:44,933 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:23:44,933 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:23:44,934 - ERROR - Error in display_nutrition_analysis: '{datetime.timedelta(days=-1825)}' is of type <class 'set'>, which is not an accepted type. value only accepts: int, float, str, or None. Please convert the value to an accepted type.
+2024-12-01 07:28:22,869 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:28:22,869 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:28:22,869 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:28:22,870 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:28:31,356 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:28:31,357 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:28:31,357 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:28:31,358 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:28:31,403 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:28:31,404 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:28:31,404 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-12-01 07:28:48,345 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:28:48,345 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:28:48,346 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:28:48,346 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:28:48,387 - ERROR - Error analyzing tags: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:28:48,387 - ERROR - Failed to analyze tags: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:28:48,388 - ERROR - Error in display_tags_analysis: 'NoneType' object is not subscriptable
+2024-12-01 07:29:14,267 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:29:14,267 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:29:14,268 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:29:14,269 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:29:18,037 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:29:18,038 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:29:18,039 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:29:18,040 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:29:18,078 - ERROR - Error analyzing tags: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:29:18,078 - ERROR - Failed to analyze tags: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:29:18,078 - ERROR - Error in display_tags_analysis: 'NoneType' object is not subscriptable
+2024-12-01 07:29:22,257 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:29:22,258 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:29:22,258 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:29:22,259 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:29:22,298 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:29:22,298 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:29:22,298 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-12-01 07:30:14,690 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:14,691 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:14,691 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:14,691 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:27,183 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:27,183 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:27,184 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:27,184 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:31,539 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:31,540 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:31,540 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:31,541 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:33,606 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:33,607 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:33,607 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:30:33,608 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:30:46,513 - INFO - Date range set from 2016-01-16 to 2018-01-13
+2024-12-01 07:31:36,050 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:31:36,051 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:31:36,052 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:31:36,052 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:31:36,106 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:31:36,106 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:31:36,107 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-12-01 07:32:28,623 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:32:28,623 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:32:28,624 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:32:28,624 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:32:35,959 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:32:35,959 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:32:35,960 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:32:35,960 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:32:36,008 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:32:36,008 - ERROR - Failed to analyze nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:32:36,008 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-12-01 07:36:06,975 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:36:06,976 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:36:06,977 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:36:06,977 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:36:15,823 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:36:15,823 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:36:15,823 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:36:15,824 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:36:15,871 - ERROR - Error analyzing nutrition: 'nutrition_list'
+2024-12-01 07:36:15,871 - ERROR - Failed to analyze nutrition: 'nutrition_list'
+2024-12-01 07:36:15,872 - ERROR - Error in display_nutrition_analysis: 'NoneType' object has no attribute 'keys'
+2024-12-01 07:38:42,527 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:38:42,528 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:38:42,528 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:38:42,529 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:38:48,752 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:38:48,753 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:38:48,753 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:38:48,754 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:39:34,725 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:39:34,726 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:39:34,726 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:39:34,726 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:39:34,770 - ERROR - Error analyzing tags: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:39:34,771 - ERROR - Failed to analyze tags: eval() arg 1 must be a string, bytes or code object
+2024-12-01 07:39:34,772 - ERROR - Error in display_tags_analysis: 'NoneType' object is not subscriptable
+2024-12-01 07:41:59,837 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:41:59,838 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:41:59,838 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:41:59,839 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:42:06,914 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:42:06,915 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:42:06,916 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:42:06,916 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:42:23,000 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:42:23,001 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:42:23,001 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:42:23,002 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:42:41,635 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:42:41,636 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:42:41,636 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:42:41,637 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:44:03,344 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:44:03,345 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:44:03,345 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:44:03,346 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:44:10,039 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:44:10,040 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:44:10,040 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:44:10,041 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:44:33,413 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:44:33,414 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 07:44:33,415 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 07:44:33,415 - INFO - CSS loaded from src/css_pages/recipe.css

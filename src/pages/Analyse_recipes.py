@@ -14,7 +14,10 @@ from src.utils.static import recipe_columns_description
 from collections import Counter
 from streamlit_echarts import st_echarts
 from src.utils.static import constribution_data
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 # Configuration du logger
 logging.basicConfig(level=logging.INFO,
@@ -26,15 +29,9 @@ try:
 except locale.Error:
     # Fallback to a default locale or skip locale setting
     locale.setlocale(locale.LC_TIME, '')
-
-""" st.set_page_config(
-    page_title="Votre Titre",
-    page_icon=":chart:",
-    layout="wide",
-    initial_sidebar_state="collapsed",
-)
- """
-
+DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
+YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
+YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
 class CSSLoader:
     """Class responsible for loading CSS."""
     @staticmethod
@@ -115,10 +112,10 @@ class DisplayManager:
                     "Langue", ["Français", "English"], key='langue')
                 date_range = st.date_input(
                     "Période d'analyse",
-                    value=(date(1999, 1, 1), date(2018, 12, 31)),
+                    value=(date(YEAR_MIN, 1, 1), date(YEAR_MAX, 12, 31)),
                     key='date_filter',
-                    min_value=date(1999, 1, 1),
-                    max_value=date(2018, 12, 31),
+                    min_value=date(YEAR_MIN, 1, 1),
+                    max_value=date(YEAR_MAX, 12, 31),
                 )
 
                 if st.button("Charger les données"):
@@ -632,7 +629,7 @@ class DisplayManager:
                 start_year = st.slider(
                     "Année de début", self.data_manager.get_recipe_data().date_start.year, self.data_manager.get_recipe_data().date_end.year, self.data_manager.get_recipe_data().date_start.year)
             with col2:
-                end_year = st.slider("Année de fin", 1999,
+                end_year = st.slider("Année de fin", YEAR_MIN,
                                      self.data_manager.get_recipe_data().date_end.year, self.data_manager.get_recipe_data().date_end.year)
             date_start = datetime(start_year, 1, 1)
             date_end = datetime(end_year, 12, 31)
@@ -782,101 +779,52 @@ class DisplayManager:
             nutrition_data = self.data_manager.analyze_nutrition()
 
             st.sidebar.header("Filtres Nutritionnels")
+            # st.title("📊 Analyse des Données")
+            st.header("Analyse des Données Nutritionnelles")
+            nutrient = st.selectbox("Sélectionner un nutriment à analyser", list(
+                nutrition_data.keys()), format_func=lambda x: x.replace('_', ' ').title())
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                st.metric("Moyenne", f"{
+                    nutrition_data[nutrient]['mean']:.1f}")
+            with col2:
+                st.metric("Médiane", f"{
+                    nutrition_data[nutrient]['median']:.1f}")
+            with col3:
+                st.metric("Minimum", f"{
+                    nutrition_data[nutrient]['min']:.1f}")
+            with col4:
+                st.metric("Maximum", f"{
+                    nutrition_data[nutrient]['max']:.1f}")
 
-            st.title("📊 Analyse des Données")
-            tab1, tab2 = st.tabs(
-                ["📈 Analyse des Soumissions", "🍎 Analyse Nutritionnelle"])
+            nutrients_stats = []
+            for nut, stats in nutrition_data.items():
+                nutrients_stats.append({
+                    'Nutriment': nut.replace('_', ' ').title(),
+                    'Q1': stats['quartiles'][0.25],
+                    'Médiane': stats['quartiles'][0.5],
+                    'Q3': stats['quartiles'][0.75],
+                    'Moyenne': stats['mean']
+                })
 
-            with tab1:
-                st.header("Analyse Temporelle des Soumissions")
-                col1, col2, col3 = st.columns(3)
-                with col1:
-                    st.metric("Date de début", "6 août 1999")
-                with col2:
-                    st.metric("Date de fin", "4 décembre 2018")
-                with col3:
-                    st.metric("Nombre total de jours", "7060")
+            df_nutrients = pd.DataFrame(nutrients_stats)
+            fig_box = go.Figure()
+            for nut in df_nutrients['Nutriment']:
+                row = df_nutrients[df_nutrients['Nutriment']
+                                   == nut].iloc[0]
+                fig_box.add_trace(go.Box(
+                    name=nut,
+                    q1=[row['Q1']],
+                    median=[row['Médiane']],
+                    q3=[row['Q3']],
+                    mean=[row['Moyenne']],
+                    lowerfence=[0],
+                    upperfence=[row['Moyenne'] * 2]
+                ))
 
-                subtab1, subtab2, subtab3 = st.tabs(
-                    ["Par Année", "Par Mois", "Par Jour"])
-
-                with subtab1:
-                    df_year = pd.DataFrame(list(submissions_data['submissions_per_year'].items()), columns=[
-                        'Année', 'Soumissions'])
-                    fig_year = px.line(df_year, x='Année', y='Soumissions',
-                                       title='Évolution des soumissions par année', markers=True)
-                    st.plotly_chart(fig_year, use_container_width=True)
-                    st.metric("Année la plus active", f"{df_year.loc[df_year['Soumissions'].idxmax(
-                    ), 'Année']} ({df_year['Soumissions'].max():,} soumissions)")
-
-                with subtab2:
-                    df_month = pd.DataFrame(list(
-                        submissions_data['submissions_per_month'].items()), columns=['Mois', 'Soumissions'])
-                    mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
-                    df_month['Nom du Mois'] = df_month['Mois'].map(
-                        lambda x: mois[x - 1])
-                    fig_month = px.bar(df_month, x='Nom du Mois', y='Soumissions',
-                                       title='Distribution des soumissions par mois')
-                    st.plotly_chart(fig_month, use_container_width=True)
-
-                with subtab3:
-                    df_weekday = pd.DataFrame(list(
-                        submissions_data['submissions_per_weekday'].items()), columns=['Jour', 'Soumissions'])
-                    jours = ['Lundi', 'Mardi', 'Mercredi',
-                             'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
-                    df_weekday['Nom du Jour'] = df_weekday['Jour'].map(
-                        lambda x: jours[x])
-                    fig_weekday = px.bar(df_weekday, x='Nom du Jour', y='Soumissions',
-                                         title='Distribution des soumissions par jour de la semaine')
-                    st.plotly_chart(fig_weekday, use_container_width=True)
-
-            with tab2:
-                st.header("Analyse des Données Nutritionnelles")
-                nutrient = st.selectbox("Sélectionner un nutriment à analyser", list(
-                    nutrition_data.keys()), format_func=lambda x: x.replace('_', ' ').title())
-                col1, col2, col3, col4 = st.columns(4)
-                with col1:
-                    st.metric("Moyenne", f"{
-                              nutrition_data[nutrient]['mean']:.1f}")
-                with col2:
-                    st.metric("Médiane", f"{
-                        nutrition_data[nutrient]['median']:.1f}")
-                with col3:
-                    st.metric("Minimum", f"{
-                              nutrition_data[nutrient]['min']:.1f}")
-                with col4:
-                    st.metric("Maximum", f"{
-                              nutrition_data[nutrient]['max']:.1f}")
-
-                nutrients_stats = []
-                for nut, stats in nutrition_data.items():
-                    nutrients_stats.append({
-                        'Nutriment': nut.replace('_', ' ').title(),
-                        'Q1': stats['quartiles'][0.25],
-                        'Médiane': stats['quartiles'][0.5],
-                        'Q3': stats['quartiles'][0.75],
-                        'Moyenne': stats['mean']
-                    })
-
-                df_nutrients = pd.DataFrame(nutrients_stats)
-                fig_box = go.Figure()
-                for nut in df_nutrients['Nutriment']:
-                    row = df_nutrients[df_nutrients['Nutriment']
-                                       == nut].iloc[0]
-                    fig_box.add_trace(go.Box(
-                        name=nut,
-                        q1=[row['Q1']],
-                        median=[row['Médiane']],
-                        q3=[row['Q3']],
-                        mean=[row['Moyenne']],
-                        lowerfence=[0],
-                        upperfence=[row['Moyenne'] * 2]
-                    ))
-
-                fig_box.update_layout(
-                    title='Comparaison des distributions des nutriments', showlegend=False, height=500)
-                st.plotly_chart(fig_box, use_container_width=True)
+            fig_box.update_layout(
+                title='Comparaison des distributions des nutriments', showlegend=False, height=500)
+            st.plotly_chart(fig_box, use_container_width=True)
         except Exception as e:
             logging.error(f"Error in display_nutrition_analysis: {e}")
 
