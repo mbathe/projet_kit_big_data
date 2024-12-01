@@ -9,7 +9,6 @@ from src.process.recipes import Recipe
 from src.utils.static import mois
 import locale
 from src.visualizations import load_css
-from src.utils.static import submissions_data
 from src.utils.static import recipe_columns_description
 from collections import Counter
 from streamlit_echarts import st_echarts
@@ -27,8 +26,8 @@ logging.basicConfig(level=logging.INFO,
 try:
     locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 except locale.Error:
-    # Fallback to a default locale or skip locale setting
     locale.setlocale(locale.LC_TIME, '')
+
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
 YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
 YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
