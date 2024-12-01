@@ -30,7 +30,10 @@ jobs:
           version: 1.8.4
 
       - name: Installer les dépendances avec Poetry
-        run: poetry install --no-root
+        run: |
+          poetry install --no-root
+          poetry env list
+          poetry debug
 
       - name: Vérification du formatage avec Black
         id: black-check
