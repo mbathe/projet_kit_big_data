@@ -1,5 +1,4 @@
 *.pyc
-<<<<<<< HEAD
 _pycache_/
 data/
 .DS_Store
@@ -14,7 +13,6 @@ src/zone_sacha/
 
 .coverage
 app.log
-=======
 .env
 __pycache__/
 data/
@@ -23,7 +21,6 @@ data/*
 *.zip
 
 venv/
->>>>>>> origin/main
 
 data/dataset/PP_users.csv
 data/dataset/interactions_train.csv
@@ -33,28 +30,22 @@ data/dataset/RAW_recipes.csv
 data/dataset/RAW_interactions.csv
 .git/lfs/objects/*
 
-<<<<<<< HEAD
 _pycache_/
-=======
 __pycache__/
->>>>>>> origin/main
 *.pyc
 *.pyo
 *.pyd
 *.egg-info/
 *.egg
 *.lock
-<<<<<<< HEAD
 *.ipynb_checkpoints
 
 
 .gitattributes
-=======
 
 
 .gitattributes
 .gitignore
->>>>>>> origin/main
 .idea/.gitignore
 .idea/TP.iml
 .idea/inspectionProfiles/profiles_settings.xml
@@ -62,9 +53,6 @@ __pycache__/
 .ipynb_checkpoints/Untitled-checkpoint.ipynb
 .vscode/settings.json
 Oriente objet idees.ipynb
-<<<<<<< HEAD
 
 recipe_analysis.log
-=======
 pyproject.toml
->>>>>>> origin/main
