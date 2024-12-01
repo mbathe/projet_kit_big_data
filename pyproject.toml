@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "src"
+name = "projet_big_data"
 version = "0.1.0"
 description = "création d'une webapp Streamlit d'analyse de données"
 authors = ["mbathe <mbathepaul@gmail.com>", ]
