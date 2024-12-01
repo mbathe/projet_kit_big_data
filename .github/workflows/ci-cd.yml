@@ -4,11 +4,8 @@ on:
   push:
     branches:
       - 'review/**'   # Exécute le workflow sur les branches de review
-<<<<<<< HEAD
       - main          # Exécute le workflow lors des pull requests vers main
       - master           # Exécute le workflow sur toutes les branches
-=======
->>>>>>> origin/main
   pull_request:
     branches:
       - main          # Exécute le workflow lors des pull requests vers main
