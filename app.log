@@ -960,3 +960,30 @@
 2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-11-30 16:36:34,024 - INFO - CSS loaded from src/css_pages/recipe.css
 >>>>>>> sacha
+2024-12-01 05:26:56,969 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:26:56,970 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:26:56,970 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:26:56,971 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:27:18,174 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:27:18,176 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:27:18,176 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:27:18,177 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:27:30,283 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:27:30,284 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:27:30,284 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:27:30,285 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:27:36,313 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:27:36,315 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:27:36,316 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:27:36,316 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:27:36,328 - ERROR - Error in initialize_session_state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:27:36,328 - ERROR - Error initializing session state: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:27:36,328 - ERROR - Failed to set date range: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-01 05:28:04,482 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:28:04,483 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:28:04,483 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:28:04,484 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:28:24,366 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:28:24,367 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-01 05:28:24,368 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-01 05:28:24,368 - INFO - CSS loaded from src/css_pages/recipe.css
