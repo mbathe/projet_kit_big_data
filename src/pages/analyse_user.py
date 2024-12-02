@@ -102,7 +102,7 @@ class DataLoaderMango:
     performances lors des chargements répétitifs.
     """
 
-    def __init__(self, connection_string, database_name, collection_name, limit=2000):
+    def __init__(self, connection_string, database_name, collection_names : list, limit:int=2000):
         """
         Initialise les paramètres de connexion à MongoDB.
 
@@ -119,12 +119,12 @@ class DataLoaderMango:
         self.logger.info("Initialisation de DataLoaderMango")
         self.connection_string = connection_string
         self.database_name = database_name
-        self.collection_name = collection_name
+        self.collection_names = collection_names
         self.limit = limit
 
     @staticmethod
     @st.cache_data
-    def load_dataframe(connection_string, database_name, collection_name, limit):
+    def load_dataframe(connection_string, database_name, collection_names, limit):
         """
         Charge les données depuis MongoDB et les retourne sous forme de DataFrame.
 
@@ -155,15 +155,21 @@ class DataLoaderMango:
         try:
             connector.connect()
             logger.info("Connexion établie")
-            data = connector.load_collection_as_dataframe(collection_name, limit=limit)
-            logger.info(f"Données chargées depuis {collection_name} avec limite {limit}")
+            data_frames = dict()
+            for collection_name in collection_names:
+                logger.info(f"Chargement des données depuis {collection_name} avec limite {limit}")
+                data = connector.load_collection_as_dataframe(collection_name, limit=limit)
+                data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+                data_frames[collection_name] = data
+                logger.info(f"Données chargées depuis {collection_name} avec limite {limit}")
+            logger.info(f"Enregistrements terminé")
         except Exception as e:
             logger.error("Erreur lors du chargement des données depuis MongoDB", exc_info=True)
             raise
         finally:
             connector.close()
             logger.info("Connexion MongoDB fermée")
-        return data
+        return data_frames
 
     def get_data(self):
         """
@@ -182,7 +188,7 @@ class DataLoaderMango:
         return self.load_dataframe(
             self.connection_string,
             self.database_name,
-            self.collection_name,
+            self.collection_names,
             self.limit
         )
 
@@ -378,6 +384,36 @@ class DataAnalyzer:
         self.logger.warning(f"Aucune donnée de fréquence trouvée pour l'utilisateur ID: {user_id}")
         return None
 
+    def analyze_activity_on_mangetamain(self):
+        """
+        Analyse l'évolution de l'activité sur l'application Mangetamain.
+
+        Cette méthode convertit les dates de soumission en objets datetime,
+        extrait l'année et le mois, et calcule le nombre de recettes soumises
+        chaque mois.
+
+        Returns:
+            pd.DataFrame or None: DataFrame contenant le nombre de recettes par mois,
+                                   ou None si la colonne 'submitted' est absente.
+
+        Logs :
+            INFO: Indique le début de l'analyse de l'activité sur Mangetamain.
+            DEBUG: Affiche un aperçu des comptes mensuels.
+            WARNING: Indique l'absence de la colonne 'submitted' dans les données.
+        """
+        self.logger.info("Analyse de l'activité sur Mangetamain")
+        if 'submitted' in self.data.columns:
+            self.data['submitted'] = pd.to_datetime(self.data['submitted'])
+            self.data['year_month'] = self.data['submitted'].dt.to_period('M')
+            monthly_counts = self.data.groupby('year_month').size().reset_index(name='recipe_count')
+            monthly_counts['year_month'] = monthly_counts['year_month'].astype(str)
+            self.logger.debug(f"Comptes mensuels: {monthly_counts.head()}")
+            return monthly_counts
+        else:
+            self.logger.warning("La colonne 'submitted' est absente des données")
+            return None
+
+
 
 class VisualizationManager:
     """
@@ -504,9 +540,12 @@ class StreamlitPage(DataLoaderMango):
         self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
         self.COLLECTION_RAW_INTERACTIONS = os.getenv(
             "COLLECTION_RAW_INTERACTIONS", "raw_interaction")
+        self.COLLECTION_NAME = os.getenv("COLLECTION_NAME",'recipes')
+        
+        self.COLLECTION_NAMES = [self.COLLECTION_RAW_INTERACTIONS,self.COLLECTION_NAME]
 
         super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME,
-                         self.COLLECTION_RAW_INTERACTIONS, limit=2000)
+                         self.COLLECTION_NAMES, limit=2000)
 
     def load_css(self):
         """
@@ -536,9 +575,8 @@ class StreamlitPage(DataLoaderMango):
         """
         self.logger.info("Chargement des données depuis MongoDB")
         try:
-            self.data = self.get_data()
-            self.logger.info(f"Données chargées avec succès, {len(self.data)} enregistrements")
-            st.write("Aperçu des données :", self.data.head())
+            self.data= self.get_data()
+            self.logger.info(f"Données chargées avec succès, {len(self.data[self.COLLECTION_RAW_INTERACTIONS])} enregistrements")
         except Exception as e:
             self.logger.error("Erreur lors du chargement des données", exc_info=True)
             st.error("Impossible de charger les données.")
@@ -548,11 +586,12 @@ class StreamlitPage(DataLoaderMango):
         Exécute l'analyse des données et génère les visualisations correspondantes.
 
         Cette méthode effectue les étapes suivantes :
+        - Affiche un texte introductif.
         - Prétraite les données.
-        - Affiche les fréquences globales des notes sous forme d'histogramme.
-        - Analyse les fréquences des notes au fil du temps.
-        - Calcule et affiche les notes moyennes mensuelles.
-        - Analyse les fréquences des notes pour un utilisateur spécifique.
+        - Affiche les fréquences globales des notes sous forme d'histogramme avec un texte explicatif.
+        - Analyse les fréquences des notes au fil du temps avec un texte explicatif.
+        - Calcule et affiche les notes moyennes mensuelles avec un texte explicatif.
+        - Analyse les fréquences des notes pour un utilisateur spécifique avec un texte explicatif.
         - Analyse les notes par utilisateur.
 
         Chaque étape inclut des vérifications pour s'assurer que les colonnes nécessaires
@@ -562,64 +601,174 @@ class StreamlitPage(DataLoaderMango):
             INFO: Indique le début de l'analyse des données.
             INFO/WARNING: Indique l'état de présence des colonnes nécessaires.
         """
+        st.title("Analyse sur la perte de popularité de l'application Mangetamain")
+
+        # Texte introductif
+        if st.checkbox("Afficher l'objectif de cette Analyse"):
+            st.subheader("Objectif de l'Analyse")
+            introduction = """
+            Cette analyse vise à explorer **les raisons de la perte de popularité de l'application Mangetamain** en examinant :
+            
+            - Les fréquences de notation des utilisateurs au fil du temps.
+            - Les tendances des évaluations.
+            - L'activité des utilisateurs.
+            
+            **Objectif** :
+            Comprendre comment la popularité a évolué et identifier les facteurs ayant conduit à une diminution de l'intérêt pour la plateforme.
+            """
+            st.markdown(introduction)
+            st.divider()
+
+        st.write("Aperçu des données :", self.data[self.COLLECTION_RAW_INTERACTIONS].head())
+
         self.logger.info("Démarrage de l'analyse des données")
-        if self.data is not None:
-            analyzer = DataAnalyzer(self.data)
-            self.data = analyzer.preprocess()
+        if self.data[self.COLLECTION_RAW_INTERACTIONS] is not None:
+            analyzer = DataAnalyzer(self.data[self.COLLECTION_RAW_INTERACTIONS])
+            self.data[self.COLLECTION_RAW_INTERACTIONS] = analyzer.preprocess()
 
             # Analyse des fréquences des notes
             st.title("Analyse de Fréquences")
-            if 'rating' in self.data.columns:
+            if 'rating' in self.data[self.COLLECTION_RAW_INTERACTIONS].columns:
                 self.logger.info("Affichage de l'histogramme des notes globales")
-                VisualizationManager.display_histogram(self.data, 'rating', "Fréquence globale des notes")
+                VisualizationManager.display_histogram(self.data[self.COLLECTION_RAW_INTERACTIONS], 'rating', "Fréquence globale des notes")
+                if st.checkbox("Afficher l'explication"):
+                    st.subheader("Analyse de la Fréquence des Notes")
+                    
+                    # Diviser l'explication en paragraphes
+                    st.markdown("""
+                    La visualisation de la **fréquence des évaluations** met en évidence une répartition inégale des notes attribuées par les utilisateurs sur l’application.
+                    
+                    ### Points Clés :
+                    - La majorité des évaluations se concentrent sur la **note maximale (5)**, ce qui reflète une forte appréciation globale des recettes par les utilisateurs.
+                    - La **faible fréquence des notes intermédiaires (1 à 3)** suggère que les utilisateurs ne s’expriment que lorsqu’ils ont une expérience particulièrement positive.
+                    
+                    ### Interprétations :
+                    Ce comportement pourrait indiquer que :
+                    1. Les utilisateurs sont **moins enclins à noter les recettes moins marquantes**, réduisant ainsi la diversité des retours disponibles.
+                    2. Cela soulève la question de **l’engagement des utilisateurs** et de l’impact des évaluations sur l’amélioration des recettes proposées.
+                    """)
+                    
+                    # Ajout d'un séparateur ou d'un espace pour l'esthétique
+                    st.divider()
             else:
                 self.logger.warning("La colonne 'rating' est absente du fichier.")
                 st.warning("La colonne 'rating' est absente du fichier.")
 
             # Analyse des fréquences des notes au fil du temps
             st.title("Fréquence des notes au fil du temps")
-            if 'date' in self.data.columns and 'rating' in self.data.columns:
+            if 'date' in self.data[self.COLLECTION_RAW_INTERACTIONS].columns and 'rating' in self.data[self.COLLECTION_RAW_INTERACTIONS].columns:
                 self.logger.info("Analyse des fréquences des notes au fil du temps")
                 frequency_data = analyzer.analyze_ratings_frequencies()
                 VisualizationManager.display_ratings_frequencies(
                     frequency_data, x='year', title="Fréquence des Notes au fil du temps")
+                # Texte explicatif sous le graphique
+                if st.checkbox("Afficher l'explication des fréquences au fil du temps"):
+                    st.subheader("Analyse des Fréquences des Notes au Fil du Temps")
+                    
+                    # Diviser le texte en sections et ajouter des points clés
+                    st.markdown("""
+                    Cette visualisation illustre **l'évolution des fréquences des notes attribuées par les utilisateurs** sur l'application au fil des années.
+
+                    ### Observations Principales :
+                    - Les notes **2, 3, 4 et 5**, représentant des appréciations positives ou moyennes :
+                    - Atteignent leur **pic de fréquence autour de 2007-2009**.
+                    - Présentent une **baisse constante après cette période**, suggérant une diminution globale de l'activité des utilisateurs.
+                    - Les notes basses **0 et 1** :
+                    - Affichent également une tendance à la baisse après leur propre pic.
+                    - Restent globalement moins fréquentes que les notes positives.
+
+                    ### Interprétations :
+                    - **Désintérêt progressif des utilisateurs** :
+                    La diminution des notes, positives ou négatives, pourrait indiquer un désintérêt global pour l'application.
+                    - **Impact du contenu attractif** :
+                    Une baisse potentielle du nombre de recettes ou d'autres contenus attractifs peut expliquer ce phénomène.
+                    """)
+
+                    # Ajout d'un séparateur visuel pour une meilleure structuration
+                    st.divider()
             else:
                 self.logger.warning("Les colonnes 'date' ou 'rating' sont absentes du fichier.")
                 st.warning("Les colonnes 'date' ou 'rating' sont absentes du fichier.")
 
             # Analyse des notes moyennes mensuelles
             st.title("Analyse des notes moyennes mensuelles")
-            if 'rating' in self.data.columns and 'date' in self.data.columns:
+            if 'rating' in self.data[self.COLLECTION_RAW_INTERACTIONS].columns and 'date' in self.data[self.COLLECTION_RAW_INTERACTIONS].columns:
                 self.logger.info("Analyse des notes moyennes mensuelles")
                 monthly_ratings = analyzer.analyze_monthly_ratings()
                 VisualizationManager.display_line_chart(
                     monthly_ratings, 'Mois', 'Note moyenne',
                     "Notation moyenne mensuelle au fil du temps"
                 )
+                # Case à cocher pour afficher l'explication
+                if st.checkbox("Afficher l'explication des notes moyennes mensuelles"):
+                    st.subheader("Explication des Notes Moyennes Mensuelles")
+                    
+                    # Structuration en sections
+                    st.markdown("""
+                    Cette courbe met en lumière **l'évolution de la note moyenne hebdomadaire** attribuée par les utilisateurs au fil du temps.
+
+                    ### Observations Principales :
+                    - **2001 à 2010** :
+                    - Les notes moyennes sont **stables autour de 4**, reflétant une forte satisfaction des utilisateurs vis-à-vis des recettes proposées.
+                    - **Après 2009** :
+                    - Une **baisse progressive des notes moyennes** est observée, atteignant un **point bas significatif vers 2016-2017**, suivi d’un léger redressement.
+
+                    ### Interprétations :
+                    - Cette diminution des notes moyennes peut s’expliquer par :
+                    - Une **baisse des notes élevées (4 et 5)**.
+                    - Une **augmentation des notes faibles (1 et 2)**.
+                    - Ces tendances suggèrent :
+                    - Un possible **déclin de la satisfaction des utilisateurs** concernant les recettes proposées.
+                    - Une **évolution des attentes des utilisateurs** au fil du temps.
+
+                    """)
+                    
+                    # Ajouter un séparateur pour une présentation plus nette
+                    st.divider()
             else:
                 self.logger.warning("Les colonnes 'rating' ou 'date' sont absentes du fichier.")
                 st.warning("Les colonnes 'rating' ou 'date' sont absentes du fichier.")
 
             # Analyse des fréquences des notes par utilisateur
             st.title("Fréquence des Notes par utilisateur au fil du temps")
-            if 'user_id' in self.data.columns:
-                user_id = st.number_input("Entrez l'ID utilisateur à analyser :", min_value=0, key=2)
-                self.logger.info(f"Analyse des fréquences des notes pour l'utilisateur ID: {user_id}")
-                user_frequency_data = analyzer.analyze_user_ratings_frequencies(user_id)
-                if user_frequency_data:
-                    VisualizationManager.display_ratings_frequencies(
-                        user_frequency_data, x='year', title=f"Fréquence des Notes pour l'utilisateur {user_id}"
-                    )
+            if 'user_id' in self.data[self.COLLECTION_RAW_INTERACTIONS].columns:
+                # Définir le nombre minimal de notes pour une analyse détaillée
+                min_notes = 10  # Exemple: minimum 10 notes par utilisateur
+                # Filtrer les utilisateurs ayant au moins min_notes
+                user_counts = self.data[self.COLLECTION_RAW_INTERACTIONS]['user_id'].value_counts()
+                eligible_users = user_counts[user_counts >= min_notes].index.tolist()
+
+                user_id = st.number_input(
+                    "Entrez l'ID utilisateur à analyser :", min_value=0, key=2)
+
+                # Vérifier si l'utilisateur a suffisamment de notes
+                if user_id in eligible_users:
+                    self.logger.info(f"Analyse des fréquences des notes pour l'utilisateur ID: {user_id}")
+                    user_frequency_data = analyzer.analyze_user_ratings_frequencies(user_id)
+                    if user_frequency_data:
+                        VisualizationManager.display_ratings_frequencies(
+                            user_frequency_data, x='year', title=f"Fréquence des Notes pour l'utilisateur {user_id}"
+                        )
+                        # Texte explicatif sous le graphique
+                        user_freq_explanation = """
+                        *Ici on étudie la fréquence des notes en fonction de l'utilisateur. Cela permet de savoir si l'utilisateur au fil des années devient plus difficile ou pas.*
+
+                        *On va fixer une variable pour déterminer le nombre de notes minimal que l'utilisateur a mis pour avoir suffisamment de notes pour faire une analyse détaillée.*
+                        """
+                        st.markdown(user_freq_explanation)
+                    else:
+                        self.logger.warning(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
+                        st.error(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
                 else:
-                    self.logger.warning(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
-                    st.error(f"Aucune donnée trouvée pour l'utilisateur {user_id}.")
+                    if user_id != 0:
+                        st.warning(f"L'utilisateur {user_id} n'a pas suffisamment de notes pour une analyse détaillée (minimum {min_notes} notes requises).")
             else:
                 self.logger.warning("La colonne 'user_id' est absente du fichier.")
                 st.error("La colonne 'user_id' est absente du fichier.")
 
             # Analyse des notes par utilisateur
             st.title("Analyse des notes par utilisateur")
-            if 'user_id' in self.data.columns:
+            if 'user_id' in self.data[self.COLLECTION_RAW_INTERACTIONS].columns:
                 user_id = st.number_input("Entrez l'ID utilisateur à analyser :", min_value=0)
                 self.logger.info(f"Analyse des notes pour l'utilisateur ID: {user_id}")
                 user_analysis = analyzer.analyze_user(user_id)
@@ -634,6 +783,51 @@ class StreamlitPage(DataLoaderMango):
             else:
                 self.logger.warning("La colonne 'user_id' est absente du fichier.")
                 st.error("La colonne 'user_id' est absente du fichier.")
+
+            
+            # Evolution de l’activité sur l’application Mangetamain
+            st.title("Evolution de l’activité sur l’application Mangetamain")
+            if 'submitted' in self.data[self.COLLECTION_NAME].columns :
+                analyzer_recipe = DataAnalyzer(self.data[self.COLLECTION_NAME])
+                monthly_counts = analyzer_recipe.analyze_activity_on_mangetamain()
+                if monthly_counts is not None:
+                    VisualizationManager.display_line_chart(
+                        monthly_counts, 'year_month', 'recipe_count',title=""
+                    )
+                    # Texte explicatif sous le graphique
+                    if st.checkbox("Afficher l'explication de l'évolution de l'activité"):
+                        st.subheader("Évolution de l'Activité sur l'Application")
+
+                        # Structuration en sections avec Markdown
+                        st.markdown("""
+                        L’analyse des données met en évidence plusieurs tendances marquantes concernant l’**évolution de l’activité** sur l’application Mangetamain.
+
+                        ### Observations Principales :
+                        - **Diminution des notes élevées (4 et 5)** :
+                        - Une baisse notable après **2009**, reflétant une satisfaction décroissante des utilisateurs.
+                        - **Augmentation légère des notes basses (1 et 2)** :
+                        - Indique une **insatisfaction croissante** parmi certains utilisateurs.
+
+                        ### Facteurs Contributifs :
+                        - **Réduction du contenu attractif** :
+                        - Diminution progressive du nombre de recettes mises en ligne après un **pic d’activité entre 2007 et 2009**.
+                        - Moins d’opportunités d’interaction pour les utilisateurs, créant un cercle vicieux de baisse d’engagement.
+                        - **Concurrence accrue** :
+                        - Apparition de **plateformes concurrentes** proposant des expériences plus riches et interactives.
+
+                        ### Suggestions pour Inverser la Tendance :
+                        - **Stimuler la création de nouvelles recettes** pour renouveler le contenu.
+                        - **Diversifier les types de contenu** proposés sur la plateforme.
+                        - **Renforcer l’expérience utilisateur** par des fonctionnalités interactives et engageantes.
+
+                        """)
+                        
+                        # Ajouter un séparateur pour une meilleure structuration visuelle
+                        st.divider()
+            else:
+                self.logger.warning("La colonne 'submitted' est absente du fichier.")
+                st.error("La colonne 'submitted' est absente du fichier.")
+
 
     def run(self):
         """

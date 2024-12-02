@@ -1,13 +1,4 @@
-import sys
-import os
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
-
-parent_parent_dir = os.path.abspath(os.path.join(current_dir, '..', '..'))
-
-sys.path.append(parent_parent_dir)
-
-from src.pages import CSSLoader
+from src.pages.analyse_user import CSSLoader
 
 from unittest.mock import patch
 
