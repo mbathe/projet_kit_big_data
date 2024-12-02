@@ -21,7 +21,7 @@ data/*
 *.zip
 
 venv/
-
+data/
 data/dataset/PP_users.csv
 data/dataset/interactions_train.csv
 printDataSet.ipynb

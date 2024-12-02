@@ -1621,65 +1621,419 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-01 16:39:50,638 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-01 17:26:18,680 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-01 17:26:18,682 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 18:02:12,932 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 18:02:12,932 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 18:02:18,886 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 18:02:18,887 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 18:02:20,999 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 18:02:21,000 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 22:05:54,942 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 22:05:54,945 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 22:06:03,010 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 22:06:03,017 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 22:06:03,018 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 22:06:03,021 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 22:06:16,435 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 22:06:16,435 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:05:44,323 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:05:44,324 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:06:06,092 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:06:06,092 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:06:50,147 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:06:50,150 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:10:48,622 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:10:48,622 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:16:39,032 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:16:39,032 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:26:52,177 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:26:52,178 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:42:05,024 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:42:05,025 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-01 23:47:16,882 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-01 23:47:16,882 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:29:20,572 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:29:20,573 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:30:10,867 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:30:10,868 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:30:30,542 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:30:30,542 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:30:47,037 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:30:47,038 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:30:58,864 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:30:58,865 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:31:16,733 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:31:16,734 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:31:29,468 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:31:29,468 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:33:21,508 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:33:21,510 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:34:01,811 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:34:01,811 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:44:05,009 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:44:05,010 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 10:44:19,737 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 10:44:19,738 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 14:08:42,829 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 14:08:42,830 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 14:09:06,411 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 14:09:06,411 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 14:19:50,965 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 14:19:50,966 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 14:20:21,735 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 14:20:21,736 - INFO - CSS loaded from src/css_pages/recipe.css
-2024-12-02 14:21:15,337 - INFO - CSS loaded from src/css_pages/analyse_user.css
-2024-12-02 14:21:15,337 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-02 14:51:08,737 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:08,738 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:08,738 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:44,371 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:44,371 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:44,371 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:46,719 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:46,719 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:51:46,719 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:02,835 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:02,835 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:02,836 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:24,254 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:24,255 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:24,255 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:37,626 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:37,626 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:52:37,626 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:53:08,344 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:53:08,345 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 14:53:08,345 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 15:05:37,299 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 15:05:37,299 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 15:05:37,300 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe/RAW_recipes.csv'
+2024-12-02 15:05:38,222 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:05:38,222 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:05:38,222 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:05:38,222 - INFO - Configuration de la page Streamlit
+2024-12-02 15:05:38,223 - INFO - Chargement du CSS
+2024-12-02 15:05:38,223 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:05:38,223 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:05:38,224 - INFO - Récupération des données
+2024-12-02 15:05:38,224 - INFO - Connexion à MongoDB
+2024-12-02 15:05:38,295 - INFO - Connexion établie
+2024-12-02 15:05:47,472 - INFO - Données chargées depuis raw_interaction avec limite 2000
+2024-12-02 15:05:47,569 - INFO - Connexion MongoDB fermée
+2024-12-02 15:05:47,571 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:05:47,588 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:05:47,588 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:05:47,588 - INFO - Prétraitement des données
+2024-12-02 15:05:47,604 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:05:47,605 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:05:47,616 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:05:47,616 - INFO - Analyse des fréquences des notes
+2024-12-02 15:05:47,620 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:05:47,686 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:05:47,686 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:05:47,703 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:05:47,734 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 0
+2024-12-02 15:05:47,734 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 0
+2024-12-02 15:05:47,734 - WARNING - Aucune donnée de fréquence trouvée pour l'utilisateur ID: 0
+2024-12-02 15:05:47,734 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:05:47,735 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-02 15:05:47,735 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-02 15:05:47,735 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-02 15:05:47,735 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:05:57,404 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:05:57,404 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:05:57,404 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:05:57,404 - INFO - Configuration de la page Streamlit
+2024-12-02 15:05:57,405 - INFO - Chargement du CSS
+2024-12-02 15:05:57,405 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:05:57,406 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:05:57,407 - INFO - Récupération des données
+2024-12-02 15:05:57,409 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:05:57,414 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:05:57,414 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:05:57,414 - INFO - Prétraitement des données
+2024-12-02 15:05:57,428 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:05:57,428 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:05:57,437 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:05:57,438 - INFO - Analyse des fréquences des notes
+2024-12-02 15:05:57,442 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:05:57,509 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:05:57,509 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:05:57,515 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:05:57,536 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 1
+2024-12-02 15:05:57,536 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 1
+2024-12-02 15:05:57,536 - WARNING - Aucune donnée de fréquence trouvée pour l'utilisateur ID: 1
+2024-12-02 15:05:57,536 - WARNING - Aucune donnée trouvée pour l'utilisateur 1.
+2024-12-02 15:05:57,537 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-02 15:05:57,537 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-02 15:05:57,537 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-02 15:05:57,537 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:06:02,024 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:06:02,024 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:06:02,024 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:06:02,024 - INFO - Configuration de la page Streamlit
+2024-12-02 15:06:02,025 - INFO - Chargement du CSS
+2024-12-02 15:06:02,025 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:06:02,025 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:06:02,025 - INFO - Récupération des données
+2024-12-02 15:06:02,027 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:06:02,028 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:06:02,028 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:06:02,029 - INFO - Prétraitement des données
+2024-12-02 15:06:02,037 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:06:02,038 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:06:02,047 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:06:02,047 - INFO - Analyse des fréquences des notes
+2024-12-02 15:06:02,050 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:06:02,107 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:02,108 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:02,112 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:06:02,132 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:02,132 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:02,132 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 8937
+2024-12-02 15:06:02,140 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-02 15:06:02,141 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-02 15:06:02,141 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-02 15:06:02,141 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:06:07,279 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:06:07,281 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:06:07,284 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:06:07,284 - INFO - Configuration de la page Streamlit
+2024-12-02 15:06:07,285 - INFO - Chargement du CSS
+2024-12-02 15:06:07,285 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:06:07,286 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:06:07,287 - INFO - Récupération des données
+2024-12-02 15:06:07,290 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:06:07,294 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:06:07,294 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:06:07,294 - INFO - Prétraitement des données
+2024-12-02 15:06:07,303 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:06:07,303 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:06:07,318 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:06:07,318 - INFO - Analyse des fréquences des notes
+2024-12-02 15:06:07,320 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:06:07,390 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:07,390 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:07,394 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:06:07,412 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8936
+2024-12-02 15:06:07,413 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8936
+2024-12-02 15:06:07,413 - WARNING - Aucune donnée de fréquence trouvée pour l'utilisateur ID: 8936
+2024-12-02 15:06:07,413 - WARNING - Aucune donnée trouvée pour l'utilisateur 8936.
+2024-12-02 15:06:07,414 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-02 15:06:07,414 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-02 15:06:07,414 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-02 15:06:07,414 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:06:09,856 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:06:09,856 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:06:09,856 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:06:09,856 - INFO - Configuration de la page Streamlit
+2024-12-02 15:06:09,856 - INFO - Chargement du CSS
+2024-12-02 15:06:09,856 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:06:09,857 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:06:09,858 - INFO - Récupération des données
+2024-12-02 15:06:09,860 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:06:09,862 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:06:09,862 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:06:09,862 - INFO - Prétraitement des données
+2024-12-02 15:06:09,870 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:06:09,870 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:06:09,886 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:06:09,886 - INFO - Analyse des fréquences des notes
+2024-12-02 15:06:09,888 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:06:09,947 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:09,947 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:09,951 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:06:09,970 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8936
+2024-12-02 15:06:09,970 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8936
+2024-12-02 15:06:09,971 - WARNING - Aucune donnée de fréquence trouvée pour l'utilisateur ID: 8936
+2024-12-02 15:06:09,971 - WARNING - Aucune donnée trouvée pour l'utilisateur 8936.
+2024-12-02 15:06:09,972 - INFO - Analyse des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:09,972 - INFO - Analyse des données pour l'utilisateur ID: 8937
+2024-12-02 15:06:09,975 - INFO - Analyse utilisateur terminée pour ID: 8937
+2024-12-02 15:06:09,975 - INFO - Affichage du graphique en ligne: Aperçu des notes utilisateur au fil du temps
+2024-12-02 15:06:19,051 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:06:19,051 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:06:19,051 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:06:19,051 - INFO - Configuration de la page Streamlit
+2024-12-02 15:06:19,051 - INFO - Chargement du CSS
+2024-12-02 15:06:19,052 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:06:19,052 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:06:19,052 - INFO - Récupération des données
+2024-12-02 15:06:19,053 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:06:19,054 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:06:19,054 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:06:19,054 - INFO - Prétraitement des données
+2024-12-02 15:06:19,059 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:06:19,059 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:06:19,072 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:06:19,072 - INFO - Analyse des fréquences des notes
+2024-12-02 15:06:19,075 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:06:19,124 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:19,124 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:19,136 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:06:19,159 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:19,160 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:19,160 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 8937
+2024-12-02 15:06:19,167 - INFO - Analyse des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:19,168 - INFO - Analyse des données pour l'utilisateur ID: 8937
+2024-12-02 15:06:19,169 - INFO - Analyse utilisateur terminée pour ID: 8937
+2024-12-02 15:06:19,169 - INFO - Affichage du graphique en ligne: Aperçu des notes utilisateur au fil du temps
+2024-12-02 15:06:22,680 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:06:22,680 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:06:22,680 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:06:22,680 - INFO - Configuration de la page Streamlit
+2024-12-02 15:06:22,680 - INFO - Chargement du CSS
+2024-12-02 15:06:22,680 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:06:22,681 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:06:22,681 - INFO - Récupération des données
+2024-12-02 15:06:22,683 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:06:22,685 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:06:22,685 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:06:22,686 - INFO - Prétraitement des données
+2024-12-02 15:06:22,697 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:06:22,697 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:06:22,714 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:06:22,714 - INFO - Analyse des fréquences des notes
+2024-12-02 15:06:22,718 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:06:22,770 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:22,771 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:22,775 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:06:22,795 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:22,795 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:22,795 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 8937
+2024-12-02 15:06:22,802 - INFO - Analyse des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:22,802 - INFO - Analyse des données pour l'utilisateur ID: 8937
+2024-12-02 15:06:22,804 - INFO - Analyse utilisateur terminée pour ID: 8937
+2024-12-02 15:06:22,804 - INFO - Affichage du graphique en ligne: Aperçu des notes utilisateur au fil du temps
+2024-12-02 15:06:44,665 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:06:44,665 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:06:44,665 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:06:44,666 - INFO - Configuration de la page Streamlit
+2024-12-02 15:06:44,666 - INFO - Chargement du CSS
+2024-12-02 15:06:44,666 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:06:44,667 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:06:44,667 - INFO - Récupération des données
+2024-12-02 15:06:44,670 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:06:44,674 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:06:44,674 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:06:44,675 - INFO - Prétraitement des données
+2024-12-02 15:06:44,686 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:06:44,687 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:06:44,702 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:06:44,702 - INFO - Analyse des fréquences des notes
+2024-12-02 15:06:44,705 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:06:44,766 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:44,766 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:44,771 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:06:44,791 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:44,791 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 8937
+2024-12-02 15:06:44,792 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 8937
+2024-12-02 15:06:44,800 - INFO - Analyse des notes pour l'utilisateur ID: 57222
+2024-12-02 15:06:44,800 - INFO - Analyse des données pour l'utilisateur ID: 57222
+2024-12-02 15:06:44,801 - INFO - Analyse utilisateur terminée pour ID: 57222
+2024-12-02 15:06:44,801 - INFO - Affichage du graphique en ligne: Aperçu des notes utilisateur au fil du temps
+2024-12-02 15:06:51,951 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:06:51,951 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:06:51,951 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:06:51,951 - INFO - Configuration de la page Streamlit
+2024-12-02 15:06:51,951 - INFO - Chargement du CSS
+2024-12-02 15:06:51,951 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:06:51,952 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:06:51,952 - INFO - Récupération des données
+2024-12-02 15:06:51,954 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:06:51,956 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:06:51,957 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:06:51,957 - INFO - Prétraitement des données
+2024-12-02 15:06:51,967 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:06:51,967 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:06:51,984 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:06:51,985 - INFO - Analyse des fréquences des notes
+2024-12-02 15:06:51,986 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:06:52,054 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:52,055 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:06:52,059 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:06:52,078 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:06:52,079 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:06:52,080 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 57222
+2024-12-02 15:06:52,088 - INFO - Analyse des notes pour l'utilisateur ID: 57222
+2024-12-02 15:06:52,088 - INFO - Analyse des données pour l'utilisateur ID: 57222
+2024-12-02 15:06:52,089 - INFO - Analyse utilisateur terminée pour ID: 57222
+2024-12-02 15:06:52,090 - INFO - Affichage du graphique en ligne: Aperçu des notes utilisateur au fil du temps
+2024-12-02 15:14:36,776 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:14:36,776 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:14:36,776 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:14:36,776 - INFO - Configuration de la page Streamlit
+2024-12-02 15:14:36,777 - INFO - Chargement du CSS
+2024-12-02 15:14:36,778 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:14:36,779 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:14:36,779 - INFO - Récupération des données
+2024-12-02 15:14:36,780 - INFO - Connexion à MongoDB
+2024-12-02 15:14:36,858 - INFO - Connexion établie
+2024-12-02 15:14:46,130 - INFO - Données chargées depuis raw_interaction avec limite 2000
+2024-12-02 15:14:46,293 - INFO - Connexion MongoDB fermée
+2024-12-02 15:14:46,294 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:14:46,306 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:14:46,307 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:14:46,307 - INFO - Prétraitement des données
+2024-12-02 15:14:46,315 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:14:46,315 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:14:46,326 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:14:46,326 - INFO - Analyse des fréquences des notes
+2024-12-02 15:14:46,328 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:14:46,386 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:14:46,387 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:14:46,405 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:14:46,473 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 0
+2024-12-02 15:14:46,474 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 0
+2024-12-02 15:14:46,474 - WARNING - Aucune donnée de fréquence trouvée pour l'utilisateur ID: 0
+2024-12-02 15:14:46,474 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:14:46,476 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-02 15:14:46,476 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-02 15:14:46,477 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-02 15:14:46,477 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:14:54,982 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:14:54,983 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:14:54,983 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:14:54,983 - INFO - Configuration de la page Streamlit
+2024-12-02 15:14:54,983 - INFO - Chargement du CSS
+2024-12-02 15:14:54,983 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:14:54,984 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:14:54,984 - INFO - Récupération des données
+2024-12-02 15:14:54,987 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:14:54,991 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:14:54,992 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:14:54,992 - INFO - Prétraitement des données
+2024-12-02 15:14:55,029 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:14:55,029 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:14:55,046 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:14:55,047 - INFO - Analyse des fréquences des notes
+2024-12-02 15:14:55,054 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:14:55,111 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:14:55,111 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:14:55,116 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:14:55,136 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:14:55,136 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:14:55,137 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 57222
+2024-12-02 15:14:55,146 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-02 15:14:55,146 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-02 15:14:55,146 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-02 15:14:55,146 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:14:58,013 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:14:58,013 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:14:58,013 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:14:58,013 - INFO - Configuration de la page Streamlit
+2024-12-02 15:14:58,013 - INFO - Chargement du CSS
+2024-12-02 15:14:58,014 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:14:58,014 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:14:58,014 - INFO - Récupération des données
+2024-12-02 15:14:58,016 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:14:58,018 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:14:58,018 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:14:58,018 - INFO - Prétraitement des données
+2024-12-02 15:14:58,029 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:14:58,029 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:14:58,044 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:14:58,044 - INFO - Analyse des fréquences des notes
+2024-12-02 15:14:58,047 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:14:58,116 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:14:58,116 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:14:58,120 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:14:58,141 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:14:58,141 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:14:58,142 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 57222
+2024-12-02 15:14:58,151 - INFO - Analyse des notes pour l'utilisateur ID: 57222
+2024-12-02 15:14:58,151 - INFO - Analyse des données pour l'utilisateur ID: 57222
+2024-12-02 15:14:58,156 - INFO - Analyse utilisateur terminée pour ID: 57222
+2024-12-02 15:14:58,156 - INFO - Affichage du graphique en ligne: Aperçu des notes utilisateur au fil du temps
+2024-12-02 15:15:45,688 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:15:45,689 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:15:45,689 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:15:45,689 - INFO - Configuration de la page Streamlit
+2024-12-02 15:15:45,689 - INFO - Chargement du CSS
+2024-12-02 15:15:45,690 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:15:45,692 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:15:45,692 - INFO - Récupération des données
+2024-12-02 15:15:45,695 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:15:45,699 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:15:45,699 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:15:45,700 - INFO - Prétraitement des données
+2024-12-02 15:15:45,708 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:15:45,708 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:15:45,724 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:15:45,725 - INFO - Analyse des fréquences des notes
+2024-12-02 15:15:45,727 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:15:45,791 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:15:45,791 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:15:45,796 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:15:45,818 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:15:45,818 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 57222
+2024-12-02 15:15:45,819 - INFO - Affichage des fréquences des notes: Fréquence des Notes pour l'utilisateur 57222
+2024-12-02 15:15:45,828 - INFO - Analyse des notes pour l'utilisateur ID: 57222
+2024-12-02 15:15:45,828 - INFO - Analyse des données pour l'utilisateur ID: 57222
+2024-12-02 15:15:45,831 - INFO - Analyse utilisateur terminée pour ID: 57222
+2024-12-02 15:15:45,831 - INFO - Affichage du graphique en ligne: Aperçu des notes utilisateur au fil du temps
+2024-12-02 15:15:51,539 - INFO - Démarrage de l'application Streamlit
+2024-12-02 15:15:51,539 - INFO - Initialisation de StreamlitPage
+2024-12-02 15:15:51,539 - INFO - Initialisation de DataLoaderMango
+2024-12-02 15:15:51,539 - INFO - Configuration de la page Streamlit
+2024-12-02 15:15:51,540 - INFO - Chargement du CSS
+2024-12-02 15:15:51,540 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-02 15:15:51,540 - INFO - Chargement des données depuis MongoDB
+2024-12-02 15:15:51,541 - INFO - Récupération des données
+2024-12-02 15:15:51,543 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-02 15:15:51,545 - INFO - Démarrage de l'analyse des données
+2024-12-02 15:15:51,545 - INFO - Initialisation de DataAnalyzer
+2024-12-02 15:15:51,546 - INFO - Prétraitement des données
+2024-12-02 15:15:51,560 - INFO - Affichage de l'histogramme des notes globales
+2024-12-02 15:15:51,561 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-02 15:15:51,591 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-02 15:15:51,591 - INFO - Analyse des fréquences des notes
+2024-12-02 15:15:51,593 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-02 15:15:51,654 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:15:51,654 - INFO - Analyse des notes moyennes mensuelles
+2024-12-02 15:15:51,668 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-02 15:15:51,694 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 0
+2024-12-02 15:15:51,694 - INFO - Analyse des fréquences des notes pour l'utilisateur ID: 0
+2024-12-02 15:15:51,695 - WARNING - Aucune donnée de fréquence trouvée pour l'utilisateur ID: 0
+2024-12-02 15:15:51,695 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-02 15:15:51,696 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-02 15:15:51,696 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-02 15:15:51,697 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-02 15:15:51,698 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.

@@ -7,7 +7,7 @@ parent_parent_dir = os.path.abspath(os.path.join(current_dir, '..', '..'))
 
 sys.path.append(parent_parent_dir)
 
-from src.pages.pages import CSSLoader
+from src.pages import CSSLoader
 
 from unittest.mock import patch
 
