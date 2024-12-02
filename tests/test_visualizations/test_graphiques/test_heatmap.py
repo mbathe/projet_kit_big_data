@@ -75,3 +75,14 @@ def test_heatmap_afficher(mock_plotly_chart, sample_data):
     assert yaxes.tickfont.color == 'black', "La couleur de la police des ticks de l'axe y n'est pas 'black'."
     assert yaxes.title.font.color == 'black', "La couleur de la police du titre de l'axe y n'est pas 'black'."
     assert yaxes.automargin == False, "L'automargin de l'axe y est activé."
+
+
+def test_heatmap_invalid_data_initialization():
+    """Test l'initialisation de la classe Heatmap avec des données invalides."""
+    invalid_data = pd.DataFrame({
+        'A': [1, 2, 3],
+        'B': [4, 5, 6]
+    })
+    
+    with pytest.raises(ValueError, match="Les colonnes spécifiées n'existent pas dans les données"):
+        Heatmap(data=invalid_data, x='X', y='Y', z='Z', height=500)

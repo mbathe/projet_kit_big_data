@@ -275,7 +275,9 @@ class StreamlitPage(DataLoaderMango):
         if self.data is not None:
             self.run_analysis()
 
-
-if __name__ == "__main__":
+def main():
     page_analyse_user = StreamlitPage()
     page_analyse_user.run()
+
+if __name__ == "__main__":
+    main()

@@ -41,3 +41,20 @@ class BarChart(Graphique):
         self.x = x
         self.y = y
         self.height = height
+    
+    def afficher(self):
+        """
+        Displays the bar chart using Streamlit's plotly_chart function.
+        """
+        fig = px.bar(self.data, x=self.x, y=self.y, height=self.height)
+
+        fig.update_layout(
+            plot_bgcolor='white',
+            paper_bgcolor='white',
+            margin=dict(l=30, r=0, t=20, b=30),
+            xaxis=dict(color='black'),
+            yaxis=dict(color='black'),
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+

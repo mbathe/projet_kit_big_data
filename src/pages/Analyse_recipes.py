@@ -36,6 +36,9 @@ except locale.Error:
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
 YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
 YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
+
+
+
 class CSSLoader:
     """Class responsible for loading CSS."""
     @staticmethod

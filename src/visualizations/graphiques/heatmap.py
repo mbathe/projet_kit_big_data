@@ -4,13 +4,6 @@ import plotly.express as px
 
 class Heatmap(Graphique):
     def __init__(self, data, x, y, z, height=400):
-        super().__init__(data)
-        self.x = x
-        self.y = y
-        self.z = z
-        self.height = height
-
-    def __init__(self, data, x, y, z, height=400):
         """
         Initialize a Heatmap object with the given data and parameters.
 
@@ -24,6 +17,8 @@ class Heatmap(Graphique):
         Returns:
         - None
         """
+        if not all(col in data.columns for col in [x, y, z]):
+            raise ValueError("Les colonnes spécifiées n'existent pas dans les données")
         super().__init__(data)
         self.x = x
         self.y = y
