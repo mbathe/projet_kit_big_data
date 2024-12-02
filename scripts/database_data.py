@@ -1,17 +1,22 @@
 import os
+import logging
 from typing import List, Dict
 
 import pandas as pd
 from pymongo import MongoClient
 from pymongo.errors import AutoReconnect, ServerSelectionTimeoutError, BulkWriteError
-from bson import ObjectId
 from dotenv import load_dotenv
 
-
-# Charger les variables d'environnement
 load_dotenv()
 
-# Fonction sécurisée pour évaluer des chaînes de type JSON ou listes
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app.log"),
+        logging.StreamHandler()
+    ]
+)
 
 def safe_eval(value, default=None):
     try:
@@ -56,9 +61,9 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
         # Tester la connexion
         try:
             client.admin.command('ping')
-            print("Connexion MongoDB réussie.")
+            logging.info("Connexion MongoDB réussie.")
         except ServerSelectionTimeoutError as e:
-            print(f"Erreur de connexion à MongoDB : {e}")
+            logging.error(f"Erreur de connexion à MongoDB : {e}")
             return
 
         # Sélectionner la base de données et la collection
@@ -83,14 +88,14 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
             except BulkWriteError as bwe:
                 print(f"Erreur d'écriture en masse : {bwe.details}")
             except AutoReconnect as ar:
-                print(f"Problème de reconnexion : {ar}. Réessayer...")
+                logging.error(f"Problème de reconnexion : {ar}. Réessayer...")
 
     except Exception as e:
-        print(f"Erreur inattendue : {e}")
+        logging.error(f"Erreur inattendue : {e}")
     finally:
         # Fermer la connexion à MongoDB
         client.close()
-        print("Connexion MongoDB fermée.")
+        logging.info("Connexion MongoDB fermée.")
 
 class DataFrameConverter:
     """

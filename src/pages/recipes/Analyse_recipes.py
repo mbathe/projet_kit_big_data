@@ -1,3 +1,4 @@
+import base64
 import logging
 import numpy as np
 import pandas as pd
@@ -9,7 +10,6 @@ from src.process.recipes import Recipe
 from src.utils.static import mois
 import locale
 from src.visualizations import load_css
-from src.utils.static import submissions_data
 from src.utils.static import recipe_columns_description
 from collections import Counter
 from streamlit_echarts import st_echarts
@@ -17,9 +17,13 @@ from src.utils.static import constribution_data
 from dotenv import load_dotenv
 import os
 
+st.set_page_config(
+    page_title="Recipes Explorer",
+    page_icon="🍳",
+    layout="wide",
+)
 load_dotenv()
 
-# Configuration du logger
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -27,11 +31,13 @@ logging.basicConfig(level=logging.INFO,
 try:
     locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 except locale.Error:
-    # Fallback to a default locale or skip locale setting
     locale.setlocale(locale.LC_TIME, '')
+
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
 YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
 YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
+
+
 class CSSLoader:
     """Class responsible for loading CSS."""
     @staticmethod
@@ -95,9 +101,10 @@ class DataManager:
 class DisplayManager:
     def __init__(self, data_manager):
         self.data_manager = data_manager
-        self.load_css()
+        # self.load_css()
 
-    def load_css(self):
+    @staticmethod
+    def load_css():
         path_to_css_user = 'src/css_pages/analyse_user.css'
         path_to_css_recipe = 'src/css_pages/recipe.css'
         CSSLoader.load(path_to_css_user)
@@ -107,9 +114,6 @@ class DisplayManager:
         try:
             with st.sidebar:
                 st.title("⚙️ Configuration")
-                theme = st.selectbox("Thème", ["Clair", "Sombre"], key='theme')
-                langue = st.selectbox(
-                    "Langue", ["Français", "English"], key='langue')
                 date_range = st.date_input(
                     "Période d'analyse",
                     value=(date(YEAR_MIN, 1, 1), date(YEAR_MAX, 12, 31)),
@@ -125,6 +129,8 @@ class DisplayManager:
                         st.error(
                             "La date de début doit être antérieure ou égale à la date de fin.")
                     else:
+                        if "data" not in self.data_manager.get_recipe_data().st.session_state:
+                            self.display_welcome_screen()
                         self.data_manager.set_date_range(start_date, end_date)
                         st.success(f"Période d'analyse: {
                                    start_date} à {end_date}")
@@ -929,14 +935,108 @@ class DisplayManager:
         except Exception as e:
             logging.error(f"Error in display_tab: {e}")
 
+    @staticmethod
+    def get_img_as_base64(file_path):
+        """Convertit une image en base64"""
+        try:
+            with open(file_path, "rb") as img_file:
+                return base64.b64encode(img_file.read()).decode()
+        except Exception as e:
+            st.error(f"Erreur de chargement de l'image : {e}")
+            return None
+
+    @staticmethod
+    def display_welcome_screen():
+        """Affiche l'écran de bienvenue"""
+        # Charger l'image en base64 (remplacez par le chemin de votre image)
+        img_path = "path/to/your/cooking_image.jpg"
+        img_base64 = DisplayManager.get_img_as_base64(img_path)
+
+        # Style CSS personnalisé
+        st.markdown(f"""
+        <style>
+        .welcome-container {{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 10px;
+        }}
+        .welcome-image {{
+            max-width: 500px;
+            max-height: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }}
+        </style>
+
+        <div class="welcome-container">
+            {'<img src="data:image/jpeg;base64,'+img_base64 +
+             '" class="welcome-image" alt="Cuisine">' if img_base64 else ''}
+
+            <h1 style="color: #2C3E50;">👨‍🍳 Food.com Recipes Explorer</h1>
+
+            <h2 style="color: #34495E;">🍽️ Analyse Approfondie des Recettes</h2>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Message informatif
+        st.markdown("""
+        ### 📊 Chargement des Données Culinaires
+        
+        *Votre voyage gastronomique commence...*
+        
+        #### 🔍 Ce que vous allez découvrir :
+        
+        - 🥗 **Statistiques détaillées des recettes**
+        - 📈 Analyses nutritionnelles avancées
+        - 🌍 Exploration des tendances culinaires
+        - ⭐ Système de recommandation personnalisé
+        """)
+
+    @staticmethod
+    def load_data():
+        """Chargement des données avec spinner et progression"""
+        st.info("""
+        ### 📊 Sélection Temporelle des Données
+        
+        *En raison de la grande taille du dataset, les données sont chargées par défaut :*
+        
+        - **Période par défaut :** 1 janvier 2015 - 1 janvier 2018
+        - 🚨 *Modification possible, mais augmentation du temps de chargement*
+        
+        ⚙️ Optimisation automatique en cours...
+        
+        **Paramètres de chargement :**
+        - Source : Food.com Recipes
+        - Filtrage temporel : Activé
+        - Mode d'optimisation : Performance
+        """)
+
+    @staticmethod
+    def show_welcom():
+        """Méthode principale pour exécuter l'application"""
+        # Écran de bienvenue
+        DisplayManager.display_welcome_screen()
+
+        # Chargement des données
+        DisplayManager.load_data()
+
 
 if __name__ == "__main__":
     try:
+
+        welcome_container = st.empty()
         data_manager = DataManager()
-        manager = DisplayManager(data_manager=data_manager)
-        manager.load_css()
-        manager.sidebar()
-        manager.display_tab()
+        DisplayManager.load_css()
+        welcome_container.empty()
+        container = st.container()
+        with container:
+            manager = DisplayManager(data_manager=data_manager)
+            manager.sidebar()
+            manager.display_tab()
     except Exception as e:
         logging.error(f"Error in main: {e}")
 

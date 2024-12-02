@@ -13,6 +13,7 @@ from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from dotenv import load_dotenv
 import os
+from src.pages.welcom.Welcom import Welcome
 
 load_dotenv()
 
@@ -102,24 +103,31 @@ class Recipe:
                         self.st.session_state.start_date = self._ensure_date(
                             start_date)
                     if 'end_date' not in self.st.session_state:
+                        st.empty()
                         self.st.session_state.end_date = self._ensure_date(
                             end_date)
-                    with self.st.spinner("Chargement des données depuis MongoDB..."):
-                        self.st.session_state.data = self.fetch_data_from_mongodb(
+                    welcome_container = self.st.empty()
+                    self.st.session_state.data = Welcome.show_welcom(DEPLOIEMENT_SITE,
+                                                                     self.fetch_data_from_mongodb, CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+                    welcome_container.empty()
+                elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(YEAR_MIN, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(YEAR_MAX, 12, 31)):
+                    with self.st.spinner("⏳ **Chargement en cours...**"):
+                        try:
+                            self.st.session_state.data = self.fetch_data_from_mongodb(
                             CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
-                elif (start_date != self.st.session_state.start_date and start_date != date(YEAR_MIN, 1, 1)) or (end_date != self.st.session_state.end_date and end_date != date(YEAR_MAX, 12, 31)):
-                    with self.st.spinner("Chargement des données depuis MongoDB..."):
-                        self.st.session_state.data = self.fetch_data_from_mongodb(
-                            CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
-                    self.st.session_state.start_date = self._ensure_date(
-                        start_date)
-                    self.st.session_state.end_date = self._ensure_date(
-                        end_date)
+                            self.st.session_state.start_date = self._ensure_date(
+                                start_date)
+                            self.st.session_state.end_date = self._ensure_date(
+                                end_date)
+
+                        except Exception as e:
+                            self.st.error(f"❌ Erreur de chargement : {e}")
+
             else:
                 if 'data' not in self.st.session_state:
                     dataset_dir = os.getenv("DIR_DATASET_2")
-                    self.st.session_state.data = load_dataset_from_file(
-                        os.path.join(dataset_dir, "RAW_recipes.csv"), start_date, end_date)
+                    self.st.session_state.data = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, os.path.join(
+                        dataset_dir, "RAW_recipes.csv"), None, None, start_date, end_date)
                     self.st.session_state.start_date = self._ensure_date(
                         start_date)
                     self.st.session_state.end_date = self._ensure_date(
@@ -562,30 +570,3 @@ class Recipe:
             return pd.DataFrame()
         finally:
             client.close()
-
-
-""" 
- def initialize_session_state(self, name: str) -> None:
-        Initialize session state with filtered dataset.
-        try:
-            if 'data' not in self.st.session_state:
-                dataset_dir = os.getenv("DIR_DATASET_2")
-                assert dataset_dir is not None, "Dataset directory not set"
-                
-                self.st.session_state.data = load_dataset(
-                    dir_name=dataset_dir,
-                    all_contents=True
-                ).get(name)
-
-            self.st.session_state.data['submitted'] = pd.to_datetime(
-                self.st.session_state.data['submitted']
-            )
-
-            mask = (
-                (self.st.session_state.data['submitted'] >= self.date_start) &
-                (self.st.session_state.data['submitted'] <= self.date_end)
-            )
-            self.st.session_state.data = self.st.session_state.data[mask]
-        except Exception as e:
-            logging.error(f"Error in initialize_session_state: {e}")
-            raise """

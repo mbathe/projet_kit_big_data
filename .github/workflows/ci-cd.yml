@@ -5,10 +5,9 @@ on:
     branches:
       - 'review/**'   # Exécute le workflow sur les branches de review
       - main          # Exécute le workflow lors des pull requests vers main
-      - master           # Exécute le workflow sur toutes les branches
   pull_request:
     branches:
-      - main          # Exécute le workflow lors des pull requests vers main
+      - main          
 
 jobs:
   lint-format:
@@ -121,4 +120,4 @@ jobs:
     
     - name: Run Docker container
       run: |
-        docker run -d --name mon-app-streamlit --memory="512m" -p 8501:8501
+        docker run -d --name mon-app-streamlit --memory="5g" -p 8501:8501 mon-app-streamlit

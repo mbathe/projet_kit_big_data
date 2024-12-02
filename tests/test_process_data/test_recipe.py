@@ -1,11 +1,8 @@
-import os
 import pytest
 from datetime import datetime
 import pandas as pd
 import numpy as np
-import streamlit as st
 
-# Assuming the Recipe class is imported from the main module
 from src.process.recipes import Recipe
 
 
@@ -173,5 +170,3 @@ def test_initialization() -> None:
     assert default_recipe.name == "RAW_recipes"
     assert default_recipe.date_start == datetime(1999, 1, 1)
     assert default_recipe.date_end == datetime(2018, 12, 31)
-
-# Add more specific tests as needed
