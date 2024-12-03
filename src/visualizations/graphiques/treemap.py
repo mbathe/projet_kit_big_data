@@ -3,20 +3,56 @@ from src.visualizations.graphique import Graphique
 import plotly.express as px
 
 class Treemap(Graphique):
-    def __init__(self, data, path, values, height=400):
-        super().__init__(data)
+    """
+    Classe pour créer et afficher une carte arborescente (Treemap) en utilisant Plotly Express.
 
+    Cette classe hérite de la classe de base `Graphique` et utilise Plotly Express pour générer
+    une carte arborescente basée sur les données fournies. Elle est conçue pour être affichée
+    dans une application Streamlit.
+
+    Args:
+        data (pandas.DataFrame): Le jeu de données à visualiser.
+        path (List[str]): Liste des noms de colonnes définissant la hiérarchie de la carte arborescente.
+        values (str): Le nom de la colonne à utiliser pour les valeurs des segments.
+        height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.
+
+    Attributes:
+        data (pandas.DataFrame): Le jeu de données à visualiser.
+        path (List[str]): Liste des noms de colonnes définissant la hiérarchie de la carte arborescente.
+        values (str): Le nom de la colonne à utiliser pour les valeurs des segments.
+        height (int): La hauteur du graphique en pixels.
+    """
+
+    def __init__(self, data, path, values, height=400):
+        """
+        Initialise un objet Treemap.
+
+        Args:
+            data (pandas.DataFrame): Le jeu de données à visualiser.
+            path (List[str]): Liste des noms de colonnes définissant la hiérarchie de la carte arborescente.
+            values (str): Le nom de la colonne à utiliser pour les valeurs des segments.
+            height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.
+
+        Raises:
+            KeyError: Si les colonnes spécifiées n'existent pas dans les données.
+        """
         # Vérification que les colonnes existent dans le DataFrame
         missing_cols = [col for col in path + [values] if col not in data.columns]
         if missing_cols:
             raise KeyError(f"Les colonnes suivantes sont manquantes dans le DataFrame : {', '.join(missing_cols)}")
 
-
+        super().__init__(data)
         self.path = path  # Liste des colonnes pour la hiérarchie
         self.values = values
         self.height = height
 
     def afficher(self):
+        """
+        Affiche la carte arborescente en utilisant la fonction plotly_chart de Streamlit.
+
+        Cette méthode génère la carte arborescente avec Plotly Express en utilisant les attributs
+        `path`, `values` et `height`, puis l'affiche dans l'application Streamlit avec une mise en page personnalisée.
+        """
         fig = px.treemap(
             self.data,
             path=self.path,
@@ -37,4 +73,3 @@ class Treemap(Graphique):
         )
 
         st.plotly_chart(fig, use_container_width=True)
-

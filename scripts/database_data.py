@@ -178,9 +178,10 @@ if __name__ == "__main__":
     DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
     COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
 
-    ###
-    # Charger les données dans MongoDB DE la base de PAUL
-    ###
+    #######################################################
+    # Charger les données dans MongoDB DE la base de PAUL #
+    #######################################################
+
     # df = pd.read_csv('../data/dataset/recipe/RAW_recipes.csv')
     # load_dataframe_to_mongodb(df, CONNECTION_STRING,
     #                           DATABASE_NAME, COLLECTION_NAME, convert_dataframe_to_documents)
@@ -188,23 +189,23 @@ if __name__ == "__main__":
     # load_dataframe_to_mongodb(df, os.getenv("CONNECTION_STRING"), os.getenv(
     #     "DATABASE_NAME"), os.getenv("COLLECTION_NAME"))
 
-    ###
-    # Charger les données dans MongoDB pour sacha alexandre et Julian
-    ###
+    ###################################################################
+    # Charger les données dans MongoDB pour sacha alexandre et Julian #
+    ###################################################################
 
-    COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
+    # COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
 
-    df_RAW_interactions = pd.read_csv(os.path.join('data','RAW_interactions.csv'))
+    # df_RAW_interactions = pd.read_csv(os.path.join('data','RAW_interactions.csv'))
 
-    converter = DataFrameConverter()
-    raw_interaction_documents = converter.convert_raw_interaction_dataframe(df_RAW_interactions)
+    # converter = DataFrameConverter()
+    # raw_interaction_documents = converter.convert_raw_interaction_dataframe(df_RAW_interactions)
     
-    load_dataframe_to_mongodb(
-                            raw_interaction_documents, 
-                            CONNECTION_STRING,
-                            DATABASE_NAME, 
-                            COLLECTION_RAW_INTERACTIONS, 
-                            use_convertisseur=False
-    )
+    # load_dataframe_to_mongodb(
+    #                         raw_interaction_documents, 
+    #                         CONNECTION_STRING,
+    #                         DATABASE_NAME, 
+    #                         COLLECTION_RAW_INTERACTIONS, 
+    #                         use_convertisseur=False
+    # )
     
 

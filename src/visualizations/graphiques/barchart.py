@@ -4,47 +4,46 @@ import plotly.express as px
 
 class BarChart(Graphique):
     """
-    A class to create and display a bar chart using Plotly Express.
+    Classe pour créer et afficher un graphique à barres en utilisant Plotly Express.
 
-    Attributes
-    ----------
-    data : pandas.DataFrame
-        The dataset to be used for creating the bar chart.
-    x : str
-        The column name to be used as the x-axis values.
-    y : str
-        The column name to be used as the y-axis values.
-    height : int, optional
-        The height of the bar chart in pixels. Default is 400.
+    Cette classe hérite de la classe de base `Graphique` et utilise Plotly Express pour générer
+    un graphique à barres basé sur les données fournies. Elle est conçue pour être affichée
+    dans une application Streamlit.
 
-    Methods
-    -------
-    afficher()
-        Displays the bar chart using Streamlit's plotly_chart function.
+    Args:
+        data (pandas.DataFrame): Le jeu de données utilisé pour créer le graphique à barres.
+        x (str): Le nom de la colonne à utiliser pour les valeurs de l'axe des x.
+        y (str): Le nom de la colonne à utiliser pour les valeurs de l'axe des y.
+        height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.
+
+    Attributes:
+        data (pandas.DataFrame): Le jeu de données utilisé pour créer le graphique à barres.
+        x (str): Le nom de la colonne à utiliser pour les valeurs de l'axe des x.
+        y (str): Le nom de la colonne à utiliser pour les valeurs de l'axe des y.
+        height (int): La hauteur du graphique en pixels.
     """
+
     def __init__(self, data, x, y, height=400):
         """
-        Initializes a BarChart object.
+        Initialise un objet BarChart.
 
-        Parameters
-        ----------
-        data : pandas.DataFrame
-            The dataset to be used for creating the bar chart.
-        x : str
-            The column name to be used as the x-axis values.
-        y : str
-            The column name to be used as the y-axis values.
-        height : int, optional
-            The height of the bar chart in pixels. Default is 400.
+        Args:
+            data (pandas.DataFrame): Le jeu de données utilisé pour créer le graphique à barres.
+            x (str): Le nom de la colonne à utiliser pour les valeurs de l'axe des x.
+            y (str): Le nom de la colonne à utiliser pour les valeurs de l'axe des y.
+            height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.
         """
         super().__init__(data)
         self.x = x
         self.y = y
         self.height = height
-    
+
     def afficher(self):
         """
-        Displays the bar chart using Streamlit's plotly_chart function.
+        Affiche le graphique à barres en utilisant la fonction plotly_chart de Streamlit.
+
+        Cette méthode génère le graphique à barres avec Plotly Express en utilisant les attributs
+        `x`, `y` et `height`, puis l'affiche dans l'application Streamlit avec une mise en page personnalisée.
         """
         fig = px.bar(self.data, x=self.x, y=self.y, height=self.height)
 
@@ -57,4 +56,3 @@ class BarChart(Graphique):
         )
 
         st.plotly_chart(fig, use_container_width=True)
-
