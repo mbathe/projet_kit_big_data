@@ -3,19 +3,41 @@ from src.visualizations.graphique import Graphique
 import plotly.express as px
 
 class Heatmap(Graphique):
+    """
+    Classe pour créer et afficher une carte thermique (Heatmap) en utilisant Plotly Express.
+
+    Cette classe hérite de la classe de base `Graphique` et utilise Plotly Express pour générer
+    une carte thermique basée sur les données fournies. Elle est conçue pour être affichée
+    dans une application Streamlit.
+
+    Args:
+        data (pandas.DataFrame): Le jeu de données à visualiser.
+        x (str): Le nom de la colonne pour les valeurs de l'axe des x.
+        y (str): Le nom de la colonne pour les valeurs de l'axe des y.
+        z (str): Le nom de la colonne pour les valeurs de l'axe des z (représentant l'intensité des couleurs).
+        height (int, optional): La hauteur de la carte thermique en pixels. Par défaut à 400.
+
+    Attributes:
+        data (pandas.DataFrame): Le jeu de données à visualiser.
+        x (str): Le nom de la colonne pour les valeurs de l'axe des x.
+        y (str): Le nom de la colonne pour les valeurs de l'axe des y.
+        z (str): Le nom de la colonne pour les valeurs de l'axe des z.
+        height (int): La hauteur de la carte thermique en pixels.
+    """
+
     def __init__(self, data, x, y, z, height=400):
         """
-        Initialize a Heatmap object with the given data and parameters.
+        Initialise un objet Heatmap.
 
-        Parameters:
-        - data (pandas.DataFrame): The dataset to visualize.
-        - x (str): The column name for the x-axis values.
-        - y (str): The column name for the y-axis values.
-        - z (str): The column name for the z-axis values (representing the color intensity).
-        - height (int, optional): The height of the heatmap in pixels. Default is 400.
+        Args:
+            data (pandas.DataFrame): Le jeu de données à visualiser.
+            x (str): Le nom de la colonne pour les valeurs de l'axe des x.
+            y (str): Le nom de la colonne pour les valeurs de l'axe des y.
+            z (str): Le nom de la colonne pour les valeurs de l'axe des z (représentant l'intensité des couleurs).
+            height (int, optional): La hauteur de la carte thermique en pixels. Par défaut à 400.
 
-        Returns:
-        - None
+        Raises:
+            ValueError: Si les colonnes spécifiées n'existent pas dans les données.
         """
         if not all(col in data.columns for col in [x, y, z]):
             raise ValueError("Les colonnes spécifiées n'existent pas dans les données")
@@ -26,6 +48,12 @@ class Heatmap(Graphique):
         self.height = height
 
     def afficher(self):
+        """
+        Affiche la carte thermique en utilisant la fonction plotly_chart de Streamlit.
+
+        Cette méthode génère la carte thermique avec Plotly Express en utilisant les attributs
+        `x`, `y`, `z` et `height`, puis l'affiche dans l'application Streamlit avec une mise en page personnalisée.
+        """
         fig = px.density_heatmap(
             self.data,
             x=self.x,
@@ -55,7 +83,6 @@ class Heatmap(Graphique):
                 color='black',
                 title='',
             ),
-            
             coloraxis_colorbar=dict(
                 tickfont=dict(color='black'),
                 titlefont=dict(color='black'),

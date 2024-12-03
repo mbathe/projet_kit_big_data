@@ -3,17 +3,41 @@ import plotly.graph_objects as go
 import streamlit as st
 
 class Histogramme(Graphique):
+    """
+    Classe pour créer et afficher un histogramme en utilisant Plotly.
+
+    Cette classe hérite de la classe de base `Graphique` et utilise Plotly Graph Objects pour générer
+    un histogramme basé sur les données fournies. Elle est conçue pour être affichée
+    dans une application Streamlit.
+
+    Args:
+        data (pandas.DataFrame): Le jeu de données utilisé pour créer l'histogramme.
+        x (str): Le nom de la colonne à analyser pour l'axe des x.
+        height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.
+        bin_size (float, optional): La taille des bins pour l'histogramme. Par défaut est None.
+        bar_color (str, optional): La couleur des barres de l'histogramme. Par défaut 'rgb(100, 149, 237)'.
+        line_color (str, optional): La couleur des lignes autour des barres. Par défaut 'rgb(8,48,107)'.
+
+    Attributes:
+        data (pandas.DataFrame): Le jeu de données utilisé pour créer l'histogramme.
+        x (str): Le nom de la colonne à analyser pour l'axe des x.
+        height (int): La hauteur du graphique en pixels.
+        bin_size (float or None): La taille des bins pour l'histogramme.
+        bar_color (str): La couleur des barres de l'histogramme.
+        line_color (str): La couleur des lignes autour des barres.
+    """
+
     def __init__(self, data, x, height=400, bin_size=None, bar_color='rgb(100, 149, 237)', line_color='rgb(8,48,107)'):
         """
-        Classe pour afficher un histogramme avec Plotly.
+        Initialise un objet Histogramme.
 
-        Paramètres :
-        - data (pd.DataFrame) : Données source
-        - x (str) : Colonne à analyser
-        - height (int) : Hauteur du graphique
-        - bin_size (float) : Taille des bins
-        - bar_color (str) : Couleur des barres
-        - line_color (str) : Couleur des lignes autour des barres
+        Args:
+            data (pandas.DataFrame): Le jeu de données utilisé pour créer l'histogramme.
+            x (str): Le nom de la colonne à analyser pour l'axe des x.
+            height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.
+            bin_size (float, optional): La taille des bins pour l'histogramme. Par défaut est None.
+            bar_color (str, optional): La couleur des barres de l'histogramme. Par défaut 'rgb(100, 149, 237)'.
+            line_color (str, optional): La couleur des lignes autour des barres. Par défaut 'rgb(8,48,107)'.
         """
         super().__init__(data)
         self.x = x
@@ -22,7 +46,17 @@ class Histogramme(Graphique):
         self.bar_color = bar_color
         self.line_color = line_color
 
-    def afficher(self,key=None):
+    def afficher(self, key=None):
+        """
+        Affiche l'histogramme en utilisant la fonction plotly_chart de Streamlit.
+
+        Cette méthode génère l'histogramme avec Plotly Graph Objects en utilisant les attributs
+        `x`, `height`, `bin_size`, `bar_color` et `line_color`, puis l'affiche dans l'application
+        Streamlit avec une mise en page personnalisée.
+
+        Args:
+            key (str, optional): Clé unique pour le graphique dans Streamlit. Par défaut est None.
+        """
         fig = go.Figure()
 
         # Ajout de l'histogramme
@@ -70,4 +104,4 @@ class Histogramme(Graphique):
             automargin=False,
         )
 
-        st.plotly_chart(fig, use_container_width=True,  key=key)
+        st.plotly_chart(fig, use_container_width=True, key=key)

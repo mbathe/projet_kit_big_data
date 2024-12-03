@@ -5,10 +5,22 @@ import pandas as pd
 from dotenv import load_dotenv
 
 
-
 class MongoDBConnector:
     """
     Classe pour se connecter à MongoDB et charger des données d'une collection en DataFrame.
+
+    Cette classe facilite la connexion à une base de données MongoDB, le chargement de
+    collections spécifiques en tant que DataFrame Pandas, et la gestion de la connexion.
+
+    Args:
+        connection_string (str): URI de connexion à MongoDB.
+        database_name (str): Nom de la base de données.
+
+    Attributes:
+        connection_string (str): URI de connexion à MongoDB.
+        database_name (str): Nom de la base de données.
+        client (MongoClient or None): Instance du client MongoDB après connexion.
+        db (Database or None): Instance de la base de données MongoDB après connexion.
     """
 
     def __init__(self, connection_string: str, database_name: str):
@@ -25,7 +37,16 @@ class MongoDBConnector:
         self.db = None
 
     def connect(self):
-        """Établit une connexion avec MongoDB."""
+        """
+        Établit une connexion avec MongoDB.
+
+        Cette méthode tente de se connecter à MongoDB en utilisant l'URI de connexion fourni
+        et initialise les attributs `client` et `db`. En cas d'échec de la connexion,
+        une exception est levée.
+
+        Raises:
+            Exception: Si une erreur survient lors de la connexion à MongoDB.
+        """
         try:
             self.client = MongoClient(self.connection_string)
             self.db = self.client[self.database_name]
@@ -40,18 +61,29 @@ class MongoDBConnector:
         query: dict = None, 
         limit: int = None, 
         fields: dict = None
-        ) -> pd.DataFrame:  
+    ) -> pd.DataFrame:
         """
         Charge une collection MongoDB et retourne un DataFrame Pandas.
 
+        Cette méthode récupère les documents d'une collection MongoDB spécifiée, applique
+        des filtres, limite le nombre de documents si nécessaire, et projette les champs
+        souhaités. Les données récupérées sont ensuite converties en DataFrame Pandas.
+
         Args:
             collection_name (str): Nom de la collection à charger.
-            query (dict): Filtre MongoDB (par défaut : None, pour charger tous les documents).
-            limit (int): Nombre maximum de documents à charger (par défaut : None, pour ne pas limiter).
-            fields (dict): Colonnes à inclure/exclure dans les résultats (par défaut : None, pour tout inclure).
+            query (dict, optional): Filtre MongoDB pour sélectionner les documents.
+                Par défaut : None, pour charger tous les documents.
+            limit (int, optional): Nombre maximum de documents à charger.
+                Par défaut : None, pour ne pas limiter.
+            fields (dict, optional): Projection des colonnes à inclure ou exclure.
+                Par défaut : None, pour inclure toutes les colonnes.
 
         Returns:
             pd.DataFrame: DataFrame contenant les données de la collection.
+                Retourne un DataFrame vide si la collection est vide ou si aucun document ne correspond au filtre.
+
+        Raises:
+            Exception: Si la connexion à MongoDB n'a pas été établie avant l'appel de cette méthode.
         """
         if self.db is None:
             raise Exception("La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.")
@@ -88,7 +120,11 @@ class MongoDBConnector:
             return pd.DataFrame()
 
     def close(self):
-        """Ferme la connexion à MongoDB."""
+        """
+        Ferme la connexion à MongoDB.
+
+        Cette méthode ferme la connexion active avec MongoDB si elle est établie.
+        """
         if self.client:
             self.client.close()
             print("Connexion MongoDB fermée.")
