@@ -37,7 +37,6 @@ def load_dataset(dir_name: str, all_contents=True):
 def load_dataset_from_file(dir_folder, date_start, date_end):
     df = pd.read_csv(dir_folder,
                      parse_dates=['submitted'],
-                     infer_datetime_format=True,
                      chunksize=1000)
     df_filtered = pd.concat(chunk[(chunk['submitted'] >= date_start) &
                                   (chunk['submitted'] <= date_end)]

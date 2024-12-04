@@ -15,6 +15,7 @@ from collections import Counter
 from streamlit_echarts import st_echarts
 from src.utils.static import constribution_data
 from dotenv import load_dotenv
+from src.pages.recipes.recommandation import recommandation_page
 import os
 
 st.set_page_config(
@@ -932,6 +933,9 @@ class DisplayManager:
                 self.home_tab()
             with tabs[1]:
                 self.analysis_tab()
+            with tabs[2]:
+                recommandation_page(
+                    self.data_manager.get_recipe_data().st.session_state.data)
         except Exception as e:
             logging.error(f"Error in display_tab: {e}")
 
@@ -996,38 +1000,11 @@ class DisplayManager:
         - ⭐ Système de recommandation personnalisé
         """)
 
-    @staticmethod
-    def load_data():
-        """Chargement des données avec spinner et progression"""
-        st.info("""
-        ### 📊 Sélection Temporelle des Données
-        
-        *En raison de la grande taille du dataset, les données sont chargées par défaut :*
-        
-        - **Période par défaut :** 1 janvier 2015 - 1 janvier 2018
-        - 🚨 *Modification possible, mais augmentation du temps de chargement*
-        
-        ⚙️ Optimisation automatique en cours...
-        
-        **Paramètres de chargement :**
-        - Source : Food.com Recipes
-        - Filtrage temporel : Activé
-        - Mode d'optimisation : Performance
-        """)
 
-    @staticmethod
-    def show_welcom():
-        """Méthode principale pour exécuter l'application"""
-        # Écran de bienvenue
-        DisplayManager.display_welcome_screen()
-
-        # Chargement des données
-        DisplayManager.load_data()
 
 
 if __name__ == "__main__":
     try:
-
         welcome_container = st.empty()
         data_manager = DataManager()
         DisplayManager.load_css()

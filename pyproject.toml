@@ -31,6 +31,7 @@ streamlit-echarts = "^0.4.0"
 pytest = "^8.3.3"
 openpyxl = "^3.1.5"
 pymongo = {extras = ["srv"], version = "^4.10.1"}
+surprise = "^0.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest-cov = "^6.0.0"
