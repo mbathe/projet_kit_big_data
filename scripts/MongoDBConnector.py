@@ -1,8 +1,5 @@
-import os
-
 from pymongo import MongoClient
 import pandas as pd
-from dotenv import load_dotenv
 
 
 class MongoDBConnector:
@@ -90,24 +87,20 @@ class MongoDBConnector:
 
         try:
             collection = self.db[collection_name]
-            
-            # Si aucun filtre n'est fourni, charger tous les documents
+
             if query is None:
                 query = {}
 
-            # Appliquer la projection des colonnes
             cursor = collection.find(query, fields) if fields else collection.find(query)
 
-            # Appliquer le critère de limite
+
             if limit is not None:
                 cursor = cursor.limit(limit)
 
-            # Récupérer les documents et les transformer en DataFrame
             data = list(cursor)
             
             if data:
                 df = pd.DataFrame(data)
-                # Supprimer la colonne '_id' si elle existe (et si elle n'est pas explicitement demandée)
                 if '_id' in df.columns and (not fields or fields.get('_id', 1) == 0):
                     df.drop(columns=['_id'], inplace=True)
                 return df
