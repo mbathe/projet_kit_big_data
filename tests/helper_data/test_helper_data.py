@@ -3,6 +3,7 @@ import os
 from unittest.mock import patch, MagicMock
 from io import StringIO
 import importlib
+from src.utils.helper_data import load_dataset
 import streamlit as st
 # 1. Désactiver le décorateur `@st.cache_data` avant d'importer les fonctions à tester
 with patch('streamlit.cache_data', lambda func: func):
