@@ -4191,6 +4191,7 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-04 17:50:08,102 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-04 17:50:35,020 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-04 17:50:35,020 - INFO - CSS loaded from src/css_pages/recipe.css
+<<<<<<< HEAD
 2024-12-05 04:18:19,608 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:19,609 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:19,609 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
@@ -4306,3 +4307,9 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:22:06,340 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:22:06,340 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:22:06,340 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+=======
+2024-12-04 23:04:18,160 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-04 23:04:18,160 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-04 23:17:01,186 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-04 23:17:01,187 - INFO - CSS loaded from src/css_pages/recipe.css
+>>>>>>> develop2

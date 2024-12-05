@@ -18,6 +18,7 @@ logging.basicConfig(
     ]
 )
 
+
 def safe_eval(value, default=None):
     try:
         return eval(value) if isinstance(value, str) else value
@@ -25,6 +26,7 @@ def safe_eval(value, default=None):
         return default
 
 # Conversion des données du DataFrame en documents MongoDB
+
 
 def convert_dataframe_to_documents(df):
     documents = []
@@ -48,7 +50,8 @@ def convert_dataframe_to_documents(df):
 
 # Chargement des données dans MongoDB avec gestion des erreurs et insertion par lots
 
-def load_dataframe_to_mongodb(df, connection_string, database_name, collection_name , batch_size=1000, use_convertisseur = True):
+
+def load_dataframe_to_mongodb(df, connection_string, database_name, collection_name, batch_size=1000, use_convertisseur=True):
     try:
         # Établir la connexion à MongoDB
         client = MongoClient(
@@ -70,10 +73,10 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
         db = client[database_name]
         collection = db[collection_name]
 
-        if use_convertisseur : 
+        if use_convertisseur:
             # utilise le convertisseur de PAUL
             documents = convert_dataframe_to_documents(df)
-        else : 
+        else:
             # utilise le convertisseur de SACHA
             documents = df
 
@@ -97,6 +100,7 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
         client.close()
         logging.info("Connexion MongoDB fermée.")
 
+
 class DataFrameConverter:
     """
     Classe utilitaire pour convertir différents types de DataFrames en documents MongoDB.
@@ -117,13 +121,16 @@ class DataFrameConverter:
         # Vérification des colonnes requises
         missing_columns = set(required_columns) - set(df.columns)
         if missing_columns:
-            raise ValueError(f"Le DataFrame est incomplet. Colonnes manquantes : {missing_columns}")
+            raise ValueError(f"Le DataFrame est incomplet. Colonnes manquantes : {
+                             missing_columns}")
 
         # Convertir les colonnes spécifiques au bon format
         if 'date' in df.columns:
-            df['date'] = pd.to_datetime(df['date'], errors='coerce')  # Convertir les dates
+            df['date'] = pd.to_datetime(
+                df['date'], errors='coerce')  # Convertir les dates
         if 'rating' in df.columns:
-            df['rating'] = df['rating'].astype(int)  # S'assurer que les notes sont des entiers
+            # S'assurer que les notes sont des entiers
+            df['rating'] = df['rating'].astype(int)
 
         # Convertir le DataFrame en liste de dictionnaires
         return df.to_dict(orient='records')
@@ -160,6 +167,7 @@ class DataFrameConverter:
         required_columns = ['user_id', 'recipe_id', 'date', 'rating', 'review']
         return DataFrameConverter.convert_dataframe_to_documents(df, required_columns)
 
+
 # Exemple d'utilisation
 if __name__ == "__main__":
     # Exemple de DataFrame
@@ -171,41 +179,7 @@ if __name__ == "__main__":
         'ingredients': ['["pomme", "sucre"]', '["riz", "lait de coco"]'],
         'submitted': ['2023-01-01', '2023-02-15']
     }
-    # df = pd.DataFrame(data)
 
-    # Charger les variables d'environnement
     CONNECTION_STRING = os.getenv("CONNECTION_STRING")
     DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
     COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
-
-    #######################################################
-    # Charger les données dans MongoDB DE la base de PAUL #
-    #######################################################
-
-    # df = pd.read_csv('../data/dataset/recipe/RAW_recipes.csv')
-    # load_dataframe_to_mongodb(df, CONNECTION_STRING,
-    #                           DATABASE_NAME, COLLECTION_NAME, convert_dataframe_to_documents)
-
-    # load_dataframe_to_mongodb(df, os.getenv("CONNECTION_STRING"), os.getenv(
-    #     "DATABASE_NAME"), os.getenv("COLLECTION_NAME"))
-
-    ###################################################################
-    # Charger les données dans MongoDB pour sacha alexandre et Julian #
-    ###################################################################
-
-    # COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
-
-    # df_RAW_interactions = pd.read_csv(os.path.join('data','RAW_interactions.csv'))
-
-    # converter = DataFrameConverter()
-    # raw_interaction_documents = converter.convert_raw_interaction_dataframe(df_RAW_interactions)
-    
-    # load_dataframe_to_mongodb(
-    #                         raw_interaction_documents, 
-    #                         CONNECTION_STRING,
-    #                         DATABASE_NAME, 
-    #                         COLLECTION_RAW_INTERACTIONS, 
-    #                         use_convertisseur=False
-    # )
-    
-
