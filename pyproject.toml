@@ -28,6 +28,8 @@ pyqt6 = "^6.7.1"
 matplotlib-venn = "^1.1.1"
 wordcloud = "^1.9.4"
 streamlit-echarts = "^0.4.0"
+nbformat = "^5.10.4"
+streamlit-aggrid = "^1.0.5"
 
 [build-system]
 requires = ["poetry-core"]
