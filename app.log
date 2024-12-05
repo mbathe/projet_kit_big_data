@@ -4313,3 +4313,5 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-04 23:17:01,186 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-04 23:17:01,187 - INFO - CSS loaded from src/css_pages/recipe.css
 >>>>>>> develop2
+2024-12-05 16:21:10,312 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 16:21:10,313 - INFO - CSS loaded from src/css_pages/recipe.css
