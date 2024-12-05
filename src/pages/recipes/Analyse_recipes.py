@@ -39,6 +39,7 @@ YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
 YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
 
 
+
 class CSSLoader:
     """Class responsible for loading CSS."""
     @staticmethod
@@ -919,6 +920,7 @@ class DisplayManager:
             st_echarts(wordcloud_option)
         except Exception as e:
             logging.error(f"Error in analyze_ingredients: {e}")
+
 
     def display_tab(self):
         try:
