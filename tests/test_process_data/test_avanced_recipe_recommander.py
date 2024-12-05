@@ -1,18 +1,10 @@
 import os
-from src.pages.recipes.recommandation import recommandation_page
 from unittest.mock import MagicMock, patch
 import streamlit as st
 import pytest
 import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-from src.process.recommandation import AdvancedRecipeRecommender
-
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
 from src.process.recommandation import AdvancedRecipeRecommender
 
 

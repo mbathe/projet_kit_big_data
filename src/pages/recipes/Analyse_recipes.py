@@ -15,7 +15,7 @@ from collections import Counter
 from streamlit_echarts import st_echarts
 from src.utils.static import constribution_data
 from dotenv import load_dotenv
-from src.pages.recipes.recommandation import recommandation_page
+from src.process.recommandation import AdvancedRecipeRecommender
 import os
 
 st.set_page_config(
@@ -102,7 +102,6 @@ class DataManager:
 class DisplayManager:
     def __init__(self, data_manager):
         self.data_manager = data_manager
-        # self.load_css()
 
     @staticmethod
     def load_css():
@@ -130,8 +129,6 @@ class DisplayManager:
                         st.error(
                             "La date de début doit être antérieure ou égale à la date de fin.")
                     else:
-                        if "data" not in self.data_manager.get_recipe_data().st.session_state:
-                            self.display_welcome_screen()
                         self.data_manager.set_date_range(start_date, end_date)
                         st.success(f"Période d'analyse: {
                                    start_date} à {end_date}")
@@ -439,13 +436,11 @@ class DisplayManager:
                 ]
                 values.append(values[0])
                 categories_closed = categories + [categories[0]]
-
                 fig_radar.add_trace(go.Scatterpolar(
                     r=values,
                     theta=categories_closed,
                     name=f"User {row['ID Utilisateur']}"
                 ))
-
             fig_radar.update_layout(
                 polar=dict(
                     radialaxis=dict(
@@ -934,88 +929,55 @@ class DisplayManager:
             with tabs[1]:
                 self.analysis_tab()
             with tabs[2]:
-                recommandation_page(
-                    self.data_manager.get_recipe_data().st.session_state.data)
+                self.recommandation_page()
         except Exception as e:
             logging.error(f"Error in display_tab: {e}")
 
-    @staticmethod
-    def get_img_as_base64(file_path):
-        """Convertit une image en base64"""
-        try:
-            with open(file_path, "rb") as img_file:
-                return base64.b64encode(img_file.read()).decode()
-        except Exception as e:
-            st.error(f"Erreur de chargement de l'image : {e}")
-            return None
+    def recommandation_page(self):
+        recommender = AdvancedRecipeRecommender(
+            recipes_df=self.data_manager.get_recipe_data().st.session_state.data)
+        st.sidebar.markdown(
+            '<div class="sidebar-title">🍽️ Recipe Intelligence</div>', unsafe_allow_html=True)
 
-    @staticmethod
-    def display_welcome_screen():
-        """Affiche l'écran de bienvenue"""
-        # Charger l'image en base64 (remplacez par le chemin de votre image)
-        img_path = "path/to/your/cooking_image.jpg"
-        img_base64 = DisplayManager.get_img_as_base64(img_path)
-
-        # Style CSS personnalisé
+        st.markdown(
+            '<h1 class="main-title">🍲 Recommandations Personnalisées</h1>', unsafe_allow_html=True)
+        selected_recipe_id = st.selectbox(
+            "Choisissez une recette de base",
+            recommender.recipes_df['id'].tolist()
+        )
+        selected_recipe = recommender.recipes_df[recommender.recipes_df['id']
+                                                 == selected_recipe_id].iloc[0]
         st.markdown(f"""
-        <style>
-        .welcome-container {{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #F5F5F5;
-            padding: 20px;
-            border-radius: 10px;
-        }}
-        .welcome-image {{
-            max-width: 500px;
-            max-height: 300px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }}
-        </style>
-
-        <div class="welcome-container">
-            {'<img src="data:image/jpeg;base64,'+img_base64 +
-             '" class="welcome-image" alt="Cuisine">' if img_base64 else ''}
-
-            <h1 style="color: #2C3E50;">👨‍🍳 Food.com Recipes Explorer</h1>
-
-            <h2 style="color: #34495E;">🍽️ Analyse Approfondie des Recettes</h2>
+        <div class="recommendation-card">
+            <h2 class="recipe-detail">{selected_recipe['name']}</h2>
+            <div class="recipe-detail">
+                <p>⏰ <strong>Durée :</strong> {selected_recipe['minutes']} minutes</p>
+                <p>📋 <strong>Nombre d'étapes :</strong> {selected_recipe['n_steps']}</p>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
-        # Message informatif
-        st.markdown("""
-        ### 📊 Chargement des Données Culinaires
-        
-        *Votre voyage gastronomique commence...*
-        
-        #### 🔍 Ce que vous allez découvrir :
-        
-        - 🥗 **Statistiques détaillées des recettes**
-        - 📈 Analyses nutritionnelles avancées
-        - 🌍 Exploration des tendances culinaires
-        - ⭐ Système de recommandation personnalisé
-        """)
+        st.markdown("<h3>🥬 Ingrédients</h3>", unsafe_allow_html=True)
+        ingredients = eval(selected_recipe['ingredients'])
+        st.markdown(
+            f'<div class="ingredient-list">{" • ".join(ingredients)}</div>', unsafe_allow_html=True)
+
+        st.markdown("<h3>🔍 Recommandations Similaires</h3>",
+                    unsafe_allow_html=True)
+        recommendations = recommender.content_based_recommendations(
+            selected_recipe_id,
+            top_n=3
+        )
+        for _, rec in recommendations.iterrows():
+            st.markdown(f"""
+            <div class="recommendation-card">
+                <h4>{rec['name']}</h4>
+                <p>⏰ <strong>Durée :</strong> {rec['minutes']} minutes</p>
+                <p>🥘 <strong>Ingrédients :</strong> {', '.join(eval(rec['ingredients']))}</p>
+            </div>
+            """, unsafe_allow_html=True)
 
 
-
-
-if __name__ == "__main__":
-    try:
-        welcome_container = st.empty()
-        data_manager = DataManager()
-        DisplayManager.load_css()
-        welcome_container.empty()
-        container = st.container()
-        with container:
-            manager = DisplayManager(data_manager=data_manager)
-            manager.sidebar()
-            manager.display_tab()
-    except Exception as e:
-        logging.error(f"Error in main: {e}")
 
 
 # TODO: Implémenter la fonction de calcul

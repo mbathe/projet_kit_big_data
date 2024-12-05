@@ -22,7 +22,6 @@ class AdvancedRecipeRecommender:
         self.recipes_df['ingredients_cleaned'] = self.recipes_df['ingredients'].apply(
             lambda x: ' '.join(eval(x)).lower()
         )
-
         self.tfidf = TfidfVectorizer(stop_words='english')
         self.ingredient_matrix = self.tfidf.fit_transform(
             self.recipes_df['ingredients_cleaned']
