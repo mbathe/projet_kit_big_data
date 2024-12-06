@@ -377,3 +377,10 @@ with tabs[2]:
 
         with col2:
             st.plotly_chart(fig2)
+
+
+# TODO Mettre le code sous forme de classe
+# TODO Implémenter la gestion des logs
+# TODO Implémenter la gestion des Exceptions
+# TODO Implémenter les tests unitaires
+# TODO Séparer les données des visualisation
