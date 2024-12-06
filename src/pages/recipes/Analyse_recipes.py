@@ -1,4 +1,3 @@
-import base64
 import logging
 import numpy as np
 import pandas as pd

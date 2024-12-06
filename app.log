@@ -4330,3 +4330,85 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 18:08:29,424 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-05 18:11:32,521 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-05 18:11:32,522 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:08:28,999 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:08:29,000 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:10:14,762 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:10:14,763 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:11:47,933 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:11:47,934 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:12:07,849 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:12:07,851 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:12:29,856 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:12:29,857 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:13:00,370 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:13:00,372 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:13:39,116 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:13:39,116 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:13:49,948 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:13:49,949 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:14:03,047 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:14:03,048 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:14:26,638 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:14:26,640 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:14:58,045 - INFO - Démarrage de l'application Streamlit
+2024-12-06 11:14:58,045 - INFO - Initialisation de StreamlitPage
+2024-12-06 11:14:58,045 - INFO - Initialisation de DataLoaderMango
+2024-12-06 11:14:58,045 - INFO - Configuration de la page Streamlit
+2024-12-06 11:14:58,046 - INFO - Chargement du CSS
+2024-12-06 11:14:58,046 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-06 11:14:58,047 - INFO - Chargement des données depuis MongoDB
+2024-12-06 11:14:58,047 - INFO - Récupération des données
+2024-12-06 11:14:58,048 - INFO - Connexion à MongoDB
+2024-12-06 11:14:58,127 - INFO - Connexion établie
+2024-12-06 11:14:58,128 - INFO - Chargement des données depuis raw_interaction avec limite 2000
+2024-12-06 11:15:07,296 - INFO - Données chargées depuis raw_interaction avec limite 2000
+2024-12-06 11:15:07,296 - INFO - Chargement des données depuis recipes avec limite 2000
+2024-12-06 11:15:40,948 - INFO - Données chargées depuis recipes avec limite 2000
+2024-12-06 11:15:40,948 - INFO - Enregistrements terminé
+2024-12-06 11:15:41,043 - INFO - Connexion MongoDB fermée
+2024-12-06 11:15:41,056 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-06 11:15:41,059 - INFO - Démarrage de l'analyse des données
+2024-12-06 11:15:41,060 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:15:41,060 - INFO - Prétraitement des données
+2024-12-06 11:15:41,068 - INFO - Affichage de l'histogramme des notes globales
+2024-12-06 11:15:41,068 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-06 11:15:41,086 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-06 11:15:41,086 - INFO - Analyse des fréquences des notes
+2024-12-06 11:15:41,087 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-06 11:15:41,136 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:15:41,136 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:15:41,141 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-06 11:15:41,167 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-06 11:15:41,167 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-06 11:15:41,168 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-06 11:15:41,168 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-06 11:15:41,168 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:15:41,168 - INFO - Analyse de l'activité sur Mangetamain
+2024-12-06 11:15:41,172 - INFO - Affichage du graphique en ligne: 
+2024-12-06 11:16:24,331 - INFO - Démarrage de l'application Streamlit
+2024-12-06 11:16:24,331 - INFO - Initialisation de StreamlitPage
+2024-12-06 11:16:24,331 - INFO - Initialisation de DataLoaderMango
+2024-12-06 11:16:24,331 - INFO - Configuration de la page Streamlit
+2024-12-06 11:16:24,331 - INFO - Chargement du CSS
+2024-12-06 11:16:24,331 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-06 11:16:24,332 - INFO - Chargement des données depuis MongoDB
+2024-12-06 11:16:24,333 - INFO - Récupération des données
+2024-12-06 11:16:24,350 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-06 11:16:24,352 - INFO - Démarrage de l'analyse des données
+2024-12-06 11:16:24,352 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:16:24,352 - INFO - Prétraitement des données
+2024-12-06 11:16:24,357 - INFO - Affichage de l'histogramme des notes globales
+2024-12-06 11:16:24,357 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-06 11:16:24,364 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-06 11:16:24,365 - INFO - Analyse des fréquences des notes
+2024-12-06 11:16:24,367 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-06 11:16:24,428 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:16:24,429 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:16:24,435 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-06 11:16:24,459 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-06 11:16:24,459 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-06 11:16:24,459 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-06 11:16:24,459 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-06 11:16:24,460 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:16:24,460 - INFO - Analyse de l'activité sur Mangetamain
+2024-12-06 11:16:24,463 - INFO - Affichage du graphique en ligne: 
