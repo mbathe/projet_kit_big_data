@@ -119,3 +119,45 @@ def test_analyze_tags_old(data_manager):
         for key in expected_tags_data['tags_per_recipe'].keys():
             assert key in result['tags_per_recipe'], f"Missing key in tags_per_recipe: {
                 key}"
+
+
+## TEST AJOUTE PAR SACHA ##
+from datetime import date
+import datetime
+
+@patch("logging.error")
+def test_set_date_range_error(mock_log, data_manager):
+    # Test lignes 81-82
+    # Forçons une exception dans set_date_range
+    with patch.object(Recipe, "__init__", side_effect=Exception("Test Error")):
+        data_manager.set_date_range(date(2020, 1, 1), date(2020, 1, 2))
+        mock_log.assert_called_once_with("Échec de la définition de la plage de dates: Test Error")
+
+@patch("logging.error")
+def test_export_data_error(mock_log, data_manager):
+    # Test lignes 111-112
+    # Simuler une exception lors de l'export
+    with patch.object(data_manager.recipe.st.session_state.data, "to_csv", side_effect=Exception("Export Error")):
+        data_manager.export_data("CSV")
+        mock_log.assert_called_once_with("Échec de l'exportation des données: Export Error")
+
+@patch("logging.error")
+def test_analyze_recipe_complexity_error(mock_log, data_manager):
+    # Test lignes 146-147
+    with patch.object(data_manager.recipe, "analyze_recipe_complexity", side_effect=Exception("Complexity Error")):
+        data_manager.analyze_recipe_complexity()
+        mock_log.assert_called_once_with("Échec de l'analyse de la complexité des recettes: Complexity Error")
+
+@patch("logging.error")
+def test_analyze_nutrition_error(mock_log, data_manager):
+    # Test lignes 162-163
+    with patch.object(data_manager.recipe, "analyze_nutrition", side_effect=Exception("Nutrition Error")):
+        data_manager.analyze_nutrition()
+        mock_log.assert_called_once_with("Échec de l'analyse des informations nutritionnelles: Nutrition Error")
+
+@patch("logging.error")
+def test_analyze_tags_error(mock_log, data_manager):
+    # Test lignes 178-179
+    with patch.object(data_manager.recipe, "analyze_tags", side_effect=Exception("Tags Error")):
+        data_manager.analyze_tags()
+        mock_log.assert_called_once_with("Échec de l'analyse des tags: Tags Error")

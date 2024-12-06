@@ -247,6 +247,89 @@ def test_ensure_datetime():
     with pytest.raises(TypeError):
         recipe._ensure_datetime("invalid")
 
+## TEST AJOUTE PAR SACHA ##
+
+
+def test_init_initialize_session_state_exception():
+    with patch.object(Recipe, 'initialize_session_state', side_effect=Exception("Init error")):
+        with pytest.raises(Exception, match="Init error"):
+            Recipe(date_start=datetime(2000,1,1), date_end=datetime(2001,1,1))
+
+def test_init_detect_dataframe_anomalies_exception():
+    with patch.object(Recipe, 'initialize_session_state') as mock_init:
+        mock_init.return_value = None
+        with patch.object(Recipe, 'detect_dataframe_anomalies', side_effect=Exception("Anomaly error")):
+            with pytest.raises(Exception, match="Anomaly error"):
+                Recipe(date_start=datetime(2000,1,1), date_end=datetime(2001,1,1))
+
+
+def test_detect_dataframe_anomalies_exception():
+    recipe = Recipe()
+    with patch.object(recipe.st.session_state, 'data', create=True):
+        with patch.object(recipe.st.session_state.data, 'isnull', side_effect=Exception("Data error")):
+            with pytest.raises(Exception, match="Data error"):
+                recipe.detect_dataframe_anomalies()
+
+def test_clean_dataframe_exception():
+    recipe = Recipe()
+    with patch.object(recipe.st.session_state, 'data', create=True):
+        with patch.object(recipe.st.session_state.data, 'select_dtypes', side_effect=Exception("Clean error")):
+            with pytest.raises(Exception, match="Clean error"):
+                recipe.clean_dataframe()
+
+def test_analyze_nutrition_online():
+    recipe = Recipe()
+    with patch('src.process.recipes.DEPLOIEMENT_SITE', "ONLINE"):
+        df = pd.DataFrame({'nutrition': [[1,2,3,4,5,6,7]]})
+        recipe.st.session_state.data = df
+        stats = recipe.analyze_nutrition()
+        assert 'calories' in stats
+
+def test_analyze_temporal_distribution_exception():
+    recipe = Recipe()
+    with patch.object(recipe.st.session_state, 'data', create=True):
+        with patch.object(recipe.st.session_state.data, '__getitem__', side_effect=Exception("Temporal error")):
+            with pytest.raises(Exception, match="Temporal error"):
+                recipe.analyze_temporal_distribution(datetime(2000,1,1), datetime(2001,1,1))
+
+def test_analyze_tags_online():
+    recipe = Recipe()
+    with patch('src.process.recipes.DEPLOIEMENT_SITE', "ONLINE"):
+        df = pd.DataFrame({'tags': [["easy","quick"]]})
+        recipe.st.session_state.data = df
+        tag_stats = recipe.analyze_tags()
+        assert 'total_unique_tags' in tag_stats
+
+def test_analyze_contributors_exception():
+    recipe = Recipe()
+    df = pd.DataFrame({'contributor_id': [1,2,3]})
+    recipe.st.session_state.data = df
+    # Patch de la méthode value_counts de la série contributor_id pour lever une exception
+    with patch('pandas.core.series.Series.value_counts', side_effect=Exception("Contributors error")):
+        with pytest.raises(Exception, match="Contributors error"):
+            recipe.analyze_contributors()
+
+
+def test_analyze_recipe_dataset_exception():
+    recipe = Recipe()
+    with patch.object(recipe.st.session_state, 'data', create=True):
+        with patch.object(recipe.st.session_state.data, 'memory_usage', side_effect=Exception("Dataset error")):
+            with pytest.raises(Exception, match="Dataset error"):
+                recipe.analyze_recipe_dataset()
+
+def test_analyze_recipe_complexity_exception():
+    recipe = Recipe()
+    with patch.object(recipe.st.session_state, 'data', create=True):
+        with patch.object(recipe.st.session_state.data, '__getitem__', side_effect=Exception("Complexity error")):
+            with pytest.raises(Exception, match="Complexity error"):
+                recipe.analyze_recipe_complexity()
+
+def test_fetch_data_from_mongodb_exception():
+    recipe = Recipe()
+    with patch('pymongo.MongoClient', side_effect=Exception("Mongo error")):
+        df = recipe.fetch_data_from_mongodb("fake_conn", "db", "col", datetime(2000,1,1), datetime(2000,1,2))
+        assert df.empty
+
 
 if __name__ == "__main__":
     pytest.main([__file__])
