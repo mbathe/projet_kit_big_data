@@ -166,3 +166,125 @@ def test_display_anomalie(display_manager):
     with patch('streamlit.checkbox') as mock_checkbox:
         display_manager.display_anomalies_values()
         mock_checkbox.assert_called_with("Afficher les valeurs abérantes")
+
+
+## AJOUTE PAR SACHA ##
+from datetime import date
+
+@patch("streamlit.sidebar")
+@patch("streamlit.date_input")
+@patch("streamlit.button")
+@patch("streamlit.success")
+@patch("streamlit.error")
+def test_sidebar_date_range(mock_error, mock_success, mock_button, mock_date_input, mock_sidebar, display_manager):
+    # Test lignes 208-215
+    # Simuler une sélection de date
+    mock_date_input.return_value = (date(2020,1,2), date(2020,1,1))  # start > end
+    mock_button.return_value = True
+    display_manager.sidebar()
+    mock_error.assert_called_with("La date de début doit être antérieure ou égale à la date de fin.")
+
+    # Changer pour des dates valides
+    mock_error.reset_mock()
+    mock_success.reset_mock()
+    mock_date_input.return_value = (date(2020,1,1), date(2020,1,2))
+    display_manager.sidebar()
+    mock_success.assert_called_with("Période d'analyse: 2020-01-01 à 2020-01-02")
+
+@patch("streamlit.sidebar")
+@patch("streamlit.radio")
+@patch("streamlit.download_button")
+@patch("streamlit.success")
+@patch("logging.error")
+def test_export_json(mock_log, mock_success, mock_download_button, mock_radio, mock_sidebar, display_manager):
+    # Test lignes 227-233
+    # Simuler le choix JSON et le bouton de téléchargement
+    mock_radio.return_value = "JSON"
+    mock_download_button.return_value = True
+    display_manager.sidebar()
+    mock_success.assert_called_with("Export en cours...")
+
+@patch("logging.error")
+def test_home_tab_error_handling(mock_log, display_manager):
+    # Test lignes 279-292 (try/except dans home_tab)
+    # Simuler une exception dans home_tab
+    with patch.object(display_manager.data_manager, 'get_recipe_data', side_effect=Exception("HomeTab Error")):
+        display_manager.home_tab()
+        mock_log.assert_called_once_with("Erreur dans home_tab: HomeTab Error")
+
+@patch("logging.error")
+def test_analysis_tab_error_handling(mock_log, display_manager):
+    # Test lignes 314-316
+    with patch("streamlit.selectbox", side_effect=Exception("AnalysisTab Error")):
+        display_manager.analysis_tab()
+        mock_log.assert_called_once_with("Erreur dans analysis_tab: AnalysisTab Error")
+
+@patch("logging.error")
+def test_display_contributors_analysis_error(mock_log, display_manager):
+    # Test lignes 415-416
+    # Simuler une exception dans display_contributors_analysis
+    with patch.object(display_manager, '_create_distribution_figure', side_effect=Exception("Contrib Error")):
+        display_manager.display_contributors_analysis()
+        mock_log.assert_called_once_with("Erreur dans display_contributors_analysis: Contrib Error")
+
+
+@patch("logging.error")
+def test_create_top_contributors_figure_error(mock_log, display_manager):
+    # Lignes 473-474 : Erreur dans _create_top_contributors_figure
+    with patch("plotly.express.bar", side_effect=Exception("TopContrib Error")):
+        display_manager._create_top_contributors_figure(pd.DataFrame(), "blues")
+        mock_log.assert_called_once_with("Erreur dans _create_top_contributors_figure: TopContrib Error")
+
+
+@patch("logging.error")
+def test_display_top_contributors_error(mock_log, display_manager):
+    # Lignes 532-533 : Erreur dans _display_top_contributors
+    with patch("streamlit.slider", side_effect=Exception("TopContributors Error")):
+        display_manager._display_top_contributors(pd.DataFrame(), "blues")
+        mock_log.assert_called_once_with("Erreur dans _display_top_contributors: TopContributors Error")
+
+
+@patch("logging.error")
+def test_display_tags_analysis_error(mock_log, display_manager):
+    # Ligne 639 : Erreur dans display_tags_analysis
+    with patch.object(display_manager.data_manager, 'analyze_tags', side_effect=Exception("TagsAnalysis Error")):
+        display_manager.display_tags_analysis()
+        mock_log.assert_called_once_with("Erreur dans display_tags_analysis: TagsAnalysis Error")
+
+@patch("logging.error")
+def test_display_submission_analysis_error(mock_log, display_manager):
+    # Lignes 744-745 : Erreur dans display_submission_analysis
+    with patch.object(display_manager.data_manager, 'analyze_temporal_distribution', side_effect=Exception("Submission Error")):
+        display_manager.display_submission_analysis()
+        mock_log.assert_called_once_with("Error in display_submission_analysis: Submission Error")
+
+@patch("logging.error")
+def test_display_steps_and_time_analysis_error(mock_log, display_manager):
+    # Ligne 852 : Erreur dans display_steps_and_time_analysis
+    with patch.object(display_manager.data_manager, 'analyze_recipe_complexity', side_effect=Exception("StepsTime Error")):
+        display_manager.display_steps_and_time_analysis()
+        mock_log.assert_called_once_with("Error in display_steps_and_time_analysis: StepsTime Error")
+
+@patch("logging.error")
+def test_display_nutrition_analysis_error(mock_log, display_manager):
+    # Lignes 899-900 : Erreur dans display_nutrition_analysis
+    with patch.object(display_manager.data_manager, 'analyze_nutrition', side_effect=Exception("Nutrition Error")):
+        display_manager.display_nutrition_analysis()
+        mock_log.assert_called_once_with("Error in display_nutrition_analysis: Nutrition Error")
+
+@patch("logging.error")
+def test_display_data_structures_error(mock_log, display_manager):
+    # Lignes 953-954 : Erreur dans display_data_structures
+    with patch.object(display_manager.data_manager, 'get_recipe_data', side_effect=Exception("DataStructures Error")):
+        display_manager.display_data_structures()
+        mock_log.assert_called_once_with("Error in display_data_structures: DataStructures Error")
+
+
+
+@patch("logging.error")
+def test_display_tab_error(mock_log, display_manager):
+    # Lignes 1020-1021 : Erreur dans display_tab
+    with patch("streamlit.tabs", side_effect=Exception("Tab Error")):
+        display_manager.display_tab()
+        mock_log.assert_called_once_with("Error in display_tab: Tab Error")
+
