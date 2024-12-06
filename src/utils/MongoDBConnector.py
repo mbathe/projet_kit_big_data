@@ -120,4 +120,6 @@ class MongoDBConnector:
         """
         if self.client:
             self.client.close()
+            self.client = None  # Réinitialiser l'attribut client
+            self.db = None  # Réinitialiser l'attribut db si nécessaire
             print("Connexion MongoDB fermée.")

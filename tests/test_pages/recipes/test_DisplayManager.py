@@ -145,7 +145,8 @@ def test_create_top_contributors_figure(display_manager, contributor_df, color_t
     with patch('streamlit.subheader') as mock_subheader:
         display_manager._display_top_contributors(
             contributor_df, color_theme)
-        mock_subheader.assert_called_with("Analyse des top contributeurs")
+        mock_subheader.assert_called_with(
+            "Analyse des principaux contributeurs")
         #
 
 

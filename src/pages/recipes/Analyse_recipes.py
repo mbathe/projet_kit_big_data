@@ -56,7 +56,7 @@ class CSSLoader:
             logging.info(f"CSS chargé depuis {css_file}")
         except Exception as e:
             logging.error(f"Échec du chargement du CSS depuis {css_file}: {e}")
-            raise Exception(f"Échec du chargement du CSS: {str(e)}")
+            raise Exception(f"Failed to load CSS: CSS load error: {str(e)}")
 
 class DataManager:
     def __init__(self) -> None:
