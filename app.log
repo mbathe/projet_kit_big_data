@@ -4412,3 +4412,25 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-06 11:16:24,460 - INFO - Initialisation de DataAnalyzer
 2024-12-06 11:16:24,460 - INFO - Analyse de l'activité sur Mangetamain
 2024-12-06 11:16:24,463 - INFO - Affichage du graphique en ligne: 
+2024-12-06 14:09:39,589 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 14:09:39,590 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 14:26:23,303 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 14:26:23,303 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:04:58,215 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 15:04:58,215 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 15:32:38,335 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 15:32:38,336 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 15:36:47,632 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:36:47,632 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:37:34,734 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:37:34,735 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:38:16,978 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:38:16,979 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:38:39,869 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:38:39,870 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 16:20:25,483 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 16:20:25,484 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 16:26:46,293 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 16:26:46,294 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 16:26:55,446 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 16:26:55,447 - INFO - CSS chargé depuis src/css_pages/recipe.css

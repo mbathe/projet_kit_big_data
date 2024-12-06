@@ -1,4 +1,4 @@
-from scripts.script import download_dataset_from_drive
+from scripts.download_dataset import download_dataset_from_drive
 from dotenv import load_dotenv
 import os
 load_dotenv()

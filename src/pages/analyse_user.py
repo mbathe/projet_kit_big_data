@@ -24,15 +24,11 @@ Dépendances :
 from src.visualizations.graphiques import LineChart, Histogramme
 from src.visualizations import Grille, load_css
 from scripts import MongoDBConnector
-
 import os
 import logging
-
 import streamlit as st
 import pandas as pd
 from dotenv import load_dotenv
-
-# Charger les variables d'environnement à partir d'un fichier .env
 load_dotenv()
 
 
