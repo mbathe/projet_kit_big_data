@@ -4434,3 +4434,12 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-06 16:26:46,294 - INFO - CSS chargé depuis src/css_pages/recipe.css
 2024-12-06 16:26:55,446 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
 2024-12-06 16:26:55,447 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 18:56:49,819 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 18:56:49,819 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 20:03:07,071 - INFO - Connexion MongoDB réussie.
+2024-12-06 20:03:14,365 - INFO - Connexion MongoDB fermée.
+2024-12-06 20:03:36,836 - INFO - Connexion MongoDB réussie.
+2024-12-06 20:03:41,797 - INFO - Connexion MongoDB fermée.
+2024-12-06 20:04:02,717 - INFO - Connexion MongoDB réussie.
+2024-12-06 20:05:08,049 - ERROR - Erreur inattendue : you are over your space quota, using 513 MB of 512 MB, full error: {'ok': 0, 'errmsg': 'you are over your space quota, using 513 MB of 512 MB', 'code': 8000, 'codeName': 'AtlasError'}
+2024-12-06 20:05:08,150 - INFO - Connexion MongoDB fermée.

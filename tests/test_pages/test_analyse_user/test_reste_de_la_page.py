@@ -211,7 +211,7 @@ def test_StreamlitPage_init(mock_getenv):
         "CONNECTION_STRING": "mongodb://localhost:27017",
         "DATABASE_NAME": "testdb",
         "COLLECTION_RAW_INTERACTIONS": "raw_interaction",
-        "COLLECTION_NAME": "recipes"
+        "COLLECTION_RECIPES_NAME": "recipes"
     }.get(key, default)
 
     page = StreamlitPage()
@@ -219,7 +219,7 @@ def test_StreamlitPage_init(mock_getenv):
     assert page.CONNECTION_STRING == "mongodb://localhost:27017"
     assert page.DATABASE_NAME == "testdb"
     assert page.COLLECTION_RAW_INTERACTIONS == "raw_interaction"
-    assert page.COLLECTION_NAME == "recipes"
+    assert page.COLLECTION_RECIPES_NAME == "recipes"
     assert page.COLLECTION_NAMES == ["raw_interaction", "recipes"]
     assert page.data is None
 

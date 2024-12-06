@@ -12,6 +12,7 @@ ENV LANGUAGE fr_FR.UTF-8
 # Installer les dépendances système nécessaires
 RUN apt-get update && \
     apt-get install -y graphviz nano libpq-dev curl && \
+    apt-get install -y gcc libffi-dev libssl-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Installer Poetry
@@ -47,7 +48,7 @@ ENV PYTHONPATH="/tpbigdata/src:$PYTHONPATH"
 
 RUN poetry run python setup.py
 
-CMD ["sh", "-c", "poetry run streamlit run ./src/main.py --server.headless true"]
+CMD ["sh", "-c", "poetry run streamlit run ./src/👨‍🍳Recettes.py --server.headless true"]
 
 # Configurer les commandes spécifiques à Streamlit
 ENV LC_ALL=C.UTF-8

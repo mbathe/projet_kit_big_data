@@ -26,16 +26,16 @@ class Welcome:
            return loader(CONNECTION_STRING, start_date, end_date)
 
     @staticmethod
-    def load_data_from_online(loader, CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date):
+    def load_data_from_online(loader, CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date):
         """Chargement des données avec spinner et progression"""
         with st.spinner("⏳ **Chargement des données en cours...**"):
             # Simuler un temps de chargement (ajustez selon vos besoins)
             # Remplacez par votre logique de chargement de données réelle.
            return loader(CONNECTION_STRING, DATABASE_NAME,
-                         COLLECTION_NAME, start_date, end_date)
+                         COLLECTION_RECIPES_NAME, start_date, end_date)
 
     @staticmethod
-    def show_welcom(DEPLOIEMENT_SITE, loader, CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date):
+    def show_welcom(DEPLOIEMENT_SITE, loader, CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date):
         """Méthode principale pour exécuter l'application"""
 
         # Créez un espace vide pour le contenu initial
@@ -61,7 +61,7 @@ class Welcome:
         data = None
         if DEPLOIEMENT_SITE == "ONLINE":
             data = Welcome.load_data_from_online(
-                loader, CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+                loader, CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date)
         else:
             data = Welcome.load_data_from_local(
                 loader, CONNECTION_STRING, start_date, end_date)

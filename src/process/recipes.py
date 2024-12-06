@@ -19,7 +19,7 @@ load_dotenv()
 
 CONNECTION_STRING = os.getenv("CONNECTION_STRING")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
+COLLECTION_RECIPES_NAME = os.getenv("COLLECTION_RECIPES_NAME", "recipes")
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE", "LOCAL")
 
 
@@ -124,13 +124,13 @@ class Recipe:
                             end_date)
                     welcome_container = self.st.empty()
                     self.st.session_state.data = Welcome.show_welcom(DEPLOIEMENT_SITE,
-                                                                     self.fetch_data_from_mongodb, CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+                                                                     self.fetch_data_from_mongodb, CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date)
                     welcome_container.empty()
                 elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(YEAR_MIN, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(YEAR_MAX, 12, 31)):
                     with self.st.spinner("⏳ **Chargement en cours...**"):
                         try:
                             self.st.session_state.data = self.fetch_data_from_mongodb(
-                            CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+                                CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date)
                             self.st.session_state.start_date = self._ensure_date(
                                 start_date)
                             self.st.session_state.end_date = self._ensure_date(
@@ -141,7 +141,7 @@ class Recipe:
 
             else:
                 if 'data' not in self.st.session_state:
-                    dataset_dir = os.getenv("DIR_DATASET_2")
+                    dataset_dir = os.getenv("DIR_DATASET")
                     self.st.session_state.data = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, os.path.join(
                         dataset_dir, "RAW_recipes.csv"), None, None, start_date, end_date)
                     self.st.session_state.start_date = self._ensure_date(
@@ -149,7 +149,7 @@ class Recipe:
                     self.st.session_state.end_date = self._ensure_date(
                         end_date)
                 elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(YEAR_MIN, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(YEAR_MAX, 12, 31)):
-                    dataset_dir = os.getenv("DIR_DATASET_2")
+                    dataset_dir = os.getenv("DIR_DATASET")
                     self.st.session_state.data = load_dataset_from_file(
                         os.path.join(dataset_dir, "RAW_recipes.csv"), self._ensure_datetime(start_date), self._ensure_datetime(end_date))
                     self.st.session_state.start_date = self._ensure_date(

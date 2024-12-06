@@ -18,7 +18,7 @@ load_dotenv()
 CONNECTION_STRING = os.getenv("CONNECTION_STRING")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
 
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
+COLLECTION_RECIPES_NAME = os.getenv("COLLECTION_RECIPES_NAME", "recipes")
 COLLECTION_RAW_INTERACTIONS = os.getenv(
     "COLLECTION_RAW_INTERACTIONS", "raw_interaction")
 
@@ -29,7 +29,7 @@ connector.connect()
 
 fields = {"id": 1, "name": 1, "nutrition": 1, "_id": 0}
 df_RAW_recipes = connector.load_collection_as_dataframe(
-    COLLECTION_NAME, limit=2000, fields=fields)
+    COLLECTION_RECIPES_NAME, limit=2000, fields=fields)
 df_RAW_interactions = connector.load_collection_as_dataframe(
     COLLECTION_RAW_INTERACTIONS, limit=2000)
 connector.close()

@@ -8,14 +8,14 @@ load_dotenv()
 @st.cache_data
 def load_dataset(dir_name: str, all_contents=True):
     """
-    Load a dataset from a directory containing CSV files or a single CSV file.
+    Charge un jeu de données à partir d'un répertoire contenant des fichiers CSV ou d'un seul fichier CSV.
 
-    Parameters:
-    dir_name (str): The directory path containing the CSV files or the path to a single CSV file.
-    all_contents (bool, optional): If True, load all CSV files in the directory. If False, load only the specified file. Defaults to True.
+    Paramètres :
+    dir_name (str) : Le chemin d'accès au répertoire contenant les fichiers CSV ou le chemin d'accès à un seul fichier CSV.
+    all_contents (bool, optionnel) : Si True, tous les fichiers CSV du répertoire sont chargés. Si False, seul le fichier spécifié est chargé. La valeur par défaut est True.
 
-    Returns:
-    dict: A dictionary where the keys are the file names (without extensions) and the values are pandas DataFrames containing the loaded data.
+    Retourne :
+    dict : Un dictionnaire dont les clés sont les noms de fichiers (sans les extensions) et les valeurs sont des DataFrames pandas contenant les données chargées.
     """
     dataframes = {}
     if all_contents:

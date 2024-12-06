@@ -157,16 +157,9 @@ class DataFrameConverter:
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    # Exemple de DataFrame
-    data = {
-        'name': ['Recette 1', 'Recette 2'],
-        'tags': ['["facile", "rapide"]', '["végétarien", "sans gluten"]'],
-        'nutrition': ['{"calories": 200, "fat": 10}', '{"calories": 150, "fat": 5}'],
-        'steps': ['["Étape 1", "Étape 2"]', '["Étape A", "Étape B"]'],
-        'ingredients': ['["pomme", "sucre"]', '["riz", "lait de coco"]'],
-        'submitted': ['2023-01-01', '2023-02-15']
-    }
-
+    df = pd.read_csv(os.path.join(os.getenv("DIR_DATASET"), "RAW_recipes.csv"))
     CONNECTION_STRING = os.getenv("CONNECTION_STRING")
     DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
-    COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
+    COLLECTION_RECIPES_NAME = os.getenv("COLLECTION_RECIPES_NAME", "recipes2")
+    load_dataframe_to_mongodb(df, CONNECTION_STRING,
+                              DATABASE_NAME, COLLECTION_RECIPES_NAME)
