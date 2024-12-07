@@ -30,65 +30,68 @@ Les variables d'environnement se trouvent dans le fichier `.env`
 - **Docker** (optionnel, pour le déploiement local) : [Installer Docker](https://docs.docker.com/engine/install/)
 - **Compte MongoDB Atlas ou base de données MongoDB**(optionnel, pour ligne ou en local à partie de mongodb) : [Installer MongoDB](https://www.mongodb.com/docs/manual/installation/)
 
-## 1. Déploiement de l'application en local en mode développement
 
-### Étape 1 : Cloner le dépôt
+## 🚀 Modes de Déploiement
+
+### 1.### Déploiement Local (Développement)
+
+#### Étape 1 : Cloner le dépôt
 ```bash
 git clone https://github.com/mbathe/tp_bgdia700.git
 cd tp_bgdia700
 ```
 
-### Étape 2 : Installer les dépendances
+#### Étape 2 : Installer les dépendances
 ```bash
 poetry install
 ```
 
-### Étape 3 : Télécharger le dataset
+#### Étape 3 : Télécharger le dataset
 Exécutez l'instruction suivante à la racine du projet pour télécharger le dataset et l'enregistrer à l'emplacement par défaut `./data/dataset/` (défini par la variable d'environnement **DOCKER_DOWNLOAD_DATASET_DIR**). Vous pouvez modifier cet emplacement en modifiant la valeur de cette variable.
 
 ```bash
 python script.py
 ```
 
-### Étape 4 : Lancer l'application
+#### Étape 4 : Lancer l'application
 À la racine du répertoire du projet, exécutez la commande suivante :
 ```bash
 streamlit run src/Recettes.py
 ```
 
-## 2. Déploiement de l'application en local avec Docker
+### 2. ### Déploiement Local (Docker)
 
-### Étape 1 : Cloner le dépôt
+#### Étape 1 : Cloner le dépôt
 ```bash
 git clone https://github.com/mbathe/tp_bgdia700.git
 cd tp_bgdia700
 ```
 
-### Étape 2 : Construire l'image Docker
+#### Étape 2 : Construire l'image Docker
 ```bash
 docker build -t projet_kig_big_data .
 ```
 
-### Étape 3 : Lancer l'application
+#### Étape 3 : Lancer l'application
 À la racine du répertoire du projet, exécutez la commande suivante :
 ```bash
 docker run -d --name projet_big_data1 --memory="2g" -p 8501:8501 projet_kig_big_data
 ```
 
-## 3. Déploiement de l'application avec une base de données MongoDB (local ou Atlas)
+### 3. Déploiement de l'application avec une base de données MongoDB (local ou Atlas)
 
-### Étape 1 : Cloner le dépôt
+#### Étape 1 : Cloner le dépôt
 ```bash
 git clone https://github.com/mbathe/tp_bgdia700.git
 cd tp_bgdia700
 ```
 
-### Étape 2 : Installer les dépendances
+#### Étape 2 : Installer les dépendances
 ```bash
 poetry install
 ```
 
-### Étape 3 : Modifier les variables d'environnement
+#### Étape 3 : Modifier les variables d'environnement
 Avant de déployer l'application, donnez des valeurs aux variables d'environnement suivantes du fichier `.env` :
 ```
 # CHAÎNE DE CONNEXION À LA BASE DE DONNÉES MONGODB POUR UN DÉPLOIEMENT EN LIGNE
@@ -105,12 +108,12 @@ COLLECTION_RAW_INTERACTIONS = raw_interaction
 ```
 
 
-### Étape 4 : Charger les données depuis les fichiers CSV vers la base de données
+#### Étape 4 : Charger les données depuis les fichiers CSV vers la base de données
 ```bash
 python scripts/mongo_data.py
 ```
 
-### Étape 5 : Lancer l'application
+#### Étape 5 : Lancer l'application
 À la racine du répertoire du projet, exécutez la commande suivante :
 ```bash
 streamlit run src/Recettes.py
@@ -124,8 +127,6 @@ streamlit run src/Recettes.py
 - **VPS Local** : [http://158.178.192.72:8501/](http://158.178.192.72:8501/)
 
 
-
-
 ## 👥 Contributeurs
 
 ### Équipe de Développement
@@ -137,17 +138,3 @@ streamlit run src/Recettes.py
 | Alexandre Movsessian      | Data Scientist | [https://github.com/AlexMovsess]   |
 | Julian Sliva              | Data Scientist | [https://github.com/JuJuFR78]      |
 
-### Contribution Communautaire
-
-Nous accueillons chaleureusement les contributions de la communauté ! 
-
-#### Comment Contribuer ?
-
-1. **Rapport de Bugs** 
-   - Utilisez la section Issues de GitHub
-   - Décrivez clairement le problème rencontré
-   - Incluez des étapes de reproduction si possible
-
-2. **Propositions d'Améliorations**
-   - Ouvrez une Issue détaillant votre suggestion
-   - Expliquez l'apport de cette amélioration
