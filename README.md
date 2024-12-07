@@ -19,10 +19,10 @@ Avant d'exécuter le code, assurez-vous que les éléments suivants sont install
 
 Les variables d'environnement se trouvent dans le fichier `.env`
 
-- Python 3.11 ou supérieur
+- **Python 3.11** ou supérieur
 - **Poetry** pour la gestion des dépendances. [Installer Poetry](https://python-poetry.org/docs/#installation)
 - **Docker** (optionnel, pour le déploiement local) : [Installer Docker](https://docs.docker.com/engine/install/)
-- **Compte MongoDB Atlas ou base de données MongoDB** : [Installer MongoDB](https://www.mongodb.com/docs/manual/installation/)
+- **Compte MongoDB Atlas ou base de données MongoDB**(optionnel, pour ligne ou en local à partie de mongodb) : [Installer MongoDB](https://www.mongodb.com/docs/manual/installation/)
 
 ## 1. Déploiement de l'application en local en mode développement
 
@@ -38,7 +38,7 @@ poetry install
 ```
 
 ### Étape 3 : Télécharger le dataset
-Exécutez l'instruction suivante à la racine du projet pour télécharger le dataset et l'enregistrer à l'emplacement par défaut `./data/dataset/` (défini par la variable d'environnement **DIR_DATASET**). Vous pouvez modifier cet emplacement en modifiant la valeur de cette variable.
+Exécutez l'instruction suivante à la racine du projet pour télécharger le dataset et l'enregistrer à l'emplacement par défaut `./data/dataset/` (défini par la variable d'environnement **DOCKER_DOWNLOAD_DATASET_DIR**). Vous pouvez modifier cet emplacement en modifiant la valeur de cette variable.
 
 ```bash
 python script.py
@@ -47,7 +47,7 @@ python script.py
 ### Étape 4 : Lancer l'application
 À la racine du répertoire du projet, exécutez la commande suivante :
 ```bash
-streamlit run src/👨‍🍳Recettes.py
+streamlit run src/Recettes.py
 ```
 
 ## 2. Déploiement de l'application en local avec Docker
@@ -101,9 +101,9 @@ python scripts/mongo_data.py
 ### Étape 4 : Lancer l'application
 À la racine du répertoire du projet, exécutez la commande suivante :
 ```bash
-streamlit run src/👨‍🍳Recettes.py
+streamlit run src/Recettes.py
 ```
 
 ## Déploiement en ligne
 - [**Streamlit Cloud**](https://tpbgdia700-w9z9mmtuyekqgmkmtkctxq.streamlit.app/)
-- [**VPS local**](http://192.168.1.163:8501/)
+- [**VPS local**](http://158.178.192.72:8501/)
