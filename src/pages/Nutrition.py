@@ -1,3 +1,4 @@
+import os
 import plotly.graph_objects as go
 import seaborn as sns
 import streamlit as st
@@ -10,9 +11,12 @@ import logging
 from typing import Tuple, Optional
 import pandas as pd
 from src.pages.recipes.Analyse_recipes import DisplayManager
-
+from dotenv import load_dotenv
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+load_dotenv()
+DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
+
 
 
 class NutritionPage:
@@ -353,11 +357,12 @@ class NutritionPage:
             """On en conclut que la valeur des notes des recettes n'est définitivement pas corrélée aux valeurs nutritionnelles.""")
 
     def display_sidebar(self):
-        with st.sidebar:
-            interaction_limit = st.slider(
-                "Chosir une limite d'interaction:", 2, 1000000, 50000)
-            if interaction_limit != 50000 and self.self.nutrition_df is not None:
-                self.load_and_clean_data(limit=interaction_limit)
+        if DEPLOIEMENT_SITE == "ONLINE":
+            with st.sidebar:
+                interaction_limit = st.slider(
+                    "Chosir une limite d'interaction:", 2, 1000000, 50000)
+                if interaction_limit != 50000 and self.self.nutrition_df is not None:
+                    self.load_and_clean_data(limit=interaction_limit)
 
     def display_filtered_recipes(self) -> None:
         """
