@@ -4445,3 +4445,219 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-06 20:05:08,150 - INFO - Connexion MongoDB fermée.
 2024-12-06 21:48:18,252 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
 2024-12-06 21:48:18,252 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 21:51:21,459 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 21:51:21,459 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:00:30,911 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:00:30,912 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:00:31,475 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:03:41,132 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:03:41,135 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:03:41,796 - ERROR - Error in display_tab: Cannot set a DataFrame with multiple columns to the single column ingredients_cleaned
+2024-12-06 22:05:29,715 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:05:29,716 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:05:30,291 - ERROR - Error in display_tab: 'list' object has no attribute 'lower'
+2024-12-06 22:08:52,606 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:08:52,607 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:08:53,239 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:13:38,937 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:13:38,938 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:13:39,544 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:14:07,320 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:14:07,321 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:14:07,433 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:14:27,798 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:14:27,799 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:14:28,413 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:18:01,400 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:18:01,401 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:18:02,024 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:19:17,236 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:19:17,236 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:19:17,840 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:20:29,752 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:20:29,753 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:20:30,368 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:22:07,434 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:22:07,434 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:22:08,019 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:24:56,246 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:24:56,247 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:24:56,849 - ERROR - Error in display_tab: 'ingredients_cleaned'
+2024-12-06 22:25:45,060 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:25:45,061 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:25:45,662 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:26:19,855 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:26:19,856 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:26:20,469 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:26:39,305 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:26:39,307 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:26:39,419 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:27:28,544 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:27:28,545 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:27:29,154 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:52:43,302 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:52:43,303 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:52:43,975 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:54:35,164 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:54:35,166 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:54:36,012 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:55:19,971 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:55:19,972 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:55:20,831 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:59:27,250 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:59:27,251 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:59:27,915 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-07 00:00:53,128 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:00:53,129 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:22,168 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:22,169 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:28,724 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:28,725 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:44,596 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:44,598 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:59,143 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:59,144 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:02:14,643 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:02:14,644 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:02:27,175 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:02:27,176 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:02:36,776 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:02:36,778 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:04:21,236 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:04:21,237 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:11:51,695 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:11:51,697 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:27:05,182 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:27:05,183 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:30:53,078 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:30:53,079 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:30:53,092 - ERROR - Error in display_data_structures: "None of [Index(['name', 'description', 'submitted'], dtype='object')] are in the [columns]"
+2024-12-07 00:31:57,392 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:31:57,393 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:31:57,452 - ERROR - Error in display_tab: st.session_state has no attribute "active_tab". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+2024-12-07 00:33:19,103 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:33:19,104 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:35:31,312 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:35:31,312 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:35:31,359 - ERROR - Error in display_tab: st.session_state has no attribute "active_tab". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+2024-12-07 00:37:09,296 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:37:09,297 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:37:50,751 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:37:50,753 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:07,492 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:07,494 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:13,696 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:13,697 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:17,586 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:17,587 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:19,462 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:19,464 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:20,745 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:20,746 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:41:11,276 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:41:11,276 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:43:22,448 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:43:22,449 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:48:53,141 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:48:53,142 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:48:58,873 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:48:58,874 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:01,942 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:01,944 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:04,943 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:04,944 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:13,154 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:13,155 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:19,700 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:19,702 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:27,197 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:27,199 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:30,084 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:30,085 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:31,900 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:31,901 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:36,458 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:36,460 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:44,394 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:44,396 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:50,938 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:50,939 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:58,254 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:58,255 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:50:01,999 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:50:02,000 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:51:27,107 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:51:27,108 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:51:27,114 - ERROR - Error in display_data_structures: "None of [Index(['name', 'description', 'submitted'], dtype='object')] are in the [columns]"
+2024-12-07 00:51:56,642 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:51:56,644 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:42:38,011 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:42:38,013 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:43:04,357 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:43:04,359 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:43:17,900 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:43:17,902 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:09,468 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:09,469 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:14,139 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:14,141 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:18,890 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:18,892 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:22,548 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:22,550 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:47:27,238 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:47:27,239 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:47:31,286 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:47:31,287 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:48:19,166 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:48:19,167 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:49:18,961 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:49:18,963 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:49:28,932 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:49:28,933 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:49:53,644 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:49:53,645 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:03,983 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:03,984 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:08,147 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:08,148 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:12,226 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:12,228 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:52,197 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:52,198 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:55,651 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:55,652 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:23,107 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:23,108 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:30,319 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:30,320 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:34,612 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:34,613 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:40,371 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:40,373 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:03:59,213 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:03:59,214 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:04:07,797 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:04:07,799 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:04:59,660 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:04:59,661 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:05:03,198 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:05:03,200 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:05:14,617 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:05:14,619 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:06:28,282 - ERROR - Error in main: 'ingredients'
+2024-12-07 09:06:39,093 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:06:39,094 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:06:57,524 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:06:57,525 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:08:07,127 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:08:07,129 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:08:11,493 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:08:11,495 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:30:40,366 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:30:40,366 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:30:40,978 - ERROR - Error in display_tab: st.session_state has no attribute "selected_recipe_id". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+2024-12-07 09:31:55,985 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:31:55,987 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:32:12,559 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:32:12,559 - INFO - CSS chargé depuis src/css_pages/recipe.css

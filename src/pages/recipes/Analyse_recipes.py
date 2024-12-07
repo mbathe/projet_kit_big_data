@@ -178,11 +178,12 @@ class DataManager:
         except Exception as e:
             logging.error(f"Échec de l'analyse des tags: {e}")
 
+
 class DisplayManager:
-    def __init__(self, data_manager: DataManager) -> None:
+    def __init__(self, data_manager: DataManager, recommander) -> None:
         """Initialise le DisplayManager avec une instance de DataManager."""
         self.data_manager: DataManager = data_manager
-
+        self.recommender = recommander
     @staticmethod
     def load_css() -> None:
         """Charge les fichiers CSS pour l'application."""
@@ -1024,7 +1025,7 @@ class DisplayManager:
         """Analyser et afficher les ingrédients les plus fréquents dans les recettes."""
         try:
             ingredient_sample = self.data_manager.get_recipe_data().st.session_state.data["ingredients"].apply(
-                eval)
+                eval) if DEPLOIEMENT_SITE != "ONLINE" else self.data_manager.get_recipe_data().st.session_state.data["ingredients"]
             flat_ingredients: list[str] = [
                 item.lower() for sublist in ingredient_sample for item in sublist]
             ingredient_freq: Counter = Counter(flat_ingredients)
@@ -1057,7 +1058,6 @@ class DisplayManager:
                 "📊 Analyse",
                 "📈 Prediction"
             ])
-
             with tabs[0]:
                 self.home_tab()
             with tabs[1]:
@@ -1069,19 +1069,30 @@ class DisplayManager:
 
     def recommandation_page(self) -> None:
         """Affichez la page de recommandation avec des recommandations de recettes personnalisées."""
-        recommender: AdvancedRecipeRecommender = AdvancedRecipeRecommender(
-            recipes_df=self.data_manager.get_recipe_data().st.session_state.data)
+
         st.sidebar.markdown(
             '<div class="sidebar-title">🍽️ Recipe Intelligence</div>', unsafe_allow_html=True)
 
         st.markdown(
             '<h1 class="main-title">🍲 Recommandations Personnalisées</h1>', unsafe_allow_html=True)
-        selected_recipe_id: int = st.selectbox(
+        # if "selected_recipe_id" in st.session_state:
+        # print(st.session_state.selected_recipe_id)
+        list_recommender = self.recommender.recipes_df['id'].tolist()[:15]
+        if 'selected_recipe_id' not in st.session_state:
+            st.session_state.selected_recipe_id = list_recommender[
+                2]
+        selected_recipe_id = st.selectbox(
             "Choisissez une recette de base",
-            recommender.recipes_df['id'].tolist()
+            list_recommender,
+            list_recommender.index(
+                st.session_state.selected_recipe_id)
         )
-        selected_recipe = recommender.recipes_df[recommender.recipes_df['id']
-                                                 == selected_recipe_id].iloc[0]
+
+        st.session_state.selected_recipe_id = selected_recipe_id
+        # print(recommender.recipes_df[recommender.recipes_df['id']
+        #                           == st.session_state.selected_recipe_id])
+        selected_recipe = self.recommender.recipes_df[self.recommender.recipes_df['id']
+                                                      == st.session_state.selected_recipe_id].iloc[0]
         st.markdown(f"""
         <div class="recommendation-card">
             <h2 class="recipe-detail">{selected_recipe['name']}</h2>
@@ -1091,15 +1102,15 @@ class DisplayManager:
             </div>
         </div>
         """, unsafe_allow_html=True)
-
         st.markdown("<h3>🥬 Ingrédients</h3>", unsafe_allow_html=True)
-        ingredients: list[str] = eval(selected_recipe['ingredients'])
+        ingredients: list[str] = eval(
+            selected_recipe['ingredients']) if DEPLOIEMENT_SITE != "ONLINE" else selected_recipe['ingredients']
         st.markdown(
             f'<div class="ingredient-list">{" • ".join(ingredients)}</div>', unsafe_allow_html=True)
 
         st.markdown("<h3>🔍 Recommandations Similaires</h3>",
                     unsafe_allow_html=True)
-        recommendations: pd.DataFrame = recommender.content_based_recommendations(
+        recommendations: pd.DataFrame = self.recommender.content_based_recommendations(
             selected_recipe_id,
             top_n=3
         )
@@ -1108,7 +1119,7 @@ class DisplayManager:
             <div class="recommendation-card">
                 <h4>{rec['name']}</h4>
                 <p>⏰ <strong>Durée :</strong> {rec['minutes']} minutes</p>
-                <p>🥘 <strong>Ingrédients :</strong> {', '.join(eval(rec['ingredients']))}</p>
+                <p>🥘 <strong>Ingrédients :</strong> {', '.join(eval(rec['ingredients'])) if DEPLOIEMENT_SITE != "ONLINE" else ', '.join(rec['ingredients'])}</p>
             </div>
             """, unsafe_allow_html=True)
 

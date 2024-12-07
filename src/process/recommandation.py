@@ -5,6 +5,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
+
+
 
 class AdvancedRecipeRecommender:
     def __init__(self, recipes_df: pd.DataFrame):
@@ -27,10 +36,12 @@ class AdvancedRecipeRecommender:
         - Normalisation des caractéristiques numériques
         """
         # Nettoie les ingrédients : convertit en chaîne de caractères lowercase
-        self.recipes_df['ingredients_cleaned'] = self.recipes_df['ingredients'].apply(
-            lambda x: ' '.join(eval(x)).lower()
-        )
-
+        if DEPLOIEMENT_SITE != "ONLINE":
+            self.recipes_df['ingredients_cleaned'] = self.recipes_df['ingredients'].apply(
+                lambda x: ' '.join(eval(x)).lower())
+        else:
+            self.recipes_df['ingredients_cleaned'] = self.recipes_df['ingredients'].apply(
+                lambda x: ' '.join(x).lower())
         # Vectorisation TF-IDF des ingrédients
         self.tfidf = TfidfVectorizer(stop_words='english')
         self.ingredient_matrix = self.tfidf.fit_transform(
@@ -43,7 +54,6 @@ class AdvancedRecipeRecommender:
         self.numeric_features = scaler.fit_transform(
             self.recipes_df[numeric_features]
         )
-
     def content_based_recommendations(self, recipe_id: int, top_n: int = 5) -> pd.DataFrame:
         """
         Génère des recommandations basées sur la similarité de contenu.
