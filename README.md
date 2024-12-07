@@ -1,17 +1,23 @@
-# Création d'une webapp Streamlit d'analyse de données
+# 🍲 Application Web d'Analyse de Recettes avec Streamlit
 
-## Objectif du projet
-L'objectif de ce projet est de mettre en pratique les concepts et les compétences que nous avons appris en cours sur le développement Python pour la production, en créant et déployant une application web incluant une partie analyse de données.
+## 🎯 Objectif du Projet
 
-## Fonctionnalités
-- **Statistiques détaillées des recettes**
-    - 📈 Analyses nutritionnelles avancées
-    - 🌍 Exploration des tendances culinaires
-    - ⭐ Système de recommandation personnalisé
+Ce projet vise à développer une application web interactive utilisant Streamlit pour l'analyse approfondie de données culinaires. L'application met en pratique les compétences avancées en développement Python, analyse de données, et développement web.
 
-- **Interaction des utilisateurs**
-    - 📈 Analyses avancées des contributions
-    - 🌍 Exploration des distributions des contributions
+
+## ✨ Fonctionnalités Principales
+
+### 📊 Analyse de Recettes
+- Statistiques nutritionnelles détaillées
+- Visualisation des tendances culinaires
+- Analyse comparative des ingrédients
+- Système de recommandation personnalisé basé sur les préférences
+
+### 👥 Interactions Utilisateurs
+- Analyse des contributions des utilisateurs
+- Exploration des distributions des interactions
+- Visualisations interactives des données
+
 
 ## Prérequis
 
@@ -83,7 +89,7 @@ poetry install
 ```
 
 ### Étape 3 : Modifier les variables d'environnement
-Avant de déployer l'application, modifiez les variables d'environnement suivantes :
+Avant de déployer l'application, donnez des valeurs aux variables d'environnement suivantes du fichier `.env` :
 ```
 # CHAÎNE DE CONNEXION À LA BASE DE DONNÉES MONGODB POUR UN DÉPLOIEMENT EN LIGNE
 CONNECTION_STRING = 
@@ -110,6 +116,38 @@ python scripts/mongo_data.py
 streamlit run src/Recettes.py
 ```
 
-## Déploiement en ligne
-- [**Streamlit Cloud**](https://tpbgdia700-w9z9mmtuyekqgmkmtkctxq.streamlit.app/)
-- [**VPS local**](http://158.178.192.72:8501/)
+
+## 🌐 Déploiement en Ligne
+
+### Plateformes
+- **Streamlit Cloud** : [Lien de l'application](https://tpbgdia700-w9z9mmtuyekqgmkmtkctxq.streamlit.app/)
+- **VPS Local** : [http://158.178.192.72:8501/](http://158.178.192.72:8501/)
+
+
+
+
+## 👥 Contributeurs
+
+### Équipe de Développement
+
+| Nom                       | Rôle           | Contact                            |
+| ------------------------- | -------------- | ---------------------------------- |
+| MBATHE MEKONTCHOU PAUL    | Data Scientist | [https://github.com/mbathe]        |
+| Alexandre Desgrées du Loû | Data Scientist | [https://github.com/Alexandre-ddl] |
+| Alexandre Movsessian      | Data Scientist | [https://github.com/AlexMovsess]   |
+| Julian Sliva              | Data Scientist | [https://github.com/JuJuFR78]      |
+
+### Contribution Communautaire
+
+Nous accueillons chaleureusement les contributions de la communauté ! 
+
+#### Comment Contribuer ?
+
+1. **Rapport de Bugs** 
+   - Utilisez la section Issues de GitHub
+   - Décrivez clairement le problème rencontré
+   - Incluez des étapes de reproduction si possible
+
+2. **Propositions d'Améliorations**
+   - Ouvrez une Issue détaillant votre suggestion
+   - Expliquez l'apport de cette amélioration
