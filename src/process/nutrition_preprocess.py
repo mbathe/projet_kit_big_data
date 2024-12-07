@@ -11,8 +11,27 @@ from pathlib import Path
 from datetime import datetime
 from src.pages.recipes.Welcom import Welcome
 
-# Configuration du logger
-logging.basicConfig(level=logging.INFO)  # Définir le niveau de log à INFO
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "app.log")),
+        logging.StreamHandler()
+    ]
+)
+
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+# Ajouter le FileHandler à la configuration de logging
+logging.getLogger().addHandler(error_handler)
+
+
 logger = logging.getLogger(__name__)
 
 load_dotenv()

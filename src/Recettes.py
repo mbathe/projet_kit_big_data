@@ -14,10 +14,8 @@ logging.basicConfig(level=logging.INFO,
 
 if __name__ == "__main__":
     try:
-
         welcome_container = st.empty()
         data_manager = DataManager()
-      
         DisplayManager.load_css()
         welcome_container.empty()
         container = st.container()

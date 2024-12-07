@@ -33,8 +33,24 @@ from datetime import datetime
 from src.pages.recipes.Welcom import Welcome
 load_dotenv()
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "app.log")),
+        logging.StreamHandler()
+    ]
+)
 
-logging.basicConfig(level=logging.DEBUG)
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+logging.getLogger().addHandler(error_handler)
+
 logger = logging.getLogger(__name__)
 load_dotenv()
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
@@ -52,15 +68,18 @@ def setup_logging():
 
     Cela permet de centraliser la gestion des logs et d'éviter des configurations multiples.
     """
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
-        handlers=[
-            logging.FileHandler("app.log"),
-            logging.StreamHandler()
-        ]
-    )
-
+    try:
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+            handlers=[
+                logging.FileHandler("app.log"),
+                logging.StreamHandler()
+            ]
+        )
+        logger.info("Configuration du logging réussie")
+    except Exception as e:
+        logger.error(f"Erreur lors de la configuration du logging : {e}")
 
 # OLD
 class DataLoader:
@@ -90,9 +109,12 @@ class DataLoader:
             INFO: Indique le début du chargement du fichier CSV.
         """
         logger = logging.getLogger("DataLoader.load_large_csv")
-        logger.info(f"Chargement du fichier CSV: {file_path}")
-        return pd.read_csv(file_path)
-
+        try:
+            logger.info(f"Chargement du fichier CSV: {file_path}")
+            return pd.read_csv(file_path)
+        except Exception as e:
+            logger.error(f"Erreur lors du chargement du fichier CSV : {e}")
+            raise
 
 # NEW
 class DataLoaderMango:
@@ -119,11 +141,16 @@ class DataLoaderMango:
             INFO: Indique l'initialisation de DataLoaderMango avec les paramètres fournis.
         """
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.logger.info("Initialisation de DataLoaderMango")
-        self.connection_string = connection_string
-        self.database_name = database_name
-        self.collection_names = collection_names
-        self.limit = limit
+        try:
+            self.logger.info("Initialisation de DataLoaderMango")
+            self.connection_string = connection_string
+            self.database_name = database_name
+            self.collection_names = collection_names
+            self.limit = limit
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'initialisation de DataLoaderMango : {e}")
+            raise
 
     @staticmethod
     @st.cache_data
@@ -153,9 +180,8 @@ class DataLoaderMango:
             INFO: Indique la fermeture de la connexion MongoDB.
         """
         logger = logging.getLogger("DataLoaderMango.load_dataframe")
-        logger.info("Connexion à MongoDB")
-
         try:
+            logger.info("Connexion à MongoDB")
             connector = MongoDBConnector(connection_string, database_name)
             data_frames = dict()
             for collection_name in collection_names:
@@ -173,7 +199,7 @@ class DataLoaderMango:
                 data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
                 data_frames[collection_name] = data
                 logger.info(f"Données chargées depuis {collection_name} avec limite {limit}")
-            logger.info(f"Enregistrements terminé")
+            logger.info("Enregistrements terminé")
         except Exception as e:
             logger.error("Erreur lors du chargement des données depuis MongoDB", exc_info=True)
             raise
@@ -191,18 +217,22 @@ class DataLoaderMango:
 
         Returns:
             pd.DataFrame: DataFrame contenant les données chargées.
-        
+
         Logs :
             INFO: Indique le début de la récupération des données.
         """
         self.logger.info("Récupération des données")
-        return self.load_dataframe(
-            self.connection_string,
-            self.database_name,
-            self.collection_names,
-            self.limit
-        )
-
+        try:
+            return self.load_dataframe(
+                self.connection_string,
+                self.database_name,
+                self.collection_names,
+                self.limit
+            )
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de la récupération des données : {e}")
+            raise
 
 class CSSLoader:
     """
@@ -219,6 +249,7 @@ class CSSLoader:
             INFO: Indique l'initialisation de CSSLoader.
         """
         self.logger = logging.getLogger(self.__class__.__name__)
+        self.logger.info("Initialisation de CSSLoader")
 
     @staticmethod
     def load(path_to_css):
@@ -232,9 +263,12 @@ class CSSLoader:
             INFO: Indique le début du chargement du fichier CSS.
         """
         logger = logging.getLogger("CSSLoader.load")
-        logger.info(f"Chargement du CSS depuis {path_to_css}")
-        load_css(path_to_css)
-
+        try:
+            logger.info(f"Chargement du CSS depuis {path_to_css}")
+            load_css(path_to_css)
+        except Exception as e:
+            logger.error(f"Erreur lors du chargement du CSS : {e}")
+            raise
 
 class DataAnalyzer:
     """
@@ -256,8 +290,13 @@ class DataAnalyzer:
             INFO: Indique l'initialisation de DataAnalyzer avec les données fournies.
         """
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.logger.info("Initialisation de DataAnalyzer")
-        self.data = data
+        try:
+            self.logger.info("Initialisation de DataAnalyzer")
+            self.data = data
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'initialisation de DataAnalyzer : {e}")
+            raise
 
     def preprocess(self):
         """
@@ -277,13 +316,20 @@ class DataAnalyzer:
             WARNING: Indique l'absence de la colonne 'date' dans les données.
         """
         self.logger.info("Prétraitement des données")
-        if 'date' in self.data.columns:
-            self.data['date'] = pd.to_datetime(self.data['date'])
-            self.data['year'] = self.data['date'].dt.year.astype(str)
-            self.logger.debug(f"Données après prétraitement: {self.data.head()}")
-        else:
-            self.logger.warning("La colonne 'date' est absente des données")
-        return self.data
+        try:
+            if 'date' in self.data.columns:
+                self.data['date'] = pd.to_datetime(self.data['date'])
+                self.data['year'] = self.data['date'].dt.year.astype(str)
+                self.logger.debug(f"Données après prétraitement: {
+                                  self.data.head()}")
+            else:
+                self.logger.warning(
+                    "La colonne 'date' est absente des données")
+            return self.data
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors du prétraitement des données : {e}")
+            raise
 
     def analyze_user(self, user_id):
         """
@@ -307,17 +353,24 @@ class DataAnalyzer:
             WARNING: Indique qu'aucune donnée n'a été trouvée pour l'utilisateur.
         """
         self.logger.info(f"Analyse des données pour l'utilisateur ID: {user_id}")
-        user_data = self.data[self.data['user_id'] == user_id].copy()
-        if not user_data.empty:
-            user_data['year_month'] = user_data['date'].dt.to_period('M')
-            monthly_avg = user_data.groupby('year_month')['rating'].mean()
-            monthly_avg.index = monthly_avg.index.astype(str)
-            monthly_avg = monthly_avg.reset_index()
-            monthly_avg.columns = ['Mois', 'Note moyenne']
-            self.logger.info(f"Analyse utilisateur terminée pour ID: {user_id}")
-            return monthly_avg
-        self.logger.warning(f"Aucune donnée trouvée pour l'utilisateur ID: {user_id}")
-        return None
+        try:
+            user_data = self.data[self.data['user_id'] == user_id].copy()
+            if not user_data.empty:
+                user_data['year_month'] = user_data['date'].dt.to_period('M')
+                monthly_avg = user_data.groupby('year_month')['rating'].mean()
+                monthly_avg.index = monthly_avg.index.astype(str)
+                monthly_avg = monthly_avg.reset_index()
+                monthly_avg.columns = ['Mois', 'Note moyenne']
+                self.logger.info(
+                    f"Analyse utilisateur terminée pour ID: {user_id}")
+                return monthly_avg
+            self.logger.warning(
+                f"Aucune donnée trouvée pour l'utilisateur ID: {user_id}")
+            return None
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'analyse des données pour l'utilisateur ID: {user_id} : {e}")
+            raise
 
     def analyze_monthly_ratings(self):
         """
@@ -335,10 +388,17 @@ class DataAnalyzer:
             DEBUG: Affiche un aperçu des moyennes mensuelles calculées.
         """
         self.logger.info("Analyse des notes moyennes mensuelles")
-        monthly_average_rating = self.data.set_index('date').resample('ME')['rating'].mean().reset_index()
-        monthly_average_rating.columns = ['Mois', 'Note moyenne']
-        self.logger.debug(f"Notes moyennes mensuelles: {monthly_average_rating.head()}")
-        return monthly_average_rating
+        try:
+            monthly_average_rating = self.data.set_index('date').resample('ME')[
+                'rating'].mean().reset_index()
+            monthly_average_rating.columns = ['Mois', 'Note moyenne']
+            self.logger.debug(f"Notes moyennes mensuelles: {
+                              monthly_average_rating.head()}")
+            return monthly_average_rating
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'analyse des notes moyennes mensuelles : {e}")
+            raise
 
     def analyze_ratings_frequencies(self):
         """
@@ -355,13 +415,19 @@ class DataAnalyzer:
             DEBUG: Indique le nombre d'occurrences pour chaque note.
         """
         self.logger.info("Analyse des fréquences des notes")
-        unique_ratings = self.data['rating'].unique()
-        frequency_data = []
-        for rating in sorted(unique_ratings):
-            rating_data = self.data[self.data['rating'] == rating]
-            frequency_data.append((rating, rating_data))
-            self.logger.debug(f"Fréquence pour la note {rating}: {len(rating_data)} occurrences")
-        return frequency_data
+        try:
+            unique_ratings = self.data['rating'].unique()
+            frequency_data = []
+            for rating in sorted(unique_ratings):
+                rating_data = self.data[self.data['rating'] == rating]
+                frequency_data.append((rating, rating_data))
+                self.logger.debug(f"Fréquence pour la note {rating}: {
+                                  len(rating_data)} occurrences")
+            return frequency_data
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'analyse des fréquences des notes : {e}")
+            raise
 
     def analyze_user_ratings_frequencies(self, user_id):
         """
@@ -383,17 +449,24 @@ class DataAnalyzer:
             WARNING: Indique qu'aucune donnée de fréquence n'a été trouvée pour l'utilisateur.
         """
         self.logger.info(f"Analyse des fréquences des notes pour l'utilisateur ID: {user_id}")
-        user_data = self.data[self.data['user_id'] == user_id]
-        if not user_data.empty:
-            unique_ratings_user = user_data['rating'].unique()
-            frequency_data = []
-            for rating in sorted(unique_ratings_user):
-                rating_data = user_data[user_data['rating'] == rating]
-                frequency_data.append((rating, rating_data))
-                self.logger.debug(f"Fréquence pour la note {rating} de l'utilisateur {user_id}: {len(rating_data)} occurrences")
-            return frequency_data
-        self.logger.warning(f"Aucune donnée de fréquence trouvée pour l'utilisateur ID: {user_id}")
-        return None
+        try:
+            user_data = self.data[self.data['user_id'] == user_id]
+            if not user_data.empty:
+                unique_ratings_user = user_data['rating'].unique()
+                frequency_data = []
+                for rating in sorted(unique_ratings_user):
+                    rating_data = user_data[user_data['rating'] == rating]
+                    frequency_data.append((rating, rating_data))
+                    self.logger.debug(f"Fréquence pour la note {rating} de l'utilisateur {
+                                      user_id}: {len(rating_data)} occurrences")
+                return frequency_data
+            self.logger.warning(
+                f"Aucune donnée de fréquence trouvée pour l'utilisateur ID: {user_id}")
+            return None
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'analyse des fréquences des notes pour l'utilisateur ID: {user_id} : {e}")
+            raise
 
     def analyze_activity_on_mangetamain(self):
         """
@@ -413,18 +486,25 @@ class DataAnalyzer:
             WARNING: Indique l'absence de la colonne 'submitted' dans les données.
         """
         self.logger.info("Analyse de l'activité sur Mangetamain")
-        if 'submitted' in self.data.columns:
-            self.data['submitted'] = pd.to_datetime(self.data['submitted'])
-            self.data['year_month'] = self.data['submitted'].dt.to_period('M')
-            monthly_counts = self.data.groupby('year_month').size().reset_index(name='recipe_count')
-            monthly_counts['year_month'] = monthly_counts['year_month'].astype(str)
-            self.logger.debug(f"Comptes mensuels: {monthly_counts.head()}")
-            return monthly_counts
-        else:
-            self.logger.warning("La colonne 'submitted' est absente des données")
-            return None
-
-
+        try:
+            if 'submitted' in self.data.columns:
+                self.data['submitted'] = pd.to_datetime(self.data['submitted'])
+                self.data['year_month'] = self.data['submitted'].dt.to_period(
+                    'M')
+                monthly_counts = self.data.groupby(
+                    'year_month').size().reset_index(name='recipe_count')
+                monthly_counts['year_month'] = monthly_counts['year_month'].astype(
+                    str)
+                self.logger.debug(f"Comptes mensuels: {monthly_counts.head()}")
+                return monthly_counts
+            else:
+                self.logger.warning(
+                    "La colonne 'submitted' est absente des données")
+                return None
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'analyse de l'activité sur Mangetamain : {e}")
+            raise
 
 class VisualizationManager:
     """
@@ -443,6 +523,7 @@ class VisualizationManager:
             INFO: Indique l'initialisation de VisualizationManager.
         """
         self.logger = logging.getLogger(self.__class__.__name__)
+        self.logger.info("Initialisation de VisualizationManager")
 
     @staticmethod
     def display_line_chart(data, x, y, title):
@@ -459,12 +540,18 @@ class VisualizationManager:
             INFO: Indique le début de l'affichage du graphique en ligne.
         """
         logger = logging.getLogger("VisualizationManager.display_line_chart")
-        logger.info(f"Affichage du graphique en ligne: {title}")
-        st.subheader(title)
-        line_chart = LineChart(data=data, x=x, y=y, height=400, line_color='rgb(26, 28, 35)')
-        graphiques = [{"titre": "", "graphique": line_chart}]
-        grille = Grille(nb_lignes=1, nb_colonnes=1, largeurs_colonnes=[1])
-        grille.afficher(graphiques)
+        try:
+            logger.info(f"Affichage du graphique en ligne: {title}")
+            st.subheader(title)
+            line_chart = LineChart(data=data, x=x, y=y,
+                                   height=400, line_color='rgb(26, 28, 35)')
+            graphiques = [{"titre": "", "graphique": line_chart}]
+            grille = Grille(nb_lignes=1, nb_colonnes=1, largeurs_colonnes=[1])
+            grille.afficher(graphiques)
+        except Exception as e:
+            logger.error(
+                f"Erreur lors de l'affichage du graphique en ligne : {e}")
+            raise
 
     @staticmethod
     def display_histogram(data, x, title, bin_size=1):
@@ -481,12 +568,17 @@ class VisualizationManager:
             INFO: Indique le début de l'affichage de l'histogramme.
         """
         logger = logging.getLogger("VisualizationManager.display_histogram")
-        logger.info(f"Affichage de l'histogramme: {title}")
-        st.subheader(title)
-        histogram = Histogramme(data=data, x=x, bin_size=bin_size, height=400, bar_color='rgb(26, 28, 35)')
-        graphiques = [{"titre": "", "graphique": histogram}]
-        grille = Grille(nb_lignes=1, nb_colonnes=1, largeurs_colonnes=[1])
-        grille.afficher(graphiques)
+        try:
+            logger.info(f"Affichage de l'histogramme: {title}")
+            st.subheader(title)
+            histogram = Histogramme(
+                data=data, x=x, bin_size=bin_size, height=400, bar_color='rgb(26, 28, 35)')
+            graphiques = [{"titre": "", "graphique": histogram}]
+            grille = Grille(nb_lignes=1, nb_colonnes=1, largeurs_colonnes=[1])
+            grille.afficher(graphiques)
+        except Exception as e:
+            logger.error(f"Erreur lors de l'affichage de l'histogramme : {e}")
+            raise
 
     @staticmethod
     def display_ratings_frequencies(frequency_data, x, title):
@@ -503,26 +595,31 @@ class VisualizationManager:
             DEBUG: Indique l'ajout d'un graphique pour chaque note.
         """
         logger = logging.getLogger("VisualizationManager.display_ratings_frequencies")
-        logger.info(f"Affichage des fréquences des notes: {title}")
-        st.subheader(title)
-        graphiques = []
-        for rating, rating_data in frequency_data:
-            histogram = Histogramme(
-                data=rating_data,
-                bin_size=1,
-                x=x,
-                height=300,
-                bar_color='rgb(26, 28, 35)',
-                line_color='rgb(8,48,107)'
-            )
-            graphiques.append({
-                "titre": f"Fréquence de la note {int(rating)}",
-                "graphique": histogram,
-            })
-            logger.debug(f"Graphique pour la note {rating} ajouté")
-        grille = Grille(nb_lignes=2, nb_colonnes=3, largeurs_colonnes=[1, 1, 1])
-        grille.afficher(graphiques)
-
+        try:
+            logger.info(f"Affichage des fréquences des notes: {title}")
+            st.subheader(title)
+            graphiques = []
+            for rating, rating_data in frequency_data:
+                histogram = Histogramme(
+                    data=rating_data,
+                    bin_size=1,
+                    x=x,
+                    height=300,
+                    bar_color='rgb(26, 28, 35)',
+                    line_color='rgb(8,48,107)'
+                )
+                graphiques.append({
+                    "titre": f"Fréquence de la note {int(rating)}",
+                    "graphique": histogram,
+                })
+                logger.debug(f"Graphique pour la note {rating} ajouté")
+            grille = Grille(nb_lignes=2, nb_colonnes=3,
+                            largeurs_colonnes=[1, 1, 1])
+            grille.afficher(graphiques)
+        except Exception as e:
+            logger.error(
+                f"Erreur lors de l'affichage des fréquences des notes : {e}")
+            raise
 
 class StreamlitPage(DataLoaderMango):
     """
@@ -544,21 +641,25 @@ class StreamlitPage(DataLoaderMango):
             INFO: Indique l'initialisation de StreamlitPage et de DataLoaderMango.
         """
         self.logger = logging.getLogger(self.__class__.__name__)
-        self.logger.info("Initialisation de StreamlitPage")
+        try:
+            self.logger.info("Initialisation de StreamlitPage")
+            self.data = None
+            self.CONNECTION_STRING = os.getenv("CONNECTION_STRING")
+            self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
+            self.COLLECTION_RAW_INTERACTIONS = os.getenv(
+                "COLLECTION_RAW_INTERACTIONS", "raw_interaction")
+            self.COLLECTION_RECIPES_NAME = os.getenv(
+                "COLLECTION_RECIPES_NAME", 'recipes')
 
-        self.data = None
-        self.CONNECTION_STRING = os.getenv("CONNECTION_STRING")
-        self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
-        self.COLLECTION_RAW_INTERACTIONS = os.getenv(
-            "COLLECTION_RAW_INTERACTIONS", "raw_interaction")
-        self.COLLECTION_RECIPES_NAME = os.getenv(
-            "COLLECTION_RECIPES_NAME", 'recipes')
-        
-        self.COLLECTION_NAMES = [
-            self.COLLECTION_RAW_INTERACTIONS, self.COLLECTION_RECIPES_NAME]
+            self.COLLECTION_NAMES = [
+                self.COLLECTION_RAW_INTERACTIONS, self.COLLECTION_RECIPES_NAME]
 
-        super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME,
-                         self.COLLECTION_NAMES, limit=50000)
+            super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME,
+                             self.COLLECTION_NAMES, limit=50000)
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de l'initialisation de StreamlitPage : {e}")
+            raise
 
     def load_css(self):
         """
@@ -570,8 +671,12 @@ class StreamlitPage(DataLoaderMango):
             INFO: Indique le début du chargement du CSS.
         """
         self.logger.info("Chargement du CSS")
-        path_to_css = 'src/css_pages/analyse_user.css'
-        CSSLoader.load(path_to_css)
+        try:
+            path_to_css = 'src/css_pages/analyse_user.css'
+            CSSLoader.load(path_to_css)
+        except Exception as e:
+            self.logger.error(f"Erreur lors du chargement du CSS : {e}")
+            raise
 
     def load_data(self):
         """
@@ -588,7 +693,7 @@ class StreamlitPage(DataLoaderMango):
         """
         self.logger.info("Chargement des données depuis MongoDB")
         try:
-            self.data= self.get_data()
+            self.data = self.get_data()
             self.logger.info(f"Données chargées avec succès, {len(self.data[self.COLLECTION_RAW_INTERACTIONS])} enregistrements")
         except Exception as e:
             self.logger.error("Erreur lors du chargement des données", exc_info=True)
@@ -621,11 +726,11 @@ class StreamlitPage(DataLoaderMango):
             st.subheader("Objectif de l'Analyse")
             introduction = """
             Cette analyse vise à explorer **les raisons de la perte de popularité de l'application Mangetamain** en examinant :
-            
+
             - Les fréquences de notation des utilisateurs au fil du temps.
             - Les tendances des évaluations.
             - L'activité des utilisateurs.
-            
+
             **Objectif** :
             Comprendre comment la popularité a évolué et identifier les facteurs ayant conduit à une diminution de l'intérêt pour la plateforme.
             """
@@ -646,21 +751,21 @@ class StreamlitPage(DataLoaderMango):
                 VisualizationManager.display_histogram(self.data[self.COLLECTION_RAW_INTERACTIONS], 'rating', "Fréquence globale des notes")
                 if st.checkbox("Afficher l'explication"):
                     st.subheader("Analyse de la Fréquence des Notes")
-                    
+
                     # Diviser l'explication en paragraphes
                     st.markdown("""
                     La visualisation de la **fréquence des évaluations** met en évidence une répartition inégale des notes attribuées par les utilisateurs sur l’application.
-                    
+
                     ### Points Clés :
                     - La majorité des évaluations se concentrent sur la **note maximale (5)**, ce qui reflète une forte appréciation globale des recettes par les utilisateurs.
                     - La **faible fréquence des notes intermédiaires (1 à 3)** suggère que les utilisateurs ne s’expriment que lorsqu’ils ont une expérience particulièrement positive.
-                    
+
                     ### Interprétations :
                     Ce comportement pourrait indiquer que :
                     1. Les utilisateurs sont **moins enclins à noter les recettes moins marquantes**, réduisant ainsi la diversité des retours disponibles.
                     2. Cela soulève la question de **l’engagement des utilisateurs** et de l’impact des évaluations sur l’amélioration des recettes proposées.
                     """)
-                    
+
                     # Ajout d'un séparateur ou d'un espace pour l'esthétique
                     st.divider()
             else:
@@ -677,7 +782,7 @@ class StreamlitPage(DataLoaderMango):
                 # Texte explicatif sous le graphique
                 if st.checkbox("Afficher l'explication des fréquences au fil du temps"):
                     st.subheader("Analyse des Fréquences des Notes au Fil du Temps")
-                    
+
                     # Diviser le texte en sections et ajouter des points clés
                     st.markdown("""
                     Cette visualisation illustre **l'évolution des fréquences des notes attribuées par les utilisateurs** sur l'application au fil des années.
@@ -715,7 +820,7 @@ class StreamlitPage(DataLoaderMango):
                 # Case à cocher pour afficher l'explication
                 if st.checkbox("Afficher l'explication des notes moyennes mensuelles"):
                     st.subheader("Explication des Notes Moyennes Mensuelles")
-                    
+
                     # Structuration en sections
                     st.markdown("""
                     Cette courbe met en lumière **l'évolution de la note moyenne hebdomadaire** attribuée par les utilisateurs au fil du temps.
@@ -735,7 +840,7 @@ class StreamlitPage(DataLoaderMango):
                     - Une **évolution des attentes des utilisateurs** au fil du temps.
 
                     """)
-                    
+
                     # Ajouter un séparateur pour une présentation plus nette
                     st.divider()
             else:
@@ -797,7 +902,6 @@ class StreamlitPage(DataLoaderMango):
                 self.logger.warning("La colonne 'user_id' est absente du fichier.")
                 st.error("La colonne 'user_id' est absente du fichier.")
 
-            
             # Evolution de l’activité sur l’application Mangetamain
             st.title("Evolution de l’activité sur l’application Mangetamain")
             if 'submitted' in self.data[self.COLLECTION_RECIPES_NAME].columns:
@@ -806,7 +910,7 @@ class StreamlitPage(DataLoaderMango):
                 monthly_counts = analyzer_recipe.analyze_activity_on_mangetamain()
                 if monthly_counts is not None:
                     VisualizationManager.display_line_chart(
-                        monthly_counts, 'year_month', 'recipe_count',title=""
+                        monthly_counts, 'year_month', 'recipe_count', title=""
                     )
                     # Texte explicatif sous le graphique
                     if st.checkbox("Afficher l'explication de l'évolution de l'activité"):
@@ -835,13 +939,12 @@ class StreamlitPage(DataLoaderMango):
                         - **Renforcer l’expérience utilisateur** par des fonctionnalités interactives et engageantes.
 
                         """)
-                        
+
                         # Ajouter un séparateur pour une meilleure structuration visuelle
                         st.divider()
             else:
                 self.logger.warning("La colonne 'submitted' est absente du fichier.")
                 st.error("La colonne 'submitted' est absente du fichier.")
-
 
     def run(self):
         """
@@ -855,12 +958,16 @@ class StreamlitPage(DataLoaderMango):
             INFO: Indique la configuration de la page Streamlit.
         """
         self.logger.info("Configuration de la page Streamlit")
-        st.set_page_config(layout="wide")
-        self.load_css()
-        self.load_data()
-        if self.data is not None:
-            self.run_analysis()
-
+        try:
+            st.set_page_config(layout="wide")
+            self.load_css()
+            self.load_data()
+            if self.data is not None:
+                self.run_analysis()
+        except Exception as e:
+            self.logger.error(
+                f"Erreur lors de la configuration de la page Streamlit : {e}")
+            raise
 
 def main():
     """
@@ -876,9 +983,13 @@ def main():
     logger = logging.getLogger(__name__)
     logger.info("Démarrage de l'application Streamlit")
 
-    page_analyse_user = StreamlitPage()
-    page_analyse_user.run()
-
+    try:
+        page_analyse_user = StreamlitPage()
+        page_analyse_user.run()
+    except Exception as e:
+        logger.error(
+            f"Erreur lors du démarrage de l'application Streamlit : {e}")
+        raise
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,25 @@
 from pymongo import MongoClient
 import pandas as pd
+import logging
+import os
+# Configuration de logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "app.log")),
+        logging.StreamHandler()
+    ]
+)
+
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+logging.getLogger().addHandler(error_handler)
 
 
 class MongoDBConnector:
@@ -47,16 +67,17 @@ class MongoDBConnector:
         try:
             self.client = MongoClient(self.connection_string)
             self.db = self.client[self.database_name]
-            print(f"Connecté à la base de données : {self.database_name}")
+            logging.info(f"Connecté à la base de données : {
+                         self.database_name}")
         except Exception as e:
-            print(f"Erreur lors de la connexion à MongoDB : {e}")
+            logging.error(f"Erreur lors de la connexion à MongoDB : {e}")
             raise
 
     def load_collection_as_dataframe(
-        self, 
-        collection_name: str, 
-        query: dict = None, 
-        limit: int = None, 
+        self,
+        collection_name: str,
+        query: dict = None,
+        limit: int = None,
         fields: dict = None
     ) -> pd.DataFrame:
         """
@@ -83,6 +104,8 @@ class MongoDBConnector:
             Exception: Si la connexion à MongoDB n'a pas été établie avant l'appel de cette méthode.
         """
         if self.db is None:
+            logging.error(
+                "La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.")
             raise Exception("La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.")
 
         try:
@@ -93,23 +116,24 @@ class MongoDBConnector:
 
             cursor = collection.find(query, fields) if fields else collection.find(query)
 
-
             if limit is not None:
                 cursor = cursor.limit(limit)
 
             data = list(cursor)
-            
+
             if data:
                 df = pd.DataFrame(data)
                 if '_id' in df.columns and (not fields or fields.get('_id', 1) == 0):
                     df.drop(columns=['_id'], inplace=True)
                 return df
             else:
-                print(f"La collection '{collection_name}' est vide ou ne contient aucun document correspondant au filtre.")
+                logging.warning(f"La collection '{
+                                collection_name}' est vide ou ne contient aucun document correspondant au filtre.")
                 return pd.DataFrame()
 
         except Exception as e:
-            print(f"Erreur lors de la récupération des données de la collection '{collection_name}': {e}")
+            logging.error(f"Erreur lors de la récupération des données de la collection '{
+                          collection_name}': {e}")
             return pd.DataFrame()
 
     def close(self):
@@ -122,4 +146,4 @@ class MongoDBConnector:
             self.client.close()
             self.client = None  # Réinitialiser l'attribut client
             self.db = None  # Réinitialiser l'attribut db si nécessaire
-            print("Connexion MongoDB fermée.")
+            logging.info("Connexion MongoDB fermée.")

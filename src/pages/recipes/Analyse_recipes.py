@@ -26,8 +26,25 @@ st.set_page_config(
 )
 load_dotenv()
 
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../../..'), "app.log")),
+        logging.StreamHandler()
+    ]
+)
+
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+logging.getLogger().addHandler(error_handler)
+
 
 try:
     locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')

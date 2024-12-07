@@ -13,7 +13,24 @@ import pandas as pd
 from src.pages.recipes.Analyse_recipes import DisplayManager
 from dotenv import load_dotenv
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "app.log")),
+        logging.StreamHandler()
+    ]
+)
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+logging.getLogger().addHandler(error_handler)
+
 logger = logging.getLogger(__name__)
 load_dotenv()
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
