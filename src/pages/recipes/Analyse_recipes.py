@@ -14,7 +14,6 @@ from collections import Counter
 from streamlit_echarts import st_echarts
 from src.utils.static import constribution_data
 from dotenv import load_dotenv
-from src.process.recommandation import AdvancedRecipeRecommender
 import os
 from typing import Optional
 
@@ -1050,13 +1049,8 @@ class DisplayManager:
         except Exception as e:
             logging.error(f"Error in analyze_ingredients: {e}")
 
-<<<<<<< HEAD
-
-    def display_tab(self):
-=======
     def display_tab(self) -> None:
         """Affiche les principaux onglets de l'application."""
->>>>>>> main
         try:
             # Create tabs with icons
             tabs = st.tabs([

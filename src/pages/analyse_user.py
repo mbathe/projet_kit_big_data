@@ -98,7 +98,7 @@ class DataLoaderMango:
     performances lors des chargements répétitifs.
     """
 
-    def __init__(self, connection_string, database_name, collection_names : list, limit:int=2000):
+    def __init__(self, connection_string, database_name, collection_names: list, limit: int = 50000):
         """
         Initialise les paramètres de connexion à MongoDB.
 
@@ -543,7 +543,7 @@ class StreamlitPage(DataLoaderMango):
             self.COLLECTION_RAW_INTERACTIONS, self.COLLECTION_RECIPES_NAME]
 
         super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME,
-                         self.COLLECTION_NAMES, limit=2000)
+                         self.COLLECTION_NAMES, limit=50000)
 
     def load_css(self):
         """

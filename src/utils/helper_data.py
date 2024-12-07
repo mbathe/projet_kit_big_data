@@ -1,5 +1,4 @@
 import logging
-from src.visualizations import load_css
 import os
 import pandas as pd
 from dotenv import load_dotenv
@@ -57,13 +56,3 @@ def load_dataset_from_file(dir_folder, date_start, date_end, is_interactional=Fa
                                 for chunk in df)
         df_filtered = df_filtered.reset_index(drop=True)
         return df_filtered
-
-
-@st.cache_data
-def load(css_file):
-    try:
-        load_css(css_file)
-        logging.info(f"CSS loaded from {css_file}")
-    except Exception as e:
-        logging.error(f"Failed to load CSS from {css_file}: {e}")
-        raise Exception(f"Failed to load CSS: {str(e)}")

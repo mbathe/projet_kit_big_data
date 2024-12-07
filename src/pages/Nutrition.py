@@ -32,7 +32,7 @@ class NutritionPage:
         self.nutrition_df = None
         self.clean_nutrition_df = None
 
-    def load_and_clean_data(self) -> Tuple[Optional[pd.DataFrame], Optional[pd.DataFrame]]:
+    def load_and_clean_data(self, limit=50000) -> Tuple[Optional[pd.DataFrame], Optional[pd.DataFrame]]:
         """
         Charge et nettoie les données nutritionnelles. 
         Utilise les fonctions `load_data` et `clean_data` pour charger et nettoyer les données respectivement.
@@ -40,7 +40,7 @@ class NutritionPage:
         Returns:
             Tuple[Optional[pd.DataFrame], Optional[pd.DataFrame]]: Un tuple contenant les données brutes et nettoyées.
         """
-        self.nutrition_df = load_data()
+        self.nutrition_df = load_data(limit=limit)
         self.clean_nutrition_df = clean_data(self.nutrition_df)
         return self.nutrition_df, self.clean_nutrition_df
 
@@ -352,6 +352,13 @@ class NutritionPage:
         st.write(
             """On en conclut que la valeur des notes des recettes n'est définitivement pas corrélée aux valeurs nutritionnelles.""")
 
+    def display_sidebar(self):
+        with st.sidebar:
+            interaction_limit = st.slider(
+                "Chosir une limite d'interaction:", 2, 1000000, 50000)
+            if interaction_limit != 50000 and self.self.nutrition_df is not None:
+                self.load_and_clean_data(limit=interaction_limit)
+
     def display_filtered_recipes(self) -> None:
         """
         Affiche un tableau de recettes filtrées en fonction du régime alimentaire sélectionné et permet d'explorer les détails des recettes.
@@ -493,3 +500,4 @@ if __name__ == "__main__":
     nutrition_page = NutritionPage(data_directory='./data')
     nutrition_page.load_and_clean_data()
     nutrition_page.run()
+    nutrition_page.display_sidebar()
