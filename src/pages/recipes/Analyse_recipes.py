@@ -60,6 +60,7 @@ class CSSLoader:
             raise Exception(f"Failed to load CSS: CSS load error: {str(e)}")
 
 class DataManager:
+    """Classe responsable du chargement et de traitement des données."""
     def __init__(self) -> None:
         """Initialise le DataManager avec une instance de Recipe."""
         self.recipe: Recipe = Recipe()
@@ -181,6 +182,8 @@ class DataManager:
 
 
 class DisplayManager:
+    """ Classe responsable de l'afficharge de la page Recettes.
+    """
     def __init__(self, data_manager: DataManager) -> None:
         """Initialise le DisplayManager avec une instance de DataManager."""
         self.data_manager: DataManager = data_manager
