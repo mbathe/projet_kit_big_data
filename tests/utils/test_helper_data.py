@@ -13,6 +13,7 @@ with patch('streamlit.cache_data', lambda func: func):
     from src.utils.helper_data import load_dataset, load_dataset_from_file
 
 from src.utils.helper_data import load_dataset_from_file
+from datetime import date
 
 def test_load_dataset_all_contents():
     with patch('os.listdir') as mock_listdir, \
