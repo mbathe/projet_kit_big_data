@@ -5,5 +5,5 @@ load_dotenv()
 
 if __name__ == "__main__":
     file_id = os.getenv("DATASET_DRIVE_ID")
-    output_dir = os.getenv("DIR_DATASET")
+    output_dir = os.getenv("DOCKER_DOWNLOAD_DATASET_DIR")
     downloaded_file = download_dataset_from_drive(file_id, output_dir)
