@@ -105,5 +105,5 @@ streamlit run src/👨‍🍳Recettes.py
 ```
 
 ## Déploiement en ligne
-- **Streamlit Cloud** : [Lien à ajouter]
-- **VPS local** : [Lien à ajouter]
+- [**Streamlit Cloud**](https://tpbgdia700-w9z9mmtuyekqgmkmtkctxq.streamlit.app/)
+- [**VPS local**](http://192.168.1.163:8501/)
