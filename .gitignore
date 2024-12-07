@@ -55,3 +55,7 @@ pytest-of-paul
 Oriente objet idees.ipynb
 .env
 recipe_analysis.log
+pytest-of-paul
+.vscode
+.idea
+.devcontainer
