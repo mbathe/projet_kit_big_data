@@ -12,4 +12,5 @@ def test_load_css_failure():
         mock_load_css.side_effect = Exception("CSS load error")
         with pytest.raises(Exception) as excinfo:
             CSSLoader.load("src/css_pages/recipe.css")
-        assert str(excinfo.value) == "Failed to load CSS: CSS load error"
+        assert str(
+            excinfo.value) == "Failed to load CSS: CSS load error: CSS load error"

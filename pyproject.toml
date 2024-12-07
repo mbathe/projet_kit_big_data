@@ -33,6 +33,7 @@ openpyxl = "^3.1.5"
 pymongo = {extras = ["srv"], version = "^4.10.1"}
 surprise = "^0.1"
 pytest-mock = "^3.14.0"
+mongomock = "^4.3.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest-cov = "^6.0.0"

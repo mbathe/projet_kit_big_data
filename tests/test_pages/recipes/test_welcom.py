@@ -3,7 +3,7 @@ import streamlit as st
 import base64
 from unittest.mock import mock_open, patch, MagicMock
 # Remplacez par le module où se trouve la classe Welcome
-from src.pages.welcom.Welcom import Welcome
+from src.pages.recipes.Welcom import Welcome
 
 
 def test_get_img_as_base64_success():

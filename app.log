@@ -4192,18 +4192,26 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-04 17:50:35,020 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-04 17:50:35,020 - INFO - CSS loaded from src/css_pages/recipe.css
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
 2024-12-05 04:18:19,608 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:19,609 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:19,609 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:29,407 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:29,407 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:29,407 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+<<<<<<< HEAD
 2024-12-05 04:19:02,144 - INFO - D�marrage de l'application Streamlit
+=======
+2024-12-05 04:19:02,144 - INFO - D�marrage de l'application Streamlit
+>>>>>>> main
 2024-12-05 04:19:02,144 - INFO - Initialisation de StreamlitPage
 2024-12-05 04:19:02,144 - INFO - Initialisation de DataLoaderMango
 2024-12-05 04:19:02,149 - INFO - Configuration de la page Streamlit
 2024-12-05 04:19:02,149 - INFO - Chargement du CSS
 2024-12-05 04:19:02,151 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
 2024-12-05 04:19:02,159 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:19:02,159 - INFO - R�cup�ration des donn�es
 2024-12-05 04:19:02,162 - INFO - Connexion � MongoDB
@@ -4213,11 +4221,23 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:19:14,122 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:19:14,122 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:19:19,964 - INFO - D�marrage de l'application Streamlit
+=======
+2024-12-05 04:19:02,159 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:19:02,159 - INFO - R�cup�ration des donn�es
+2024-12-05 04:19:02,162 - INFO - Connexion � MongoDB
+2024-12-05 04:19:03,005 - INFO - Connexion �tablie
+2024-12-05 04:19:03,005 - INFO - Chargement des donn�es depuis raw_interaction avec limite 2000
+2024-12-05 04:19:14,122 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:14,122 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:14,122 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:19,964 - INFO - D�marrage de l'application Streamlit
+>>>>>>> main
 2024-12-05 04:19:19,964 - INFO - Initialisation de StreamlitPage
 2024-12-05 04:19:19,964 - INFO - Initialisation de DataLoaderMango
 2024-12-05 04:19:19,964 - INFO - Configuration de la page Streamlit
 2024-12-05 04:19:19,964 - INFO - Chargement du CSS
 2024-12-05 04:19:19,964 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
 2024-12-05 04:19:19,964 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:19:19,964 - INFO - R�cup�ration des donn�es
 2024-12-05 04:19:29,761 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
@@ -4226,11 +4246,22 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:19:33,068 - INFO - Donn�es charg�es depuis raw_interaction avec limite 2000
 2024-12-05 04:19:33,068 - INFO - Chargement des donn�es depuis recipes avec limite 2000
 2024-12-05 04:20:01,402 - INFO - D�marrage de l'application Streamlit
+=======
+2024-12-05 04:19:19,964 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:19:19,964 - INFO - R�cup�ration des donn�es
+2024-12-05 04:19:29,761 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:29,761 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:29,761 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:33,068 - INFO - Donn�es charg�es depuis raw_interaction avec limite 2000
+2024-12-05 04:19:33,068 - INFO - Chargement des donn�es depuis recipes avec limite 2000
+2024-12-05 04:20:01,402 - INFO - D�marrage de l'application Streamlit
+>>>>>>> main
 2024-12-05 04:20:01,402 - INFO - Initialisation de StreamlitPage
 2024-12-05 04:20:01,402 - INFO - Initialisation de DataLoaderMango
 2024-12-05 04:20:01,402 - INFO - Configuration de la page Streamlit
 2024-12-05 04:20:01,410 - INFO - Chargement du CSS
 2024-12-05 04:20:01,410 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
 2024-12-05 04:20:01,410 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:20:01,410 - INFO - R�cup�ration des donn�es
 2024-12-05 04:20:03,311 - INFO - Donn�es charg�es depuis recipes avec limite 2000
@@ -4241,18 +4272,35 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:03,460 - INFO - Initialisation de DataAnalyzer
 2024-12-05 04:20:03,460 - INFO - Pr�traitement des donn�es
 2024-12-05 04:20:03,460 - WARNING - La colonne 'date' est absente des donn�es
+=======
+2024-12-05 04:20:01,410 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:20:01,410 - INFO - R�cup�ration des donn�es
+2024-12-05 04:20:03,311 - INFO - Donn�es charg�es depuis recipes avec limite 2000
+2024-12-05 04:20:03,311 - INFO - Enregistrements termin�
+2024-12-05 04:20:03,311 - INFO - Connexion MongoDB ferm�e
+2024-12-05 04:20:03,391 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:20:03,460 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:20:03,460 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:20:03,460 - INFO - Pr�traitement des donn�es
+2024-12-05 04:20:03,460 - WARNING - La colonne 'date' est absente des donn�es
+>>>>>>> main
 2024-12-05 04:20:03,460 - WARNING - La colonne 'rating' est absente du fichier.
 2024-12-05 04:20:03,460 - WARNING - Les colonnes 'date' ou 'rating' sont absentes du fichier.
 2024-12-05 04:20:03,460 - WARNING - Les colonnes 'rating' ou 'date' sont absentes du fichier.
 2024-12-05 04:20:03,460 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:03,460 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:03,460 - WARNING - La colonne 'submitted' est absente du fichier.
+<<<<<<< HEAD
 2024-12-05 04:20:10,234 - INFO - D�marrage de l'application Streamlit
+=======
+2024-12-05 04:20:10,234 - INFO - D�marrage de l'application Streamlit
+>>>>>>> main
 2024-12-05 04:20:10,234 - INFO - Initialisation de StreamlitPage
 2024-12-05 04:20:10,234 - INFO - Initialisation de DataLoaderMango
 2024-12-05 04:20:10,236 - INFO - Configuration de la page Streamlit
 2024-12-05 04:20:10,236 - INFO - Chargement du CSS
 2024-12-05 04:20:10,236 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
 2024-12-05 04:20:10,237 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:20:10,237 - INFO - R�cup�ration des donn�es
 2024-12-05 04:20:10,241 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
@@ -4260,18 +4308,32 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:10,241 - INFO - Initialisation de DataAnalyzer
 2024-12-05 04:20:10,241 - INFO - Pr�traitement des donn�es
 2024-12-05 04:20:10,241 - WARNING - La colonne 'date' est absente des donn�es
+=======
+2024-12-05 04:20:10,237 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:20:10,237 - INFO - R�cup�ration des donn�es
+2024-12-05 04:20:10,241 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:20:10,241 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:20:10,241 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:20:10,241 - INFO - Pr�traitement des donn�es
+2024-12-05 04:20:10,241 - WARNING - La colonne 'date' est absente des donn�es
+>>>>>>> main
 2024-12-05 04:20:10,241 - WARNING - La colonne 'rating' est absente du fichier.
 2024-12-05 04:20:10,247 - WARNING - Les colonnes 'date' ou 'rating' sont absentes du fichier.
 2024-12-05 04:20:10,249 - WARNING - Les colonnes 'rating' ou 'date' sont absentes du fichier.
 2024-12-05 04:20:10,250 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:10,251 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:10,252 - WARNING - La colonne 'submitted' est absente du fichier.
+<<<<<<< HEAD
 2024-12-05 04:20:14,536 - INFO - D�marrage de l'application Streamlit
+=======
+2024-12-05 04:20:14,536 - INFO - D�marrage de l'application Streamlit
+>>>>>>> main
 2024-12-05 04:20:14,536 - INFO - Initialisation de StreamlitPage
 2024-12-05 04:20:14,536 - INFO - Initialisation de DataLoaderMango
 2024-12-05 04:20:14,538 - INFO - Configuration de la page Streamlit
 2024-12-05 04:20:14,539 - INFO - Chargement du CSS
 2024-12-05 04:20:14,539 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
 2024-12-05 04:20:14,539 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:20:14,539 - INFO - R�cup�ration des donn�es
 2024-12-05 04:20:14,539 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
@@ -4279,18 +4341,32 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:14,539 - INFO - Initialisation de DataAnalyzer
 2024-12-05 04:20:14,539 - INFO - Pr�traitement des donn�es
 2024-12-05 04:20:14,539 - WARNING - La colonne 'date' est absente des donn�es
+=======
+2024-12-05 04:20:14,539 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:20:14,539 - INFO - R�cup�ration des donn�es
+2024-12-05 04:20:14,539 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:20:14,539 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:20:14,539 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:20:14,539 - INFO - Pr�traitement des donn�es
+2024-12-05 04:20:14,539 - WARNING - La colonne 'date' est absente des donn�es
+>>>>>>> main
 2024-12-05 04:20:14,539 - WARNING - La colonne 'rating' est absente du fichier.
 2024-12-05 04:20:14,539 - WARNING - Les colonnes 'date' ou 'rating' sont absentes du fichier.
 2024-12-05 04:20:14,539 - WARNING - Les colonnes 'rating' ou 'date' sont absentes du fichier.
 2024-12-05 04:20:14,539 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:14,550 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:14,551 - WARNING - La colonne 'submitted' est absente du fichier.
+<<<<<<< HEAD
 2024-12-05 04:22:03,614 - INFO - D�marrage de l'application Streamlit
+=======
+2024-12-05 04:22:03,614 - INFO - D�marrage de l'application Streamlit
+>>>>>>> main
 2024-12-05 04:22:03,614 - INFO - Initialisation de StreamlitPage
 2024-12-05 04:22:03,614 - INFO - Initialisation de DataLoaderMango
 2024-12-05 04:22:03,614 - INFO - Configuration de la page Streamlit
 2024-12-05 04:22:03,614 - INFO - Chargement du CSS
 2024-12-05 04:22:03,614 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
 2024-12-05 04:22:03,626 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:22:03,626 - INFO - R�cup�ration des donn�es
 2024-12-05 04:22:03,627 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
@@ -4298,6 +4374,15 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:22:03,630 - INFO - Initialisation de DataAnalyzer
 2024-12-05 04:22:03,630 - INFO - Pr�traitement des donn�es
 2024-12-05 04:22:03,630 - WARNING - La colonne 'date' est absente des donn�es
+=======
+2024-12-05 04:22:03,626 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:22:03,626 - INFO - R�cup�ration des donn�es
+2024-12-05 04:22:03,627 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:22:03,630 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:22:03,630 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:22:03,630 - INFO - Pr�traitement des donn�es
+2024-12-05 04:22:03,630 - WARNING - La colonne 'date' est absente des donn�es
+>>>>>>> main
 2024-12-05 04:22:03,630 - WARNING - La colonne 'rating' est absente du fichier.
 2024-12-05 04:22:03,630 - WARNING - Les colonnes 'date' ou 'rating' sont absentes du fichier.
 2024-12-05 04:22:03,630 - WARNING - Les colonnes 'rating' ou 'date' sont absentes du fichier.
@@ -4307,6 +4392,7 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:22:06,340 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:22:06,340 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:22:06,340 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 2024-12-04 23:04:18,160 - INFO - CSS loaded from src/css_pages/analyse_user.css
@@ -5642,3 +5728,360 @@ pymongo.errors.ConfigurationError: A password is required.
 2024-12-07 11:27:11,296 - WARNING - Aucune recette sélectionnée
 2024-12-07 11:31:17,478 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-07 11:31:17,479 - INFO - CSS loaded from src/css_pages/recipe.css
+=======
+2024-12-05 17:56:11,709 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 17:56:11,710 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 17:56:16,399 - ERROR - Error in display_tab: DisplayManager.recommandation_page() takes 1 positional argument but 2 were given
+2024-12-05 17:57:31,869 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 17:57:31,872 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 17:58:29,068 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 17:58:29,068 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:01:34,649 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:01:34,650 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:01:38,253 - ERROR - Error in display_tab: 'DisplayManager' object is not subscriptable
+2024-12-05 18:03:36,953 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:03:36,954 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:04:48,022 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:04:48,023 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:05:17,392 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:05:17,392 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:05:44,414 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:05:44,414 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:07:25,799 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:07:25,799 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:08:29,423 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:08:29,424 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-05 18:11:32,521 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-05 18:11:32,522 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:08:28,999 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:08:29,000 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:10:14,762 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:10:14,763 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:11:47,933 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:11:47,934 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:12:07,849 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:12:07,851 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:12:29,856 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:12:29,857 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:13:00,370 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:13:00,372 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:13:39,116 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:13:39,116 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:13:49,948 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:13:49,949 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:14:03,047 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:14:03,048 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:14:26,638 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 11:14:26,640 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 11:14:58,045 - INFO - Démarrage de l'application Streamlit
+2024-12-06 11:14:58,045 - INFO - Initialisation de StreamlitPage
+2024-12-06 11:14:58,045 - INFO - Initialisation de DataLoaderMango
+2024-12-06 11:14:58,045 - INFO - Configuration de la page Streamlit
+2024-12-06 11:14:58,046 - INFO - Chargement du CSS
+2024-12-06 11:14:58,046 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-06 11:14:58,047 - INFO - Chargement des données depuis MongoDB
+2024-12-06 11:14:58,047 - INFO - Récupération des données
+2024-12-06 11:14:58,048 - INFO - Connexion à MongoDB
+2024-12-06 11:14:58,127 - INFO - Connexion établie
+2024-12-06 11:14:58,128 - INFO - Chargement des données depuis raw_interaction avec limite 2000
+2024-12-06 11:15:07,296 - INFO - Données chargées depuis raw_interaction avec limite 2000
+2024-12-06 11:15:07,296 - INFO - Chargement des données depuis recipes avec limite 2000
+2024-12-06 11:15:40,948 - INFO - Données chargées depuis recipes avec limite 2000
+2024-12-06 11:15:40,948 - INFO - Enregistrements terminé
+2024-12-06 11:15:41,043 - INFO - Connexion MongoDB fermée
+2024-12-06 11:15:41,056 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-06 11:15:41,059 - INFO - Démarrage de l'analyse des données
+2024-12-06 11:15:41,060 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:15:41,060 - INFO - Prétraitement des données
+2024-12-06 11:15:41,068 - INFO - Affichage de l'histogramme des notes globales
+2024-12-06 11:15:41,068 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-06 11:15:41,086 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-06 11:15:41,086 - INFO - Analyse des fréquences des notes
+2024-12-06 11:15:41,087 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-06 11:15:41,136 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:15:41,136 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:15:41,141 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-06 11:15:41,167 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-06 11:15:41,167 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-06 11:15:41,168 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-06 11:15:41,168 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-06 11:15:41,168 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:15:41,168 - INFO - Analyse de l'activité sur Mangetamain
+2024-12-06 11:15:41,172 - INFO - Affichage du graphique en ligne: 
+2024-12-06 11:16:24,331 - INFO - Démarrage de l'application Streamlit
+2024-12-06 11:16:24,331 - INFO - Initialisation de StreamlitPage
+2024-12-06 11:16:24,331 - INFO - Initialisation de DataLoaderMango
+2024-12-06 11:16:24,331 - INFO - Configuration de la page Streamlit
+2024-12-06 11:16:24,331 - INFO - Chargement du CSS
+2024-12-06 11:16:24,331 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-06 11:16:24,332 - INFO - Chargement des données depuis MongoDB
+2024-12-06 11:16:24,333 - INFO - Récupération des données
+2024-12-06 11:16:24,350 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-06 11:16:24,352 - INFO - Démarrage de l'analyse des données
+2024-12-06 11:16:24,352 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:16:24,352 - INFO - Prétraitement des données
+2024-12-06 11:16:24,357 - INFO - Affichage de l'histogramme des notes globales
+2024-12-06 11:16:24,357 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-06 11:16:24,364 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-06 11:16:24,365 - INFO - Analyse des fréquences des notes
+2024-12-06 11:16:24,367 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-06 11:16:24,428 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:16:24,429 - INFO - Analyse des notes moyennes mensuelles
+2024-12-06 11:16:24,435 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-06 11:16:24,459 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-06 11:16:24,459 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-06 11:16:24,459 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-06 11:16:24,459 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-06 11:16:24,460 - INFO - Initialisation de DataAnalyzer
+2024-12-06 11:16:24,460 - INFO - Analyse de l'activité sur Mangetamain
+2024-12-06 11:16:24,463 - INFO - Affichage du graphique en ligne: 
+2024-12-06 14:09:39,589 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 14:09:39,590 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 14:26:23,303 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 14:26:23,303 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:04:58,215 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 15:04:58,215 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 15:32:38,335 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 15:32:38,336 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 15:36:47,632 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:36:47,632 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:37:34,734 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:37:34,735 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:38:16,978 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:38:16,979 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 15:38:39,869 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-06 15:38:39,870 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-06 16:20:25,483 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 16:20:25,484 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 16:26:46,293 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 16:26:46,294 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 16:26:55,446 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 16:26:55,447 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 18:56:49,819 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 18:56:49,819 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 20:03:07,071 - INFO - Connexion MongoDB réussie.
+2024-12-06 20:03:14,365 - INFO - Connexion MongoDB fermée.
+2024-12-06 20:03:36,836 - INFO - Connexion MongoDB réussie.
+2024-12-06 20:03:41,797 - INFO - Connexion MongoDB fermée.
+2024-12-06 20:04:02,717 - INFO - Connexion MongoDB réussie.
+2024-12-06 20:05:08,049 - ERROR - Erreur inattendue : you are over your space quota, using 513 MB of 512 MB, full error: {'ok': 0, 'errmsg': 'you are over your space quota, using 513 MB of 512 MB', 'code': 8000, 'codeName': 'AtlasError'}
+2024-12-06 20:05:08,150 - INFO - Connexion MongoDB fermée.
+2024-12-06 21:48:18,252 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 21:48:18,252 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 21:51:21,459 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 21:51:21,459 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:00:30,911 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:00:30,912 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:00:31,475 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:03:41,132 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:03:41,135 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:03:41,796 - ERROR - Error in display_tab: Cannot set a DataFrame with multiple columns to the single column ingredients_cleaned
+2024-12-06 22:05:29,715 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:05:29,716 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:05:30,291 - ERROR - Error in display_tab: 'list' object has no attribute 'lower'
+2024-12-06 22:08:52,606 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:08:52,607 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:08:53,239 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:13:38,937 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:13:38,938 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:13:39,544 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:14:07,320 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:14:07,321 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:14:07,433 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:14:27,798 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:14:27,799 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:14:28,413 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:18:01,400 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:18:01,401 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:18:02,024 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:19:17,236 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:19:17,236 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:19:17,840 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:20:29,752 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:20:29,753 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:20:30,368 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:22:07,434 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:22:07,434 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:22:08,019 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:24:56,246 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:24:56,247 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:24:56,849 - ERROR - Error in display_tab: 'ingredients_cleaned'
+2024-12-06 22:25:45,060 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:25:45,061 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:25:45,662 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:26:19,855 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:26:19,856 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:26:20,469 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:26:39,305 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:26:39,307 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:26:39,419 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 22:27:28,544 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 22:27:28,545 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 22:27:29,154 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:52:43,302 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:52:43,303 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:52:43,975 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:54:35,164 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:54:35,166 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:54:36,012 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:55:19,971 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:55:19,972 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:55:20,831 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-06 23:59:27,250 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-06 23:59:27,251 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-06 23:59:27,915 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-07 00:00:53,128 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:00:53,129 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:22,168 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:22,169 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:28,724 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:28,725 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:44,596 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:44,598 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:01:59,143 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:01:59,144 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:02:14,643 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:02:14,644 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:02:27,175 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:02:27,176 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:02:36,776 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:02:36,778 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:04:21,236 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:04:21,237 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:11:51,695 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:11:51,697 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:27:05,182 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:27:05,183 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:30:53,078 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:30:53,079 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:30:53,092 - ERROR - Error in display_data_structures: "None of [Index(['name', 'description', 'submitted'], dtype='object')] are in the [columns]"
+2024-12-07 00:31:57,392 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:31:57,393 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:31:57,452 - ERROR - Error in display_tab: st.session_state has no attribute "active_tab". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+2024-12-07 00:33:19,103 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:33:19,104 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:35:31,312 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:35:31,312 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:35:31,359 - ERROR - Error in display_tab: st.session_state has no attribute "active_tab". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+2024-12-07 00:37:09,296 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:37:09,297 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:37:50,751 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:37:50,753 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:07,492 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:07,494 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:13,696 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:13,697 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:17,586 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:17,587 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:19,462 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:19,464 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:40:20,745 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:40:20,746 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:41:11,276 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:41:11,276 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:43:22,448 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:43:22,449 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:48:53,141 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:48:53,142 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:48:58,873 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:48:58,874 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:01,942 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:01,944 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:04,943 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:04,944 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:13,154 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:13,155 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:19,700 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:19,702 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:27,197 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:27,199 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:30,084 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:30,085 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:31,900 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:31,901 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:36,458 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:36,460 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:44,394 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:44,396 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:50,938 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:50,939 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:49:58,254 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:49:58,255 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:50:01,999 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:50:02,000 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:51:27,107 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:51:27,108 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 00:51:27,114 - ERROR - Error in display_data_structures: "None of [Index(['name', 'description', 'submitted'], dtype='object')] are in the [columns]"
+2024-12-07 00:51:56,642 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 00:51:56,644 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:42:38,011 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:42:38,013 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:43:04,357 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:43:04,359 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:43:17,900 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:43:17,902 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:09,468 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:09,469 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:14,139 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:14,141 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:18,890 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:18,892 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:46:22,548 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:46:22,550 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:47:27,238 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:47:27,239 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:47:31,286 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:47:31,287 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:48:19,166 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:48:19,167 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:49:18,961 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:49:18,963 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:49:28,932 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:49:28,933 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:49:53,644 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:49:53,645 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:03,983 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:03,984 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:08,147 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:08,148 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:12,226 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:12,228 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:52,197 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:52,198 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:51:55,651 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:51:55,652 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:23,107 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:23,108 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:30,319 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:30,320 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:34,612 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:34,613 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 08:55:40,371 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 08:55:40,373 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:03:59,213 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:03:59,214 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:04:07,797 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:04:07,799 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:04:59,660 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:04:59,661 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:05:03,198 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:05:03,200 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:05:14,617 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:05:14,619 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:06:28,282 - ERROR - Error in main: 'ingredients'
+2024-12-07 09:06:39,093 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:06:39,094 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:06:57,524 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:06:57,525 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:08:07,127 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:08:07,129 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:08:11,493 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:08:11,495 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:30:40,366 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:30:40,366 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:30:40,978 - ERROR - Error in display_tab: st.session_state has no attribute "selected_recipe_id". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization
+2024-12-07 09:31:55,985 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:31:55,987 - INFO - CSS chargé depuis src/css_pages/recipe.css
+2024-12-07 09:32:12,559 - INFO - CSS chargé depuis src/css_pages/analyse_user.css
+2024-12-07 09:32:12,559 - INFO - CSS chargé depuis src/css_pages/recipe.css
+>>>>>>> main

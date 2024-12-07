@@ -5,13 +5,18 @@ from io import StringIO
 import importlib
 from src.utils.helper_data import load_dataset
 import streamlit as st
+<<<<<<< HEAD:tests/helper_data/test_helper_data.py
 # 1. Désactiver le décorateur `@st.cache_data` avant d'importer les fonctions à tester
 with patch('streamlit.cache_data', lambda func: func):
     # Importer le module après avoir patché `st.cache_data`
     import src.utils.helper_data
     importlib.reload(src.utils.helper_data)  # Recharger le module pour appliquer le patch
     from src.utils.helper_data import load_dataset, load_dataset_from_file
+=======
+from datetime import date
+>>>>>>> main:tests/utils/test_helper_data.py
 
+from src.utils.helper_data import load_dataset_from_file
 
 def test_load_dataset_all_contents():
     with patch('os.listdir') as mock_listdir, \
@@ -54,7 +59,41 @@ def test_load_dataset_single_file():
         )
 
 
+## AJOUTE PAR SACHA ##
+@patch("pandas.read_csv")
+def test_load_dataset_from_file(mock_read_csv):
+    # Préparation des données
+    # On simule deux chunks de données
+    date_start = date(2020, 1, 1)
+    date_end = date(2020, 1, 10)
 
+    chunk1 = pd.DataFrame({
+        'submitted': [date(2020,1,1), date(2020,1,5), date(2020,1,15)],
+        'value': [10, 20, 30]
+    })
+    chunk2 = pd.DataFrame({
+        'submitted': [date(2020,1,2), date(2020,1,9), date(2020,1,20)],
+        'value': [40, 50, 60]
+    })
+
+    # Le "df" est un itérable de chunks
+    mock_read_csv.return_value = [chunk1, chunk2]
+
+    df_filtered = load_dataset_from_file("fake_path.csv", date_start, date_end)
+
+    # Vérifier que read_csv a été appelé avec les bons arguments
+    mock_read_csv.assert_called_once_with(
+        "fake_path.csv",
+        parse_dates=['submitted'],
+        chunksize=1000
+    )
+
+    # Les chunks filtrés doivent ne garder que les dates dans l'intervalle [2020-01-01, 2020-01-10]
+    # chunk1 filtré: 2020-01-01 (ok), 2020-01-05 (ok), 2020-01-15 (non)
+    # chunk2 filtré: 2020-01-02 (ok), 2020-01-09 (ok), 2020-01-20 (non)
+    # Donc au total, on attend 4 lignes: (1er chunk: 2 lignes, 2e chunk: 2 lignes)
+    assert len(df_filtered) == 4
+    assert all(df_filtered['submitted'] >= date_start) and all(df_filtered['submitted'] <= date_end)
 
 
 
@@ -135,6 +174,7 @@ def test_load_dataset_from_file_date_parsing():
     assert pd.api.types.is_datetime64_any_dtype(result['submitted'])
     assert len(result) == 2  # Deux dates valides
 
+<<<<<<< HEAD:tests/helper_data/test_helper_data.py
 
 def test_load_dataset_from_file_invalid_dates():
     expected_df = pd.DataFrame({
@@ -161,3 +201,22 @@ def test_load_dataset_from_file_invalid_dates():
     pd.testing.assert_frame_equal(result, expected_df)
     assert pd.api.types.is_datetime64_any_dtype(result['submitted'])
     assert len(result) == 1  # Une seule date valide
+=======
+def test_load_dataset_single_file_branch():
+    # On simule un cas où all_contents=False pour charger un seul fichier
+    file_path = '/path/to/dataset/test_file.csv'
+    expected_df = pd.DataFrame({'col': [1, 2, 3]})
+
+    with patch('os.path.basename', return_value='test_file.csv'), \
+         patch('os.path.splitext', side_effect=lambda x: ('test_file', '.csv')), \
+         patch('pandas.read_csv', return_value=expected_df) as mock_read_csv:
+
+        result = load_dataset(file_path, all_contents=False)
+
+        # Vérifier que pandas.read_csv a été appelé avec le bon chemin
+        mock_read_csv.assert_called_once_with(file_path)
+
+        # Vérifier que le résultat contient bien 'test_file' comme clé
+        assert 'test_file' in result
+        pd.testing.assert_frame_equal(result['test_file'], expected_df)
+>>>>>>> main:tests/utils/test_helper_data.py

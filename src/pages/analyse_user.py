@@ -24,15 +24,11 @@ Dépendances :
 from src.visualizations.graphiques import LineChart, Histogramme
 from src.visualizations import Grille, load_css
 from scripts import MongoDBConnector
-
 import os
 import logging
-
 import streamlit as st
 import pandas as pd
 from dotenv import load_dotenv
-
-# Charger les variables d'environnement à partir d'un fichier .env
 load_dotenv()
 
 
@@ -540,9 +536,11 @@ class StreamlitPage(DataLoaderMango):
         self.DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
         self.COLLECTION_RAW_INTERACTIONS = os.getenv(
             "COLLECTION_RAW_INTERACTIONS", "raw_interaction")
-        self.COLLECTION_NAME = os.getenv("COLLECTION_NAME",'recipes')
+        self.COLLECTION_RECIPES_NAME = os.getenv(
+            "COLLECTION_RECIPES_NAME", 'recipes')
         
-        self.COLLECTION_NAMES = [self.COLLECTION_RAW_INTERACTIONS,self.COLLECTION_NAME]
+        self.COLLECTION_NAMES = [
+            self.COLLECTION_RAW_INTERACTIONS, self.COLLECTION_RECIPES_NAME]
 
         super().__init__(self.CONNECTION_STRING, self.DATABASE_NAME,
                          self.COLLECTION_NAMES, limit=2000)
@@ -787,8 +785,9 @@ class StreamlitPage(DataLoaderMango):
             
             # Evolution de l’activité sur l’application Mangetamain
             st.title("Evolution de l’activité sur l’application Mangetamain")
-            if 'submitted' in self.data[self.COLLECTION_NAME].columns :
-                analyzer_recipe = DataAnalyzer(self.data[self.COLLECTION_NAME])
+            if 'submitted' in self.data[self.COLLECTION_RECIPES_NAME].columns:
+                analyzer_recipe = DataAnalyzer(
+                    self.data[self.COLLECTION_RECIPES_NAME])
                 monthly_counts = analyzer_recipe.analyze_activity_on_mangetamain()
                 if monthly_counts is not None:
                     VisualizationManager.display_line_chart(

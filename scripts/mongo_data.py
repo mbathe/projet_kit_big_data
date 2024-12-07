@@ -6,7 +6,6 @@ import pandas as pd
 from pymongo import MongoClient
 from pymongo.errors import AutoReconnect, ServerSelectionTimeoutError, BulkWriteError
 from dotenv import load_dotenv
-
 load_dotenv()
 
 logging.basicConfig(
@@ -18,14 +17,11 @@ logging.basicConfig(
     ]
 )
 
-
 def safe_eval(value, default=None):
     try:
         return eval(value) if isinstance(value, str) else value
     except Exception:
         return default
-
-# Conversion des données du DataFrame en documents MongoDB
 
 
 def convert_dataframe_to_documents(df):
@@ -48,20 +44,16 @@ def convert_dataframe_to_documents(df):
         documents.append(document)
     return documents
 
-# Chargement des données dans MongoDB avec gestion des erreurs et insertion par lots
-
 
 def load_dataframe_to_mongodb(df, connection_string, database_name, collection_name, batch_size=1000, use_convertisseur=True):
     try:
         # Établir la connexion à MongoDB
         client = MongoClient(
             connection_string,
-            serverSelectionTimeoutMS=5000,  # Timeout pour la sélection du serveur
-            socketTimeoutMS=20000,         # Timeout pour les opérations réseau
-            retryWrites=True               # Activer la reconnexion automatique
+            serverSelectionTimeoutMS=5000,
+            socketTimeoutMS=20000,
+            retryWrites=True
         )
-
-        # Tester la connexion
         try:
             client.admin.command('ping')
             logging.info("Connexion MongoDB réussie.")
@@ -74,17 +66,13 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
         collection = db[collection_name]
 
         if use_convertisseur:
-            # utilise le convertisseur de PAUL
             documents = convert_dataframe_to_documents(df)
         else:
-            # utilise le convertisseur de SACHA
             documents = df
 
-        # Insérer les documents par lots
         for i in range(0, len(documents), batch_size):
             batch = documents[i:i + batch_size]
             try:
-                # `ordered=False` pour ignorer les erreurs sur un seul document
                 result = collection.insert_many(batch, ordered=False)
                 print(
                     f"Batch {i//batch_size + 1}: {len(result.inserted_ids)} documents insérés.")
@@ -96,7 +84,6 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
     except Exception as e:
         logging.error(f"Erreur inattendue : {e}")
     finally:
-        # Fermer la connexion à MongoDB
         client.close()
         logging.info("Connexion MongoDB fermée.")
 
@@ -170,16 +157,9 @@ class DataFrameConverter:
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    # Exemple de DataFrame
-    data = {
-        'name': ['Recette 1', 'Recette 2'],
-        'tags': ['["facile", "rapide"]', '["végétarien", "sans gluten"]'],
-        'nutrition': ['{"calories": 200, "fat": 10}', '{"calories": 150, "fat": 5}'],
-        'steps': ['["Étape 1", "Étape 2"]', '["Étape A", "Étape B"]'],
-        'ingredients': ['["pomme", "sucre"]', '["riz", "lait de coco"]'],
-        'submitted': ['2023-01-01', '2023-02-15']
-    }
-
+    df = pd.read_csv(os.path.join(os.getenv("DIR_DATASET"), "RAW_recipes.csv"))
     CONNECTION_STRING = os.getenv("CONNECTION_STRING")
     DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
-    COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
+    COLLECTION_RECIPES_NAME = os.getenv("COLLECTION_RECIPES_NAME", "recipes2")
+    load_dataframe_to_mongodb(df, CONNECTION_STRING,
+                              DATABASE_NAME, COLLECTION_RECIPES_NAME)
