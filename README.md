@@ -33,7 +33,7 @@ Les variables d'environnement se trouvent dans le fichier `.env`
 
 ## 🚀 Modes de Déploiement
 
-### 1.### Déploiement Local (Développement)
+### 1. Déploiement Local (Développement)
 
 #### Étape 1 : Cloner le dépôt
 ```bash
@@ -59,7 +59,7 @@ python script.py
 streamlit run src/Recettes.py
 ```
 
-### 2. ### Déploiement Local (Docker)
+### 2. Déploiement Local (Docker)
 
 #### Étape 1 : Cloner le dépôt
 ```bash
