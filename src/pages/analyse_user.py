@@ -20,7 +20,7 @@ Dépendances :
 - scripts.MongoDBConnector: Module pour la connexion à MongoDB.
 - dotenv: Pour le chargement des variables d'environnement.
 """
-
+from src.utils.helper_data import load_dataset_from_file
 from src.visualizations.graphiques import LineChart, Histogramme
 from src.visualizations import Grille, load_css
 from scripts import MongoDBConnector
@@ -29,8 +29,15 @@ import logging
 import streamlit as st
 import pandas as pd
 from dotenv import load_dotenv
+from datetime import datetime
+from src.pages.recipes.Welcom import Welcome
 load_dotenv()
 
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+load_dotenv()
+DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
 
 def setup_logging():
     """
@@ -147,14 +154,22 @@ class DataLoaderMango:
         """
         logger = logging.getLogger("DataLoaderMango.load_dataframe")
         logger.info("Connexion à MongoDB")
-        connector = MongoDBConnector(connection_string, database_name)
+
         try:
-            connector.connect()
-            logger.info("Connexion établie")
+            connector = MongoDBConnector(connection_string, database_name)
             data_frames = dict()
             for collection_name in collection_names:
                 logger.info(f"Chargement des données depuis {collection_name} avec limite {limit}")
-                data = connector.load_collection_as_dataframe(collection_name, limit=limit)
+                data = None
+                if DEPLOIEMENT_SITE == "ONLINE":
+                    connector.connect()
+                    logger.info("Connexion établie")
+                    data = connector.load_collection_as_dataframe(
+                        collection_name, limit=limit)
+                else:
+                    dataset_dir = os.getenv("DIR_DATASET")
+                    data = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, os.path.join(
+                        dataset_dir, "RAW_interactions.csv"), None, None, datetime(1999, 1, 1), datetime(2018, 12, 31), is_interactional=True)
                 data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
                 data_frames[collection_name] = data
                 logger.info(f"Données chargées depuis {collection_name} avec limite {limit}")

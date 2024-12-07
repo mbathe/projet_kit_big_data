@@ -81,13 +81,13 @@ class Welcome:
             👨‍🍳 Food.com Recipes Explorer
             🍽️ Analyse Approfondie des Nutritions
             ### 📊 Chargement des Données Nutritionnelles
-            
+
             *Votre voyage gastronomique commence...*
 
             #### 🔍 Ce que vous allez découvrir :
             - 📈 **Statistiques de la popularité des différentes valeurs nutritionnelles**
             - 🌍 **Recette adaptée à son regime**
-            
+
             """)
         data = None
         if DEPLOIEMENT_SITE == "ONLINE":
