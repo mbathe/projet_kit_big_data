@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import seaborn as sns
 import streamlit as st
 import matplotlib.pyplot as plt
-from process.nutrition_preprocess import load_data, clean_data
+from src.process.nutrition_preprocess import load_data, clean_data
 from st_aggrid import AgGrid
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 from sklearn.cluster import KMeans

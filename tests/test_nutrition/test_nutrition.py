@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 import pandas as pd
 from sklearn.cluster import KMeans
-from src.pages.nutrition import NutritionPage
+from src.pages.Nutrition import NutritionPage
 
 
 class TestNutritionPage(unittest.TestCase):
