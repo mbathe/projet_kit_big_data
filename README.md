@@ -77,7 +77,12 @@ git clone https://github.com/mbathe/tp_bgdia700.git
 cd tp_bgdia700
 ```
 
-### Étape 2 : Modifier les variables d'environnement
+### Étape 2 : Installer les dépendances
+```bash
+poetry install
+```
+
+### Étape 3 : Modifier les variables d'environnement
 Avant de déployer l'application, modifiez les variables d'environnement suivantes :
 ```
 # CHAÎNE DE CONNEXION À LA BASE DE DONNÉES MONGODB POUR UN DÉPLOIEMENT EN LIGNE
@@ -93,12 +98,13 @@ COLLECTION_RECIPES_NAME = recipes
 COLLECTION_RAW_INTERACTIONS = raw_interaction
 ```
 
-### Étape 3 : Charger les données depuis les fichiers CSV vers la base de données
+
+### Étape 4 : Charger les données depuis les fichiers CSV vers la base de données
 ```bash
 python scripts/mongo_data.py
 ```
 
-### Étape 4 : Lancer l'application
+### Étape 5 : Lancer l'application
 À la racine du répertoire du projet, exécutez la commande suivante :
 ```bash
 streamlit run src/Recettes.py
