@@ -15,6 +15,7 @@ from streamlit_echarts import st_echarts
 from src.utils.static import constribution_data
 from dotenv import load_dotenv
 import os
+from src.process.recommandation import AdvancedRecipeRecommender
 from typing import Optional
 
 
@@ -180,10 +181,11 @@ class DataManager:
 
 
 class DisplayManager:
-    def __init__(self, data_manager: DataManager, recommander) -> None:
+    def __init__(self, data_manager: DataManager) -> None:
         """Initialise le DisplayManager avec une instance de DataManager."""
         self.data_manager: DataManager = data_manager
-        self.recommender = recommander
+        self.recommender:  AdvancedRecipeRecommender = AdvancedRecipeRecommender(
+            recipes_df=self.data_manager.get_recipe_data().st.session_state.data)
     @staticmethod
     def load_css() -> None:
         """Charge les fichiers CSS pour l'application."""
