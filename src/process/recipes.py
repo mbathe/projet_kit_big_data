@@ -125,7 +125,7 @@ class Recipe:
 
             else:
                 if 'data' not in self.st.session_state:
-                    dataset_dir = os.getenv("DIR_DATASET_2")
+                    dataset_dir = os.getenv("DIR_DATASET")
                     self.st.session_state.data = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, os.path.join(
                         dataset_dir, "RAW_recipes.csv"), None, None, start_date, end_date)
                     self.st.session_state.start_date = self._ensure_date(
@@ -133,7 +133,7 @@ class Recipe:
                     self.st.session_state.end_date = self._ensure_date(
                         end_date)
                 elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(YEAR_MIN, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(YEAR_MAX, 12, 31)):
-                    dataset_dir = os.getenv("DIR_DATASET_2")
+                    dataset_dir = os.getenv("DIR_DATASET")
                     self.st.session_state.data = load_dataset_from_file(
                         os.path.join(dataset_dir, "RAW_recipes.csv"), self._ensure_datetime(start_date), self._ensure_datetime(end_date))
                     self.st.session_state.start_date = self._ensure_date(

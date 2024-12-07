@@ -5567,3 +5567,78 @@ pymongo.errors.ConfigurationError: A password is required.
 2024-12-07 06:51:37,478 - INFO - 11774 recettes trouv�es pour le r�gime Low-Carb
 2024-12-07 06:51:37,805 - INFO - Recette s�lectionn�e : mennonite  corn fritters
 >>>>>>> 9767403c3cea4cf822914737cb689adc3b7ac74d
+2024-12-07 11:23:31,230 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-07 11:23:31,231 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-07 11:23:31,727 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-07 11:23:33,620 - INFO - Chargement des données...
+2024-12-07 11:23:33,640 - ERROR - Erreur lors du chargement des fichiers CSV: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-07 11:24:59,151 - INFO - Démarrage de l'application Streamlit
+2024-12-07 11:24:59,151 - INFO - Initialisation de StreamlitPage
+2024-12-07 11:24:59,151 - INFO - Initialisation de DataLoaderMango
+2024-12-07 11:24:59,151 - INFO - Configuration de la page Streamlit
+2024-12-07 11:24:59,151 - INFO - Chargement du CSS
+2024-12-07 11:24:59,152 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+2024-12-07 11:24:59,152 - INFO - Chargement des données depuis MongoDB
+2024-12-07 11:24:59,152 - INFO - Récupération des données
+2024-12-07 11:24:59,153 - INFO - Connexion à MongoDB
+2024-12-07 11:24:59,170 - INFO - Connexion établie
+2024-12-07 11:24:59,170 - INFO - Chargement des données depuis raw_interaction avec limite 2000
+2024-12-07 11:25:00,880 - INFO - Données chargées depuis raw_interaction avec limite 2000
+2024-12-07 11:25:00,881 - INFO - Chargement des données depuis recipes avec limite 2000
+2024-12-07 11:25:01,442 - INFO - Données chargées depuis recipes avec limite 2000
+2024-12-07 11:25:01,442 - INFO - Enregistrements terminé
+2024-12-07 11:25:01,524 - INFO - Connexion MongoDB fermée
+2024-12-07 11:25:01,534 - INFO - Données chargées avec succès, 2000 enregistrements
+2024-12-07 11:25:01,537 - INFO - Démarrage de l'analyse des données
+2024-12-07 11:25:01,537 - INFO - Initialisation de DataAnalyzer
+2024-12-07 11:25:01,537 - INFO - Prétraitement des données
+2024-12-07 11:25:01,544 - INFO - Affichage de l'histogramme des notes globales
+2024-12-07 11:25:01,544 - INFO - Affichage de l'histogramme: Fréquence globale des notes
+2024-12-07 11:25:01,708 - INFO - Analyse des fréquences des notes au fil du temps
+2024-12-07 11:25:01,708 - INFO - Analyse des fréquences des notes
+2024-12-07 11:25:01,710 - INFO - Affichage des fréquences des notes: Fréquence des Notes au fil du temps
+2024-12-07 11:25:01,752 - INFO - Analyse des notes moyennes mensuelles
+2024-12-07 11:25:01,752 - INFO - Analyse des notes moyennes mensuelles
+2024-12-07 11:25:01,783 - INFO - Affichage du graphique en ligne: Notation moyenne mensuelle au fil du temps
+2024-12-07 11:25:01,850 - INFO - Analyse des notes pour l'utilisateur ID: 0
+2024-12-07 11:25:01,850 - INFO - Analyse des données pour l'utilisateur ID: 0
+2024-12-07 11:25:01,850 - WARNING - Aucune donnée trouvée pour l'utilisateur ID: 0
+2024-12-07 11:25:01,850 - WARNING - Aucune donnée trouvée pour l'utilisateur 0.
+2024-12-07 11:25:01,851 - INFO - Initialisation de DataAnalyzer
+2024-12-07 11:25:01,851 - INFO - Analyse de l'activité sur Mangetamain
+2024-12-07 11:25:01,854 - INFO - Affichage du graphique en ligne: 
+2024-12-07 11:25:05,526 - INFO - Chargement des données...
+2024-12-07 11:25:08,499 - ERROR - Erreur lors du chargement des fichiers CSV: '>=' not supported between instances of 'str' and 'datetime.date'
+2024-12-07 11:25:59,073 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-07 11:25:59,075 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-07 11:25:59,849 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-07 11:26:01,121 - INFO - Chargement des données...
+2024-12-07 11:26:03,764 - ERROR - Erreur lors du chargement des fichiers CSV: Invalid comparison between dtype=datetime64[ns] and date
+2024-12-07 11:26:45,960 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-07 11:26:45,961 - INFO - CSS loaded from src/css_pages/recipe.css
+2024-12-07 11:26:46,573 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
+2024-12-07 11:26:47,347 - INFO - Chargement des données...
+2024-12-07 11:26:54,377 - INFO - Données des recettes et des interactions chargées avec succès.
+2024-12-07 11:26:54,432 - INFO - Moyenne des notes par recette calculée.
+2024-12-07 11:26:54,478 - INFO - Nombre de notes par recette calculé.
+2024-12-07 11:26:54,536 - INFO - Données fusionnées avec succès.
+2024-12-07 11:26:57,092 - INFO - Les données de nutrition ont été converties en listes.
+2024-12-07 11:26:57,173 - INFO - Données de nutrition séparées en colonnes individuelles.
+2024-12-07 11:26:57,178 - INFO - Les colonnes de valeurs nutritionnelles ont été converties en numériques.
+2024-12-07 11:26:57,346 - INFO - Nettoyage des données...
+2024-12-07 11:26:57,349 - INFO - Filtrage des recettes ayant moins de 5 notes effectué.
+2024-12-07 11:26:57,354 - INFO - Valeurs aberrantes supprimées pour la colonne Graisses.
+2024-12-07 11:26:57,358 - INFO - Valeurs aberrantes supprimées pour la colonne Graisse_saturées.
+2024-12-07 11:26:57,363 - INFO - Valeurs aberrantes supprimées pour la colonne Sucre.
+2024-12-07 11:26:57,366 - INFO - Valeurs aberrantes supprimées pour la colonne Sodium.
+2024-12-07 11:26:57,369 - INFO - Valeurs aberrantes supprimées pour la colonne Protéines.
+2024-12-07 11:26:57,372 - INFO - Valeurs aberrantes supprimées pour la colonne Glucides.
+2024-12-07 11:26:57,374 - INFO - Valeurs aberrantes supprimées pour la colonne Calories.
+2024-12-07 11:26:57,374 - INFO - Nettoyage des données terminé.
+2024-12-07 11:27:11,215 - INFO - Affichage de la recherche de recettes par régime alimentaire
+2024-12-07 11:27:11,215 - INFO - Régime sélectionné : Low-Carb
+2024-12-07 11:27:11,216 - INFO - Filtrage des recettes pour le régime Low-Carb
+2024-12-07 11:27:11,218 - INFO - 11774 recettes trouvées pour le régime Low-Carb
+2024-12-07 11:27:11,296 - WARNING - Aucune recette sélectionnée
+2024-12-07 11:31:17,478 - INFO - CSS loaded from src/css_pages/analyse_user.css
+2024-12-07 11:31:17,479 - INFO - CSS loaded from src/css_pages/recipe.css

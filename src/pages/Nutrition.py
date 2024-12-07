@@ -9,6 +9,7 @@ from sklearn.cluster import KMeans
 import logging
 from typing import Tuple, Optional
 import pandas as pd
+from src.pages.recipes.Analyse_recipes import DisplayManager
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -488,6 +489,7 @@ class NutritionPage:
 
 if __name__ == "__main__":
     st.set_page_config(layout="wide")
+    DisplayManager.load_css()
     nutrition_page = NutritionPage(data_directory='./data')
     nutrition_page.load_and_clean_data()
     nutrition_page.run()
