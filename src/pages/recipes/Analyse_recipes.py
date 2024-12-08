@@ -219,7 +219,18 @@ class DisplayManager:
         CSSLoader.load(path_to_css_recipe)
 
     def sidebar(self) -> None:
-        """Affiche la barre latérale avec les options de configuration."""
+        """
+        Displays the sidebar with configuration options.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+
+        Raises:
+        Exception: If any error occurs during the execution of the function.
+        """
         try:
             with st.sidebar:
                 st.title("⚙️ Configuration")
@@ -241,9 +252,9 @@ class DisplayManager:
                         self.data_manager.set_date_range(start_date, end_date)
                         st.success(f"Période d'analyse: {
                                    start_date} à {end_date}")
-                show_toogle: bool = st.toggle(
+                show_toggle: bool = st.toggle(
                     "Utiliser les données nettoyées", value=True)
-                if show_toogle:
+                if show_toggle:
                     self.data_manager.get_recipe_data().clean_dataframe()
                 st.header("📥 Exporter")
                 export_format: str = st.radio(
