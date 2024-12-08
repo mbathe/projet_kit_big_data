@@ -75,6 +75,10 @@ jobs:
 
       - name: Installer les dépendances avec Poetry
         run: poetry install
+        
+      - name: Télécharger le dataset
+        run: |
+          poetry run python script.py
 
       - name: Exécuter les tests avec couverture
         run: |

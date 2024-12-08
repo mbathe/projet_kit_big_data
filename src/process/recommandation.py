@@ -49,6 +49,7 @@ class AdvancedRecipeRecommender:
             self._preprocess_data()
         except Exception as e:
             logging.error(f"Error in __init__: {e}")
+            raise
 
     def _preprocess_data(self) -> None:
         """
@@ -109,6 +110,7 @@ class AdvancedRecipeRecommender:
             return self.recipes_df.iloc[similar_indices]
         except Exception as e:
             logging.error(f"Error in content_based_recommendations: {e}")
+            raise
             return pd.DataFrame()
 
     def recipe_clustering(self, n_clusters: int = 5) -> pd.DataFrame:

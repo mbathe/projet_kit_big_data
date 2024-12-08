@@ -175,11 +175,11 @@ class DataLoaderMango:
             logger.info("Connexion à MongoDB")
             connector = MongoDBConnector(connection_string, database_name)
             data_frames = dict()
+            connector.connect()
             for collection_name in collection_names:
                 logger.info(f"Chargement des données depuis {collection_name} avec limite {limit}")
                 data = None
                 if DEPLOIEMENT_SITE == "ONLINE":
-                    connector.connect()
                     logger.info("Connexion établie")
                     data = connector.load_collection_as_dataframe(
                         collection_name, limit=limit)

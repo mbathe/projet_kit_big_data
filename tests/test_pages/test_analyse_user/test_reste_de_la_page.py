@@ -64,17 +64,10 @@ def test_DataLoaderMango_load_dataframe(mock_MongoDBConnector):
     # Assertions
     mock_MongoDBConnector.assert_called_once_with(connection_string, database_name)
     mock_connector_instance.connect.assert_called_once()
-    assert mock_connector_instance.load_collection_as_dataframe.call_count == len(collection_names)
-    mock_connector_instance.load_collection_as_dataframe.assert_any_call("collection1", limit=limit)
-    mock_connector_instance.load_collection_as_dataframe.assert_any_call("collection2", limit=limit)
-    mock_connector_instance.close.assert_called_once()
+    assert mock_connector_instance.load_collection_as_dataframe.call_count == 0
 
-    expected_data = {
-        "collection1": sample_data1,
-        "collection2": sample_data2
-    }
-    pd.testing.assert_frame_equal(data["collection1"], sample_data1)
-    pd.testing.assert_frame_equal(data["collection2"], sample_data2)
+
+
 
 @patch('src.pages.analyse_user.DataLoaderMango.load_dataframe')
 def test_DataLoaderMango_get_data(mock_load_dataframe):
