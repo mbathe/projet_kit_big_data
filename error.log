@@ -1357,3 +1357,1007 @@ TypeError: 'NoneType' object does not support item assignment
 2024-12-08 16:26:05,469 - ERROR - Error in display_submission_analysis: Invalid format string
 2024-12-08 16:26:05,469 - ERROR - Error in display_submission_analysis: Invalid format string
 2024-12-08 16:26:05,469 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,635 - ERROR - Erreur lors du téléchargement ou de la décompression : [WinError 2] Le fichier spécifié est introuvable: 'C:\\Users\\UTILIS~1\\AppData\\Local\\Temp\\tmpjypgyinw\\dataset.zip'
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:47,640 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,158 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,165 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:25:48,172 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:27:08,308 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:28:49,618 - ERROR - Error in display_submission_analysis: Invalid format string
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:30:24,141 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:32:51,511 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,572 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:15,684 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,892 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,932 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:33:47,952 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,988 - ERROR - Error initializing session state: Init error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:02,994 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:06,401 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:10,074 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:13,723 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,477 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:17,488 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:21,064 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,613 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 17:34:30,619 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 18:35:39,894 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : n_samples=5 should be >= n_clusters=6.
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,898 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:24:56,901 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:26:17,674 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,136 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:30:06,145 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:16,636 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:31:54,250 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,410 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,411 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,410 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,411 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,410 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,411 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,410 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,411 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,410 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,410 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,410 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,411 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,411 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:32:18,411 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,632 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:09,642 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:33:36,757 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:04,026 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:34:50,270 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,406 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:35,436 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:35:44,233 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,019 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:37:59,020 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,629 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:38:17,641 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:39:02,820 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:40:14,418 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:50:38,158 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:52:13,216 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:52:13,216 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:52:13,216 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:52:13,216 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:52:13,227 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:52:13,227 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:52:13,227 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:52:13,227 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:48,367 - ERROR - Erreur lors du chargement des données locales : Fichier introuvable
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:53:57,908 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:56:11,302 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,065 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 19:58:18,067 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:03:01,042 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,882 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:05:05,887 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,322 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:11,339 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:06:47,651 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:45,999 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:09:46,000 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,815 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:00,816 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,348 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:11:42,357 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:13:47,682 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,585 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:16,589 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,928 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:14:34,936 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,264 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:15:50,265 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:16:43,066 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,032 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : not enough values to unpack (expected 3, got 0)
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:17:16,052 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,393 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:25:07,434 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot set using a slice indexer with a different length than the value
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000026F0EA8DE40>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000023674813970>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000026F0EA8DE40>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000023674813970>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000026F0EA8DE40>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000023674813970>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000026F0EA8DE40>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000023674813970>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000023674813970>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000026F0EA8DE40>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000026F0EA8DE40>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000026F0EA8DE40>
+2024-12-08 20:26:51,082 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x0000023674813970>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>
+2024-12-08 20:27:09,828 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x000001D3EDA731F0>

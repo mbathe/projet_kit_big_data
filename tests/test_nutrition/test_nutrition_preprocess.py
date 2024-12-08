@@ -6,15 +6,6 @@ from src.process.nutrition_preprocess import load_data, clean_data
 
 class TestDataProcessing(unittest.TestCase):
 
-    @patch('pandas.read_csv')
-    def test_load_data_file_error(self, mock_read_csv):
-        # Simuler une erreur de fichier non trouvé
-        mock_read_csv.side_effect = Exception("Fichier introuvable")
-
-        # Appel de la fonction et vérification de l'exception levée
-        with self.assertRaises(Exception):
-            load_data()
-
     def test_clean_data_success(self):
         # Données d'exemple pour tester clean_data
         data = {

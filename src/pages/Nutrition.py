@@ -316,7 +316,7 @@ class NutritionPage:
                     """Vous pouvez cependant sélectionner une autre valeur pour déterminer par vous même l'impact de la sélection du nombre de clusters.""")
 
             cluster_value = st.slider(
-                "Choisissez un nombre de clusters :", 2, 10, 3)
+                "Choisissez un nombre de clusters :", min_value=2, max_value=10, value=3)
 
             # Sélectionner les colonnes pour le clustering
 

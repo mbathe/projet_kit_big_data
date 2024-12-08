@@ -96,7 +96,7 @@ def load_data(limit=500000):
             else:
                 df_RAW_interactions = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, CONNECTION_STRING, DATABASE_NAME,COLLECTION_RAW_INTERACTIONS , datetime(1999, 1, 1), datetime(2018, 12, 31), is_interactional=True, limit=limit)
         else:
-             df_RAW_interactions =st.session_state.df_RAW_interactions
+            df_RAW_interactions =st.session_state.df_RAW_interactions
         logger.info(
             "Données des recettes et des interactions chargées avec succès.")
     except Exception as e:
@@ -147,24 +147,6 @@ def load_data(limit=500000):
         "Les colonnes de valeurs nutritionnelles ont été converties en numériques.")
 
     return nutrition_df
-
-
-def _ensure_datetime(self, obj):
-    if isinstance(obj, datetime):
-        return obj
-    elif isinstance(obj, date):
-        return datetime.combine(obj, datetime.min.time())
-    else:
-        raise TypeError("L'objet doit être de type datetime ou date.")
-
-
-def _ensure_date(sefl, obj):
-    if isinstance(obj, date):
-        return obj
-    elif isinstance(obj, datetime):
-        return obj.date()
-    else:
-        raise TypeError("L'objet doit être de type date ou datetime.")
 
 
 @st.cache_data
