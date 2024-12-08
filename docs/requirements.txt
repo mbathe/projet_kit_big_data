@@ -1,0 +1,2 @@
+sphinx==5.3.0               # Version de Sphinx
+sphinx-rtd-theme==1.2.0     # Thème "Read the Docs"
