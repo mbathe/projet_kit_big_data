@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 import pandas as pd
 from sklearn.cluster import KMeans
-from src.pages.nutrition import NutritionPage
+from src.pages.Nutrition import NutritionPage
 import matplotlib.pyplot as plt
 import plotly.graph_objs as go
 from typing import Optional, Tuple

@@ -121,7 +121,7 @@ jobs:
       run: |
         docker stop projet_big_data || true
         docker rm projet_big_data || true
-    
+        
     - name: Run Docker container
       run: |
         docker run -d --name projet_big_data --memory="8g" -p 8501:8501 projet_big_data
