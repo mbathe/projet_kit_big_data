@@ -11871,3 +11871,1635 @@ TypeError: 'NoneType' object does not support item assignment
             pickle-serializable type. If you want to cache unserializable objects such
             as database connections or Tensorflow sessions, use `st.cache_resource`
             instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:49,921 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,831 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:47:55,848 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,042 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,050 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,057 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:10,058 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,194 - ERROR - Error initializing session state: Init error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:18,195 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:20,118 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:22,257 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:24,360 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,532 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:26,536 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:28,577 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:35,998 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:48:36,001 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,140 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmp5lpbac4g/dataset.zip'
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:04,141 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:05,377 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x71b7dd21c8b0>
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:53:15,066 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:54:51,603 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:55:43,595 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:06,268 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,504 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:12,526 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,668 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,676 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:26,684 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,428 - ERROR - Error initializing session state: Init error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:34,429 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:36,271 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:38,353 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:40,439 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,528 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:42,531 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:44,520 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,079 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:57:52,081 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,115 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpwqk0ehd9/dataset.zip'
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:23,116 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:24,125 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7eb2f97ef7e0>
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 22:58:34,509 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:00:11,046 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,097 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:01:01,098 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:18,098 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,373 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:24,394 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,402 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,410 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:38,418 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,732 - ERROR - Error initializing session state: Init error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:46,733 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:48,822 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:51,256 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:53,580 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,955 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:55,959 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:02:58,170 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,022 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:03:06,024 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,377 - ERROR - Erreur lors du téléchargement ou de la décompression : [Errno 2] No such file or directory: '/tmp/tmpciljbrnd/dataset.zip'
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:45,379 - ERROR - Erreur lors du téléchargement ou de la décompression : Download error
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:46,888 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : cannot identify image file <_io.BytesIO object at 0x7fe561e68d60>
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:05:57,152 - ERROR - Échec du chargement du CSS depuis src/css_pages/recipe.css: CSS load error
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:08:19,941 - ERROR - Error in display_submission_analysis: not enough values to unpack (expected 3, got 0)
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,710 - ERROR - Error in initialize_session_state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Error initializing session state: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:09:36,711 - ERROR - Échec de la définition de la plage de dates: 
+            Cannot serialize the return value (of type `pandas.core.frame.DataFrame`)
+            in `load_dataset_from_file()`. `st.cache_data` uses
+            [pickle](https://docs.python.org/3/library/pickle.html) to serialize the
+            function's return value and safely store it in the cache
+            without mutating the original object. Please convert the return value to a
+            pickle-serializable type. If you want to cache unserializable objects such
+            as database connections or Tensorflow sessions, use `st.cache_resource`
+            instead (see [our docs](https://docs.streamlit.io/develop/concepts/architecture/caching) for differences).
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:40,228 - ERROR - Erreur de chargement de l'image : File not found
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,969 - ERROR - Error in content_based_recommendations: index 0 is out of bounds for axis 0 with size 0
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:11:48,999 - ERROR - Error in _preprocess_data: empty vocabulary; perhaps the documents only contain stop words
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,812 - ERROR - Error analyzing nutrition: eval() arg 1 must be a string, bytes or code object
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,828 - ERROR - Error analyzing tags: name 'invalid_tag_format' is not defined
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,843 - ERROR - Error in initialize_session_state: L'objet doit être de type date ou datetime.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:10,844 - ERROR - Error in initialize_session_state: L'objet doit être de type datetime ou date.
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,877 - ERROR - Error initializing session state: Init error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:22,879 - ERROR - Error detecting dataframe anomalies: Anomaly error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:26,166 - ERROR - Error detecting dataframe anomalies: Data error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:29,712 - ERROR - Error cleaning dataframe: Clean error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:33,390 - ERROR - Error analyzing temporal distribution: Temporal error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,978 - ERROR - Error analyzing contributors: Contributors error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:36,985 - ERROR - Error analyzing recipe dataset: Dataset error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:40,539 - ERROR - Error analyzing recipe complexity: Complexity error
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,133 - ERROR - La connexion à MongoDB n'a pas été initialisée. Appelez `connect()` en premier.
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 23:12:50,136 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error

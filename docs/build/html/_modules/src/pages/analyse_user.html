@@ -1,0 +1,1164 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.pages.analyse_user &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">src.pages.analyse_user</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de src.pages.analyse_user</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Page de l&#39;application Streamlit pour l&#39;analyse des données d&#39;interactions utilisateurs.</span>
+
+<span class="sd">Ce module configure le logging, charge les données depuis des sources variées (CSV, MongoDB),</span>
+<span class="sd">analyse les données, et génère des visualisations interactives à l&#39;aide de Streamlit.</span>
+
+<span class="sd">Modules et Classes Principaux :</span>
+<span class="sd">- setup_logging: Configure le système de logging de l&#39;application.</span>
+<span class="sd">- DataLoader: Classe pour charger des données à partir de fichiers CSV.</span>
+<span class="sd">- DataLoaderMango: Classe pour charger des données depuis une base de données MongoDB.</span>
+<span class="sd">- CSSLoader: Classe pour charger des feuilles de style CSS.</span>
+<span class="sd">- DataAnalyzer: Classe pour analyser et prétraiter les données.</span>
+<span class="sd">- VisualizationManager: Classe pour gérer les visualisations des données.</span>
+<span class="sd">- StreamlitPage: Classe principale pour l&#39;intégration avec Streamlit.</span>
+<span class="sd">- main: Point d&#39;entrée de l&#39;application.</span>
+
+<span class="sd">Dépendances :</span>
+<span class="sd">- src.visualizations.graphiques: Module contenant les classes LineChart et Histogramme.</span>
+<span class="sd">- src.visualizations: Module contenant la classe Grille et la fonction load_css.</span>
+<span class="sd">- scripts.MongoDBConnector: Module pour la connexion à MongoDB.</span>
+<span class="sd">- dotenv: Pour le chargement des variables d&#39;environnement.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">src.utils.helper_data</span> <span class="kn">import</span> <span class="n">load_dataset_from_file</span>
+<span class="kn">from</span> <span class="nn">src.visualizations.graphiques</span> <span class="kn">import</span> <span class="n">LineChart</span><span class="p">,</span> <span class="n">Histogramme</span>
+<span class="kn">from</span> <span class="nn">src.visualizations</span> <span class="kn">import</span> <span class="n">Grille</span><span class="p">,</span> <span class="n">load_css</span>
+<span class="kn">from</span> <span class="nn">src.utils.MongoDBConnector</span> <span class="kn">import</span> <span class="n">MongoDBConnector</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">src.pages.recipes.Welcom</span> <span class="kn">import</span> <span class="n">Welcome</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;app.log&quot;</span><span class="p">)),</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">error_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;error.log&quot;</span><span class="p">))</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+    <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">error_handler</span><span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+<span class="n">DEPLOIEMENT_SITE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DEPLOIEMENT_SITE&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="setup_logging">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.setup_logging">[docs]</a>
+<span class="k">def</span> <span class="nf">setup_logging</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Configure le système de logging de l&#39;application.</span>
+
+<span class="sd">    Cette fonction configure le logger de base en définissant :</span>
+
+<span class="sd">    - Le niveau de logging à INFO.</span>
+<span class="sd">    - Le format des messages de log incluant l&#39;horodatage, le niveau, le nom du logger et le message.</span>
+<span class="sd">    - Deux gestionnaires :</span>
+<span class="sd">        - FileHandler pour écrire les logs dans le fichier &quot;app.log&quot;.</span>
+<span class="sd">        - StreamHandler pour afficher les logs dans la console.</span>
+
+<span class="sd">    Cela permet de centraliser la gestion des logs et d&#39;éviter des configurations multiples.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;app.log&quot;</span><span class="p">),</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+        <span class="p">]</span>
+    <span class="p">)</span></div>
+
+
+
+<span class="c1"># OLD</span>
+<div class="viewcode-block" id="DataLoader">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataLoader">[docs]</a>
+<span class="k">class</span> <span class="nc">DataLoader</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe responsable du chargement des données à partir de fichiers CSV.</span>
+
+<span class="sd">    Cette classe fournit des méthodes statiques pour charger des fichiers CSV volumineux</span>
+<span class="sd">    en utilisant la mise en cache de Streamlit pour améliorer les performances.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DataLoader.load_large_csv">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataLoader.load_large_csv">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@st</span><span class="o">.</span><span class="n">cache_data</span>
+    <span class="k">def</span> <span class="nf">load_large_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Charge un fichier CSV volumineux et retourne un DataFrame pandas.</span>
+
+<span class="sd">        Cette méthode utilise Streamlit&#39;s `cache_data` pour mettre en cache le résultat</span>
+<span class="sd">        afin d&#39;optimiser les performances lors des rechargements.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            file_path (str): Chemin vers le fichier CSV à charger.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame contenant les données du fichier CSV.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début du chargement du fichier CSV.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;DataLoader.load_large_csv&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chargement du fichier CSV: </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors du chargement du fichier CSV : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+</div>
+
+
+<span class="c1"># NEW</span>
+<div class="viewcode-block" id="DataLoaderMango">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataLoaderMango">[docs]</a>
+<span class="k">class</span> <span class="nc">DataLoaderMango</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe responsable du chargement des données depuis MongoDB.</span>
+
+<span class="sd">    Cette classe gère la connexion à une base de données MongoDB, le chargement des</span>
+<span class="sd">    données d&#39;une collection spécifique, et la gestion des limites de documents à</span>
+<span class="sd">    charger. Elle utilise également la mise en cache de Streamlit pour optimiser les</span>
+<span class="sd">    performances lors des chargements répétitifs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_string</span><span class="p">,</span> <span class="n">database_name</span><span class="p">,</span> <span class="n">collection_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise les paramètres de connexion à MongoDB.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection_string (str): URI de connexion à MongoDB.</span>
+<span class="sd">            database_name (str): Nom de la base de données.</span>
+<span class="sd">            collection_name (str): Nom de la collection à charger.</span>
+<span class="sd">            limit (int, optional): Nombre maximum de documents à charger. Par défaut à 2000.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique l&#39;initialisation de DataLoaderMango avec les paramètres fournis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialisation de DataLoaderMango&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connection_string</span> <span class="o">=</span> <span class="n">connection_string</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">database_name</span> <span class="o">=</span> <span class="n">database_name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">collection_names</span> <span class="o">=</span> <span class="n">collection_names</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;initialisation de DataLoaderMango : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+<div class="viewcode-block" id="DataLoaderMango.load_dataframe">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataLoaderMango.load_dataframe">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="nd">@st</span><span class="o">.</span><span class="n">cache_data</span>
+    <span class="k">def</span> <span class="nf">load_dataframe</span><span class="p">(</span><span class="n">connection_string</span><span class="p">,</span> <span class="n">database_name</span><span class="p">,</span> <span class="n">collection_names</span><span class="p">,</span> <span class="n">limit</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Charge les données depuis MongoDB et les retourne sous forme de DataFrame.</span>
+
+<span class="sd">        Cette méthode établit une connexion à MongoDB, charge les données d&#39;une</span>
+<span class="sd">        collection spécifique avec une limite de documents, puis ferme la connexion.</span>
+<span class="sd">        En cas d&#39;erreur lors du chargement des données, une exception est levée.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection_string (str): URI de connexion à MongoDB.</span>
+<span class="sd">            database_name (str): Nom de la base de données.</span>
+<span class="sd">            collection_name (str): Nom de la collection à charger.</span>
+<span class="sd">            limit (int): Nombre maximum de documents à charger.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame contenant les données de la collection.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: En cas d&#39;erreur lors du chargement des données depuis MongoDB.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de la connexion à MongoDB et le chargement des données.</span>
+<span class="sd">            ERROR: Indique une erreur lors du chargement des données.</span>
+<span class="sd">            INFO: Indique la fermeture de la connexion MongoDB.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;DataLoaderMango.load_dataframe&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connexion à MongoDB&quot;</span><span class="p">)</span>
+            <span class="n">connector</span> <span class="o">=</span> <span class="n">MongoDBConnector</span><span class="p">(</span><span class="n">connection_string</span><span class="p">,</span> <span class="n">database_name</span><span class="p">)</span>
+            <span class="n">data_frames</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">collection_name</span> <span class="ow">in</span> <span class="n">collection_names</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chargement des données depuis </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2"> avec limite </span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="n">DEPLOIEMENT_SITE</span> <span class="o">==</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">:</span>
+                    <span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connexion établie&quot;</span><span class="p">)</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">connector</span><span class="o">.</span><span class="n">load_collection_as_dataframe</span><span class="p">(</span>
+                        <span class="n">collection_name</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dataset_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DIR_DATASET&quot;</span><span class="p">)</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">Welcome</span><span class="o">.</span><span class="n">show_welcom</span><span class="p">(</span><span class="n">DEPLOIEMENT_SITE</span><span class="p">,</span> <span class="n">load_dataset_from_file</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="n">dataset_dir</span><span class="p">,</span> <span class="s2">&quot;RAW_interactions.csv&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1999</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> <span class="n">is_interactional</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">data</span><span class="p">[</span><span class="s1">&#39;collection_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">collection_name</span>  <span class="c1"># Ajouter une colonne pour identifier la collection</span>
+                <span class="n">data_frames</span><span class="p">[</span><span class="n">collection_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Données chargées depuis </span><span class="si">{</span><span class="n">collection_name</span><span class="si">}</span><span class="s2"> avec limite </span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Enregistrements terminé&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Erreur lors du chargement des données depuis MongoDB&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">connector</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connexion MongoDB fermée&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data_frames</span></div>
+
+
+<div class="viewcode-block" id="DataLoaderMango.get_data">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataLoaderMango.get_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Récupère les données chargées depuis MongoDB.</span>
+
+<span class="sd">        Utilise la méthode `load_dataframe` pour charger les données avec les paramètres</span>
+<span class="sd">        d&#39;initialisation de l&#39;instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame contenant les données chargées.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de la récupération des données.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Récupération des données&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_dataframe</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">connection_string</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">database_name</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">collection_names</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">limit</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de la récupération des données : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+</div>
+
+
+<div class="viewcode-block" id="CSSLoader">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.CSSLoader">[docs]</a>
+<span class="k">class</span> <span class="nc">CSSLoader</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe responsable du chargement des feuilles de style CSS.</span>
+
+<span class="sd">    Cette classe permet de charger des fichiers CSS pour styliser les pages Streamlit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise le CSSLoader en configurant un logger spécifique.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique l&#39;initialisation de CSSLoader.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialisation de CSSLoader&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CSSLoader.load">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.CSSLoader.load">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path_to_css</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Charge un fichier CSS et l&#39;applique à la page Streamlit.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path_to_css (str): Chemin vers le fichier CSS à charger.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début du chargement du fichier CSS.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;CSSLoader.load&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chargement du CSS depuis </span><span class="si">{</span><span class="n">path_to_css</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">load_css</span><span class="p">(</span><span class="n">path_to_css</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors du chargement du CSS : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+</div>
+
+
+<div class="viewcode-block" id="DataAnalyzer">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataAnalyzer">[docs]</a>
+<span class="k">class</span> <span class="nc">DataAnalyzer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe pour l&#39;analyse et le prétraitement des données.</span>
+
+<span class="sd">    Cette classe fournit des méthodes pour prétraiter les données, analyser les</span>
+<span class="sd">    notes des utilisateurs, calculer les moyennes mensuelles, et analyser les</span>
+<span class="sd">    fréquences des notes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise l&#39;analyseur de données avec un DataFrame.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pd.DataFrame): DataFrame contenant les données à analyser.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique l&#39;initialisation de DataAnalyzer avec les données fournies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialisation de DataAnalyzer&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;initialisation de DataAnalyzer : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+<div class="viewcode-block" id="DataAnalyzer.preprocess">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataAnalyzer.preprocess">[docs]</a>
+    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prétraite les données en convertissant les dates et extrayant l&#39;année.</span>
+
+<span class="sd">        Cette méthode vérifie si la colonne &#39;date&#39; existe dans les données. Si oui,</span>
+<span class="sd">        elle convertit les valeurs en objets datetime, extrait l&#39;année et l&#39;ajoute</span>
+<span class="sd">        en tant que nouvelle colonne &#39;year&#39;. Si la colonne &#39;date&#39; est absente,</span>
+<span class="sd">        un avertissement est enregistré.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame prétraité.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début du prétraitement des données.</span>
+<span class="sd">            DEBUG: Affiche un aperçu des données après prétraitement.</span>
+<span class="sd">            WARNING: Indique l&#39;absence de la colonne &#39;date&#39; dans les données.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Prétraitement des données&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Données après prétraitement: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;La colonne &#39;date&#39; est absente des données&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors du prétraitement des données : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="DataAnalyzer.analyze_user">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataAnalyzer.analyze_user">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyse les notes moyennes mensuelles pour un utilisateur spécifique.</span>
+
+<span class="sd">        Cette méthode filtre les données pour un utilisateur donné, calcule la</span>
+<span class="sd">        moyenne des notes par mois, et retourne un DataFrame contenant les</span>
+<span class="sd">        résultats. Si aucune donnée n&#39;est trouvée pour l&#39;utilisateur, None est</span>
+<span class="sd">        retourné.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            user_id (int): Identifiant de l&#39;utilisateur à analyser.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame or None: DataFrame contenant les moyennes mensuelles des notes,</span>
+<span class="sd">                                   ou None si aucune donnée n&#39;est trouvée.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;analyse pour l&#39;utilisateur spécifié.</span>
+<span class="sd">            INFO: Indique la fin de l&#39;analyse si des données sont trouvées.</span>
+<span class="sd">            WARNING: Indique qu&#39;aucune donnée n&#39;a été trouvée pour l&#39;utilisateur.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyse des données pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">user_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;year_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+                <span class="n">monthly_avg</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year_month&#39;</span><span class="p">)[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="n">monthly_avg</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">monthly_avg</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+                <span class="n">monthly_avg</span> <span class="o">=</span> <span class="n">monthly_avg</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+                <span class="n">monthly_avg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mois&#39;</span><span class="p">,</span> <span class="s1">&#39;Note moyenne&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Analyse utilisateur terminée pour ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">monthly_avg</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Aucune donnée trouvée pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;analyse des données pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="DataAnalyzer.analyze_monthly_ratings">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataAnalyzer.analyze_monthly_ratings">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_monthly_ratings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calcule la moyenne des notes mensuelles.</span>
+
+<span class="sd">        Cette méthode resample les données par mois en utilisant la date comme index,</span>
+<span class="sd">        calcule la moyenne des notes pour chaque mois, et retourne un DataFrame</span>
+<span class="sd">        contenant les résultats.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame contenant les moyennes mensuelles des notes.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;analyse des moyennes mensuelles.</span>
+<span class="sd">            DEBUG: Affiche un aperçu des moyennes mensuelles calculées.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Analyse des notes moyennes mensuelles&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">monthly_average_rating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;ME&#39;</span><span class="p">)[</span>
+                <span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="n">monthly_average_rating</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mois&#39;</span><span class="p">,</span> <span class="s1">&#39;Note moyenne&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Notes moyennes mensuelles: </span><span class="si">{</span><span class="n">monthly_average_rating</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">monthly_average_rating</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;analyse des notes moyennes mensuelles : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="DataAnalyzer.analyze_ratings_frequencies">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataAnalyzer.analyze_ratings_frequencies">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_ratings_frequencies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyse les fréquences des différentes notes dans les données.</span>
+
+<span class="sd">        Cette méthode identifie les notes uniques dans les données et calcule</span>
+<span class="sd">        le nombre d&#39;occurrences pour chaque note.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of tuples: Liste contenant des tuples de la forme (note, DataFrame des données correspondantes).</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;analyse des fréquences des notes.</span>
+<span class="sd">            DEBUG: Indique le nombre d&#39;occurrences pour chaque note.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Analyse des fréquences des notes&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">unique_ratings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+            <span class="n">frequency_data</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">rating</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unique_ratings</span><span class="p">):</span>
+                <span class="n">rating_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">rating</span><span class="p">]</span>
+                <span class="n">frequency_data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">rating</span><span class="p">,</span> <span class="n">rating_data</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fréquence pour la note </span><span class="si">{</span><span class="n">rating</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rating_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> occurrences&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">frequency_data</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;analyse des fréquences des notes : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="DataAnalyzer.analyze_user_ratings_frequencies">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataAnalyzer.analyze_user_ratings_frequencies">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_user_ratings_frequencies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyse les fréquences des notes pour un utilisateur spécifique.</span>
+
+<span class="sd">        Cette méthode filtre les données pour un utilisateur donné et calcule</span>
+<span class="sd">        le nombre d&#39;occurrences pour chaque note attribuée par cet utilisateur.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            user_id (int): Identifiant de l&#39;utilisateur à analyser.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of tuples or None: Liste contenant des tuples de la forme (note, DataFrame des données correspondantes),</span>
+<span class="sd">                                    ou None si aucune donnée n&#39;est trouvée pour l&#39;utilisateur.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;analyse des fréquences des notes pour l&#39;utilisateur spécifié.</span>
+<span class="sd">            DEBUG: Indique le nombre d&#39;occurrences pour chaque note de l&#39;utilisateur.</span>
+<span class="sd">            WARNING: Indique qu&#39;aucune donnée de fréquence n&#39;a été trouvée pour l&#39;utilisateur.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyse des fréquences des notes pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">user_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="n">unique_ratings_user</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+                <span class="n">frequency_data</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">rating</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">unique_ratings_user</span><span class="p">):</span>
+                    <span class="n">rating_data</span> <span class="o">=</span> <span class="n">user_data</span><span class="p">[</span><span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">rating</span><span class="p">]</span>
+                    <span class="n">frequency_data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">rating</span><span class="p">,</span> <span class="n">rating_data</span><span class="p">))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fréquence pour la note </span><span class="si">{</span><span class="n">rating</span><span class="si">}</span><span class="s2"> de l&#39;utilisateur </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rating_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> occurrences&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">frequency_data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Aucune donnée de fréquence trouvée pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;analyse des fréquences des notes pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="DataAnalyzer.analyze_activity_on_mangetamain">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.DataAnalyzer.analyze_activity_on_mangetamain">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_activity_on_mangetamain</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyse l&#39;évolution de l&#39;activité sur l&#39;application Mangetamain.</span>
+
+<span class="sd">        Cette méthode convertit les dates de soumission en objets datetime,</span>
+<span class="sd">        extrait l&#39;année et le mois, et calcule le nombre de recettes soumises</span>
+<span class="sd">        chaque mois.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame or None: DataFrame contenant le nombre de recettes par mois,</span>
+<span class="sd">                                   ou None si la colonne &#39;submitted&#39; est absente.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;analyse de l&#39;activité sur Mangetamain.</span>
+<span class="sd">            DEBUG: Affiche un aperçu des comptes mensuels.</span>
+<span class="sd">            WARNING: Indique l&#39;absence de la colonne &#39;submitted&#39; dans les données.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Analyse de l&#39;activité sur Mangetamain&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;submitted&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;year_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span>
+                    <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+                <span class="n">monthly_counts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+                    <span class="s1">&#39;year_month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;recipe_count&#39;</span><span class="p">)</span>
+                <span class="n">monthly_counts</span><span class="p">[</span><span class="s1">&#39;year_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">monthly_counts</span><span class="p">[</span><span class="s1">&#39;year_month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+                    <span class="nb">str</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Comptes mensuels: </span><span class="si">{</span><span class="n">monthly_counts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">monthly_counts</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;La colonne &#39;submitted&#39; est absente des données&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;analyse de l&#39;activité sur Mangetamain : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+</div>
+
+
+<div class="viewcode-block" id="VisualizationManager">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.VisualizationManager">[docs]</a>
+<span class="k">class</span> <span class="nc">VisualizationManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe pour gérer les visualisations des données.</span>
+
+<span class="sd">    Cette classe fournit des méthodes statiques pour afficher différents types de</span>
+<span class="sd">    graphiques (ligne, histogramme) et des fréquences de notes dans l&#39;interface</span>
+<span class="sd">    Streamlit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise le VisualizationManager en configurant un logger spécifique.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique l&#39;initialisation de VisualizationManager.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialisation de VisualizationManager&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="VisualizationManager.display_line_chart">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.VisualizationManager.display_line_chart">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">display_line_chart</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Affiche un graphique en ligne dans Streamlit.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pd.DataFrame): DataFrame contenant les données à visualiser.</span>
+<span class="sd">            x (str): Nom de la colonne à utiliser pour l&#39;axe des X.</span>
+<span class="sd">            y (str): Nom de la colonne à utiliser pour l&#39;axe des Y.</span>
+<span class="sd">            title (str): Titre du graphique.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;affichage du graphique en ligne.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;VisualizationManager.display_line_chart&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage du graphique en ligne: </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">line_chart</span> <span class="o">=</span> <span class="n">LineChart</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgb(26, 28, 35)&#39;</span><span class="p">)</span>
+            <span class="n">graphiques</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;titre&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;graphique&quot;</span><span class="p">:</span> <span class="n">line_chart</span><span class="p">}]</span>
+            <span class="n">grille</span> <span class="o">=</span> <span class="n">Grille</span><span class="p">(</span><span class="n">nb_lignes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nb_colonnes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">largeurs_colonnes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">grille</span><span class="o">.</span><span class="n">afficher</span><span class="p">(</span><span class="n">graphiques</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;affichage du graphique en ligne : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="VisualizationManager.display_histogram">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.VisualizationManager.display_histogram">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">display_histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">bin_size</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Affiche un histogramme dans Streamlit.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pd.DataFrame): DataFrame contenant les données à visualiser.</span>
+<span class="sd">            x (str): Nom de la colonne à utiliser pour l&#39;axe des X.</span>
+<span class="sd">            title (str): Titre de l&#39;histogramme.</span>
+<span class="sd">            bin_size (int, optional): Taille des bins de l&#39;histogramme. Par défaut à 1.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;affichage de l&#39;histogramme.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;VisualizationManager.display_histogram&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage de l&#39;histogramme: </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">histogram</span> <span class="o">=</span> <span class="n">Histogramme</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">bin_size</span><span class="o">=</span><span class="n">bin_size</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">bar_color</span><span class="o">=</span><span class="s1">&#39;rgb(26, 28, 35)&#39;</span><span class="p">)</span>
+            <span class="n">graphiques</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;titre&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;graphique&quot;</span><span class="p">:</span> <span class="n">histogram</span><span class="p">}]</span>
+            <span class="n">grille</span> <span class="o">=</span> <span class="n">Grille</span><span class="p">(</span><span class="n">nb_lignes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nb_colonnes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">largeurs_colonnes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">grille</span><span class="o">.</span><span class="n">afficher</span><span class="p">(</span><span class="n">graphiques</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;affichage de l&#39;histogramme : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="VisualizationManager.display_ratings_frequencies">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.VisualizationManager.display_ratings_frequencies">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">display_ratings_frequencies</span><span class="p">(</span><span class="n">frequency_data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Affiche les fréquences des notes sous forme d&#39;histogrammes dans Streamlit.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            frequency_data (list of tuples): Liste de tuples contenant la note et le DataFrame correspondant.</span>
+<span class="sd">            x (str): Nom de la colonne à utiliser pour l&#39;axe des X.</span>
+<span class="sd">            title (str): Titre de la section de visualisation.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;affichage des fréquences des notes.</span>
+<span class="sd">            DEBUG: Indique l&#39;ajout d&#39;un graphique pour chaque note.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;VisualizationManager.display_ratings_frequencies&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Affichage des fréquences des notes: </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">graphiques</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">rating</span><span class="p">,</span> <span class="n">rating_data</span> <span class="ow">in</span> <span class="n">frequency_data</span><span class="p">:</span>
+                <span class="n">histogram</span> <span class="o">=</span> <span class="n">Histogramme</span><span class="p">(</span>
+                    <span class="n">data</span><span class="o">=</span><span class="n">rating_data</span><span class="p">,</span>
+                    <span class="n">bin_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+                    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                    <span class="n">bar_color</span><span class="o">=</span><span class="s1">&#39;rgb(26, 28, 35)&#39;</span><span class="p">,</span>
+                    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgb(8,48,107)&#39;</span>
+                <span class="p">)</span>
+                <span class="n">graphiques</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s2">&quot;titre&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Fréquence de la note </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;graphique&quot;</span><span class="p">:</span> <span class="n">histogram</span><span class="p">,</span>
+                <span class="p">})</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Graphique pour la note </span><span class="si">{</span><span class="n">rating</span><span class="si">}</span><span class="s2"> ajouté&quot;</span><span class="p">)</span>
+            <span class="n">grille</span> <span class="o">=</span> <span class="n">Grille</span><span class="p">(</span><span class="n">nb_lignes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nb_colonnes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">largeurs_colonnes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">grille</span><span class="o">.</span><span class="n">afficher</span><span class="p">(</span><span class="n">graphiques</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;affichage des fréquences des notes : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+</div>
+
+
+<div class="viewcode-block" id="StreamlitPage">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.StreamlitPage">[docs]</a>
+<span class="k">class</span> <span class="nc">StreamlitPage</span><span class="p">(</span><span class="n">DataLoaderMango</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe principale pour l&#39;intégration avec Streamlit.</span>
+
+<span class="sd">    Cette classe hérite de DataLoaderMango pour charger les données depuis MongoDB</span>
+<span class="sd">    et fournit des méthodes pour charger le CSS, les données, exécuter les analyses</span>
+<span class="sd">    et afficher les résultats via Streamlit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise les paramètres de DataLoaderMango et configure les paramètres Streamlit.</span>
+
+<span class="sd">        Charge les variables d&#39;environnement nécessaires pour la connexion à MongoDB</span>
+<span class="sd">        et initialise les attributs de l&#39;instance.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique l&#39;initialisation de StreamlitPage et de DataLoaderMango.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialisation de StreamlitPage&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CONNECTION_STRING</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;CONNECTION_STRING&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;testdb&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span>
+                <span class="s2">&quot;COLLECTION_RAW_INTERACTIONS&quot;</span><span class="p">,</span> <span class="s2">&quot;raw_interaction&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RECIPES_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span>
+                <span class="s2">&quot;COLLECTION_RECIPES_NAME&quot;</span><span class="p">,</span> <span class="s1">&#39;recipes&#39;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RECIPES_NAME</span><span class="p">]</span>
+
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CONNECTION_STRING</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATABASE_NAME</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_NAMES</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de l&#39;initialisation de StreamlitPage : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+<div class="viewcode-block" id="StreamlitPage.load_css">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.StreamlitPage.load_css">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_css</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Charge la feuille de style CSS pour styliser la page Streamlit.</span>
+
+<span class="sd">        Utilise la classe CSSLoader pour charger le fichier CSS spécifié.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début du chargement du CSS.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Chargement du CSS&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">path_to_css</span> <span class="o">=</span> <span class="s1">&#39;src/css_pages/analyse_user.css&#39;</span>
+            <span class="n">CSSLoader</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path_to_css</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors du chargement du CSS : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="StreamlitPage.load_data">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.StreamlitPage.load_data">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Charge les données depuis MongoDB et les affiche dans Streamlit.</span>
+
+<span class="sd">        Utilise la méthode `get_data` héritée de DataLoaderMango pour charger les données.</span>
+<span class="sd">        En cas de succès, affiche un aperçu des données. En cas d&#39;échec, affiche une erreur</span>
+<span class="sd">        dans l&#39;interface Streamlit.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début du chargement des données.</span>
+<span class="sd">            INFO: Indique le succès du chargement des données avec le nombre d&#39;enregistrements.</span>
+<span class="sd">            ERROR: Indique une erreur lors du chargement des données.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Chargement des données depuis MongoDB&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Données chargées avec succès, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">])</span><span class="si">}</span><span class="s2"> enregistrements&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Erreur lors du chargement des données&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Impossible de charger les données.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="StreamlitPage.run_analysis">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.StreamlitPage.run_analysis">[docs]</a>
+    <span class="k">def</span> <span class="nf">run_analysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Exécute l&#39;analyse des données et génère les visualisations correspondantes.</span>
+
+<span class="sd">        Cette méthode effectue les étapes suivantes :</span>
+<span class="sd">        - Affiche un texte introductif.</span>
+<span class="sd">        - Prétraite les données.</span>
+<span class="sd">        - Affiche les fréquences globales des notes sous forme d&#39;histogramme avec un texte explicatif.</span>
+<span class="sd">        - Analyse les fréquences des notes au fil du temps avec un texte explicatif.</span>
+<span class="sd">        - Calcule et affiche les notes moyennes mensuelles avec un texte explicatif.</span>
+<span class="sd">        - Analyse les fréquences des notes pour un utilisateur spécifique avec un texte explicatif.</span>
+<span class="sd">        - Analyse les notes par utilisateur.</span>
+
+<span class="sd">        Chaque étape inclut des vérifications pour s&#39;assurer que les colonnes nécessaires</span>
+<span class="sd">        sont présentes dans les données et enregistre des logs appropriés.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique le début de l&#39;analyse des données.</span>
+<span class="sd">            INFO/WARNING: Indique l&#39;état de présence des colonnes nécessaires.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Analyse sur la perte de popularité de l&#39;application Mangetamain&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Texte introductif</span>
+        <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span><span class="s2">&quot;Afficher l&#39;objectif de cette Analyse&quot;</span><span class="p">):</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s2">&quot;Objectif de l&#39;Analyse&quot;</span><span class="p">)</span>
+            <span class="n">introduction</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            Cette analyse vise à explorer **les raisons de la perte de popularité de l&#39;application Mangetamain** en examinant :</span>
+
+<span class="s2">            - Les fréquences de notation des utilisateurs au fil du temps.</span>
+<span class="s2">            - Les tendances des évaluations.</span>
+<span class="s2">            - L&#39;activité des utilisateurs.</span>
+
+<span class="s2">            **Objectif** :</span>
+<span class="s2">            Comprendre comment la popularité a évolué et identifier les facteurs ayant conduit à une diminution de l&#39;intérêt pour la plateforme.</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">introduction</span><span class="p">)</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">divider</span><span class="p">()</span>
+
+        <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Aperçu des données :&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Démarrage de l&#39;analyse des données&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">analyzer</span> <span class="o">=</span> <span class="n">DataAnalyzer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">preprocess</span><span class="p">()</span>
+
+            <span class="c1"># Analyse des fréquences des notes</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Analyse de Fréquences&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;rating&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Affichage de l&#39;histogramme des notes globales&quot;</span><span class="p">)</span>
+                <span class="n">VisualizationManager</span><span class="o">.</span><span class="n">display_histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">],</span> <span class="s1">&#39;rating&#39;</span><span class="p">,</span> <span class="s2">&quot;Fréquence globale des notes&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span><span class="s2">&quot;Afficher l&#39;explication&quot;</span><span class="p">):</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s2">&quot;Analyse de la Fréquence des Notes&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># Diviser l&#39;explication en paragraphes</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    La visualisation de la **fréquence des évaluations** met en évidence une répartition inégale des notes attribuées par les utilisateurs sur l’application.</span>
+
+<span class="s2">                    ### Points Clés :</span>
+<span class="s2">                    - La majorité des évaluations se concentrent sur la **note maximale (5)**, ce qui reflète une forte appréciation globale des recettes par les utilisateurs.</span>
+<span class="s2">                    - La **faible fréquence des notes intermédiaires (1 à 3)** suggère que les utilisateurs ne s’expriment que lorsqu’ils ont une expérience particulièrement positive.</span>
+
+<span class="s2">                    ### Interprétations :</span>
+<span class="s2">                    Ce comportement pourrait indiquer que :</span>
+<span class="s2">                    1. Les utilisateurs sont **moins enclins à noter les recettes moins marquantes**, réduisant ainsi la diversité des retours disponibles.</span>
+<span class="s2">                    2. Cela soulève la question de **l’engagement des utilisateurs** et de l’impact des évaluations sur l’amélioration des recettes proposées.</span>
+<span class="s2">                    &quot;&quot;&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># Ajout d&#39;un séparateur ou d&#39;un espace pour l&#39;esthétique</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">divider</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;rating&#39; est absente du fichier.&quot;</span><span class="p">)</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;rating&#39; est absente du fichier.&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Analyse des fréquences des notes au fil du temps</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fréquence des notes au fil du temps&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;rating&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Analyse des fréquences des notes au fil du temps&quot;</span><span class="p">)</span>
+                <span class="n">frequency_data</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">analyze_ratings_frequencies</span><span class="p">()</span>
+                <span class="n">VisualizationManager</span><span class="o">.</span><span class="n">display_ratings_frequencies</span><span class="p">(</span>
+                    <span class="n">frequency_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Fréquence des Notes au fil du temps&quot;</span><span class="p">)</span>
+                <span class="c1"># Texte explicatif sous le graphique</span>
+                <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span><span class="s2">&quot;Afficher l&#39;explication des fréquences au fil du temps&quot;</span><span class="p">):</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s2">&quot;Analyse des Fréquences des Notes au Fil du Temps&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># Diviser le texte en sections et ajouter des points clés</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    Cette visualisation illustre **l&#39;évolution des fréquences des notes attribuées par les utilisateurs** sur l&#39;application au fil des années.</span>
+
+<span class="s2">                    ### Observations Principales :</span>
+<span class="s2">                    - Les notes **2, 3, 4 et 5**, représentant des appréciations positives ou moyennes :</span>
+<span class="s2">                    - Atteignent leur **pic de fréquence autour de 2007-2009**.</span>
+<span class="s2">                    - Présentent une **baisse constante après cette période**, suggérant une diminution globale de l&#39;activité des utilisateurs.</span>
+<span class="s2">                    - Les notes basses **0 et 1** :</span>
+<span class="s2">                    - Affichent également une tendance à la baisse après leur propre pic.</span>
+<span class="s2">                    - Restent globalement moins fréquentes que les notes positives.</span>
+
+<span class="s2">                    ### Interprétations :</span>
+<span class="s2">                    - **Désintérêt progressif des utilisateurs** :</span>
+<span class="s2">                    La diminution des notes, positives ou négatives, pourrait indiquer un désintérêt global pour l&#39;application.</span>
+<span class="s2">                    - **Impact du contenu attractif** :</span>
+<span class="s2">                    Une baisse potentielle du nombre de recettes ou d&#39;autres contenus attractifs peut expliquer ce phénomène.</span>
+<span class="s2">                    &quot;&quot;&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># Ajout d&#39;un séparateur visuel pour une meilleure structuration</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">divider</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Les colonnes &#39;date&#39; ou &#39;rating&#39; sont absentes du fichier.&quot;</span><span class="p">)</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Les colonnes &#39;date&#39; ou &#39;rating&#39; sont absentes du fichier.&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Analyse des notes moyennes mensuelles</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Analyse des notes moyennes mensuelles&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;rating&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Analyse des notes moyennes mensuelles&quot;</span><span class="p">)</span>
+                <span class="n">monthly_ratings</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">analyze_monthly_ratings</span><span class="p">()</span>
+                <span class="n">VisualizationManager</span><span class="o">.</span><span class="n">display_line_chart</span><span class="p">(</span>
+                    <span class="n">monthly_ratings</span><span class="p">,</span> <span class="s1">&#39;Mois&#39;</span><span class="p">,</span> <span class="s1">&#39;Note moyenne&#39;</span><span class="p">,</span>
+                    <span class="s2">&quot;Notation moyenne mensuelle au fil du temps&quot;</span>
+                <span class="p">)</span>
+                <span class="c1"># Case à cocher pour afficher l&#39;explication</span>
+                <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span><span class="s2">&quot;Afficher l&#39;explication des notes moyennes mensuelles&quot;</span><span class="p">):</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s2">&quot;Explication des Notes Moyennes Mensuelles&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># Structuration en sections</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                    Cette courbe met en lumière **l&#39;évolution de la note moyenne hebdomadaire** attribuée par les utilisateurs au fil du temps.</span>
+
+<span class="s2">                    ### Observations Principales :</span>
+<span class="s2">                    - **2001 à 2010** :</span>
+<span class="s2">                    - Les notes moyennes sont **stables autour de 4**, reflétant une forte satisfaction des utilisateurs vis-à-vis des recettes proposées.</span>
+<span class="s2">                    - **Après 2009** :</span>
+<span class="s2">                    - Une **baisse progressive des notes moyennes** est observée, atteignant un **point bas significatif vers 2016-2017**, suivi d’un léger redressement.</span>
+
+<span class="s2">                    ### Interprétations :</span>
+<span class="s2">                    - Cette diminution des notes moyennes peut s’expliquer par :</span>
+<span class="s2">                    - Une **baisse des notes élevées (4 et 5)**.</span>
+<span class="s2">                    - Une **augmentation des notes faibles (1 et 2)**.</span>
+<span class="s2">                    - Ces tendances suggèrent :</span>
+<span class="s2">                    - Un possible **déclin de la satisfaction des utilisateurs** concernant les recettes proposées.</span>
+<span class="s2">                    - Une **évolution des attentes des utilisateurs** au fil du temps.</span>
+
+<span class="s2">                    &quot;&quot;&quot;</span><span class="p">)</span>
+
+                    <span class="c1"># Ajouter un séparateur pour une présentation plus nette</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">divider</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Les colonnes &#39;rating&#39; ou &#39;date&#39; sont absentes du fichier.&quot;</span><span class="p">)</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Les colonnes &#39;rating&#39; ou &#39;date&#39; sont absentes du fichier.&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Analyse des fréquences des notes par utilisateur</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fréquence des Notes par utilisateur au fil du temps&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;user_id&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="c1"># Définir le nombre minimal de notes pour une analyse détaillée</span>
+                <span class="n">min_notes</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Exemple: minimum 10 notes par utilisateur</span>
+                <span class="c1"># Filtrer les utilisateurs ayant au moins min_notes</span>
+                <span class="n">user_counts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">][</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+                <span class="n">eligible_users</span> <span class="o">=</span> <span class="n">user_counts</span><span class="p">[</span><span class="n">user_counts</span> <span class="o">&gt;=</span> <span class="n">min_notes</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+                <span class="n">user_id</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">number_input</span><span class="p">(</span><span class="s2">&quot;Entrez l&#39;ID utilisateur à analyser :&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+                <span class="c1"># Vérifier si l&#39;utilisateur a suffisamment de notes</span>
+                <span class="k">if</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">eligible_users</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyse des fréquences des notes pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">user_frequency_data</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">analyze_user_ratings_frequencies</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">user_frequency_data</span><span class="p">:</span>
+                        <span class="n">VisualizationManager</span><span class="o">.</span><span class="n">display_ratings_frequencies</span><span class="p">(</span>
+                            <span class="n">user_frequency_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Fréquence des Notes pour l&#39;utilisateur </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="p">)</span>
+                        <span class="c1"># Texte explicatif sous le graphique</span>
+                        <span class="n">user_freq_explanation</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                        *Ici on étudie la fréquence des notes en fonction de l&#39;utilisateur. Cela permet de savoir si l&#39;utilisateur au fil des années devient plus difficile ou pas.*</span>
+
+<span class="s2">                        *On va fixer une variable pour déterminer le nombre de notes minimal que l&#39;utilisateur a mis pour avoir suffisamment de notes pour faire une analyse détaillée.*</span>
+<span class="s2">                        &quot;&quot;&quot;</span>
+                        <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">user_freq_explanation</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aucune donnée trouvée pour l&#39;utilisateur </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                        <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aucune donnée trouvée pour l&#39;utilisateur </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">user_id</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">st</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;utilisateur </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> n&#39;a pas suffisamment de notes pour une analyse détaillée (minimum </span><span class="si">{</span><span class="n">min_notes</span><span class="si">}</span><span class="s2"> notes requises).&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;user_id&#39; est absente du fichier.&quot;</span><span class="p">)</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;user_id&#39; est absente du fichier.&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Analyse des notes par utilisateur</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Analyse des notes par utilisateur&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;user_id&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RAW_INTERACTIONS</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">user_id</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">number_input</span><span class="p">(</span><span class="s2">&quot;Entrez l&#39;ID utilisateur à analyser :&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyse des notes pour l&#39;utilisateur ID: </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">user_analysis</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">analyze_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">user_analysis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">VisualizationManager</span><span class="o">.</span><span class="n">display_line_chart</span><span class="p">(</span><span class="n">user_analysis</span><span class="p">,</span> <span class="s1">&#39;Mois&#39;</span><span class="p">,</span> <span class="s1">&#39;Note moyenne&#39;</span><span class="p">,</span><span class="s2">&quot;Aperçu des notes utilisateur au fil du temps&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aucune donnée trouvée pour l&#39;utilisateur </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                    <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aucune donnée trouvée pour l&#39;utilisateur </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;user_id&#39; est absente du fichier.&quot;</span><span class="p">)</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;user_id&#39; est absente du fichier.&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Evolution de l’activité sur l’application Mangetamain</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolution de l’activité sur l’application Mangetamain&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;submitted&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RECIPES_NAME</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">analyzer_recipe</span> <span class="o">=</span> <span class="n">DataAnalyzer</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">COLLECTION_RECIPES_NAME</span><span class="p">])</span>
+                <span class="n">monthly_counts</span> <span class="o">=</span> <span class="n">analyzer_recipe</span><span class="o">.</span><span class="n">analyze_activity_on_mangetamain</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">monthly_counts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">VisualizationManager</span><span class="o">.</span><span class="n">display_line_chart</span><span class="p">(</span><span class="n">monthly_counts</span><span class="p">,</span> <span class="s1">&#39;year_month&#39;</span><span class="p">,</span> <span class="s1">&#39;recipe_count&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                    <span class="c1"># Texte explicatif sous le graphique</span>
+                    <span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span><span class="s2">&quot;Afficher l&#39;explication de l&#39;évolution de l&#39;activité&quot;</span><span class="p">):</span>
+                        <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s2">&quot;Évolution de l&#39;Activité sur l&#39;Application&quot;</span><span class="p">)</span>
+
+                        <span class="c1"># Structuration en sections avec Markdown</span>
+                        <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">                        L’analyse des données met en évidence plusieurs tendances marquantes concernant l’**évolution de l’activité** sur l’application Mangetamain.</span>
+
+<span class="s2">                        ### Observations Principales :</span>
+<span class="s2">                        - **Diminution des notes élevées (4 et 5)** :</span>
+<span class="s2">                        - Une baisse notable après **2009**, reflétant une satisfaction décroissante des utilisateurs.</span>
+<span class="s2">                        - **Augmentation légère des notes basses (1 et 2)** :</span>
+<span class="s2">                        - Indique une **insatisfaction croissante** parmi certains utilisateurs.</span>
+
+<span class="s2">                        ### Facteurs Contributifs :</span>
+<span class="s2">                        - **Réduction du contenu attractif** :</span>
+<span class="s2">                        - Diminution progressive du nombre de recettes mises en ligne après un **pic d’activité entre 2007 et 2009**.</span>
+<span class="s2">                        - Moins d’opportunités d’interaction pour les utilisateurs, créant un cercle vicieux de baisse d’engagement.</span>
+<span class="s2">                        - **Concurrence accrue** :</span>
+<span class="s2">                        - Apparition de **plateformes concurrentes** proposant des expériences plus riches et interactives.</span>
+
+<span class="s2">                        ### Suggestions pour Inverser la Tendance :</span>
+<span class="s2">                        - **Stimuler la création de nouvelles recettes** pour renouveler le contenu.</span>
+<span class="s2">                        - **Diversifier les types de contenu** proposés sur la plateforme.</span>
+<span class="s2">                        - **Renforcer l’expérience utilisateur** par des fonctionnalités interactives et engageantes.</span>
+
+<span class="s2">                        &quot;&quot;&quot;</span><span class="p">)</span>
+
+                        <span class="c1"># Ajouter un séparateur pour une meilleure structuration visuelle</span>
+                        <span class="n">st</span><span class="o">.</span><span class="n">divider</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;submitted&#39; est absente du fichier.&quot;</span><span class="p">)</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;La colonne &#39;submitted&#39; est absente du fichier.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="StreamlitPage.run">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.StreamlitPage.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Configure la page Streamlit, charge le CSS et les données, puis exécute l&#39;analyse.</span>
+
+<span class="sd">        Cette méthode configure la disposition de la page Streamlit, charge le CSS,</span>
+<span class="sd">        charge les données depuis MongoDB, et si les données sont disponibles, exécute</span>
+<span class="sd">        l&#39;analyse des données.</span>
+
+<span class="sd">        Logs :</span>
+<span class="sd">            INFO: Indique la configuration de la page Streamlit.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Configuration de la page Streamlit&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">set_page_config</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;wide&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_css</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">run_analysis</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Erreur lors de la configuration de la page Streamlit : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+</div>
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../../../pages/analyse_user.html#src.pages.analyse_user.main">[docs]</a>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Point d&#39;entrée principal de l&#39;application Streamlit.</span>
+
+<span class="sd">    Cette fonction configure le logging, initialise la page Streamlit, et exécute</span>
+<span class="sd">    la méthode `run` pour démarrer l&#39;application.</span>
+
+<span class="sd">    Logs :</span>
+<span class="sd">        INFO: Indique le démarrage de l&#39;application Streamlit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">setup_logging</span><span class="p">()</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Démarrage de l&#39;application Streamlit&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">page_analyse_user</span> <span class="o">=</span> <span class="n">StreamlitPage</span><span class="p">()</span>
+        <span class="n">page_analyse_user</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Erreur lors du démarrage de l&#39;application Streamlit : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

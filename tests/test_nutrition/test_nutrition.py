@@ -56,7 +56,7 @@ class TestNutritionPage(unittest.TestCase):
         self.assertIsNotNone(self.nutrition_page.nutrition_df)
         self.assertIsNotNone(self.nutrition_page.clean_nutrition_df)
 
-    @patch('src.pages.nutrition.st')
+    @patch('src.pages.Nutrition.st')
     def test_display_context(self, mock_st):
         """
         Teste la méthode display_context pour vérifier qu'elle s'exécute sans erreur.
@@ -77,10 +77,10 @@ class TestNutritionPage(unittest.TestCase):
         except Exception as e:
             self.fail(f"display_context a levé une exception inattendue : {e}")
 
-    @patch('src.pages.nutrition.st.title')
-    @patch('src.pages.nutrition.st.subheader')
-    @patch('src.pages.nutrition.st.write')
-    @patch('src.pages.nutrition.st.slider')
+    @patch('src.pages.Nutrition.st.title')
+    @patch('src.pages.Nutrition.st.subheader')
+    @patch('src.pages.Nutrition.st.write')
+    @patch('src.pages.Nutrition.st.slider')
     @patch('matplotlib.pyplot.subplots')
     @patch('seaborn.histplot')
     @patch('seaborn.heatmap')
@@ -156,7 +156,7 @@ class TestNutritionPage(unittest.TestCase):
         # La matrice doit être de taille 8x8
         self.assertEqual(correlation_matrix.shape, (8, 8))
 
-    @patch('src.pages.nutrition.NutritionPage')
+    @patch('src.pages.Nutrition.NutritionPage')
     def test_main_script_execution(self, mock_nutrition_page):
         """
         Teste le bloc principal du script pour s'assurer qu'aucune exception n'est levée
@@ -175,7 +175,7 @@ class TestNutritionPage(unittest.TestCase):
         try:
             # Simuler l'exécution du script principal
             # Remplacez par le chemin correct de votre script
-            exec(open('./src/pages/nutrition.py').read())
+            exec(open('./src/pages/Nutrition.py').read())
         except Exception as e:
             self.fail(f"L'exécution du script a échoué avec l'exception : {e}")
 

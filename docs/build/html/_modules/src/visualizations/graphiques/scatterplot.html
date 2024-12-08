@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.visualizations.graphiques.scatterplot &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">src.visualizations.graphiques.scatterplot</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de src.visualizations.graphiques.scatterplot</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">from</span> <span class="nn">src.visualizations.graphique</span> <span class="kn">import</span> <span class="n">Graphique</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+<div class="viewcode-block" id="ScatterPlot">
+<a class="viewcode-back" href="../../../../visualizations.html#src.visualizations.graphiques.scatterplot.ScatterPlot">[docs]</a>
+<span class="k">class</span> <span class="nc">ScatterPlot</span><span class="p">(</span><span class="n">Graphique</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe pour créer et afficher un nuage de points (Scatter Plot) en utilisant Plotly Express.</span>
+
+<span class="sd">    Cette classe hérite de la classe de base `Graphique` et utilise Plotly Express pour générer</span>
+<span class="sd">    un nuage de points basé sur les données fournies. Elle est conçue pour être affichée</span>
+<span class="sd">    dans une application Streamlit.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (pandas.DataFrame): Le jeu de données utilisé pour créer le nuage de points.</span>
+<span class="sd">        x (str): Le nom de la colonne à utiliser pour les valeurs de l&#39;axe des x.</span>
+<span class="sd">        y (str): Le nom de la colonne à utiliser pour les valeurs de l&#39;axe des y.</span>
+<span class="sd">        height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        data (pandas.DataFrame): Le jeu de données utilisé pour créer le nuage de points.</span>
+<span class="sd">        x (str): Le nom de la colonne à utiliser pour les valeurs de l&#39;axe des x.</span>
+<span class="sd">        y (str): Le nom de la colonne à utiliser pour les valeurs de l&#39;axe des y.</span>
+<span class="sd">        height (int): La hauteur du graphique en pixels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise un objet ScatterPlot.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (pandas.DataFrame): Le jeu de données utilisé pour créer le nuage de points.</span>
+<span class="sd">            x (str): Le nom de la colonne à utiliser pour les valeurs de l&#39;axe des x.</span>
+<span class="sd">            y (str): Le nom de la colonne à utiliser pour les valeurs de l&#39;axe des y.</span>
+<span class="sd">            height (int, optional): La hauteur du graphique en pixels. Par défaut à 400.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: Si les colonnes spécifiées n&#39;existent pas dans les données.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Vérification que les colonnes existent dans le DataFrame</span>
+        <span class="n">missing_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">missing_cols</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Les colonnes suivantes sont manquantes dans le DataFrame : </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing_cols</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+<div class="viewcode-block" id="ScatterPlot.afficher">
+<a class="viewcode-back" href="../../../../visualizations.html#src.visualizations.graphiques.scatterplot.ScatterPlot.afficher">[docs]</a>
+    <span class="k">def</span> <span class="nf">afficher</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Affiche le nuage de points en utilisant la fonction plotly_chart de Streamlit.</span>
+
+<span class="sd">        Cette méthode génère le nuage de points avec Plotly Express en utilisant les attributs</span>
+<span class="sd">        `x`, `y` et `height`, puis l&#39;affiche dans l&#39;application Streamlit avec une mise en page personnalisée.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
+            <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">showticklabels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">zeroline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">showticklabels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span>
+            <span class="n">tickfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
+            <span class="n">title_font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
+            <span class="n">automargin</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span>
+            <span class="n">tickfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
+            <span class="n">title_font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">),</span>
+            <span class="n">automargin</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">st</span><span class="o">.</span><span class="n">plotly_chart</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">use_container_width</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

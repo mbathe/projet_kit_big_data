@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analyse Utilisateur &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=e6b791cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Welcom" href="recipes/Welcom.html" />
+    <link rel="prev" title="Nutrition" href="nutrition.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nutrition.html">Nutrition</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analyse Utilisateur</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.setup_logging"><code class="docutils literal notranslate"><span class="pre">setup_logging()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.DataLoader"><code class="docutils literal notranslate"><span class="pre">DataLoader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataLoader.load_large_csv"><code class="docutils literal notranslate"><span class="pre">DataLoader.load_large_csv()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.DataLoaderMango"><code class="docutils literal notranslate"><span class="pre">DataLoaderMango</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataLoaderMango.load_dataframe"><code class="docutils literal notranslate"><span class="pre">DataLoaderMango.load_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataLoaderMango.get_data"><code class="docutils literal notranslate"><span class="pre">DataLoaderMango.get_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.CSSLoader"><code class="docutils literal notranslate"><span class="pre">CSSLoader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.CSSLoader.load"><code class="docutils literal notranslate"><span class="pre">CSSLoader.load()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.DataAnalyzer"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataAnalyzer.preprocess"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.preprocess()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataAnalyzer.analyze_user"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.analyze_user()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataAnalyzer.analyze_monthly_ratings"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.analyze_monthly_ratings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataAnalyzer.analyze_ratings_frequencies"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.analyze_ratings_frequencies()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataAnalyzer.analyze_user_ratings_frequencies"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.analyze_user_ratings_frequencies()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.DataAnalyzer.analyze_activity_on_mangetamain"><code class="docutils literal notranslate"><span class="pre">DataAnalyzer.analyze_activity_on_mangetamain()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.VisualizationManager"><code class="docutils literal notranslate"><span class="pre">VisualizationManager</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.VisualizationManager.display_line_chart"><code class="docutils literal notranslate"><span class="pre">VisualizationManager.display_line_chart()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.VisualizationManager.display_histogram"><code class="docutils literal notranslate"><span class="pre">VisualizationManager.display_histogram()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.VisualizationManager.display_ratings_frequencies"><code class="docutils literal notranslate"><span class="pre">VisualizationManager.display_ratings_frequencies()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.StreamlitPage"><code class="docutils literal notranslate"><span class="pre">StreamlitPage</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.StreamlitPage.load_css"><code class="docutils literal notranslate"><span class="pre">StreamlitPage.load_css()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.StreamlitPage.load_data"><code class="docutils literal notranslate"><span class="pre">StreamlitPage.load_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.StreamlitPage.run_analysis"><code class="docutils literal notranslate"><span class="pre">StreamlitPage.run_analysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.analyse_user.StreamlitPage.run"><code class="docutils literal notranslate"><span class="pre">StreamlitPage.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.analyse_user.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Analyse Utilisateur</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pages/analyse_user.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pages.analyse_user">
+<span id="analyse-utilisateur"></span><h1>Analyse Utilisateur<a class="headerlink" href="#module-src.pages.analyse_user" title="Lien vers cette rubrique"></a></h1>
+<p>Page de l’application Streamlit pour l’analyse des données d’interactions utilisateurs.</p>
+<p>Ce module configure le logging, charge les données depuis des sources variées (CSV, MongoDB),
+analyse les données, et génère des visualisations interactives à l’aide de Streamlit.</p>
+<p>Modules et Classes Principaux :
+- setup_logging: Configure le système de logging de l’application.
+- DataLoader: Classe pour charger des données à partir de fichiers CSV.
+- DataLoaderMango: Classe pour charger des données depuis une base de données MongoDB.
+- CSSLoader: Classe pour charger des feuilles de style CSS.
+- DataAnalyzer: Classe pour analyser et prétraiter les données.
+- VisualizationManager: Classe pour gérer les visualisations des données.
+- StreamlitPage: Classe principale pour l’intégration avec Streamlit.
+- main: Point d’entrée de l’application.</p>
+<p>Dépendances :
+- src.visualizations.graphiques: Module contenant les classes LineChart et Histogramme.
+- src.visualizations: Module contenant la classe Grille et la fonction load_css.
+- scripts.MongoDBConnector: Module pour la connexion à MongoDB.
+- dotenv: Pour le chargement des variables d’environnement.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pages.analyse_user.setup_logging">
+<span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">setup_logging</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#setup_logging"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.setup_logging" title="Lien vers cette définition"></a></dt>
+<dd><p>Configure le système de logging de l’application.</p>
+<p>Cette fonction configure le logger de base en définissant :</p>
+<ul class="simple">
+<li><p>Le niveau de logging à INFO.</p></li>
+<li><p>Le format des messages de log incluant l’horodatage, le niveau, le nom du logger et le message.</p></li>
+<li><dl class="simple">
+<dt>Deux gestionnaires :</dt><dd><ul>
+<li><p>FileHandler pour écrire les logs dans le fichier « app.log ».</p></li>
+<li><p>StreamHandler pour afficher les logs dans la console.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Cela permet de centraliser la gestion des logs et d’éviter des configurations multiples.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">DataLoader</span></span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataLoader" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe responsable du chargement des données à partir de fichiers CSV.</p>
+<p>Cette classe fournit des méthodes statiques pour charger des fichiers CSV volumineux
+en utilisant la mise en cache de Streamlit pour améliorer les performances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataLoader.load_large_csv">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_large_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataLoader.load_large_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataLoader.load_large_csv" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge un fichier CSV volumineux et retourne un DataFrame pandas.</p>
+<p>Cette méthode utilise Streamlit’s <cite>cache_data</cite> pour mettre en cache le résultat
+afin d’optimiser les performances lors des rechargements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – Chemin vers le fichier CSV à charger.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame contenant les données du fichier CSV.</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début du chargement du fichier CSV.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataLoaderMango">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">DataLoaderMango</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataLoaderMango"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataLoaderMango" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe responsable du chargement des données depuis MongoDB.</p>
+<p>Cette classe gère la connexion à une base de données MongoDB, le chargement des
+données d’une collection spécifique, et la gestion des limites de documents à
+charger. Elle utilise également la mise en cache de Streamlit pour optimiser les
+performances lors des chargements répétitifs.</p>
+<p>Initialise les paramètres de connexion à MongoDB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection_string</strong> (<em>str</em>) – URI de connexion à MongoDB.</p></li>
+<li><p><strong>database_name</strong> (<em>str</em>) – Nom de la base de données.</p></li>
+<li><p><strong>collection_name</strong> (<em>str</em>) – Nom de la collection à charger.</p></li>
+<li><p><strong>limit</strong> (<em>int</em><em>, </em><em>optional</em>) – Nombre maximum de documents à charger. Par défaut à 2000.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique l’initialisation de DataLoaderMango avec les paramètres fournis.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataLoaderMango.load_dataframe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataLoaderMango.load_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataLoaderMango.load_dataframe" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge les données depuis MongoDB et les retourne sous forme de DataFrame.</p>
+<p>Cette méthode établit une connexion à MongoDB, charge les données d’une
+collection spécifique avec une limite de documents, puis ferme la connexion.
+En cas d’erreur lors du chargement des données, une exception est levée.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection_string</strong> (<em>str</em>) – URI de connexion à MongoDB.</p></li>
+<li><p><strong>database_name</strong> (<em>str</em>) – Nom de la base de données.</p></li>
+<li><p><strong>collection_name</strong> (<em>str</em>) – Nom de la collection à charger.</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – Nombre maximum de documents à charger.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame contenant les données de la collection.</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – En cas d’erreur lors du chargement des données depuis MongoDB.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de la connexion à MongoDB et le chargement des données.
+ERROR: Indique une erreur lors du chargement des données.
+INFO: Indique la fermeture de la connexion MongoDB.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataLoaderMango.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataLoaderMango.get_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataLoaderMango.get_data" title="Lien vers cette définition"></a></dt>
+<dd><p>Récupère les données chargées depuis MongoDB.</p>
+<p>Utilise la méthode <cite>load_dataframe</cite> pour charger les données avec les paramètres
+d’initialisation de l’instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame contenant les données chargées.</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de la récupération des données.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.analyse_user.CSSLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">CSSLoader</span></span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#CSSLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.CSSLoader" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe responsable du chargement des feuilles de style CSS.</p>
+<p>Cette classe permet de charger des fichiers CSS pour styliser les pages Streamlit.</p>
+<p>Initialise le CSSLoader en configurant un logger spécifique.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique l’initialisation de CSSLoader.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.CSSLoader.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_css</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#CSSLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.CSSLoader.load" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge un fichier CSS et l’applique à la page Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path_to_css</strong> (<em>str</em>) – Chemin vers le fichier CSS à charger.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début du chargement du fichier CSS.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataAnalyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">DataAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataAnalyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataAnalyzer" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe pour l’analyse et le prétraitement des données.</p>
+<p>Cette classe fournit des méthodes pour prétraiter les données, analyser les
+notes des utilisateurs, calculer les moyennes mensuelles, et analyser les
+fréquences des notes.</p>
+<p>Initialise l’analyseur de données avec un DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>pd.DataFrame</em>) – DataFrame contenant les données à analyser.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique l’initialisation de DataAnalyzer avec les données fournies.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataAnalyzer.preprocess">
+<span class="sig-name descname"><span class="pre">preprocess</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataAnalyzer.preprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataAnalyzer.preprocess" title="Lien vers cette définition"></a></dt>
+<dd><p>Prétraite les données en convertissant les dates et extrayant l’année.</p>
+<p>Cette méthode vérifie si la colonne “date” existe dans les données. Si oui,
+elle convertit les valeurs en objets datetime, extrait l’année et l’ajoute
+en tant que nouvelle colonne “year”. Si la colonne “date” est absente,
+un avertissement est enregistré.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame prétraité.</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début du prétraitement des données.
+DEBUG: Affiche un aperçu des données après prétraitement.
+WARNING: Indique l’absence de la colonne “date” dans les données.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataAnalyzer.analyze_user">
+<span class="sig-name descname"><span class="pre">analyze_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataAnalyzer.analyze_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataAnalyzer.analyze_user" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse les notes moyennes mensuelles pour un utilisateur spécifique.</p>
+<p>Cette méthode filtre les données pour un utilisateur donné, calcule la
+moyenne des notes par mois, et retourne un DataFrame contenant les
+résultats. Si aucune donnée n’est trouvée pour l’utilisateur, None est
+retourné.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_id</strong> (<em>int</em>) – Identifiant de l’utilisateur à analyser.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>DataFrame contenant les moyennes mensuelles des notes,</dt><dd><p>ou None si aucune donnée n’est trouvée.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’analyse pour l’utilisateur spécifié.
+INFO: Indique la fin de l’analyse si des données sont trouvées.
+WARNING: Indique qu’aucune donnée n’a été trouvée pour l’utilisateur.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataAnalyzer.analyze_monthly_ratings">
+<span class="sig-name descname"><span class="pre">analyze_monthly_ratings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataAnalyzer.analyze_monthly_ratings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataAnalyzer.analyze_monthly_ratings" title="Lien vers cette définition"></a></dt>
+<dd><p>Calcule la moyenne des notes mensuelles.</p>
+<p>Cette méthode resample les données par mois en utilisant la date comme index,
+calcule la moyenne des notes pour chaque mois, et retourne un DataFrame
+contenant les résultats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame contenant les moyennes mensuelles des notes.</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’analyse des moyennes mensuelles.
+DEBUG: Affiche un aperçu des moyennes mensuelles calculées.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataAnalyzer.analyze_ratings_frequencies">
+<span class="sig-name descname"><span class="pre">analyze_ratings_frequencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataAnalyzer.analyze_ratings_frequencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataAnalyzer.analyze_ratings_frequencies" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse les fréquences des différentes notes dans les données.</p>
+<p>Cette méthode identifie les notes uniques dans les données et calcule
+le nombre d’occurrences pour chaque note.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liste contenant des tuples de la forme (note, DataFrame des données correspondantes).</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of tuples</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’analyse des fréquences des notes.
+DEBUG: Indique le nombre d’occurrences pour chaque note.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataAnalyzer.analyze_user_ratings_frequencies">
+<span class="sig-name descname"><span class="pre">analyze_user_ratings_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataAnalyzer.analyze_user_ratings_frequencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataAnalyzer.analyze_user_ratings_frequencies" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse les fréquences des notes pour un utilisateur spécifique.</p>
+<p>Cette méthode filtre les données pour un utilisateur donné et calcule
+le nombre d’occurrences pour chaque note attribuée par cet utilisateur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>user_id</strong> (<em>int</em>) – Identifiant de l’utilisateur à analyser.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Liste contenant des tuples de la forme (note, DataFrame des données correspondantes),</dt><dd><p>ou None si aucune donnée n’est trouvée pour l’utilisateur.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of tuples or None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’analyse des fréquences des notes pour l’utilisateur spécifié.
+DEBUG: Indique le nombre d’occurrences pour chaque note de l’utilisateur.
+WARNING: Indique qu’aucune donnée de fréquence n’a été trouvée pour l’utilisateur.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.DataAnalyzer.analyze_activity_on_mangetamain">
+<span class="sig-name descname"><span class="pre">analyze_activity_on_mangetamain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#DataAnalyzer.analyze_activity_on_mangetamain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.DataAnalyzer.analyze_activity_on_mangetamain" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse l’évolution de l’activité sur l’application Mangetamain.</p>
+<p>Cette méthode convertit les dates de soumission en objets datetime,
+extrait l’année et le mois, et calcule le nombre de recettes soumises
+chaque mois.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>DataFrame contenant le nombre de recettes par mois,</dt><dd><p>ou None si la colonne “submitted” est absente.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’analyse de l’activité sur Mangetamain.
+DEBUG: Affiche un aperçu des comptes mensuels.
+WARNING: Indique l’absence de la colonne “submitted” dans les données.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.analyse_user.VisualizationManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">VisualizationManager</span></span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#VisualizationManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.VisualizationManager" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe pour gérer les visualisations des données.</p>
+<p>Cette classe fournit des méthodes statiques pour afficher différents types de
+graphiques (ligne, histogramme) et des fréquences de notes dans l’interface
+Streamlit.</p>
+<p>Initialise le VisualizationManager en configurant un logger spécifique.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique l’initialisation de VisualizationManager.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.VisualizationManager.display_line_chart">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">display_line_chart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#VisualizationManager.display_line_chart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.VisualizationManager.display_line_chart" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche un graphique en ligne dans Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – DataFrame contenant les données à visualiser.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Nom de la colonne à utiliser pour l’axe des X.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Nom de la colonne à utiliser pour l’axe des Y.</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Titre du graphique.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’affichage du graphique en ligne.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.VisualizationManager.display_histogram">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">display_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#VisualizationManager.display_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.VisualizationManager.display_histogram" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche un histogramme dans Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pd.DataFrame</em>) – DataFrame contenant les données à visualiser.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Nom de la colonne à utiliser pour l’axe des X.</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Titre de l’histogramme.</p></li>
+<li><p><strong>bin_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Taille des bins de l’histogramme. Par défaut à 1.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’affichage de l’histogramme.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.VisualizationManager.display_ratings_frequencies">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">display_ratings_frequencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#VisualizationManager.display_ratings_frequencies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.VisualizationManager.display_ratings_frequencies" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche les fréquences des notes sous forme d’histogrammes dans Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency_data</strong> (<em>list</em><em> of </em><em>tuples</em>) – Liste de tuples contenant la note et le DataFrame correspondant.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Nom de la colonne à utiliser pour l’axe des X.</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Titre de la section de visualisation.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’affichage des fréquences des notes.
+DEBUG: Indique l’ajout d’un graphique pour chaque note.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.analyse_user.StreamlitPage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">StreamlitPage</span></span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#StreamlitPage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.StreamlitPage" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.pages.analyse_user.DataLoaderMango" title="src.pages.analyse_user.DataLoaderMango"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoaderMango</span></code></a></p>
+<p>Classe principale pour l’intégration avec Streamlit.</p>
+<p>Cette classe hérite de DataLoaderMango pour charger les données depuis MongoDB
+et fournit des méthodes pour charger le CSS, les données, exécuter les analyses
+et afficher les résultats via Streamlit.</p>
+<p>Initialise les paramètres de DataLoaderMango et configure les paramètres Streamlit.</p>
+<p>Charge les variables d’environnement nécessaires pour la connexion à MongoDB
+et initialise les attributs de l’instance.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique l’initialisation de StreamlitPage et de DataLoaderMango.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.StreamlitPage.load_css">
+<span class="sig-name descname"><span class="pre">load_css</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#StreamlitPage.load_css"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.StreamlitPage.load_css" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge la feuille de style CSS pour styliser la page Streamlit.</p>
+<p>Utilise la classe CSSLoader pour charger le fichier CSS spécifié.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début du chargement du CSS.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.StreamlitPage.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#StreamlitPage.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.StreamlitPage.load_data" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge les données depuis MongoDB et les affiche dans Streamlit.</p>
+<p>Utilise la méthode <cite>get_data</cite> héritée de DataLoaderMango pour charger les données.
+En cas de succès, affiche un aperçu des données. En cas d’échec, affiche une erreur
+dans l’interface Streamlit.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début du chargement des données.
+INFO: Indique le succès du chargement des données avec le nombre d’enregistrements.
+ERROR: Indique une erreur lors du chargement des données.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.StreamlitPage.run_analysis">
+<span class="sig-name descname"><span class="pre">run_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#StreamlitPage.run_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.StreamlitPage.run_analysis" title="Lien vers cette définition"></a></dt>
+<dd><p>Exécute l’analyse des données et génère les visualisations correspondantes.</p>
+<p>Cette méthode effectue les étapes suivantes :
+- Affiche un texte introductif.
+- Prétraite les données.
+- Affiche les fréquences globales des notes sous forme d’histogramme avec un texte explicatif.
+- Analyse les fréquences des notes au fil du temps avec un texte explicatif.
+- Calcule et affiche les notes moyennes mensuelles avec un texte explicatif.
+- Analyse les fréquences des notes pour un utilisateur spécifique avec un texte explicatif.
+- Analyse les notes par utilisateur.</p>
+<p>Chaque étape inclut des vérifications pour s’assurer que les colonnes nécessaires
+sont présentes dans les données et enregistre des logs appropriés.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le début de l’analyse des données.
+INFO/WARNING: Indique l’état de présence des colonnes nécessaires.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.analyse_user.StreamlitPage.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#StreamlitPage.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.StreamlitPage.run" title="Lien vers cette définition"></a></dt>
+<dd><p>Configure la page Streamlit, charge le CSS et les données, puis exécute l’analyse.</p>
+<p>Cette méthode configure la disposition de la page Streamlit, charge le CSS,
+charge les données depuis MongoDB, et si les données sont disponibles, exécute
+l’analyse des données.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique la configuration de la page Streamlit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.pages.analyse_user.main">
+<span class="sig-prename descclassname"><span class="pre">src.pages.analyse_user.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/pages/analyse_user.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.analyse_user.main" title="Lien vers cette définition"></a></dt>
+<dd><p>Point d’entrée principal de l’application Streamlit.</p>
+<p>Cette fonction configure le logging, initialise la page Streamlit, et exécute
+la méthode <cite>run</cite> pour démarrer l’application.</p>
+<dl class="simple">
+<dt>Logs :</dt><dd><p>INFO: Indique le démarrage de l’application Streamlit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="nutrition.html" class="btn btn-neutral float-left" title="Nutrition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="recipes/Welcom.html" class="btn btn-neutral float-right" title="Welcom" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

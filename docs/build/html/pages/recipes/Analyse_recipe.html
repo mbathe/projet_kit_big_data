@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analyse Recipe &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" />
+    <link rel="next" title="Scripts" href="../../scripts.html" />
+    <link rel="prev" title="Welcom" href="Welcom.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Welcom.html">Welcom</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analyse Recipe</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.CSSLoader"><code class="docutils literal notranslate"><span class="pre">CSSLoader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.CSSLoader.load"><code class="docutils literal notranslate"><span class="pre">CSSLoader.load()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager"><code class="docutils literal notranslate"><span class="pre">DataManager</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager.set_date_range"><code class="docutils literal notranslate"><span class="pre">DataManager.set_date_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager.get_recipe_data"><code class="docutils literal notranslate"><span class="pre">DataManager.get_recipe_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager.export_data"><code class="docutils literal notranslate"><span class="pre">DataManager.export_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_temporal_distribution"><code class="docutils literal notranslate"><span class="pre">DataManager.analyze_temporal_distribution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_recipe_complexity"><code class="docutils literal notranslate"><span class="pre">DataManager.analyze_recipe_complexity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_nutrition"><code class="docutils literal notranslate"><span class="pre">DataManager.analyze_nutrition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_tags"><code class="docutils literal notranslate"><span class="pre">DataManager.analyze_tags()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager"><code class="docutils literal notranslate"><span class="pre">DisplayManager</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.load_css"><code class="docutils literal notranslate"><span class="pre">DisplayManager.load_css()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.sidebar"><code class="docutils literal notranslate"><span class="pre">DisplayManager.sidebar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.home_tab"><code class="docutils literal notranslate"><span class="pre">DisplayManager.home_tab()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.analysis_tab"><code class="docutils literal notranslate"><span class="pre">DisplayManager.analysis_tab()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_contributors_analysis"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_contributors_analysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_tags_analysis"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_tags_analysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_submission_analysis"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_submission_analysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_steps_and_time_analysis"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_steps_and_time_analysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_nutrition_analysis"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_nutrition_analysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_data_structures"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_data_structures()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_anomalies_values"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_anomalies_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.analyze_ingredients"><code class="docutils literal notranslate"><span class="pre">DisplayManager.analyze_ingredients()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_tab"><code class="docutils literal notranslate"><span class="pre">DisplayManager.display_tab()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DisplayManager.recommandation_page"><code class="docutils literal notranslate"><span class="pre">DisplayManager.recommandation_page()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Analyse Recipe</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/pages/recipes/Analyse_recipe.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.pages.recipes.Analyse_recipes">
+<span id="analyse-recipe"></span><h1>Analyse Recipe<a class="headerlink" href="#module-src.pages.recipes.Analyse_recipes" title="Lien vers cette rubrique"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.CSSLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.recipes.Analyse_recipes.</span></span><span class="sig-name descname"><span class="pre">CSSLoader</span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#CSSLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.CSSLoader" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe responsable du chargement des CSS.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.CSSLoader.load">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">css_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#CSSLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.CSSLoader.load" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge un fichier CSS.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>css_file</strong> (<em>str</em>) – Le chemin vers le fichier CSS.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Lève:</dt><dd><p>Exception: Si le chargement du fichier CSS échoue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.recipes.Analyse_recipes.</span></span><span class="sig-name descname"><span class="pre">DataManager</span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe responsable du chargement et de traitement des données.</p>
+<p>Initialise le DataManager avec une instance de Recipe.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager.set_date_range">
+<span class="sig-name descname"><span class="pre">set_date_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager.set_date_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager.set_date_range" title="Lien vers cette définition"></a></dt>
+<dd><p>Définit la plage de dates pour les données de recettes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_date</strong> (<em>date</em>) – La date de début.</p></li>
+<li><p><strong>end_date</strong> (<em>date</em>) – La date de fin.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Lève:</dt><dd><p>Exception: Si la définition de la plage de dates échoue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager.get_recipe_data">
+<span class="sig-name descname"><span class="pre">get_recipe_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../process.html#src.process.recipes.Recipe" title="src.process.recipes.Recipe"><span class="pre">Recipe</span></a></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager.get_recipe_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager.get_recipe_data" title="Lien vers cette définition"></a></dt>
+<dd><p>Obtient les données de recettes.</p>
+<dl class="simple">
+<dt>Retourne:</dt><dd><p>Recipe: Les données de recettes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager.export_data">
+<span class="sig-name descname"><span class="pre">export_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">export_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager.export_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager.export_data" title="Lien vers cette définition"></a></dt>
+<dd><p>Exporte les données de recettes dans le format spécifié.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>export_format</strong> (<em>str</em>) – Le format dans lequel exporter les données (« CSV » ou « JSON »).</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Retourne:</dt><dd><p>str: Les données exportées sous forme de chaîne de caractères.</p>
+</dd>
+<dt>Lève:</dt><dd><p>Exception: Si l’exportation des données échoue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager.analyze_temporal_distribution">
+<span class="sig-name descname"><span class="pre">analyze_temporal_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager.analyze_temporal_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_temporal_distribution" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse la distribution temporelle des recettes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_datetime</strong> (<em>datetime</em>) – La date et l’heure de début.</p></li>
+<li><p><strong>end_datetime</strong> (<em>datetime</em>) – La date et l’heure de fin.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Retourne:</dt><dd><p>dict: Les résultats de l’analyse.</p>
+</dd>
+<dt>Lève:</dt><dd><p>Exception: Si l’analyse de la distribution temporelle échoue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager.analyze_recipe_complexity">
+<span class="sig-name descname"><span class="pre">analyze_recipe_complexity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager.analyze_recipe_complexity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_recipe_complexity" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse la complexité des recettes.</p>
+<dl class="simple">
+<dt>Retourne:</dt><dd><p>dict: Les résultats de l’analyse.</p>
+</dd>
+<dt>Lève:</dt><dd><p>Exception: Si l’analyse de la complexité des recettes échoue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager.analyze_nutrition">
+<span class="sig-name descname"><span class="pre">analyze_nutrition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager.analyze_nutrition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_nutrition" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse les informations nutritionnelles des recettes.</p>
+<dl class="simple">
+<dt>Retourne:</dt><dd><p>dict: Les résultats de l’analyse.</p>
+</dd>
+<dt>Lève:</dt><dd><p>Exception: Si l’analyse des informations nutritionnelles échoue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DataManager.analyze_tags">
+<span class="sig-name descname"><span class="pre">analyze_tags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DataManager.analyze_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DataManager.analyze_tags" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse les tags des recettes.</p>
+<dl class="simple">
+<dt>Retourne:</dt><dd><p>dict: Les résultats de l’analyse.</p>
+</dd>
+<dt>Lève:</dt><dd><p>Exception: Si l’analyse des tags échoue.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.pages.recipes.Analyse_recipes.</span></span><span class="sig-name descname"><span class="pre">DisplayManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_manager</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#src.pages.recipes.Analyse_recipes.DataManager" title="src.pages.recipes.Analyse_recipes.DataManager"><span class="pre">DataManager</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe responsable de l’afficharge de la page Recettes. elle permet de visualiser :
+-Statistiques nutritionnelles détaillées
+- Visualisation des tendances culinaires
+- Analyse comparative des ingrédients
+- Système de recommandation personnalisé basé sur les préférences</p>
+<p>Initialise le DisplayManager avec une instance de DataManager.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.load_css">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_css</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.load_css"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.load_css" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge les fichiers CSS pour l’application.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.sidebar">
+<span class="sig-name descname"><span class="pre">sidebar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.sidebar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.sidebar" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche la barre latérale avec les options de configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.home_tab">
+<span class="sig-name descname"><span class="pre">home_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.home_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.home_tab" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche l’onglet d’accueil avec l’analyse des recettes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.analysis_tab">
+<span class="sig-name descname"><span class="pre">analysis_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.analysis_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.analysis_tab" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche l’onglet d’analyse avec diverses options d’analyse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_contributors_analysis">
+<span class="sig-name descname"><span class="pre">display_contributors_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_contributors_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_contributors_analysis" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche une analyse complète des contributeurs avec des visualisations interactives.</p>
+<p>Fournit des métriques, des graphiques de distribution et des informations détaillées sur les contributeurs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_tags_analysis">
+<span class="sig-name descname"><span class="pre">display_tags_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_tags_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_tags_analysis" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche une analyse détaillée des tags de recettes.
+Cette méthode génère plusieurs visualisations et statistiques
+sur l’utilisation des tags dans le jeu de données de recettes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_submission_analysis">
+<span class="sig-name descname"><span class="pre">display_submission_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_submission_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_submission_analysis" title="Lien vers cette définition"></a></dt>
+<dd><p>Afficher l’analyse des soumissions de recettes au fil du temps.</p>
+<p>Cette fonction permet de créer un tableau de bord interactif pour visualiser la distribution
+des recettes soumises en fonction des années, des mois et des jours de la semaine. Elle permet aux
+de sélectionner une plage de dates pour l’analyse et présente les données à l’aide de divers
+graphiques et tableaux.</p>
+<p>L’analyse comprend
+- Tendances annuelles des soumissions
+- La répartition mensuelle des demandes
+- les schémas de soumission pour les jours de la semaine.</p>
+<p>La fonction traite les exceptions potentielles et enregistre toutes les erreurs qui se produisent pendant l’exécution.</p>
+<p>Paramètres :
+Aucun</p>
+<p>Retourne :
+Aucun.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_steps_and_time_analysis">
+<span class="sig-name descname"><span class="pre">display_steps_and_time_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_steps_and_time_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_steps_and_time_analysis" title="Lien vers cette définition"></a></dt>
+<dd><p>Afficher l’analyse des étapes de la recette et du temps de préparation.</p>
+<p>Cette fonction permet de visualiser diverses statistiques et distributions relatives au nombre d’étapes des recettes et à leur temps de préparation.
+dans les recettes et leur temps de préparation. Elle crée des graphiques et des tableaux interactifs à l’aide de Streamlit
+pour présenter les données dans un format facilement assimilable.</p>
+<p>L’analyse comprend
+- Statistiques sur le nombre d’étapes (moyenne, médiane, min, max)
+- Distribution du nombre d’étapes entre les recettes
+- Statistiques relatives au temps (temps de préparation moyen, médian, min, max)
+- Répartition des recettes sur différentes plages horaires
+- Ventilation détaillée des plages de temps</p>
+<p>La fonction gère les exceptions potentielles et enregistre toutes les erreurs qui se produisent pendant l’exécution.</p>
+<p>Paramètres :
+Aucun</p>
+<p>Retourne :
+Aucun</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_nutrition_analysis">
+<span class="sig-name descname"><span class="pre">display_nutrition_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_nutrition_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_nutrition_analysis" title="Lien vers cette définition"></a></dt>
+<dd><p>Afficher l’analyse nutritionnelle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_data_structures">
+<span class="sig-name descname"><span class="pre">display_data_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns_to_show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_term</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_data_structures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_data_structures" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche les structures de données avec un filtrage optionnel.</p>
+<dl class="simple">
+<dt>Args :</dt><dd><dl class="simple">
+<dt>columns_to_show (Optional[list[str]], facultatif) :</dt><dd><p>Les colonnes à afficher. La valeur par défaut est None.</p>
+</dd>
+<dt>search_term (Optional[str], facultatif) :</dt><dd><p>Le terme de recherche pour filtrer les données. La valeur par défaut est None.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_anomalies_values">
+<span class="sig-name descname"><span class="pre">display_anomalies_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_anomalies_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_anomalies_values" title="Lien vers cette définition"></a></dt>
+<dd><p>Afficher les valeurs d’anomalies dans le jeu de données.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.analyze_ingredients">
+<span class="sig-name descname"><span class="pre">analyze_ingredients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.analyze_ingredients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.analyze_ingredients" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyser et afficher les ingrédients les plus fréquents dans les recettes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.display_tab">
+<span class="sig-name descname"><span class="pre">display_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.display_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.display_tab" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche les principaux onglets de l’application.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.pages.recipes.Analyse_recipes.DisplayManager.recommandation_page">
+<span class="sig-name descname"><span class="pre">recommandation_page</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/src/pages/recipes/Analyse_recipes.html#DisplayManager.recommandation_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.pages.recipes.Analyse_recipes.DisplayManager.recommandation_page" title="Lien vers cette définition"></a></dt>
+<dd><p>Affichez la page de recommandation avec des recommandations de recettes personnalisées.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="Welcom.html" class="btn btn-neutral float-left" title="Welcom" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="../../scripts.html" class="btn btn-neutral float-right" title="Scripts" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

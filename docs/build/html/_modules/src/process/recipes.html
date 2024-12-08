@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.process.recipes &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">src.process.recipes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de src.process.recipes</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">src.utils.helper_data</span> <span class="kn">import</span> <span class="n">load_dataset_from_file</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<span class="kn">from</span> <span class="nn">pymongo.errors</span> <span class="kn">import</span> <span class="n">ServerSelectionTimeoutError</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">src.pages.recipes.Welcom</span> <span class="kn">import</span> <span class="n">Welcome</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">CONNECTION_STRING</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;CONNECTION_STRING&quot;</span><span class="p">)</span>
+<span class="n">DATABASE_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;testdb&quot;</span><span class="p">)</span>
+<span class="n">COLLECTION_RECIPES_NAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;COLLECTION_RECIPES_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;recipes&quot;</span><span class="p">)</span>
+<span class="n">DEPLOIEMENT_SITE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DEPLOIEMENT_SITE&quot;</span><span class="p">,</span> <span class="s2">&quot;LOCAL&quot;</span><span class="p">)</span>
+
+
+<span class="n">DEPLOIEMENT_SITE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DEPLOIEMENT_SITE&quot;</span><span class="p">)</span>
+<span class="n">YEAR_MIN</span> <span class="o">=</span> <span class="mi">1999</span> <span class="k">if</span> <span class="n">DEPLOIEMENT_SITE</span> <span class="o">!=</span> <span class="s2">&quot;ONLINE&quot;</span> <span class="k">else</span> <span class="mi">2014</span>
+<span class="n">YEAR_MAX</span> <span class="o">=</span> <span class="mi">2018</span> <span class="k">if</span> <span class="n">DEPLOIEMENT_SITE</span> <span class="o">!=</span> <span class="s2">&quot;ONLINE&quot;</span> <span class="k">else</span> <span class="mi">2018</span>
+
+<span class="c1"># Configurer le logger pour écrire dans un fichier</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;app.log&quot;</span><span class="p">)),</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="n">error_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;error.log&quot;</span><span class="p">))</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+    <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">error_handler</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="NutritionStats">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.NutritionStats">[docs]</a>
+<span class="k">class</span> <span class="nc">NutritionStats</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">median</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="nb">min</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="nb">max</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">quartiles</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="TemporalStats">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.TemporalStats">[docs]</a>
+<span class="k">class</span> <span class="nc">TemporalStats</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">date_min</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="n">date_max</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="n">total_days</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">submissions_per_year</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">submissions_per_month</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">submissions_per_weekday</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="ComplexityStats">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.ComplexityStats">[docs]</a>
+<span class="k">class</span> <span class="nc">ComplexityStats</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">steps_stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span>
+    <span class="n">time_stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span></div>
+
+
+<div class="viewcode-block" id="ContributorStats">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.ContributorStats">[docs]</a>
+<span class="k">class</span> <span class="nc">ContributorStats</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">total_contributors</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">contributions_per_user</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span>
+    <span class="n">top_contributors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="TagStats">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.TagStats">[docs]</a>
+<span class="k">class</span> <span class="nc">TagStats</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">total_unique_tags</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">most_common_tags</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">tags_per_recipe</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Recipe">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe">[docs]</a>
+<span class="k">class</span> <span class="nc">Recipe</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;RAW_recipes&quot;</span><span class="p">,</span>
+        <span class="n">date_start</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">YEAR_MIN</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">date_end</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">YEAR_MAX</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">st</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">date_start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_end</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">=</span> <span class="n">date_end</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialize_session_state</span><span class="p">(</span><span class="n">date_start</span><span class="p">,</span> <span class="n">date_end</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error initializing session state: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">annomalis</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span>
+                                 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detect_dataframe_anomalies</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error detecting dataframe anomalies: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+
+
+<div class="viewcode-block" id="Recipe.initialize_session_state">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.initialize_session_state">[docs]</a>
+    <span class="k">def</span> <span class="nf">initialize_session_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialiser l&#39;état de session avec un jeu de données filtré.</span>
+
+<span class="sd">        Cette fonction configure l&#39;état de session avec le jeu de données approprié en fonction du site de déploiement</span>
+<span class="sd">        et de la plage de dates. Elle gère les déploiements en ligne et locaux, en récupérant les données à partir de MongoDB ou</span>
+<span class="sd">        en les chargeant à partir d&#39;un fichier local.</span>
+
+<span class="sd">        Paramètres:</span>
+<span class="sd">        start_date (datetime or date): La date de début pour filtrer le jeu de données.</span>
+<span class="sd">        end_date (datetime or date): La date de fin pour filtrer le jeu de données.</span>
+
+<span class="sd">        Retourne:</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Lève:</span>
+<span class="sd">        Exception: Si une erreur se produit pendant le processus d&#39;initialisation, elle enregistre l&#39;erreur et la relance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">DEPLOIEMENT_SITE</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">DEPLOIEMENT_SITE</span> <span class="o">==</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;data&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s1">&#39;start_date&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">start_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                            <span class="n">start_date</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="s1">&#39;end_date&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+                        <span class="n">st</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">end_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                            <span class="n">end_date</span><span class="p">)</span>
+                    <span class="n">welcome_container</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">Welcome</span><span class="o">.</span><span class="n">show_welcom</span><span class="p">(</span><span class="n">DEPLOIEMENT_SITE</span><span class="p">,</span>
+                                                                     <span class="bp">self</span><span class="o">.</span><span class="n">fetch_data_from_mongodb</span><span class="p">,</span> <span class="n">CONNECTION_STRING</span><span class="p">,</span> <span class="n">DATABASE_NAME</span><span class="p">,</span> <span class="n">COLLECTION_RECIPES_NAME</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+                    <span class="n">welcome_container</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">start_date</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">start_date</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">start_date</span><span class="p">)</span> <span class="o">!=</span> <span class="n">date</span><span class="p">(</span><span class="n">YEAR_MIN</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">end_date</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span> <span class="o">!=</span> <span class="n">date</span><span class="p">(</span><span class="n">YEAR_MAX</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)):</span>
+                    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">&quot;⏳ **Chargement en cours...**&quot;</span><span class="p">):</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fetch_data_from_mongodb</span><span class="p">(</span>
+                                <span class="n">CONNECTION_STRING</span><span class="p">,</span> <span class="n">DATABASE_NAME</span><span class="p">,</span> <span class="n">COLLECTION_RECIPES_NAME</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">start_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                                <span class="n">start_date</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">end_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                                <span class="n">end_date</span><span class="p">)</span>
+
+                        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Erreur de chargement : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;data&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">:</span>
+                    <span class="n">dataset_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DIR_DATASET&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">Welcome</span><span class="o">.</span><span class="n">show_welcom</span><span class="p">(</span><span class="n">DEPLOIEMENT_SITE</span><span class="p">,</span> <span class="n">load_dataset_from_file</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="n">dataset_dir</span><span class="p">,</span> <span class="s2">&quot;RAW_recipes.csv&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">start_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                        <span class="n">start_date</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">end_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                        <span class="n">end_date</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">start_date</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">start_date</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">start_date</span><span class="p">)</span> <span class="o">!=</span> <span class="n">date</span><span class="p">(</span><span class="n">YEAR_MIN</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">end_date</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span> <span class="o">!=</span> <span class="n">date</span><span class="p">(</span><span class="n">YEAR_MAX</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)):</span>
+                    <span class="n">dataset_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DIR_DATASET&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">load_dataset_from_file</span><span class="p">(</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_dir</span><span class="p">,</span> <span class="s2">&quot;RAW_recipes.csv&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_datetime</span><span class="p">(</span><span class="n">start_date</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_datetime</span><span class="p">(</span><span class="n">end_date</span><span class="p">))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">start_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                        <span class="n">start_date</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">end_date</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_date</span><span class="p">(</span>
+                        <span class="n">end_date</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in initialize_session_state: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_ensure_datetime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;L&#39;objet doit être de type datetime ou date.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_ensure_date</span><span class="p">(</span><span class="n">sefl</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">date</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;L&#39;objet doit être de type date ou datetime.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Recipe.detect_dataframe_anomalies">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.detect_dataframe_anomalies">[docs]</a>
+    <span class="k">def</span> <span class="nf">detect_dataframe_anomalies</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">std_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span>
+            <span class="n">z_score_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Détecter les anomalies dans le DataFrame à l&#39;aide de diverses méthodes statistiques.</span>
+
+<span class="sd">        Cette fonction effectue plusieurs techniques de détection d&#39;anomalies sur le DataFrame,</span>
+<span class="sd">        notamment la détection des valeurs manquantes, la détection des valeurs aberrantes basée sur l&#39;écart-type,</span>
+<span class="sd">        et la détection des valeurs aberrantes basée sur le score Z. Elle fournit également des informations sur les types de colonnes</span>
+<span class="sd">        et les décomptes de valeurs uniques.</span>
+
+<span class="sd">        Paramètres:</span>
+<span class="sd">            std_threshold (float): Le nombre d&#39;écarts-types à utiliser comme seuil</span>
+<span class="sd">                pour identifier les valeurs aberrantes dans la méthode de l&#39;écart-type (par défaut à 3.0).</span>
+<span class="sd">            z_score_threshold (float): Le seuil de score Z à utiliser pour identifier les valeurs</span>
+<span class="sd">                aberrantes dans la méthode du score Z (par défaut à 3.0).</span>
+
+<span class="sd">        Retourne:</span>
+<span class="sd">            Dict[str, pd.DataFrame]: Un dictionnaire contenant divers DataFrames avec les</span>
+<span class="sd">            anomalies détectées et les informations sur les données. Les clés du dictionnaire sont :</span>
+
+<span class="sd">            - &#39;missing_values&#39;: DataFrame avec les nombres et pourcentages de valeurs manquantes</span>
+<span class="sd">            - &#39;std_outliers&#39;: DataFrame avec les valeurs aberrantes basées sur l&#39;écart-type</span>
+<span class="sd">            - &#39;z_score_outliers&#39;: DataFrame avec les valeurs aberrantes basées sur le score Z</span>
+<span class="sd">            - &#39;column_info&#39;: DataFrame avec les informations sur les colonnes (décomptes uniques, etc.)</span>
+<span class="sd">            - &#39;data_types&#39;: DataFrame avec les types de données et des exemples de valeurs pour chaque colonne</span>
+
+<span class="sd">        Lève:</span>
+<span class="sd">            Exception: Si une erreur se produit pendant le processus de détection d&#39;anomalies.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">anomalies</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Missing values detection</span>
+            <span class="n">missing_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                <span class="s1">&#39;Missing Count&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                <span class="s1">&#39;Missing Percentage&#39;</span><span class="p">:</span> <span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="p">})</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;`Missing Count` &gt; 0&#39;</span><span class="p">)</span>
+            <span class="n">anomalies</span><span class="p">[</span><span class="s1">&#39;missing_values&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">missing_df</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">missing_df</span><span class="o">.</span><span class="n">empty</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+            <span class="c1"># Numeric columns detection</span>
+            <span class="n">numeric_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span>
+                <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+
+            <span class="c1"># Standard deviation outliers</span>
+            <span class="n">std_outliers_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numeric_columns</span><span class="p">:</span>
+                <span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="n">std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+                <span class="n">std_outliers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">std_threshold</span> <span class="o">*</span> <span class="n">std</span><span class="p">)</span>
+                <span class="p">]</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">std_outliers</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                    <span class="n">std_outliers_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                        <span class="s1">&#39;Column&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                        <span class="s1">&#39;Mean&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean</span><span class="p">],</span>
+                        <span class="s1">&#39;Standard Deviation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">std</span><span class="p">],</span>
+                        <span class="s1">&#39;Lower Bound&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean</span> <span class="o">-</span> <span class="p">(</span><span class="n">std_threshold</span> <span class="o">*</span> <span class="n">std</span><span class="p">)],</span>
+                        <span class="s1">&#39;Upper Bound&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">std_threshold</span> <span class="o">*</span> <span class="n">std</span><span class="p">)],</span>
+                        <span class="s1">&#39;Outlier Count&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">std_outliers</span><span class="p">)],</span>
+                        <span class="s1">&#39;Outlier Percentage&#39;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">std_outliers</span><span class="p">)</span> <span class="o">/</span>
+                                  <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+                        <span class="p">]</span>
+                    <span class="p">})</span>
+                    <span class="n">std_outliers_dict</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">std_outliers_info</span>
+
+            <span class="c1"># Z-score outliers</span>
+            <span class="n">z_score_outliers_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numeric_columns</span><span class="p">:</span>
+                <span class="n">z_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span>
+                <span class="n">z_score_outliers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">z_scores</span> <span class="o">&gt;</span>
+                                                              <span class="n">z_score_threshold</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">z_score_outliers</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                    <span class="n">z_score_outliers_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                        <span class="s1">&#39;Column&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                        <span class="s1">&#39;Mean&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span>
+                        <span class="s1">&#39;Standard Deviation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()],</span>
+                        <span class="s1">&#39;Outlier Count&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">z_score_outliers</span><span class="p">)],</span>
+                        <span class="s1">&#39;Outlier Percentage&#39;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">z_score_outliers</span><span class="p">)</span> <span class="o">/</span>
+                                  <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+                        <span class="p">]</span>
+                    <span class="p">})</span>
+                    <span class="n">z_score_outliers_dict</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">z_score_outliers_info</span>
+
+            <span class="c1"># Combine outlier results</span>
+            <span class="n">anomalies</span><span class="p">[</span><span class="s1">&#39;std_outliers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">std_outliers_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">std_outliers_dict</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="n">anomalies</span><span class="p">[</span><span class="s1">&#39;z_score_outliers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">z_score_outliers_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">z_score_outliers_dict</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Column information</span>
+            <span class="k">def</span> <span class="nf">safe_nunique</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Handle columns that might contain lists.&quot;&quot;&quot;</span>
+                <span class="k">if</span> <span class="n">series</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                    <span class="n">unique_elements</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+                        <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">series</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+                    <span class="p">)</span>
+                    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_elements</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">series</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+            <span class="n">column_info_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                <span class="s1">&#39;Total Count&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">),</span>
+                <span class="s1">&#39;Unique Count&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="n">col</span><span class="p">:</span> <span class="n">safe_nunique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span>
+                        <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">]</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;Unique Percentage&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="n">col</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span>
+                        <span class="n">safe_nunique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="o">/</span>
+                        <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+                        <span class="mi">2</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span>
+                        <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;string&#39;</span><span class="p">]</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+            <span class="n">anomalies</span><span class="p">[</span><span class="s1">&#39;column_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">column_info_df</span>
+
+            <span class="c1"># Data types information</span>
+            <span class="n">data_types_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                <span class="s1">&#39;Data Type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span>
+                <span class="s1">&#39;Sample&#39;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+            <span class="p">})</span>
+            <span class="n">anomalies</span><span class="p">[</span><span class="s1">&#39;data_types&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_types_df</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error detecting dataframe anomalies: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="n">anomalies</span></div>
+
+
+<div class="viewcode-block" id="Recipe.clean_dataframe">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.clean_dataframe">[docs]</a>
+    <span class="k">def</span> <span class="nf">clean_dataframe</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">cleaning_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;std&#39;</span><span class="p">,</span>
+        <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Supprimer les anomalies du DataFrame en fonction des résultats de détection.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            anomalies: Résultats de la détection d&#39;anomalies</span>
+<span class="sd">            cleaning_method: Méthode de nettoyage (&#39;std&#39; ou &#39;zscore&#39;)</span>
+<span class="sd">            threshold: Seuil pour la détection d&#39;anomalies</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">numeric_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span>
+                <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numeric_columns</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cleaning_method</span> <span class="o">==</span> <span class="s1">&#39;std&#39;</span><span class="p">:</span>
+                    <span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                    <span class="n">std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+                    <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="p">(</span><span class="n">threshold</span> <span class="o">*</span> <span class="n">std</span><span class="p">)</span>
+                    <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">threshold</span> <span class="o">*</span> <span class="n">std</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span>
+                        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">&amp;</span>
+                        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">upper_bound</span><span class="p">)</span>
+                    <span class="p">]</span>
+
+                <span class="k">elif</span> <span class="n">cleaning_method</span> <span class="o">==</span> <span class="s1">&#39;zscore&#39;</span><span class="p">:</span>
+                    <span class="n">z_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">z_scores</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">]</span>
+
+            <span class="c1"># Handle missing values</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">annomalis</span><span class="p">[</span><span class="s1">&#39;missing_values&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span>
+                    <span class="n">subset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">annomalis</span><span class="p">[</span><span class="s1">&#39;missing_values&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+                <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
+                <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error cleaning dataframe: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="Recipe.analyze_nutrition">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.analyze_nutrition">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_nutrition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">NutritionStats</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyser les informations nutritionnelles.</span>
+
+<span class="sd">        Retourne :</span>
+<span class="sd">            Statistiques nutritionnelles pour chaque catégorie</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span>
+
+            <span class="k">if</span> <span class="n">DEPLOIEMENT_SITE</span> <span class="o">!=</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">:</span>
+                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nutrition_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nutrition&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nutrition_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nutrition&#39;</span><span class="p">]</span>
+            <span class="n">nutrition_columns</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s1">&#39;calories&#39;</span><span class="p">,</span> <span class="s1">&#39;total_fat&#39;</span><span class="p">,</span> <span class="s1">&#39;sugar&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;sodium&#39;</span><span class="p">,</span> <span class="s1">&#39;protein&#39;</span><span class="p">,</span> <span class="s1">&#39;saturated_fat&#39;</span><span class="p">,</span> <span class="s1">&#39;carbohydrates&#39;</span>
+            <span class="p">]</span>
+
+            <span class="n">nutrition_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nutrition_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                <span class="n">columns</span><span class="o">=</span><span class="n">nutrition_columns</span>
+            <span class="p">)</span>
+
+            <span class="n">nutrition_stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">NutritionStats</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">col</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">nutrition_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                    <span class="s1">&#39;median&#39;</span><span class="p">:</span> <span class="n">nutrition_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+                    <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">nutrition_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">nutrition_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                    <span class="s1">&#39;quartiles&#39;</span><span class="p">:</span> <span class="n">nutrition_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">])</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+                <span class="p">}</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">nutrition_columns</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing nutrition: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="n">nutrition_stats</span></div>
+
+
+<div class="viewcode-block" id="Recipe.analyze_temporal_distribution">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.analyze_temporal_distribution">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_temporal_distribution</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">date_start</span><span class="p">:</span> <span class="n">datetime</span><span class="p">,</span>
+        <span class="n">date_end</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TemporalStats</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyse la distribution temporelle des recettes.</span>
+
+<span class="sd">        Args :</span>
+<span class="sd">            date_start : Date de début de l&#39;analyse</span>
+<span class="sd">            date_end : Date de fin de l&#39;analyse</span>
+
+<span class="sd">        Returns :</span>
+<span class="sd">            Statistiques de distribution temporelle</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">date_start</span><span class="p">)</span> <span class="o">&amp;</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">date_end</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+            <span class="n">temporal_stats</span><span class="p">:</span> <span class="n">TemporalStats</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;date_min&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                <span class="s1">&#39;date_max&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                <span class="s1">&#39;total_days&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">days</span><span class="p">,</span>
+                <span class="s1">&#39;submissions_per_year&#39;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
+                <span class="s1">&#39;submissions_per_month&#39;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
+                <span class="s1">&#39;submissions_per_weekday&#39;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;submitted&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing temporal distribution: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">return</span> <span class="n">temporal_stats</span></div>
+
+
+<div class="viewcode-block" id="Recipe.analyze_tags">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.analyze_tags">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TagStats</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyse les étiquettes de recettes et génère des statistiques liées aux étiquettes.</span>
+
+<span class="sd">        Cette fonction traite les étiquettes associées aux recettes dans l&#39;ensemble de données,</span>
+<span class="sd">        calculant diverses statistiques telles que le nombre total de balises uniques, les balises </span>
+<span class="sd">        les plus courantes, ainsi que des statistiques sur le nombre de balises par recette.</span>
+
+<span class="sd">        Retourne :</span>
+<span class="sd">            TagStats :</span>
+<span class="sd">                Un dictionnaire contenant les statistiques suivantes relatives aux étiquettes :</span>
+
+<span class="sd">                - &#39;total_unique_tags&#39; : Le nombre total de tags uniques dans toutes les recettes.</span>
+<span class="sd">                - &#39;most_common_tags&#39; : Un dictionnaire des 20 tags les plus courants et de leur fréquence.</span>
+<span class="sd">                - &#39;tags_per_recipe&#39; : Un dictionnaire contenant des statistiques sur le nombre de tags par recette :</span>
+<span class="sd">                    - &#39;mean&#39; : Le nombre moyen de tags par recette.</span>
+<span class="sd">                    - &#39;median&#39; : Le nombre médian de tags par recette.</span>
+<span class="sd">                    - &#39;min&#39; : Le nombre minimum de tags pour une recette.</span>
+<span class="sd">                    - &#39;max&#39; : Le nombre maximum de tags pour une recette.</span>
+
+<span class="sd">        Lève :</span>
+<span class="sd">            Exception : Si une erreur se produit pendant le processus d&#39;analyse des balises.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span>
+            <span class="k">if</span> <span class="n">DEPLOIEMENT_SITE</span> <span class="o">!=</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">:</span>
+                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags_list&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span>
+
+            <span class="n">all_tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">tag</span> <span class="k">for</span> <span class="n">tags</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags_list&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">]</span>
+            <span class="n">tag_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">all_tags</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+            <span class="n">tag_stats</span><span class="p">:</span> <span class="n">TagStats</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;total_unique_tags&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">tag_counts</span><span class="p">),</span>
+                <span class="s1">&#39;most_common_tags&#39;</span><span class="p">:</span> <span class="n">tag_counts</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(),</span>
+                <span class="s1">&#39;tags_per_recipe&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                    <span class="s1">&#39;median&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+                    <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags_list&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing tags: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="n">tag_stats</span></div>
+
+
+<div class="viewcode-block" id="Recipe.analyze_contributors">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.analyze_contributors">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_contributors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Analyse les contributions par utilisateur.</span>
+
+<span class="sd">        Cette fonction calcule le nombre total de contributeurs,</span>
+<span class="sd">        les statistiques de contributions par utilisateur (moyenne, médiane, maximum),</span>
+<span class="sd">        et les 10 principaux contributeurs.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Un dictionnaire contenant les statistiques de contributions par utilisateur.</span>
+<span class="sd">            Le dictionnaire a les clés suivantes :</span>
+<span class="sd">            - &#39;total_contributors&#39;: Nombre total de contributeurs.</span>
+<span class="sd">            - &#39;contributions_per_user&#39;: Statistiques de contributions par utilisateur (moyenne, médiane, maximum).</span>
+<span class="sd">            - &#39;top_contributors&#39;: Les 10 principaux contributeurs avec leur nombre de contributions.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: Si une erreur se produit lors de l&#39;analyse des contributions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">contributor_stats</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;total_contributors&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;contributor_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+                <span class="s1">&#39;contributions_per_user&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;contributor_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                    <span class="s1">&#39;median&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;contributor_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+                    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;contributor_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;top_contributors&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;contributor_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing contributors: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="n">contributor_stats</span></div>
+
+
+<div class="viewcode-block" id="Recipe.analyze_recipe_dataset">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.analyze_recipe_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_recipe_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Effectuer une analyse complète de l&#39;ensemble des données.</span>
+
+<span class="sd">        Retours :</span>
+<span class="sd">            Analyse complète de l&#39;ensemble de données de la recette</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span>
+
+            <span class="n">general_stats</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;total_recipes&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+                <span class="s1">&#39;dataset_size_mb&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span>
+                <span class="s1">&#39;columns&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+                <span class="s1">&#39;missing_values&#39;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing recipe dataset: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;general_stats&#39;</span><span class="p">:</span> <span class="n">general_stats</span><span class="p">,</span>
+            <span class="s1">&#39;temporal_analysis&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyze_temporal_distribution</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">date_start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">date_end</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;complexity_analysis&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyze_recipe_complexity</span><span class="p">(),</span>
+            <span class="s1">&#39;nutrition_analysis&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyze_nutrition</span><span class="p">(),</span>
+            <span class="s1">&#39;tag_analysis&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyze_tags</span><span class="p">(),</span>
+            <span class="s1">&#39;contributor_analysis&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyze_contributors</span><span class="p">()</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="Recipe.analyze_recipe_complexity">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.analyze_recipe_complexity">[docs]</a>
+    <span class="k">def</span> <span class="nf">analyze_recipe_complexity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Analyse la complexité des recettes&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">complexity_stats</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;steps_stats&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;n_steps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                    <span class="s1">&#39;median&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;n_steps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+                    <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;n_steps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;n_steps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                    <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;n_steps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;time_stats&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;mean_minutes&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                    <span class="s1">&#39;median_minutes&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+                    <span class="s1">&#39;min_minutes&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                    <span class="s1">&#39;max_minutes&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                    <span class="s1">&#39;time_ranges&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">],</span>
+                                          <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span>
+                                                <span class="mi">120</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)],</span>
+                                          <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;0-15min&#39;</span><span class="p">,</span> <span class="s1">&#39;15-30min&#39;</span><span class="p">,</span> <span class="s1">&#39;30-60min&#39;</span><span class="p">,</span> <span class="s1">&#39;1-2h&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;2h&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error analyzing recipe complexity: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        <span class="k">return</span> <span class="n">complexity_stats</span></div>
+
+
+<div class="viewcode-block" id="Recipe.fetch_data_from_mongodb">
+<a class="viewcode-back" href="../../../process.html#src.process.recipes.Recipe.fetch_data_from_mongodb">[docs]</a>
+    <span class="k">def</span> <span class="nf">fetch_data_from_mongodb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_string</span><span class="p">,</span> <span class="n">database_name</span><span class="p">,</span> <span class="n">collection_name</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Charge les données depuis MongoDB en fonction d&#39;un intervalle de dates et retourne un DataFrame.</span>
+
+<span class="sd">        :param connection_string: URI de connexion à MongoDB</span>
+<span class="sd">        :param database_name: Nom de la base de données</span>
+<span class="sd">        :param collection_name: Nom de la collection</span>
+<span class="sd">        :param start_date: Date de début (string ou datetime)</span>
+<span class="sd">        :param end_date: Date de fin (string ou datetime)</span>
+<span class="sd">        :return: DataFrame contenant les données</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span>
+                <span class="n">connection_string</span><span class="p">,</span>
+                <span class="n">serverSelectionTimeoutMS</span><span class="o">=</span><span class="mi">5000</span>
+            <span class="p">)</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">admin</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="s1">&#39;ping&#39;</span><span class="p">)</span>
+            <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="n">database_name</span><span class="p">]</span>
+            <span class="n">collection</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">collection_name</span><span class="p">]</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;submitted&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$gte&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+                <span class="n">start_date</span><span class="p">),</span> <span class="s2">&quot;$lte&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">end_date</span><span class="p">)}}</span>
+            <span class="n">projection</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">projection</span><span class="p">))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">st</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">&quot;Aucune donnée trouvée pour cet intervalle de dates.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">df</span>
+
+        <span class="k">except</span> <span class="n">ServerSelectionTimeoutError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur de connexion à MongoDB : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors de la récupération des données : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

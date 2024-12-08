@@ -1,0 +1,97 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.4, pluggy-1.5.0
+rootdir: /home/paul/Cours/BGDIA700/projet_kit_big_data
+configfile: pytest.ini
+plugins: mock-3.14.0, cov-6.0.0
+collected 222 items
+
+tests/scripts/test_download_dataset.py ..                                [  0%]
+tests/scripts/test_mongo_data.py .......                                 [  4%]
+tests/test_nutrition/test_nutrition.py .......                           [  7%]
+tests/test_nutrition/test_nutrition_preprocess.py ..                     [  8%]
+tests/test_pages/recipes/test_CssLoaderRecipe.py ..                      [  9%]
+tests/test_pages/recipes/test_DataManager.py .........                   [ 13%]
+tests/test_pages/recipes/test_DisplayManager.py ........................ [ 23%]
+.......                                                                  [ 27%]
+tests/test_pages/recipes/test_welcom.py ......                           [ 29%]
+tests/test_pages/test_analyse_user/test_CssLoader.py .                   [ 30%]
+tests/test_pages/test_analyse_user/test_DataAnalyzer.py ....             [ 31%]
+tests/test_pages/test_analyse_user/test_DataLoader.py .                  [ 32%]
+tests/test_pages/test_analyse_user/test_VisualizationManager.py .        [ 32%]
+tests/test_pages/test_analyse_user/test_added.py ..........              [ 37%]
+tests/test_pages/test_analyse_user/test_reste_de_la_page.py ............ [ 42%]
+....                                                                     [ 44%]
+tests/test_process_data/test_avanced_recipe_recommander.py ............. [ 50%]
+.......                                                                  [ 53%]
+tests/test_process_data/test_process_recipe.py ......................... [ 64%]
+...........                                                              [ 69%]
+tests/test_process_data/test_process_recipe_sacha.py ........            [ 73%]
+tests/test_process_data/test_recipe.py .....................             [ 82%]
+tests/test_visualizations/test_css/test_load_css.py ..                   [ 83%]
+tests/test_visualizations/test_graphiques/test_barchart.py .             [ 84%]
+tests/test_visualizations/test_graphiques/test_boxplot.py ..             [ 85%]
+tests/test_visualizations/test_graphiques/test_donuts.py ..              [ 86%]
+tests/test_visualizations/test_graphiques/test_graphique.py .            [ 86%]
+tests/test_visualizations/test_graphiques/test_heatmap.py ...            [ 87%]
+tests/test_visualizations/test_graphiques/test_histogramme.py ..         [ 88%]
+tests/test_visualizations/test_graphiques/test_linechart.py ..           [ 89%]
+tests/test_visualizations/test_graphiques/test_scatterplot.py ..         [ 90%]
+tests/test_visualizations/test_graphiques/test_treemap.py ....           [ 92%]
+tests/test_visualizations/test_grille/test_grille.py .                   [ 92%]
+tests/utils/test_helper_data.py .......                                  [ 95%]
+tests/utils/test_mongodb_connector.py .........                          [100%]
+
+=============================== warnings summary ===============================
+tests/test_pages/test_analyse_user/test_added.py::test_data_analyzer_preprocessing_with_date
+tests/test_pages/test_analyse_user/test_added.py::test_analyze_ratings_frequencies
+tests/test_pages/test_analyse_user/test_added.py::test_analyze_user_ratings_frequencies_user_missing
+tests/test_pages/test_analyse_user/test_added.py::test_analyze_user_missing_data
+  /home/paul/Cours/BGDIA700/projet_big_data/tests/test_pages/test_analyse_user/test_added.py:12: FutureWarning:
+  
+  'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+
+tests/test_pages/test_analyse_user/test_added.py::test_data_analyzer_preprocessing_with_date
+tests/test_pages/test_analyse_user/test_added.py::test_analyze_ratings_frequencies
+tests/test_pages/test_analyse_user/test_added.py::test_analyze_user_ratings_frequencies_user_missing
+tests/test_pages/test_analyse_user/test_added.py::test_analyze_user_missing_data
+  /home/paul/Cours/BGDIA700/projet_big_data/tests/test_pages/test_analyse_user/test_added.py:15: FutureWarning:
+  
+  'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform linux, python 3.12.3-final-0 -----------
+Name                                           Stmts   Miss  Cover   Missing
+----------------------------------------------------------------------------
+src/ __init__.py                                   0      0   100%
+src/Recettes.py                                   20     20     0%   27-49
+src/pages/Nutrition.py                           282    150    47%   68-71, 151-152, 259-387, 394-402, 413-518, 537-547, 552-560
+src/pages/__init__.py                              0      0   100%
+src/pages/analyse_user.py                        374     79    79%   72-73, 106-108, 141-144, 183-184, 194-196, 223-226, 242-243, 260-262, 287-290, 320-323, 361-364, 418-421, 457-460, 495-498, 516-517, 542-545, 570-572, 610-613, 650-653, 668-670, 689-691, 855-870, 873, 885, 908-935, 958-961, 980-983, 986
+src/pages/recipes/Analyse_recipes.py             530     60    89%   50-51, 148-149, 164-165, 180-181, 196-197, 265, 270-271, 285, 317-327, 346, 348, 350, 352, 423-434, 486-487, 522-541, 614-615, 677, 931, 1056-1059, 1068-1071, 1100-1101, 1128-1129
+src/pages/recipes/Welcom.py                       70     18    74%   26, 71-75, 107-119, 166-169
+src/pages/recipes/__init__.py                      0      0   100%
+src/process/nutrition_preprocess.py               82      9    89%   87-92, 97-99, 102-104
+src/process/recipes.py                           249     18    93%   127-150, 185
+src/process/recommandation.py                     58      7    88%   50-52, 69, 150-152
+src/utils/MongoDBConnector.py                     54      4    93%   74-77
+src/utils/__init__.py                              0      0   100%
+src/utils/helper_data.py                          34      0   100%
+src/utils/static.py                                9      0   100%
+src/visualizations/__init__.py                     2      0   100%
+src/visualizations/graphique.py                    5      0   100%
+src/visualizations/graphiques/__init__.py          9      0   100%
+src/visualizations/graphiques/barchart.py         13      0   100%
+src/visualizations/graphiques/boxplot.py          15      0   100%
+src/visualizations/graphiques/donut.py            14      0   100%
+src/visualizations/graphiques/heatmap.py          18      0   100%
+src/visualizations/graphiques/histogramme.py      18      0   100%
+src/visualizations/graphiques/linechart.py        21      0   100%
+src/visualizations/graphiques/scatterplot.py      18      0   100%
+src/visualizations/graphiques/treemap.py          17      0   100%
+src/visualizations/grille.py                      21      0   100%
+src/visualizations/load_css.py                     8      0   100%
+----------------------------------------------------------------------------
+TOTAL                                           1941    365    81%
+
+================= 222 passed, 8 warnings in 428.73s (0:07:08) ==================

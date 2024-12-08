@@ -1,0 +1,135 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.visualizations.load_css &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">src.visualizations.load_css</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de src.visualizations.load_css</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+
+<div class="viewcode-block" id="load_css">
+<a class="viewcode-back" href="../../../visualizations.html#src.visualizations.load_css.load_css">[docs]</a>
+<span class="k">def</span> <span class="nf">load_css</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Charge et applique un fichier CSS personnalisé dans l&#39;application Streamlit.</span>
+
+<span class="sd">    Cette fonction lit le contenu d&#39;un fichier CSS spécifié par le chemin fourni et l&#39;applique</span>
+<span class="sd">    à l&#39;application Streamlit en injectant le CSS dans le HTML de la page. Si le fichier n&#39;est pas</span>
+<span class="sd">    trouvé, une erreur est affichée dans l&#39;interface Streamlit.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Le chemin vers le fichier CSS à charger.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        FileNotFoundError: Si le fichier CSS spécifié n&#39;est pas trouvé.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">css</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">st</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&lt;style&gt;</span><span class="si">{</span><span class="n">css</span><span class="si">}</span><span class="s1">&lt;/style&gt;&#39;</span><span class="p">,</span> <span class="n">unsafe_allow_html</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le fichier CSS n&#39;a pas été trouvé : </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
