@@ -39,6 +39,29 @@ def safe_eval(value, default=None):
 
 
 def convert_dataframe_to_documents(df):
+    """
+    Converts a pandas DataFrame to a list of documents suitable for MongoDB insertion.
+
+    This function iterates over each row in the DataFrame, converting specific columns
+    from JSON strings to Python objects and handling date conversions. It's particularly
+    designed for processing recipe data with tags, nutrition information, steps, and ingredients.
+
+    Parameters:
+    df (pandas.DataFrame): The input DataFrame containing recipe data.
+
+    Returns:
+    list: A list of dictionaries, where each dictionary represents a document
+          ready for insertion into MongoDB. The documents contain the following
+          key modifications:
+          - 'tags', 'nutrition', 'steps', and 'ingredients' are converted from JSON strings
+            to Python lists or dictionaries.
+          - 'submitted' is converted to a datetime object.
+
+    Note:
+    This function assumes the presence of 'tags', 'nutrition', 'steps', 'ingredients',
+    and 'submitted' columns in the input DataFrame. It uses the `safe_eval` function
+    to handle potential parsing errors.
+    """
     documents = []
     for _, row in df.iterrows():
         document = row.to_dict()
@@ -60,6 +83,24 @@ def convert_dataframe_to_documents(df):
 
 
 def load_dataframe_to_mongodb(df, connection_string, database_name, collection_name, batch_size=1000, use_convertisseur=True):
+    """
+    Charge un DataFrame dans une collection MongoDB.
+
+    Cette fonction se connecte à une base de données MongoDB, sélectionne une collection,
+    convertit un DataFrame en documents MongoDB (selon le paramètre `use_convertisseur`),
+    et insère les documents en lots dans la collection.
+
+    Args:
+        df (pd.DataFrame): Le DataFrame à charger.
+        connection_string (str): La chaîne de connexion MongoDB.
+        database_name (str): Le nom de la base de données MongoDB.
+        collection_name (str): Le nom de la collection MongoDB.
+        batch_size (int, optional): La taille des lots d'insertion. Par défaut, 1000.
+        use_convertisseur (bool, optional): Si True, utilise la fonction `convert_dataframe_to_documents` pour convertir le DataFrame. Par défaut, True.
+
+    Returns:
+        None
+    """
     try:
         # Établir la connexion à MongoDB
         client = MongoClient(

@@ -33,23 +33,6 @@ from datetime import datetime
 from src.pages.recipes.Welcom import Welcome
 load_dotenv()
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(os.path.join(os.path.join(
-            os.path.dirname(__file__), '../..'), "app.log")),
-        logging.StreamHandler()
-    ]
-)
-
-error_handler = logging.FileHandler(os.path.join(os.path.join(
-    os.path.dirname(__file__), '../..'), "error.log"))
-error_handler.setLevel(logging.ERROR)
-error_handler.setFormatter(logging.Formatter(
-    '%(asctime)s - %(levelname)s - %(message)s'))
-
-logging.getLogger().addHandler(error_handler)
 
 logger = logging.getLogger(__name__)
 load_dotenv()
@@ -71,12 +54,20 @@ def setup_logging():
     try:
         logging.basicConfig(
             level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+            format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler("app.log"),
+                logging.FileHandler(os.path.join(os.path.join(
+                    os.path.dirname(__file__), '../..'), "app.log")),
                 logging.StreamHandler()
             ]
         )
+        error_handler = logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "error.log"))
+        error_handler.setLevel(logging.ERROR)
+        error_handler.setFormatter(logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(message)s'))
+
+        logging.getLogger().addHandler(error_handler)
         logger.info("Configuration du logging réussie")
     except Exception as e:
         logger.error(f"Erreur lors de la configuration du logging : {e}")

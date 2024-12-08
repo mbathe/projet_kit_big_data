@@ -37,8 +37,8 @@ Les variables d'environnement se trouvent dans le fichier `.env`
 
 #### Étape 1 : Cloner le dépôt
 ```bash
-git clone https://github.com/mbathe/tp_bgdia700.git
-cd tp_bgdia700
+git clone https://github.com/mbathe/projet_kit_big_data.git
+cd projet_kit_big_data
 ```
 
 #### Étape 2 : Installer les dépendances
@@ -63,8 +63,8 @@ streamlit run src/Recettes.py
 
 #### Étape 1 : Cloner le dépôt
 ```bash
-git clone https://github.com/mbathe/tp_bgdia700.git
-cd tp_bgdia700
+git clone https://github.com/mbathe/projet_kit_big_data.git
+cd projet_kit_big_data
 ```
 
 #### Étape 2 : Construire l'image Docker
@@ -82,8 +82,8 @@ docker run -d --name projet_big_data1 --memory="2g" -p 8501:8501 projet_kig_big_
 
 #### Étape 1 : Cloner le dépôt
 ```bash
-git clone https://github.com/mbathe/tp_bgdia700.git
-cd tp_bgdia700
+git clone https://github.com/mbathe/projet_kit_big_data.git
+cd projet_kit_big_data
 ```
 
 #### Étape 2 : Installer les dépendances

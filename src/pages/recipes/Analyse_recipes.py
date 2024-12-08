@@ -36,7 +36,6 @@ logging.basicConfig(
     ]
 )
 
-
 error_handler = logging.FileHandler(os.path.join(os.path.join(
     os.path.dirname(__file__), '../../..'), "error.log"))
 error_handler.setLevel(logging.ERROR)
@@ -199,7 +198,12 @@ class DataManager:
 
 
 class DisplayManager:
-    """ Classe responsable de l'afficharge de la page Recettes.
+    """ 
+    Classe responsable de l'afficharge de la page Recettes. elle permet de visualiser :
+    -Statistiques nutritionnelles détaillées
+    - Visualisation des tendances culinaires
+    - Analyse comparative des ingrédients
+    - Système de recommandation personnalisé basé sur les préférences
     """
     def __init__(self, data_manager: DataManager) -> None:
         """Initialise le DisplayManager avec une instance de DataManager."""
@@ -768,7 +772,27 @@ class DisplayManager:
             logging.error(f"Erreur dans display_tags_analysis: {e}")
 
     def display_submission_analysis(self) -> None:
-        """Display the submission analysis."""
+        """ 
+        Afficher l'analyse des soumissions de recettes au fil du temps.
+
+        Cette fonction permet de créer un tableau de bord interactif pour visualiser la distribution
+        des recettes soumises en fonction des années, des mois et des jours de la semaine. Elle permet aux
+        de sélectionner une plage de dates pour l'analyse et présente les données à l'aide de divers
+        graphiques et tableaux.
+
+        L'analyse comprend
+        - Tendances annuelles des soumissions
+        - La répartition mensuelle des demandes
+        - les schémas de soumission pour les jours de la semaine.
+
+        La fonction traite les exceptions potentielles et enregistre toutes les erreurs qui se produisent pendant l'exécution.
+
+        Paramètres :
+        Aucun
+
+        Retourne :
+        Aucun.
+        """
         try:
             st.title("📊 Analyse des Soumissions")
             col1, col2 = st.columns(2)
@@ -843,7 +867,28 @@ class DisplayManager:
             logging.error(f"Error in display_submission_analysis: {e}")
 
     def display_steps_and_time_analysis(self) -> None:
-        """Display the steps and time analysis."""
+        """
+        Afficher l'analyse des étapes de la recette et du temps de préparation.
+
+        Cette fonction permet de visualiser diverses statistiques et distributions relatives au nombre d'étapes des recettes et à leur temps de préparation.
+        dans les recettes et leur temps de préparation. Elle crée des graphiques et des tableaux interactifs à l'aide de Streamlit
+        pour présenter les données dans un format facilement assimilable.
+
+        L'analyse comprend
+        - Statistiques sur le nombre d'étapes (moyenne, médiane, min, max)
+        - Distribution du nombre d'étapes entre les recettes
+        - Statistiques relatives au temps (temps de préparation moyen, médian, min, max)
+        - Répartition des recettes sur différentes plages horaires
+        - Ventilation détaillée des plages de temps
+
+        La fonction gère les exceptions potentielles et enregistre toutes les erreurs qui se produisent pendant l'exécution.
+
+        Paramètres :
+        Aucun
+
+        Retourne :
+        Aucun
+        """
         try:
             data: dict = self.data_manager.analyze_recipe_complexity()
             steps_stats: dict = data["steps_stats"]
@@ -923,7 +968,7 @@ class DisplayManager:
             logging.error(f"Error in display_steps_and_time_analysis: {e}")
 
     def display_nutrition_analysis(self) -> None:
-        """Display the nutrition analysis."""
+        """Afficher l'analyse nutritionnelle."""
         try:
             nutrition_data: dict = self.data_manager.analyze_nutrition()
 
@@ -978,11 +1023,12 @@ class DisplayManager:
 
     def display_data_structures(self, columns_to_show: Optional[list[str]] = None, search_term: Optional[str] = None) -> None:
         """
-        Display the data structures with optional filtering.
+        Affiche les structures de données avec un filtrage optionnel.
 
-        Args:
-            columns_to_show (Optional[list[str]]): The columns to display. Defaults to None.
-            search_term (Optional[str]): The search term to filter the data. Defaults to None.
+        Args :
+            columns_to_show (Facultatif[liste[str]]) : Les colonnes à afficher. La valeur par défaut est None.
+            search_term (Facultatif[str]) : Le terme de recherche pour filtrer les données. 
+        La valeur par défaut est None.
         """
         try:
             if columns_to_show is None:
