@@ -60,3 +60,6 @@ pytest-of-paul
 .idea/*
 .devcontainer/*
 .pytest_cache/*
+
+error.log
+app.log
