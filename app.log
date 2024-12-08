@@ -4193,6 +4193,12 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:18:29,407 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:29,407 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
 2024-12-05 04:18:29,407 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:19:02,144 - INFO - D�marrage de l'application Streamlit
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:19:02,144 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:19:02,144 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:19:02,144 - INFO - Initialisation de StreamlitPage
@@ -4200,6 +4206,20 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:19:02,149 - INFO - Configuration de la page Streamlit
 2024-12-05 04:19:02,149 - INFO - Chargement du CSS
 2024-12-05 04:19:02,151 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:19:02,159 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:19:02,159 - INFO - R�cup�ration des donn�es
+2024-12-05 04:19:02,162 - INFO - Connexion � MongoDB
+2024-12-05 04:19:03,005 - INFO - Connexion �tablie
+2024-12-05 04:19:03,005 - INFO - Chargement des donn�es depuis raw_interaction avec limite 2000
+2024-12-05 04:19:14,122 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:14,122 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:14,122 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:19,964 - INFO - D�marrage de l'application Streamlit
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:19:02,159 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:19:02,159 - INFO - R�cup�ration des donn�es
 2024-12-05 04:19:02,162 - INFO - Connexion � MongoDB
@@ -4223,6 +4243,19 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:19:19,964 - INFO - Configuration de la page Streamlit
 2024-12-05 04:19:19,964 - INFO - Chargement du CSS
 2024-12-05 04:19:19,964 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:19:19,964 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:19:19,964 - INFO - R�cup�ration des donn�es
+2024-12-05 04:19:29,761 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:29,761 - ERROR - Error initializing session state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:29,761 - ERROR - Error in main: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-05 04:19:33,068 - INFO - Donn�es charg�es depuis raw_interaction avec limite 2000
+2024-12-05 04:19:33,068 - INFO - Chargement des donn�es depuis recipes avec limite 2000
+2024-12-05 04:20:01,402 - INFO - D�marrage de l'application Streamlit
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:19:19,964 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:19:19,964 - INFO - R�cup�ration des donn�es
 2024-12-05 04:19:29,761 - ERROR - Error in initialize_session_state: [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
@@ -4244,6 +4277,21 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:01,402 - INFO - Configuration de la page Streamlit
 2024-12-05 04:20:01,410 - INFO - Chargement du CSS
 2024-12-05 04:20:01,410 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:20:01,410 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:20:01,410 - INFO - R�cup�ration des donn�es
+2024-12-05 04:20:03,311 - INFO - Donn�es charg�es depuis recipes avec limite 2000
+2024-12-05 04:20:03,311 - INFO - Enregistrements termin�
+2024-12-05 04:20:03,311 - INFO - Connexion MongoDB ferm�e
+2024-12-05 04:20:03,391 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:20:03,460 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:20:03,460 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:20:03,460 - INFO - Pr�traitement des donn�es
+2024-12-05 04:20:03,460 - WARNING - La colonne 'date' est absente des donn�es
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:20:01,410 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:20:01,410 - INFO - R�cup�ration des donn�es
 2024-12-05 04:20:03,311 - INFO - Donn�es charg�es depuis recipes avec limite 2000
@@ -4270,6 +4318,12 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:03,460 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:03,460 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:03,460 - WARNING - La colonne 'submitted' est absente du fichier.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:20:10,234 - INFO - D�marrage de l'application Streamlit
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:20:10,234 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:20:10,234 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:20:10,234 - INFO - Initialisation de StreamlitPage
@@ -4277,6 +4331,18 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:10,236 - INFO - Configuration de la page Streamlit
 2024-12-05 04:20:10,236 - INFO - Chargement du CSS
 2024-12-05 04:20:10,236 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:20:10,237 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:20:10,237 - INFO - R�cup�ration des donn�es
+2024-12-05 04:20:10,241 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:20:10,241 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:20:10,241 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:20:10,241 - INFO - Pr�traitement des donn�es
+2024-12-05 04:20:10,241 - WARNING - La colonne 'date' est absente des donn�es
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:20:10,237 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:20:10,237 - INFO - R�cup�ration des donn�es
 2024-12-05 04:20:10,241 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
@@ -4297,6 +4363,12 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:10,250 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:10,251 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:10,252 - WARNING - La colonne 'submitted' est absente du fichier.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:20:14,536 - INFO - D�marrage de l'application Streamlit
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:20:14,536 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:20:14,536 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:20:14,536 - INFO - Initialisation de StreamlitPage
@@ -4304,6 +4376,18 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:14,538 - INFO - Configuration de la page Streamlit
 2024-12-05 04:20:14,539 - INFO - Chargement du CSS
 2024-12-05 04:20:14,539 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:20:14,539 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:20:14,539 - INFO - R�cup�ration des donn�es
+2024-12-05 04:20:14,539 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:20:14,539 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:20:14,539 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:20:14,539 - INFO - Pr�traitement des donn�es
+2024-12-05 04:20:14,539 - WARNING - La colonne 'date' est absente des donn�es
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:20:14,539 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:20:14,539 - INFO - R�cup�ration des donn�es
 2024-12-05 04:20:14,539 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
@@ -4324,6 +4408,12 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:20:14,539 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:14,550 - WARNING - La colonne 'user_id' est absente du fichier.
 2024-12-05 04:20:14,551 - WARNING - La colonne 'submitted' est absente du fichier.
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:22:03,614 - INFO - D�marrage de l'application Streamlit
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:22:03,614 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:22:03,614 - INFO - D�marrage de l'application Streamlit
 2024-12-05 04:22:03,614 - INFO - Initialisation de StreamlitPage
@@ -4331,6 +4421,18 @@ For more information refer to the [docs](https://docs.streamlit.io/develop/api-r
 2024-12-05 04:22:03,614 - INFO - Configuration de la page Streamlit
 2024-12-05 04:22:03,614 - INFO - Chargement du CSS
 2024-12-05 04:22:03,614 - INFO - Chargement du CSS depuis src/css_pages/analyse_user.css
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+2024-12-05 04:22:03,626 - INFO - Chargement des donn�es depuis MongoDB
+2024-12-05 04:22:03,626 - INFO - R�cup�ration des donn�es
+2024-12-05 04:22:03,627 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
+2024-12-05 04:22:03,630 - INFO - D�marrage de l'analyse des donn�es
+2024-12-05 04:22:03,630 - INFO - Initialisation de DataAnalyzer
+2024-12-05 04:22:03,630 - INFO - Pr�traitement des donn�es
+2024-12-05 04:22:03,630 - WARNING - La colonne 'date' est absente des donn�es
+=======
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-05 04:22:03,626 - INFO - Chargement des donn�es depuis MongoDB
 2024-12-05 04:22:03,626 - INFO - R�cup�ration des donn�es
 2024-12-05 04:22:03,627 - INFO - Donn�es charg�es avec succ�s, 0 enregistrements
@@ -5609,6 +5711,10 @@ pymongo.errors.ConfigurationError: A password is required.
 2024-12-07 06:51:37,478 - INFO - Filtrage des recettes pour le r�gime Low-Carb
 2024-12-07 06:51:37,478 - INFO - 11774 recettes trouv�es pour le r�gime Low-Carb
 2024-12-07 06:51:37,805 - INFO - Recette s�lectionn�e : mennonite  corn fritters
+<<<<<<< HEAD
+=======
+>>>>>>> 9767403c3cea4cf822914737cb689adc3b7ac74d
+>>>>>>> 9069942bdb3e6089addd2215b601dc7782d69916
 2024-12-07 11:23:31,230 - INFO - CSS loaded from src/css_pages/analyse_user.css
 2024-12-07 11:23:31,231 - INFO - CSS loaded from src/css_pages/recipe.css
 2024-12-07 11:23:31,727 - ERROR - Error in display_tab: eval() arg 1 must be a string, bytes or code object
