@@ -536,3 +536,275 @@
 2024-12-08 12:28:14,351 - ERROR - Erreur lors de la rÃ©cupÃ©ration des donnÃ©es de la collection 'my_collection': Test error
 2024-12-08 12:28:14,351 - ERROR - Erreur lors de la rÃ©cupÃ©ration des donnÃ©es de la collection 'my_collection': Test error
 2024-12-08 12:28:14,351 - ERROR - Erreur lors de la rÃ©cupÃ©ration des donnÃ©es de la collection 'my_collection': Test error
+2024-12-08 14:34:08,539 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-08 14:34:08,539 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-08 14:34:08,539 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-08 14:34:08,539 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-08 14:34:08,539 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-08 14:34:08,539 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_recipes.csv'
+2024-12-08 14:34:08,539 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,539 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,539 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,539 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,539 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,539 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,545 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,545 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,545 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,545 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,545 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,545 - ERROR - Error detecting dataframe anomalies: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,546 - ERROR - Error in main: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,546 - ERROR - Error in main: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,546 - ERROR - Error in main: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,546 - ERROR - Error in main: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,546 - ERROR - Error in main: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:08,546 - ERROR - Error in main: 'NoneType' object has no attribute 'isnull'
+2024-12-08 14:34:11,568 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:11,568 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:11,568 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:11,568 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:11,568 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:11,568 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:11,568 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:11,571 - ERROR - Erreur lors du chargement des données depuis MongoDB
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,571 - ERROR - Erreur lors du chargement des données depuis MongoDB
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,571 - ERROR - Erreur lors du chargement des données depuis MongoDB
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,571 - ERROR - Erreur lors du chargement des données depuis MongoDB
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,571 - ERROR - Erreur lors du chargement des données depuis MongoDB
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,571 - ERROR - Erreur lors du chargement des données depuis MongoDB
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,571 - ERROR - Erreur lors du chargement des données depuis MongoDB
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors de la récupération des données : 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors de la récupération des données : 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors de la récupération des données : 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors de la récupération des données : 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors de la récupération des données : 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors de la récupération des données : 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors de la récupération des données : 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors du chargement des données
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 687, in load_data
+    self.data = self.get_data()
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 217, in get_data
+    return self.load_dataframe(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 217, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 242, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 299, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors du chargement des données
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 687, in load_data
+    self.data = self.get_data()
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 217, in get_data
+    return self.load_dataframe(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 217, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 242, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 299, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors du chargement des données
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 687, in load_data
+    self.data = self.get_data()
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 217, in get_data
+    return self.load_dataframe(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 217, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 242, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 299, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors du chargement des données
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 687, in load_data
+    self.data = self.get_data()
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 217, in get_data
+    return self.load_dataframe(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 217, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 242, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 299, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors du chargement des données
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 687, in load_data
+    self.data = self.get_data()
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 217, in get_data
+    return self.load_dataframe(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 217, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 242, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 299, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors du chargement des données
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 687, in load_data
+    self.data = self.get_data()
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 217, in get_data
+    return self.load_dataframe(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 217, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 242, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 299, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:11,573 - ERROR - Erreur lors du chargement des données
+Traceback (most recent call last):
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 687, in load_data
+    self.data = self.get_data()
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 217, in get_data
+    return self.load_dataframe(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 217, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 242, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\.venv\Lib\site-packages\streamlit\runtime\caching\cache_utils.py", line 299, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilisateur\Desktop\Code\Projects\tp_bgdia700\src\pages\analyse_user.py", line 190, in load_dataframe
+    data['collection_name'] = collection_name  # Ajouter une colonne pour identifier la collection
+    ~~~~^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object does not support item assignment
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement des données locales : [Errno 2] No such file or directory: '/home/paul/Cours/BGDIA700/projet_big_data/data/dataset/recipe\\RAW_interactions.csv'
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,370 - ERROR - Erreur lors du chargement et du nettoyage des données : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,376 - ERROR - Erreur lors de l'affichage du contexte : 'NoneType' object has no attribute 'describe'
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,493 - ERROR - Erreur lors de l'analyse des valeurs nutritionnelles : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
+2024-12-08 14:34:14,501 - ERROR - Erreur lors de l'affichage des recettes filtrées : 'NoneType' object is not subscriptable
