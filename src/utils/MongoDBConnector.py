@@ -67,9 +67,12 @@ class MongoDBConnector:
         try:
             self.client = MongoClient(self.connection_string)
             self.db = self.client[self.database_name]
+            print(f"Connecté à la base de données : {
+                self.database_name}")
             logging.info(f"Connecté à la base de données : {
                          self.database_name}")
         except Exception as e:
+            print("déconnecté")
             logging.error(f"Erreur lors de la connexion à MongoDB : {e}")
             raise
 
@@ -132,6 +135,8 @@ class MongoDBConnector:
                 return pd.DataFrame()
 
         except Exception as e:
+            print(f"Erreur lors de la récupération des données de la collection '{
+                collection_name}': {e}")
             logging.error(f"Erreur lors de la récupération des données de la collection '{
                           collection_name}': {e}")
             return pd.DataFrame()

@@ -7565,3 +7565,4 @@ TypeError: 'NoneType' object does not support item assignment
 2024-12-08 22:10:21,752 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
 2024-12-08 22:10:21,752 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
 2024-12-08 22:10:21,752 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
+2024-12-08 22:17:24,415 - ERROR - Erreur lors de la récupération des données de la collection 'my_collection': Test error
