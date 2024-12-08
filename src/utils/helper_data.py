@@ -1,21 +1,42 @@
+import logging
 import os
 import pandas as pd
 from dotenv import load_dotenv
 import streamlit as st
 load_dotenv()
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "app.log")),
+        logging.StreamHandler()
+    ]
+)
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+logging.getLogger().addHandler(error_handler)
 
 
 @st.cache_data
 def load_dataset(dir_name: str, all_contents=True):
     """
-    Load a dataset from a directory containing CSV files or a single CSV file.
+    Charge un jeu de données à partir d'un répertoire contenant des fichiers CSV ou d'un seul fichier CSV.
 
-    Parameters:
-    dir_name (str): The directory path containing the CSV files or the path to a single CSV file.
-    all_contents (bool, optional): If True, load all CSV files in the directory. If False, load only the specified file. Defaults to True.
+    Paramètres :
+    dir_name (str) : Le chemin d'accès au répertoire contenant les fichiers CSV ou le chemin d'accès à un seul fichier CSV.
+    all_contents (bool, optionnel) : Si True, tous les fichiers CSV du répertoire sont chargés. Si False, seul le fichier spécifié est chargé. La valeur par défaut est True.
 
-    Returns:
-    dict: A dictionary where the keys are the file names (without extensions) and the values are pandas DataFrames containing the loaded data.
+    Retourne :
+    dict : Un dictionnaire dont les clés sont les noms de fichiers (sans les extensions) et les valeurs sont des DataFrames pandas contenant les données chargées.
     """
     dataframes = {}
     if all_contents:
@@ -34,12 +55,22 @@ def load_dataset(dir_name: str, all_contents=True):
 
 
 @st.cache_data
-def load_dataset_from_file(dir_folder, date_start, date_end):
-    df = pd.read_csv(dir_folder,
-                     parse_dates=['submitted'],
-                     chunksize=1000)
-    df_filtered = pd.concat(chunk[(chunk['submitted'] >= date_start) &
-                                  (chunk['submitted'] <= date_end)]
-                            for chunk in df)
-    df_filtered = df_filtered.reset_index(drop=True)
-    return df_filtered
+def load_dataset_from_file(dir_folder, date_start, date_end, is_interactional=False):
+    if not is_interactional:
+        df = pd.read_csv(dir_folder,
+                         parse_dates=['submitted'],
+                         chunksize=1000)
+        df_filtered = pd.concat(chunk[(chunk['submitted'] >= date_start) &
+                                      (chunk['submitted'] <= date_end)]
+                                for chunk in df)
+        df_filtered = df_filtered.reset_index(drop=True)
+        return df_filtered
+    else:
+        df = pd.read_csv(dir_folder,
+                         parse_dates=['date'],
+                         chunksize=1000)
+        df_filtered = pd.concat(chunk[(chunk['date'] >= date_start) &
+                                      (chunk['date'] <= date_end)]
+                                for chunk in df)
+        df_filtered = df_filtered.reset_index(drop=True)
+        return df_filtered

@@ -6,17 +6,30 @@ import pandas as pd
 from pymongo import MongoClient
 from pymongo.errors import AutoReconnect, ServerSelectionTimeoutError, BulkWriteError
 from dotenv import load_dotenv
-
 load_dotenv()
+
 
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("app.log"),
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '..'), 'app.log')),
         logging.StreamHandler()
     ]
 )
+
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+# Ajouter le FileHandler à la configuration de logging
+logging.getLogger().addHandler(error_handler)
+
+
 
 def safe_eval(value, default=None):
     try:
@@ -24,9 +37,31 @@ def safe_eval(value, default=None):
     except Exception:
         return default
 
-# Conversion des données du DataFrame en documents MongoDB
 
 def convert_dataframe_to_documents(df):
+    """
+    Converts a pandas DataFrame to a list of documents suitable for MongoDB insertion.
+
+    This function iterates over each row in the DataFrame, converting specific columns
+    from JSON strings to Python objects and handling date conversions. It's particularly
+    designed for processing recipe data with tags, nutrition information, steps, and ingredients.
+
+    Parameters:
+    df (pandas.DataFrame): The input DataFrame containing recipe data.
+
+    Returns:
+    list: A list of dictionaries, where each dictionary represents a document
+          ready for insertion into MongoDB. The documents contain the following
+          key modifications:
+          - 'tags', 'nutrition', 'steps', and 'ingredients' are converted from JSON strings
+            to Python lists or dictionaries.
+          - 'submitted' is converted to a datetime object.
+
+    Note:
+    This function assumes the presence of 'tags', 'nutrition', 'steps', 'ingredients',
+    and 'submitted' columns in the input DataFrame. It uses the `safe_eval` function
+    to handle potential parsing errors.
+    """
     documents = []
     for _, row in df.iterrows():
         document = row.to_dict()
@@ -46,19 +81,34 @@ def convert_dataframe_to_documents(df):
         documents.append(document)
     return documents
 
-# Chargement des données dans MongoDB avec gestion des erreurs et insertion par lots
 
-def load_dataframe_to_mongodb(df, connection_string, database_name, collection_name , batch_size=1000, use_convertisseur = True):
+def load_dataframe_to_mongodb(df, connection_string, database_name, collection_name, batch_size=1000, use_convertisseur=True):
+    """
+    Charge un DataFrame dans une collection MongoDB.
+
+    Cette fonction se connecte à une base de données MongoDB, sélectionne une collection,
+    convertit un DataFrame en documents MongoDB (selon le paramètre `use_convertisseur`),
+    et insère les documents en lots dans la collection.
+
+    Args:
+        df (pd.DataFrame): Le DataFrame à charger.
+        connection_string (str): La chaîne de connexion MongoDB.
+        database_name (str): Le nom de la base de données MongoDB.
+        collection_name (str): Le nom de la collection MongoDB.
+        batch_size (int, optional): La taille des lots d'insertion. Par défaut, 1000.
+        use_convertisseur (bool, optional): Si True, utilise la fonction `convert_dataframe_to_documents` pour convertir le DataFrame. Par défaut, True.
+
+    Returns:
+        None
+    """
     try:
         # Établir la connexion à MongoDB
         client = MongoClient(
             connection_string,
-            serverSelectionTimeoutMS=5000,  # Timeout pour la sélection du serveur
-            socketTimeoutMS=20000,         # Timeout pour les opérations réseau
-            retryWrites=True               # Activer la reconnexion automatique
+            serverSelectionTimeoutMS=5000,
+            socketTimeoutMS=20000,
+            retryWrites=True
         )
-
-        # Tester la connexion
         try:
             client.admin.command('ping')
             logging.info("Connexion MongoDB réussie.")
@@ -70,18 +120,14 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
         db = client[database_name]
         collection = db[collection_name]
 
-        if use_convertisseur : 
-            # utilise le convertisseur de PAUL
+        if use_convertisseur:
             documents = convert_dataframe_to_documents(df)
-        else : 
-            # utilise le convertisseur de SACHA
+        else:
             documents = df
 
-        # Insérer les documents par lots
         for i in range(0, len(documents), batch_size):
             batch = documents[i:i + batch_size]
             try:
-                # `ordered=False` pour ignorer les erreurs sur un seul document
                 result = collection.insert_many(batch, ordered=False)
                 print(
                     f"Batch {i//batch_size + 1}: {len(result.inserted_ids)} documents insérés.")
@@ -93,9 +139,9 @@ def load_dataframe_to_mongodb(df, connection_string, database_name, collection_n
     except Exception as e:
         logging.error(f"Erreur inattendue : {e}")
     finally:
-        # Fermer la connexion à MongoDB
         client.close()
         logging.info("Connexion MongoDB fermée.")
+
 
 class DataFrameConverter:
     """
@@ -117,13 +163,16 @@ class DataFrameConverter:
         # Vérification des colonnes requises
         missing_columns = set(required_columns) - set(df.columns)
         if missing_columns:
-            raise ValueError(f"Le DataFrame est incomplet. Colonnes manquantes : {missing_columns}")
+            raise ValueError(f"Le DataFrame est incomplet. Colonnes manquantes : {
+                             missing_columns}")
 
         # Convertir les colonnes spécifiques au bon format
         if 'date' in df.columns:
-            df['date'] = pd.to_datetime(df['date'], errors='coerce')  # Convertir les dates
+            df['date'] = pd.to_datetime(
+                df['date'], errors='coerce')  # Convertir les dates
         if 'rating' in df.columns:
-            df['rating'] = df['rating'].astype(int)  # S'assurer que les notes sont des entiers
+            # S'assurer que les notes sont des entiers
+            df['rating'] = df['rating'].astype(int)
 
         # Convertir le DataFrame en liste de dictionnaires
         return df.to_dict(orient='records')
@@ -160,52 +209,12 @@ class DataFrameConverter:
         required_columns = ['user_id', 'recipe_id', 'date', 'rating', 'review']
         return DataFrameConverter.convert_dataframe_to_documents(df, required_columns)
 
+
 # Exemple d'utilisation
 if __name__ == "__main__":
-    # Exemple de DataFrame
-    data = {
-        'name': ['Recette 1', 'Recette 2'],
-        'tags': ['["facile", "rapide"]', '["végétarien", "sans gluten"]'],
-        'nutrition': ['{"calories": 200, "fat": 10}', '{"calories": 150, "fat": 5}'],
-        'steps': ['["Étape 1", "Étape 2"]', '["Étape A", "Étape B"]'],
-        'ingredients': ['["pomme", "sucre"]', '["riz", "lait de coco"]'],
-        'submitted': ['2023-01-01', '2023-02-15']
-    }
-    # df = pd.DataFrame(data)
-
-    # Charger les variables d'environnement
+    df = pd.read_csv(os.path.join(os.getenv("DIR_DATASET"), "RAW_recipes.csv"))
     CONNECTION_STRING = os.getenv("CONNECTION_STRING")
     DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
-    COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
-
-    #######################################################
-    # Charger les données dans MongoDB DE la base de PAUL #
-    #######################################################
-
-    # df = pd.read_csv('../data/dataset/recipe/RAW_recipes.csv')
-    # load_dataframe_to_mongodb(df, CONNECTION_STRING,
-    #                           DATABASE_NAME, COLLECTION_NAME, convert_dataframe_to_documents)
-
-    # load_dataframe_to_mongodb(df, os.getenv("CONNECTION_STRING"), os.getenv(
-    #     "DATABASE_NAME"), os.getenv("COLLECTION_NAME"))
-
-    ###################################################################
-    # Charger les données dans MongoDB pour sacha alexandre et Julian #
-    ###################################################################
-
-    # COLLECTION_RAW_INTERACTIONS= os.getenv("COLLECTION_RAW_INTERACTIONS", "raw_interaction")
-
-    # df_RAW_interactions = pd.read_csv(os.path.join('data','RAW_interactions.csv'))
-
-    # converter = DataFrameConverter()
-    # raw_interaction_documents = converter.convert_raw_interaction_dataframe(df_RAW_interactions)
-    
-    # load_dataframe_to_mongodb(
-    #                         raw_interaction_documents, 
-    #                         CONNECTION_STRING,
-    #                         DATABASE_NAME, 
-    #                         COLLECTION_RAW_INTERACTIONS, 
-    #                         use_convertisseur=False
-    # )
-    
-
+    COLLECTION_RECIPES_NAME = os.getenv("COLLECTION_RECIPES_NAME", "recipes2")
+    load_dataframe_to_mongodb(df, CONNECTION_STRING,
+                              DATABASE_NAME, COLLECTION_RECIPES_NAME)

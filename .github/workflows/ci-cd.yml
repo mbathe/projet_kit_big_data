@@ -111,13 +111,13 @@ jobs:
     
     - name: Build Docker image
       run: |
-        docker build -t mon-app-streamlit .
+        docker build -t projet_big_data .
     
     - name: Stop and remove existing container if exists
       run: |
-        docker stop mon-app-streamlit || true
-        docker rm mon-app-streamlit || true
+        docker stop projet_big_data || true
+        docker rm projet_big_data || true
     
     - name: Run Docker container
       run: |
-        docker run -d --name mon-app-streamlit --memory="5g" -p 8501:8501 mon-app-streamlit
+        docker run -d --name projet_big_data --memory="8g" -p 8501:8501 projet_big_data

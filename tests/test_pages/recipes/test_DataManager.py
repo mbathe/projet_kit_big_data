@@ -214,7 +214,8 @@ def test_export_data_csv_failure(data_manager_fixture):
         mock_recipe_instance.st.session_state.data.to_csv.assert_called_once_with(index=False)
         
         # Vérifiez que logging.error a été appelé avec le bon message
-        mock_logging_error.assert_called_once_with("Failed to export data: CSV export failed")
+        mock_logging_error.assert_called_once_with(
+            "Échec de l'exportation des données: CSV export failed")
         
         # Vérifiez que le résultat est None en cas d'erreur
         assert result is None

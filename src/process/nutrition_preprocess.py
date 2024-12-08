@@ -1,18 +1,63 @@
+# fmt: off
+from src.utils.helper_data import load_dataset_from_file
+import os
+from dotenv import load_dotenv
 import streamlit as st
 import pandas as pd
 import ast
 import logging
+from datetime import date
 from pathlib import Path
+from datetime import datetime
+from src.pages.recipes.Welcom import Welcome
 
-# Configuration du logger
-logging.basicConfig(level=logging.INFO)  # Définir le niveau de log à INFO
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "app.log")),
+        logging.StreamHandler()
+    ]
+)
+
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+# Ajouter le FileHandler à la configuration de logging
+logging.getLogger().addHandler(error_handler)
+
+
 logger = logging.getLogger(__name__)
+
+load_dotenv()
+
+CONNECTION_STRING = os.getenv("CONNECTION_STRING")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
+DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE", "LOCAL")
+COLLECTION_RAW_INTERACTIONS = os.getenv(
+    "COLLECTION_RAW_INTERACTIONS", "raw_interactio")
+CONNECTION_STRING = os.getenv("CONNECTION_STRING")
+
+DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
+YEAR_MIN = 1999 if DEPLOIEMENT_SITE != "ONLINE" else 2014
+YEAR_MAX = 2018 if DEPLOIEMENT_SITE != "ONLINE" else 2018
+
+start_date = date(YEAR_MIN, 1, 1)
+end_date = date(YEAR_MAX, 12, 31)
+
+
+
 
 cwd = str(Path.cwd())
 
 
-@st.cache_data
-def load_data():
+def load_data(limit=500000):
     """
     Charge et prépare les données des recettes et des interactions, puis les fusionne en un seul DataFrame.
 
@@ -31,14 +76,32 @@ def load_data():
     logger.info("Chargement des données...")
 
     try:
-        df_RAW_recipes = pd.read_csv(cwd + '\\data\\RAW_recipes.csv')
-        df_RAW_interactions = pd.read_csv(cwd + '\\data\\RAW_interactions.csv')
+
+        dataset_dir = os.getenv("DIR_DATASET")
+        if "limit" not in st.session_state:
+            st.session_state.limit = limit
+        if DEPLOIEMENT_SITE !="ONLINE":
+            if "data" not in st.session_state:
+                df_RAW_recipes = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, os.path.join(dataset_dir, "RAW_recipes.csv"), None, None, datetime(1999, 1, 1), datetime(2018, 12, 31))
+            else:    
+                df_RAW_recipes = st.session_state.data
+        else:
+            if "data" not in st.session_state:
+                df_RAW_recipes = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, datetime(1999, 1, 1), datetime(2018, 12, 31), is_interactional=True, limit=limit)
+            else:
+                df_RAW_recipes = st.session_state.data
+        if "df_RAW_interactions" not in st.session_state or limit!=st.session_state.limit:
+            if DEPLOIEMENT_SITE !="ONLINE":
+                df_RAW_interactions = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, os.path.join(dataset_dir, "RAW_interactions.csv"), None, None, datetime(1999, 1, 1), datetime(2018, 12, 31), is_interactional=True)
+            else:
+                df_RAW_interactions = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, CONNECTION_STRING, DATABASE_NAME,COLLECTION_RAW_INTERACTIONS , datetime(1999, 1, 1), datetime(2018, 12, 31), is_interactional=True, limit=limit)
+        else:
+             df_RAW_interactions =st.session_state.df_RAW_interactions
         logger.info(
             "Données des recettes et des interactions chargées avec succès.")
     except Exception as e:
         logger.error(f"Erreur lors du chargement des fichiers CSV: {e}")
         raise
-
     # On ne garde que la moyenne des notes de la recette
     df_mean_rating = df_RAW_interactions[[
         'recipe_id', 'rating']].groupby(['recipe_id']).mean().round(2)
@@ -60,7 +123,7 @@ def load_data():
                               'rating_y': 'Nombre de notes'}, inplace=True)
 
     # Convertir les chaînes de caractères en listes
-    merged_df['nutrition'] = merged_df['nutrition'].apply(ast.literal_eval)
+    merged_df['nutrition'] = merged_df['nutrition'].apply(ast.literal_eval) if DEPLOIEMENT_SITE!="ONLINE" else  merged_df['nutrition']
     logger.info("Les données de nutrition ont été converties en listes.")
 
     # Convertir la colonne de listes en plusieurs colonnes
@@ -84,6 +147,24 @@ def load_data():
         "Les colonnes de valeurs nutritionnelles ont été converties en numériques.")
 
     return nutrition_df
+
+
+def _ensure_datetime(self, obj):
+    if isinstance(obj, datetime):
+        return obj
+    elif isinstance(obj, date):
+        return datetime.combine(obj, datetime.min.time())
+    else:
+        raise TypeError("L'objet doit être de type datetime ou date.")
+
+
+def _ensure_date(sefl, obj):
+    if isinstance(obj, date):
+        return obj
+    elif isinstance(obj, datetime):
+        return obj.date()
+    else:
+        raise TypeError("L'objet doit être de type date ou datetime.")
 
 
 @st.cache_data

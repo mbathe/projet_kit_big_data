@@ -42,7 +42,7 @@ __pycache__/
 
 
 .gitattributes
-
+pytest-of-paul
 
 .gitattributes
 .gitignore
@@ -53,5 +53,10 @@ __pycache__/
 .ipynb_checkpoints/Untitled-checkpoint.ipynb
 .vscode/settings.json
 Oriente objet idees.ipynb
-
+.env
 recipe_analysis.log
+pytest-of-paul
+.vscode/*
+.idea/*
+.devcontainer/*
+.pytest_cache/*

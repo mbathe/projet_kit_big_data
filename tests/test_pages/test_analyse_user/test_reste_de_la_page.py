@@ -211,7 +211,7 @@ def test_StreamlitPage_init(mock_getenv):
         "CONNECTION_STRING": "mongodb://localhost:27017",
         "DATABASE_NAME": "testdb",
         "COLLECTION_RAW_INTERACTIONS": "raw_interaction",
-        "COLLECTION_NAME": "recipes"
+        "COLLECTION_RECIPES_NAME": "recipes"
     }.get(key, default)
 
     page = StreamlitPage()
@@ -219,7 +219,7 @@ def test_StreamlitPage_init(mock_getenv):
     assert page.CONNECTION_STRING == "mongodb://localhost:27017"
     assert page.DATABASE_NAME == "testdb"
     assert page.COLLECTION_RAW_INTERACTIONS == "raw_interaction"
-    assert page.COLLECTION_NAME == "recipes"
+    assert page.COLLECTION_RECIPES_NAME == "recipes"
     assert page.COLLECTION_NAMES == ["raw_interaction", "recipes"]
     assert page.data is None
 
@@ -248,162 +248,6 @@ def test_StreamlitPage_load_data(mock_get_data):
     mock_get_data.assert_called_once()
     assert page.data == mock_get_data.return_value
 
-
-# @patch('src.pages.analyse_user.DataAnalyzer')
-# @patch('src.pages.analyse_user.VisualizationManager.display_line_chart')
-# @patch('src.pages.analyse_user.VisualizationManager.display_ratings_frequencies')
-# @patch('src.pages.analyse_user.VisualizationManager.display_histogram')
-# @patch('src.pages.analyse_user.st.title')
-# @patch('src.pages.analyse_user.st.checkbox')
-# @patch('src.pages.analyse_user.st.subheader')
-# @patch('src.pages.analyse_user.st.markdown')
-# @patch('src.pages.analyse_user.st.divider')
-# @patch('src.pages.analyse_user.st.write')
-# @patch('src.pages.analyse_user.st.warning')
-# @patch('src.pages.analyse_user.st.error')
-# @patch('src.pages.analyse_user.st.number_input')
-# def test_StreamlitPage_run_analysis(
-#     mock_number_input,
-#     mock_error,
-#     mock_warning,
-#     mock_write,
-#     mock_divider,
-#     mock_markdown,
-#     mock_subheader,
-#     mock_checkbox,
-#     mock_title,
-#     mock_display_histogram,
-#     mock_display_ratings_frequencies,
-#     mock_display_line_chart,
-#     mock_DataAnalyzer
-# ):
-#     # Préparer les mocks avec un utilisateur ayant suffisamment de notes
-#     sample_df_raw = pd.DataFrame({
-#         "user_id": [1]*10 + [2]*2,  # user_id=1 a 10 notes, user_id=2 a 2 notes
-#         "rating": [5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 3, 2],
-#         "date": pd.to_datetime(["2024-01-01"]*12)
-#     })
-#     preprocessed_df_raw = sample_df_raw.copy()
-#     preprocessed_df_raw['year'] = preprocessed_df_raw['date'].dt.year.astype(str)
-
-#     sample_df_recipes = pd.DataFrame({
-#         "submitted": pd.to_datetime(["2024-01-05", "2024-02-06"]),
-#         # Ajoutez d'autres colonnes si nécessaire
-#     })
-#     page = StreamlitPage()
-#     page.data = {
-#         "raw_interaction": sample_df_raw,
-#         "recipes": sample_df_recipes
-#     }
-
-#     # Créer des mocks séparés pour chaque instance de DataAnalyzer
-#     analyzer_mock1 = MagicMock()
-#     analyzer_mock1.preprocess.return_value = preprocessed_df_raw
-#     analyzer_mock1.analyze_ratings_frequencies.return_value = [
-#         (5, pd.DataFrame({"year": [2024], "rating": [5]})),
-#         (4, pd.DataFrame({"year": [2024], "rating": [4]}))
-#     ]
-#     analyzer_mock1.analyze_monthly_ratings.return_value = pd.DataFrame({
-#         "Mois": ["2024-01"],
-#         "Note moyenne": [4.5]
-#     })
-#     analyzer_mock1.analyze_user_ratings_frequencies.return_value = [
-#         (5, pd.DataFrame({"year": [2024], "rating": [5]})),
-#         (4, pd.DataFrame({"year": [2024], "rating": [4]}))
-#     ]
-#     analyzer_mock1.analyze_user.return_value = pd.DataFrame({
-#         "Mois": ["2024-01"],
-#         "Note moyenne": [4.5]
-#     })
-
-#     analyzer_mock2 = MagicMock()
-#     analyzer_mock2.analyze_activity_on_mangetamain.return_value = pd.DataFrame({
-#         "year_month": ["2024-01"],
-#         "recipe_count": [2]
-#     })
-
-#     # Configurer le side_effect pour retourner les mocks séparés
-#     mock_DataAnalyzer.side_effect = [analyzer_mock1, analyzer_mock2]
-
-#     # Configurer les entrées utilisateur pour un utilisateur éligible
-#     mock_number_input.side_effect = [1, 1]  # user_id=1 a 10 notes
-
-#     # Configurer les checkboxes pour afficher les explications
-#     mock_checkbox.side_effect = [True, True, True, True, True, True]  # 6 checkboxes
-
-#     # Appeler la méthode
-#     page.run_analysis()
-
-#     # Assertions sur les titres
-#     mock_title.assert_any_call("Analyse de Fréquences")
-#     mock_title.assert_any_call("Fréquence des notes au fil du temps")
-#     mock_title.assert_any_call("Analyse des notes moyennes mensuelles")
-#     mock_title.assert_any_call("Fréquence des Notes par utilisateur au fil du temps")
-#     mock_title.assert_any_call("Analyse des notes par utilisateur")
-#     mock_title.assert_any_call("Evolution de l’activité sur l’application Mangetamain")
-
-#     # Vérifier les appels à VisualizationManager sur les méthodes patchées
-#     mock_display_histogram.assert_called_once_with(
-#         preprocessed_df_raw, 'rating', "Fréquence globale des notes"
-#     )
-
-#     # Vérifier les appels à display_ratings_frequencies
-#     assert mock_display_ratings_frequencies.call_count == 2
-#     calls = mock_display_ratings_frequencies.call_args_list
-
-#     # Premier appel: Fréquence globale des notes
-#     call1 = calls[0]
-#     frequency_data_actual1 = call1.args[0]
-#     x_actual1 = call1.args[1]
-#     title_actual1 = call1.args[2]
-
-#     assert x_actual1 == 'year'
-#     assert title_actual1 == "Fréquence des Notes au fil du temps"
-
-#     expected_frequency_data1 = analyzer_mock1.analyze_ratings_frequencies.return_value
-#     assert len(frequency_data_actual1) == len(expected_frequency_data1)
-#     for (actual_rating, actual_df), (expected_rating, expected_df) in zip(frequency_data_actual1, expected_frequency_data1):
-#         assert actual_rating == expected_rating
-#         pd.testing.assert_frame_equal(actual_df.reset_index(drop=True), expected_df.reset_index(drop=True))
-
-#     # Deuxième appel: Fréquence des notes pour l'utilisateur spécifique
-#     call2 = calls[1]
-#     frequency_data_actual2 = call2.args[0]
-#     x_actual2 = call2.args[1]
-#     title_actual2 = call2.args[2]
-
-#     assert x_actual2 == 'year'
-#     assert title_actual2 == "Fréquence des Notes pour l'utilisateur 1"
-
-#     expected_frequency_data2 = analyzer_mock1.analyze_user_ratings_frequencies.return_value
-#     assert len(frequency_data_actual2) == len(expected_frequency_data2)
-#     for (actual_rating, actual_df), (expected_rating, expected_df) in zip(frequency_data_actual2, expected_frequency_data2):
-#         assert actual_rating == expected_rating
-#         pd.testing.assert_frame_equal(actual_df.reset_index(drop=True), expected_df.reset_index(drop=True))
-
-#     # Vérifier les appels à display_line_chart
-#     assert mock_display_line_chart.call_count == 2
-
-#     # Vérifier les appels avec les bons arguments pour les deux appels
-#     # Premier appel pour les notes mensuelles
-#     mock_display_line_chart.assert_any_call(
-#         analyzer_mock1.analyze_monthly_ratings.return_value,
-#         'Mois',
-#         'Note moyenne',
-#         "Notation moyenne mensuelle au fil du temps"
-#     )
-
-#     # Deuxième appel pour l'activité des recettes
-#     mock_display_line_chart.assert_any_call(
-#         analyzer_mock2.analyze_activity_on_mangetamain.return_value,
-#         'year_month',
-#         'recipe_count',
-#         title=""
-#     )
-
-#     # Vérifier qu'aucune erreur ou warning n'a été appelé
-#     mock_error.assert_not_called()
-#     mock_warning.assert_not_called()
 
 
 @patch('src.pages.analyse_user.st.set_page_config')

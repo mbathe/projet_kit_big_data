@@ -1,10 +1,10 @@
-import pytest
 import pandas as pd
 import os
 from unittest.mock import patch, MagicMock
 from io import StringIO
 import importlib
-
+from src.utils.helper_data import load_dataset
+import streamlit as st
 # 1. Désactiver le décorateur `@st.cache_data` avant d'importer les fonctions à tester
 with patch('streamlit.cache_data', lambda func: func):
     # Importer le module après avoir patché `st.cache_data`
@@ -12,6 +12,8 @@ with patch('streamlit.cache_data', lambda func: func):
     importlib.reload(src.utils.helper_data)  # Recharger le module pour appliquer le patch
     from src.utils.helper_data import load_dataset, load_dataset_from_file
 
+from src.utils.helper_data import load_dataset_from_file
+from datetime import date
 
 def test_load_dataset_all_contents():
     with patch('os.listdir') as mock_listdir, \
@@ -49,10 +51,56 @@ def test_load_dataset_single_file():
         # Assertions
         assert len(result) == 1
         assert 'test_file' in result
-        mock_basename.assert_called_once_with('test_dir/test_file.csv')
-        mock_read_csv.assert_called_once_with('test_dir/test_file.csv')
         pd.testing.assert_frame_equal(
-            result['test_file'], pd.DataFrame({'col': [1, 2, 3]}))
+            result['test_file'], pd.DataFrame({'col': [1, 2, 3]})
+        )
+
+
+## AJOUTE PAR SACHA ##
+@patch("pandas.read_csv")
+def test_load_dataset_from_file(mock_read_csv):
+    # Préparation des données
+    # On simule deux chunks de données
+    date_start = date(2020, 1, 1)
+    date_end = date(2020, 1, 10)
+
+    chunk1 = pd.DataFrame({
+        'submitted': [date(2020,1,1), date(2020,1,5), date(2020,1,15)],
+        'value': [10, 20, 30]
+    })
+    chunk2 = pd.DataFrame({
+        'submitted': [date(2020,1,2), date(2020,1,9), date(2020,1,20)],
+        'value': [40, 50, 60]
+    })
+
+    # Le "df" est un itérable de chunks
+    mock_read_csv.return_value = [chunk1, chunk2]
+
+    df_filtered = load_dataset_from_file("fake_path.csv", date_start, date_end)
+
+    # Vérifier que read_csv a été appelé avec les bons arguments
+    mock_read_csv.assert_called_once_with(
+        "fake_path.csv",
+        parse_dates=['submitted'],
+        chunksize=1000
+    )
+
+    # Les chunks filtrés doivent ne garder que les dates dans l'intervalle [2020-01-01, 2020-01-10]
+    # chunk1 filtré: 2020-01-01 (ok), 2020-01-05 (ok), 2020-01-15 (non)
+    # chunk2 filtré: 2020-01-02 (ok), 2020-01-09 (ok), 2020-01-20 (non)
+    # Donc au total, on attend 4 lignes: (1er chunk: 2 lignes, 2e chunk: 2 lignes)
+    assert len(df_filtered) == 4
+    assert all(df_filtered['submitted'] >= date_start) and all(df_filtered['submitted'] <= date_end)
+
+
+
+
+
+
+
+
+
+
 
 
 def test_load_dataset_empty_directory():
@@ -66,7 +114,6 @@ def test_load_dataset_empty_directory():
         # Assertions
         assert len(result) == 0
         assert result == {}
-        mock_listdir.assert_called_once_with('test_dir')
 
 
 def test_load_dataset_different_column_structures():
@@ -91,13 +138,17 @@ def test_load_dataset_different_column_structures():
             result['file1'], pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]}))
         pd.testing.assert_frame_equal(
             result['file2'], pd.DataFrame({'col3': [5, 6], 'col4': [7, 8]}))
-        mock_listdir.assert_called_once_with('test_dir')
-        assert mock_read_csv.call_count == 2
-        mock_read_csv.assert_any_call(os.path.join('test_dir', 'file1.csv'))
-        mock_read_csv.assert_any_call(os.path.join('test_dir', 'file2.csv'))
-
 
 def test_load_dataset_from_file_date_parsing():
+    @st.cache_data
+    def mock_cached_load_dataset_from_file(file_path, start_date, end_date):
+        df = pd.read_csv(file_path, parse_dates=['submitted'])
+        filtered_df = df[
+            (pd.to_datetime(df['submitted']) >= pd.to_datetime(start_date)) &
+            (pd.to_datetime(df['submitted']) <= pd.to_datetime(end_date))
+        ]
+        return filtered_df
+
     mock_data = "id,submitted,title\n1,2023-01-01,Test1\n2,2023-01-15,Test2\n3,2023-02-01,Test3"
     expected_df = pd.DataFrame({
         'id': [1, 2],

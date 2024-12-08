@@ -13,13 +13,13 @@ from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from dotenv import load_dotenv
 import os
-from src.pages.welcom.Welcom import Welcome
+from src.pages.recipes.Welcom import Welcome
 
 load_dotenv()
 
 CONNECTION_STRING = os.getenv("CONNECTION_STRING")
 DATABASE_NAME = os.getenv("DATABASE_NAME", "testdb")
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "recipes")
+COLLECTION_RECIPES_NAME = os.getenv("COLLECTION_RECIPES_NAME", "recipes")
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE", "LOCAL")
 
 
@@ -32,12 +32,22 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("app.log"),
+        logging.FileHandler(os.path.join(os.path.join(
+            os.path.dirname(__file__), '../..'), "app.log")),
         logging.StreamHandler()
     ]
 )
 
-# Type definitions
+
+error_handler = logging.FileHandler(os.path.join(os.path.join(
+    os.path.dirname(__file__), '../..'), "error.log"))
+error_handler.setLevel(logging.ERROR)
+error_handler.setFormatter(logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(message)s'))
+
+logging.getLogger().addHandler(error_handler)
+
+
 class NutritionStats(TypedDict):
     mean: float
     median: float
@@ -94,7 +104,23 @@ class Recipe:
 
 
     def initialize_session_state(self, start_date, end_date) -> None:
-        """Initialize session state with filtered dataset."""
+        """
+        Initialiser l'état de session avec un jeu de données filtré.
+
+        Cette fonction configure l'état de session avec le jeu de données approprié en fonction du site de déploiement
+        et de la plage de dates. Elle gère les déploiements en ligne et locaux, en récupérant les données à partir de MongoDB ou
+        en les chargeant à partir d'un fichier local.
+
+        Paramètres:
+        start_date (datetime or date): La date de début pour filtrer le jeu de données.
+        end_date (datetime or date): La date de fin pour filtrer le jeu de données.
+
+        Retourne:
+        None
+
+        Lève:
+        Exception: Si une erreur se produit pendant le processus d'initialisation, elle enregistre l'erreur et la relance.
+        """
         try:
             print(DEPLOIEMENT_SITE)
             if DEPLOIEMENT_SITE == "ONLINE":
@@ -108,13 +134,13 @@ class Recipe:
                             end_date)
                     welcome_container = self.st.empty()
                     self.st.session_state.data = Welcome.show_welcom(DEPLOIEMENT_SITE,
-                                                                     self.fetch_data_from_mongodb, CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+                                                                     self.fetch_data_from_mongodb, CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date)
                     welcome_container.empty()
                 elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(YEAR_MIN, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(YEAR_MAX, 12, 31)):
                     with self.st.spinner("⏳ **Chargement en cours...**"):
                         try:
                             self.st.session_state.data = self.fetch_data_from_mongodb(
-                            CONNECTION_STRING, DATABASE_NAME, COLLECTION_NAME, start_date, end_date)
+                                CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date)
                             self.st.session_state.start_date = self._ensure_date(
                                 start_date)
                             self.st.session_state.end_date = self._ensure_date(
@@ -125,7 +151,7 @@ class Recipe:
 
             else:
                 if 'data' not in self.st.session_state:
-                    dataset_dir = os.getenv("DIR_DATASET_2")
+                    dataset_dir = os.getenv("DIR_DATASET")
                     self.st.session_state.data = Welcome.show_welcom(DEPLOIEMENT_SITE, load_dataset_from_file, os.path.join(
                         dataset_dir, "RAW_recipes.csv"), None, None, start_date, end_date)
                     self.st.session_state.start_date = self._ensure_date(
@@ -133,7 +159,7 @@ class Recipe:
                     self.st.session_state.end_date = self._ensure_date(
                         end_date)
                 elif (self._ensure_date(start_date) != self.st.session_state.start_date and self._ensure_date(start_date) != date(YEAR_MIN, 1, 1)) or (self._ensure_date(end_date) != self.st.session_state.end_date and self._ensure_date(end_date) != date(YEAR_MAX, 12, 31)):
-                    dataset_dir = os.getenv("DIR_DATASET_2")
+                    dataset_dir = os.getenv("DIR_DATASET")
                     self.st.session_state.data = load_dataset_from_file(
                         os.path.join(dataset_dir, "RAW_recipes.csv"), self._ensure_datetime(start_date), self._ensure_datetime(end_date))
                     self.st.session_state.start_date = self._ensure_date(
@@ -166,17 +192,33 @@ class Recipe:
         z_score_threshold: float = 3.0
     ) -> Dict[str, pd.DataFrame]:
         """
-        Detect anomalies in the dataframe.
+        Détecter les anomalies dans le DataFrame à l'aide de diverses méthodes statistiques.
 
-        Args:
-            std_threshold: Threshold for standard deviation method
-            z_score_threshold: Threshold for Z-score method
+        Cette fonction effectue plusieurs techniques de détection d'anomalies sur le DataFrame,
+        notamment la détection des valeurs manquantes, la détection des valeurs aberrantes basée sur l'écart-type,
+        et la détection des valeurs aberrantes basée sur le score Z. Elle fournit également des informations sur les types de colonnes
+        et les décomptes de valeurs uniques.
 
-        Returns:
-            Dictionary of detected anomalies
-        """
+        Paramètres:
+        std_threshold (float): Le nombre d'écarts-types à utiliser comme seuil
+                                pour identifier les valeurs aberrantes dans la méthode de l'écart-type.
+                                Par défaut à 3.0.
+        z_score_threshold (float): Le seuil de score Z à utiliser pour identifier les valeurs
+                                    aberrantes dans la méthode du score Z. Par défaut à 3.0.
+
+        Retourne:
+        Dict[str, pd.DataFrame]: Un dictionnaire contenant divers DataFrames avec les
+                                    anomalies détectées et les informations sur les données. Les clés du dictionnaire sont :
+                                    - 'missing_values': DataFrame avec les nombres et pourcentages de valeurs manquantes
+                                    - 'std_outliers': DataFrame avec les valeurs aberrantes basées sur l'écart-type
+                                    - 'z_score_outliers': DataFrame avec les valeurs aberrantes basées sur le score Z
+                                    - 'column_info': DataFrame avec les informations sur les colonnes (décomptes uniques, etc.)
+                                    - 'data_types': DataFrame avec les types de données et des exemples de valeurs pour chaque colonne
+
+        Lève:
+        Exception: Si une erreur se produit pendant le processus de détection d'anomalies.
+            """
         anomalies: Dict[str, pd.DataFrame] = {}
-
         try:
             # Missing values detection
             missing_df = pd.DataFrame({
@@ -297,12 +339,12 @@ class Recipe:
         threshold: float = 3.0
     ) -> None:
         """
-        Remove anomalies from DataFrame based on detection results.
+        Supprimer les anomalies du DataFrame en fonction des résultats de détection.
 
         Args:
-            anomalies: Results of anomaly detection
-            cleaning_method: Method of cleaning ('std' or 'zscore')
-            threshold: Threshold for anomaly detection
+            anomalies: Résultats de la détection d'anomalies
+            cleaning_method: Méthode de nettoyage ('std' ou 'zscore')
+            threshold: Seuil pour la détection d'anomalies
         """
         try:
             numeric_columns = self.st.session_state.data.select_dtypes(
@@ -338,10 +380,10 @@ class Recipe:
 
     def analyze_nutrition(self) -> Dict[str, NutritionStats]:
         """
-        Analyze nutritional information.
+        Analyser les informations nutritionnelles.
 
-        Returns:
-            Nutritional statistics for each category
+        Retourne :
+            Statistiques nutritionnelles pour chaque catégorie
         """
         try:
             df = self.st.session_state.data
@@ -381,14 +423,14 @@ class Recipe:
         date_end: datetime
     ) -> TemporalStats:
         """
-        Analyze temporal distribution of recipes.
+        Analyse la distribution temporelle des recettes.
 
-        Args:
-            date_start: Start date for analysis
-            date_end: End date for analysis
+        Args :
+            date_start : Date de début de l'analyse
+            date_end : Date de fin de l'analyse
 
-        Returns:
-            Temporal distribution statistics
+        Returns :
+            Statistiques de distribution temporelle
         """
         try:
             mask = (
@@ -412,10 +454,23 @@ class Recipe:
 
     def analyze_tags(self) -> TagStats:
         """
-        Analyze recipe tags.
+        Analyse les étiquettes de recettes et génère des statistiques liées aux étiquettes.
 
-        Returns:
-            Tag-related statistics
+        Cette fonction traite les étiquettes associées aux recettes dans l'ensemble de données,
+        calculant diverses statistiques telles que le nombre total de balises uniques, les balises les plus courantes et des statistiques sur le nombre de balises par recette,
+        les balises les plus courantes et des statistiques sur le nombre de balises par recette.
+        Retourne :
+            TagStats : Un dictionnaire contenant les statistiques suivantes relatives aux étiquettes :
+                - 'total_unique_tags' : Le nombre total de tags uniques dans toutes les recettes.
+                - 'most_common_tags' : Un dictionnaire des 20 tags les plus courants et de leur fréquence.
+                - 'tags_per_recipe' : Un dictionnaire contenant des statistiques sur le nombre de tags par recette :
+                    - 'mean' : Le nombre moyen de tags par recette.
+                    - 'median' : Le nombre médian de tags par recette : Le nombre médian de tags par recette.
+                    - 'min' : Le nombre minimum de tags par recette : Le nombre minimum de tags pour une recette.
+                    - 'max' : Le nombre maximum de tags pour une recette : Le nombre maximum de tags pour une recette.
+
+        Lève :
+            Exception : Si une erreur se produit pendant le processus d'analyse des balises.
         """
         try:
             df = self.st.session_state.data
@@ -444,7 +499,23 @@ class Recipe:
         return tag_stats
 
     def analyze_contributors(self):
-        """Analyse les contributions par utilisateur"""
+        """
+        Analyse les contributions par utilisateur.
+
+        Cette fonction calcule le nombre total de contributeurs,
+        les statistiques de contributions par utilisateur (moyenne, médiane, maximum),
+        et les 10 principaux contributeurs.
+
+        Returns:
+            Un dictionnaire contenant les statistiques de contributions par utilisateur.
+            Le dictionnaire a les clés suivantes :
+            - 'total_contributors': Nombre total de contributeurs.
+            - 'contributions_per_user': Statistiques de contributions par utilisateur (moyenne, médiane, maximum).
+            - 'top_contributors': Les 10 principaux contributeurs avec leur nombre de contributions.
+
+        Raises:
+            Exception: Si une erreur se produit lors de l'analyse des contributions.
+        """
         try:
             df = self.st.session_state.data
             contributor_stats = {
@@ -464,10 +535,10 @@ class Recipe:
 
     def analyze_recipe_dataset(self) -> Dict[str, Any]:
         """
-        Perform comprehensive dataset analysis.
+        Effectuer une analyse complète de l'ensemble des données.
 
-        Returns:
-            Comprehensive analysis of recipe dataset
+        Retours :
+            Analyse complète de l'ensemble de données de la recette
         """
         try:
             data = self.st.session_state.data
@@ -533,31 +604,21 @@ class Recipe:
         :return: DataFrame contenant les données
         """
         try:
-            # Connexion à MongoDB
             client = MongoClient(
                 connection_string,
-                serverSelectionTimeoutMS=5000,  # Timeout pour la sélection du serveur
+                serverSelectionTimeoutMS=5000
             )
-
-            # Tester la connexion
             client.admin.command('ping')
-
-            # Sélectionner la collection
             db = client[database_name]
             collection = db[collection_name]
-
-            # Filtrer par intervalle de dates
             query = {"submitted": {"$gte": pd.to_datetime(
                 start_date), "$lte": pd.to_datetime(end_date)}}
-            projection = {"_id": 0}  # Exclure le champ `_id`
-
-            # Charger les données dans un DataFrame
+            projection = {"_id": 0}
             data = list(collection.find(query, projection))
             if not data:
                 st.warning(
                     "Aucune donnée trouvée pour cet intervalle de dates.")
-                return pd.DataFrame()  # DataFrame vide si aucune donnée
-
+                return pd.DataFrame()
             df = pd.DataFrame(data)
             return df
 
