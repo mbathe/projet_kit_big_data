@@ -35,6 +35,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 DEPLOIEMENT_SITE = os.getenv("DEPLOIEMENT_SITE")
 
+
 class NutritionPage:
     """
     Classe représentant une page d'analyse nutritionnelle d'un jeu de données sur les recettes.
@@ -92,7 +93,7 @@ class NutritionPage:
 
             st.write("""Le %PDV indique quel pourcentage de la valeur quotidienne recommandée d'un nutriment est fourni par une portion d'un aliment spécifique.""")
             st.write(
-                """Par exemple Sodium 30%PDV indique que la recette fournit 30% des apports journaliers en sel.""")
+                """Par exemple, Sodium 30%PDV indique que la recette fournit 30% des apports journaliers en sel.""")
 
             columns = ['Calories', 'Graisses', 'Sucre', 'Sodium',
                        'Protéines', 'Graisse_saturées', 'Glucides']
@@ -545,6 +546,7 @@ class NutritionPage:
         except Exception as e:
             logger.error(
                 f"Erreur lors de l'exécution de la fonction run : {e}")
+
 
 if __name__ == "__main__":
     try:
