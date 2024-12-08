@@ -5553,3 +5553,13 @@ pymongo.errors.ConfigurationError: A password is required.
 2024-12-07 06:51:37,478 - INFO - Filtrage des recettes pour le régime Low-Carb
 2024-12-07 06:51:37,478 - INFO - 11774 recettes trouvées pour le régime Low-Carb
 2024-12-07 06:51:37,805 - INFO - Recette sélectionnée : mennonite  corn fritters
+2024-12-07 06:54:29,672 - INFO - Affichage de la recherche de recettes par régime alimentaire
+2024-12-07 06:54:29,672 - INFO - Régime sélectionné : Low-Carb
+2024-12-07 06:54:29,672 - INFO - Filtrage des recettes pour le régime Low-Carb
+2024-12-07 06:54:29,672 - INFO - 11774 recettes trouvées pour le régime Low-Carb
+2024-12-07 06:54:30,037 - INFO - Recette sélectionnée : mennonite  corn fritters
+2024-12-07 06:56:08,895 - INFO - Affichage de la recherche de recettes par régime alimentaire
+2024-12-07 06:56:08,896 - INFO - Régime sélectionné : Low-Carb
+2024-12-07 06:56:08,898 - INFO - Filtrage des recettes pour le régime Low-Carb
+2024-12-07 06:56:08,900 - INFO - 11774 recettes trouvées pour le régime Low-Carb
+2024-12-07 06:56:08,975 - WARNING - Aucune recette sélectionnée
