@@ -38,6 +38,19 @@ class Welcome:
 
     @staticmethod
     def load_data_from_local(loader, CONNECTION_STRING, start_date, end_date, is_interactional=False):
+        """
+        Load data from a local source using the provided loader function.
+
+        Parameters:
+        loader (function): A function that takes CONNECTION_STRING, start_date, end_date, and is_interactional as parameters and returns the loaded data.
+        CONNECTION_STRING (str): The connection string to connect to the local data source.
+        start_date (str): The start date for filtering the data.
+        end_date (str): The end date for filtering the data.
+        is_interactional (bool, optional): A flag indicating whether the loading process should be interactive. Defaults to False.
+
+        Returns:
+        data (any): The loaded data or None if an error occurs.
+        """
         try:
             if is_interactional:
                 st.markdown('<div class="spinner-container">',
@@ -63,11 +76,30 @@ class Welcome:
 
     @staticmethod
     def load_data_from_online(loader, CONNECTION_STRING, DATABASE_NAME, COLLECTION_RECIPES_NAME, start_date, end_date, is_interactional=False, limit=500000):
-        """Chargement des données avec spinner et progression"""
+        """
+        Load data from an online MongoDB database with a progress spinner.
+
+        This method attempts to load data from a MongoDB database, either using a provided loader function
+        or by directly connecting to the database if the interaction is set to be interactive.
+
+        Parameters:
+        loader (function): A function to load data when not in interactive mode.
+        CONNECTION_STRING (str): The MongoDB connection string.
+        DATABASE_NAME (str): The name of the MongoDB database.
+        COLLECTION_RECIPES_NAME (str): The name of the collection containing the recipes.
+        start_date (str): The start date for filtering the data.
+        end_date (str): The end date for filtering the data.
+        is_interactional (bool, optional): Whether to use interactive loading. Defaults to False.
+        limit (int, optional): The maximum number of documents to retrieve. Defaults to 500000.
+
+        Returns:
+        pandas.DataFrame or None: The loaded data as a DataFrame if successful, None otherwise.
+
+        Raises:
+        Exception: If there's an error during the data loading process.
+        """
         try:
             with st.spinner("⏳ **Chargement des données en cours...**"):
-                # Simuler un temps de chargement (ajustez selon vos besoins)
-                # Remplacez par votre logique de chargement de données réelle.
                 if not is_interactional:
                     return loader(CONNECTION_STRING, DATABASE_NAME,
                                   COLLECTION_RECIPES_NAME, start_date, end_date)

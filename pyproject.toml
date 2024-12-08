@@ -34,7 +34,6 @@ pymongo = {extras = ["srv"], version = "^4.10.1"}
 surprise = "^0.1"
 pytest-mock = "^3.14.0"
 mongomock = "^4.3.0"
-streamlit-aggrid = "^1.0.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest-cov = "^6.0.0"
