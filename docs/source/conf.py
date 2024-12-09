@@ -19,9 +19,9 @@ project_dir = os.path.abspath(os.path.join(current_dir, '../..'))
 # sys.path.insert(0, os.path.abspath('../'))  # ou './' selon la structure de votre projet
 
 
-project = 'bgdia700'
+project = "DOCUMENTATION DE L'APPLICATION KIT BIG DATA"
 copyright = '2024, Paul, Alexandre, Alexandre, Julian'
-author = 'Paul, Alexandre, Alexandre, Julian'
+author = 'Mbathe Mekontchou Paul, Alexandre Desgrées du Loû, Alexandre Movsessian, Julian Sliva'
 release = '1.0'
 
 extensions = [
