@@ -63,3 +63,5 @@ pytest-of-paul
 
 error.log
 app.log
+black_report.txt
+pydocstyle_report.txt

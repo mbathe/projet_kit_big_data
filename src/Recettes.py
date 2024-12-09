@@ -1,28 +1,5 @@
-
 # fmt: off
-
-
-
-"""
-Cette page est le point d'entrée de l'application, 
-
-Elle contient la méthode à appeler pour lancer l'application qui charge ensuite les différente page
-
-
-
-Ce module configure le logging, charge les données depuis des sources variées (CSV, MongoDB),
-analyse les données, et génère des visualisations interactives à l'aide de Streamlit.
-
-Modules et Classes Principaux :
-- setup_logging: Configure le système de logging de l'application.
-- DataLoader: Classe pour charger des données à partir de fichiers CSV.
-- DataLoaderMango: Classe pour charger des données depuis une base de données MongoDB.
-- CSSLoader: Classe pour charger des feuilles de style CSS.
-- DataAnalyzer: Classe pour analyser et prétraiter les données.
-- VisualizationManager: Classe pour gérer les visualisations des données.
-- StreamlitPage: Classe principale pour l'intégration avec Streamlit.
-- main: Point d'entrée de l'application.
-
+"""Cette page est le point d'entrée de l'application. Elle contient la méthode principale à appeler pour lancer l'application, qui charge ensuite les différentes pages. 
 """
 import streamlit as st
 import os

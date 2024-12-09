@@ -1,0 +1,1066 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualisations &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="Processus" href="process.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">Processus</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Visualisations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphique.Graphique"><code class="docutils literal notranslate"><span class="pre">Graphique</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphique.Graphique.data"><code class="docutils literal notranslate"><span class="pre">Graphique.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphique.Graphique.afficher"><code class="docutils literal notranslate"><span class="pre">Graphique.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.load_css.load_css"><code class="docutils literal notranslate"><span class="pre">load_css()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.grille.Grille"><code class="docutils literal notranslate"><span class="pre">Grille</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.grille.Grille.nb_lignes"><code class="docutils literal notranslate"><span class="pre">Grille.nb_lignes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.grille.Grille.nb_colonnes"><code class="docutils literal notranslate"><span class="pre">Grille.nb_colonnes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.grille.Grille.largeurs_colonnes"><code class="docutils literal notranslate"><span class="pre">Grille.largeurs_colonnes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.grille.Grille.afficher"><code class="docutils literal notranslate"><span class="pre">Grille.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.donut.Donut"><code class="docutils literal notranslate"><span class="pre">Donut</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.donut.Donut.data"><code class="docutils literal notranslate"><span class="pre">Donut.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.donut.Donut.names"><code class="docutils literal notranslate"><span class="pre">Donut.names</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.donut.Donut.values"><code class="docutils literal notranslate"><span class="pre">Donut.values</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.donut.Donut.height"><code class="docutils literal notranslate"><span class="pre">Donut.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.donut.Donut.afficher"><code class="docutils literal notranslate"><span class="pre">Donut.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.heatmap.Heatmap"><code class="docutils literal notranslate"><span class="pre">Heatmap</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.heatmap.Heatmap.data"><code class="docutils literal notranslate"><span class="pre">Heatmap.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.heatmap.Heatmap.x"><code class="docutils literal notranslate"><span class="pre">Heatmap.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.heatmap.Heatmap.y"><code class="docutils literal notranslate"><span class="pre">Heatmap.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.heatmap.Heatmap.z"><code class="docutils literal notranslate"><span class="pre">Heatmap.z</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.heatmap.Heatmap.height"><code class="docutils literal notranslate"><span class="pre">Heatmap.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.heatmap.Heatmap.afficher"><code class="docutils literal notranslate"><span class="pre">Heatmap.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.scatterplot.ScatterPlot"><code class="docutils literal notranslate"><span class="pre">ScatterPlot</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.data"><code class="docutils literal notranslate"><span class="pre">ScatterPlot.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.x"><code class="docutils literal notranslate"><span class="pre">ScatterPlot.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.y"><code class="docutils literal notranslate"><span class="pre">ScatterPlot.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.height"><code class="docutils literal notranslate"><span class="pre">ScatterPlot.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.afficher"><code class="docutils literal notranslate"><span class="pre">ScatterPlot.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.boxplot.BoxPlot"><code class="docutils literal notranslate"><span class="pre">BoxPlot</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.boxplot.BoxPlot.data"><code class="docutils literal notranslate"><span class="pre">BoxPlot.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.boxplot.BoxPlot.x"><code class="docutils literal notranslate"><span class="pre">BoxPlot.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.boxplot.BoxPlot.y"><code class="docutils literal notranslate"><span class="pre">BoxPlot.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.boxplot.BoxPlot.height"><code class="docutils literal notranslate"><span class="pre">BoxPlot.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.boxplot.BoxPlot.afficher"><code class="docutils literal notranslate"><span class="pre">BoxPlot.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.treemap.Treemap"><code class="docutils literal notranslate"><span class="pre">Treemap</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.treemap.Treemap.data"><code class="docutils literal notranslate"><span class="pre">Treemap.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.treemap.Treemap.path"><code class="docutils literal notranslate"><span class="pre">Treemap.path</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.treemap.Treemap.values"><code class="docutils literal notranslate"><span class="pre">Treemap.values</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.treemap.Treemap.height"><code class="docutils literal notranslate"><span class="pre">Treemap.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.treemap.Treemap.afficher"><code class="docutils literal notranslate"><span class="pre">Treemap.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.linechart.LineChart"><code class="docutils literal notranslate"><span class="pre">LineChart</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.linechart.LineChart.data"><code class="docutils literal notranslate"><span class="pre">LineChart.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.linechart.LineChart.x"><code class="docutils literal notranslate"><span class="pre">LineChart.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.linechart.LineChart.y"><code class="docutils literal notranslate"><span class="pre">LineChart.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.linechart.LineChart.height"><code class="docutils literal notranslate"><span class="pre">LineChart.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.linechart.LineChart.line_color"><code class="docutils literal notranslate"><span class="pre">LineChart.line_color</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.linechart.LineChart.afficher"><code class="docutils literal notranslate"><span class="pre">LineChart.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.barchart.BarChart"><code class="docutils literal notranslate"><span class="pre">BarChart</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.barchart.BarChart.data"><code class="docutils literal notranslate"><span class="pre">BarChart.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.barchart.BarChart.x"><code class="docutils literal notranslate"><span class="pre">BarChart.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.barchart.BarChart.y"><code class="docutils literal notranslate"><span class="pre">BarChart.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.barchart.BarChart.height"><code class="docutils literal notranslate"><span class="pre">BarChart.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.barchart.BarChart.afficher"><code class="docutils literal notranslate"><span class="pre">BarChart.afficher()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme"><code class="docutils literal notranslate"><span class="pre">Histogramme</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme.data"><code class="docutils literal notranslate"><span class="pre">Histogramme.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme.x"><code class="docutils literal notranslate"><span class="pre">Histogramme.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme.height"><code class="docutils literal notranslate"><span class="pre">Histogramme.height</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme.bin_size"><code class="docutils literal notranslate"><span class="pre">Histogramme.bin_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme.bar_color"><code class="docutils literal notranslate"><span class="pre">Histogramme.bar_color</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme.line_color"><code class="docutils literal notranslate"><span class="pre">Histogramme.line_color</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.visualizations.graphiques.histogramme.Histogramme.afficher"><code class="docutils literal notranslate"><span class="pre">Histogramme.afficher()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Visualisations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/visualizations.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.visualizations.graphique">
+<span id="visualisations"></span><h1>Visualisations<a class="headerlink" href="#module-src.visualizations.graphique" title="Lien vers cette rubrique"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.visualizations.graphique.Graphique">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphique.</span></span><span class="sig-name descname"><span class="pre">Graphique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphique.html#Graphique"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphique.Graphique" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe de base pour les graphiques.</p>
+<p>Cette classe sert de base pour différents types de graphiques. Elle stocke les données nécessaires
+et définit une méthode abstraite pour l’affichage, qui doit être implémentée par les classes dérivées.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>) – Les données à afficher dans le graphique.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphique.Graphique.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphique.Graphique.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Les données à afficher dans le graphique.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet Graphique.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Any</em>) – Les données à afficher dans le graphique.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphique.Graphique.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphique.html#Graphique.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphique.Graphique.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Méthode abstraite pour afficher le graphique.</p>
+<p>Doit être implémentée par les classes dérivées.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function" id="module-src.visualizations.load_css">
+<dt class="sig sig-object py" id="src.visualizations.load_css.load_css">
+<span class="sig-prename descclassname"><span class="pre">src.visualizations.load_css.</span></span><span class="sig-name descname"><span class="pre">load_css</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/load_css.html#load_css"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.load_css.load_css" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge et applique un fichier CSS personnalisé dans l’application Streamlit.</p>
+<p>Cette fonction lit le contenu d’un fichier CSS spécifié par le chemin fourni et l’applique
+à l’application Streamlit en injectant le CSS dans le HTML de la page. Si le fichier n’est pas
+trouvé, une erreur est affichée dans l’interface Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Le chemin vers le fichier CSS à charger.</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> – Si le fichier CSS spécifié n’est pas trouvé.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.grille">
+<dt class="sig sig-object py" id="src.visualizations.grille.Grille">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.grille.</span></span><span class="sig-name descname"><span class="pre">Grille</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_lignes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_colonnes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">largeurs_colonnes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/grille.html#Grille"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.grille.Grille" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe pour organiser et afficher des graphiques dans une grille à l’aide de Streamlit.</p>
+<p>Cette classe permet de disposer plusieurs graphiques dans une grille structurée selon
+le nombre de lignes et de colonnes spécifié, avec des largeurs de colonnes personnalisées.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nb_lignes</strong> (<em>int</em>) – Le nombre de lignes dans la grille.</p></li>
+<li><p><strong>nb_colonnes</strong> (<em>int</em>) – Le nombre de colonnes dans la grille.</p></li>
+<li><p><strong>largeurs_colonnes</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – Les poids relatifs des colonnes.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.grille.Grille.nb_lignes">
+<span class="sig-name descname"><span class="pre">nb_lignes</span></span><a class="headerlink" href="#src.visualizations.grille.Grille.nb_lignes" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nombre de lignes dans la grille.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.grille.Grille.nb_colonnes">
+<span class="sig-name descname"><span class="pre">nb_colonnes</span></span><a class="headerlink" href="#src.visualizations.grille.Grille.nb_colonnes" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nombre de colonnes dans la grille.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.grille.Grille.largeurs_colonnes">
+<span class="sig-name descname"><span class="pre">largeurs_colonnes</span></span><a class="headerlink" href="#src.visualizations.grille.Grille.largeurs_colonnes" title="Lien vers cette définition"></a></dt>
+<dd><p>Les poids relatifs des colonnes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise une grille pour l’affichage des graphiques.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nb_lignes</strong> (<em>int</em>) – Le nombre de lignes dans la grille.</p></li>
+<li><p><strong>nb_colonnes</strong> (<em>int</em>) – Le nombre de colonnes dans la grille.</p></li>
+<li><p><strong>largeurs_colonnes</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – Les poids relatifs des colonnes.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.grille.Grille.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graphiques</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/grille.html#Grille.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.grille.Grille.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche une liste de graphiques dans la grille.</p>
+<p>Cette méthode organise les graphiques fournis dans une grille structurée selon
+le nombre de lignes et de colonnes définies lors de l’initialisation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>graphiques</strong> (<em>List</em><em>[</em><em>Dict</em><em>]</em>) – Liste de dictionnaires contenant les graphiques et leurs titres à afficher.</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – Si le nombre de graphiques dépasse le nombre de cellules disponibles dans la grille.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.donut">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.donut.Donut">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.donut.</span></span><span class="sig-name descname"><span class="pre">Donut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/donut.html#Donut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.donut.Donut" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher un graphique en anneau (Donut Chart) en utilisant Plotly Express.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Express pour générer
+un graphique en anneau basé sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le graphique en anneau.</p></li>
+<li><p><strong>names</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les labels des segments.</p></li>
+<li><p><strong>values</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs des segments.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.donut.Donut.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.donut.Donut.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données utilisé pour créer le graphique en anneau.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.donut.Donut.names">
+<span class="sig-name descname"><span class="pre">names</span></span><a class="headerlink" href="#src.visualizations.graphiques.donut.Donut.names" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les labels des segments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.donut.Donut.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#src.visualizations.graphiques.donut.Donut.values" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs des segments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.donut.Donut.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.donut.Donut.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur du graphique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet Donut.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le graphique en anneau.</p></li>
+<li><p><strong>names</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les labels des segments.</p></li>
+<li><p><strong>values</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs des segments.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.donut.Donut.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/donut.html#Donut.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.donut.Donut.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche le graphique en anneau en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère le graphique en anneau avec Plotly Express en utilisant les attributs
+<cite>names</cite>, <cite>values</cite> et <cite>height</cite>, puis l’affiche dans l’application Streamlit avec une mise en page personnalisée.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.heatmap">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.heatmap.Heatmap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.heatmap.</span></span><span class="sig-name descname"><span class="pre">Heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/heatmap.html#Heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.heatmap.Heatmap" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher une carte thermique (Heatmap) en utilisant Plotly Express.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Express pour générer
+une carte thermique basée sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données à visualiser.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>z</strong> (<em>str</em>) – Le nom de la colonne pour les valeurs de l’axe des z (représentant l’intensité des couleurs).</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur de la carte thermique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.heatmap.Heatmap.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.heatmap.Heatmap.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données à visualiser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.heatmap.Heatmap.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#src.visualizations.graphiques.heatmap.Heatmap.x" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne pour les valeurs de l’axe des x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.heatmap.Heatmap.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#src.visualizations.graphiques.heatmap.Heatmap.y" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne pour les valeurs de l’axe des y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.heatmap.Heatmap.z">
+<span class="sig-name descname"><span class="pre">z</span></span><a class="headerlink" href="#src.visualizations.graphiques.heatmap.Heatmap.z" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne pour les valeurs de l’axe des z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.heatmap.Heatmap.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.heatmap.Heatmap.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur de la carte thermique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet Heatmap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données à visualiser.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>z</strong> (<em>str</em>) – Le nom de la colonne pour les valeurs de l’axe des z (représentant l’intensité des couleurs).</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur de la carte thermique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Si les colonnes spécifiées n’existent pas dans les données.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.heatmap.Heatmap.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/heatmap.html#Heatmap.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.heatmap.Heatmap.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche la carte thermique en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère la carte thermique avec Plotly Express en utilisant les attributs
+<cite>x</cite>, <cite>y</cite>, <cite>z</cite> et <cite>height</cite>, puis l’affiche dans l’application Streamlit avec une mise en page personnalisée.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.scatterplot">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.scatterplot.ScatterPlot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.scatterplot.</span></span><span class="sig-name descname"><span class="pre">ScatterPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/scatterplot.html#ScatterPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.scatterplot.ScatterPlot" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher un nuage de points (Scatter Plot) en utilisant Plotly Express.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Express pour générer
+un nuage de points basé sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le nuage de points.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.scatterplot.ScatterPlot.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données utilisé pour créer le nuage de points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.scatterplot.ScatterPlot.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.x" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.scatterplot.ScatterPlot.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.y" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.scatterplot.ScatterPlot.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur du graphique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet ScatterPlot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le nuage de points.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – Si les colonnes spécifiées n’existent pas dans les données.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.scatterplot.ScatterPlot.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/scatterplot.html#ScatterPlot.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.scatterplot.ScatterPlot.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche le nuage de points en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère le nuage de points avec Plotly Express en utilisant les attributs
+<cite>x</cite>, <cite>y</cite> et <cite>height</cite>, puis l’affiche dans l’application Streamlit avec une mise en page personnalisée.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.boxplot">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.boxplot.BoxPlot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.boxplot.</span></span><span class="sig-name descname"><span class="pre">BoxPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/boxplot.html#BoxPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.boxplot.BoxPlot" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher un diagramme en boîte (Box Plot) en utilisant Plotly Express.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Express pour générer
+un diagramme en boîte basé sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le diagramme en boîte.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em><em>, </em><em>optional</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y. Par défaut est None.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.boxplot.BoxPlot.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.boxplot.BoxPlot.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données utilisé pour créer le diagramme en boîte.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.boxplot.BoxPlot.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#src.visualizations.graphiques.boxplot.BoxPlot.x" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.boxplot.BoxPlot.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#src.visualizations.graphiques.boxplot.BoxPlot.y" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.boxplot.BoxPlot.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.boxplot.BoxPlot.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur du graphique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet BoxPlot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le diagramme en boîte.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em><em>, </em><em>optional</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y. Par défaut est None.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.boxplot.BoxPlot.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/boxplot.html#BoxPlot.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.boxplot.BoxPlot.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche le diagramme en boîte en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère le diagramme en boîte avec Plotly Express en utilisant les attributs
+<cite>x</cite>, <cite>y</cite> et <cite>height</cite>, puis l’affiche dans l’application Streamlit avec une mise en page personnalisée.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.treemap">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.treemap.Treemap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.treemap.</span></span><span class="sig-name descname"><span class="pre">Treemap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/treemap.html#Treemap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.treemap.Treemap" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher une carte arborescente (Treemap) en utilisant Plotly Express.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Express pour générer
+une carte arborescente basée sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données à visualiser.</p></li>
+<li><p><strong>path</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Liste des noms de colonnes définissant la hiérarchie de la carte arborescente.</p></li>
+<li><p><strong>values</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs des segments.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.treemap.Treemap.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.treemap.Treemap.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données à visualiser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.treemap.Treemap.path">
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#src.visualizations.graphiques.treemap.Treemap.path" title="Lien vers cette définition"></a></dt>
+<dd><p>Liste des noms de colonnes définissant la hiérarchie de la carte arborescente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.treemap.Treemap.values">
+<span class="sig-name descname"><span class="pre">values</span></span><a class="headerlink" href="#src.visualizations.graphiques.treemap.Treemap.values" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs des segments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.treemap.Treemap.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.treemap.Treemap.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur du graphique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet Treemap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données à visualiser.</p></li>
+<li><p><strong>path</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Liste des noms de colonnes définissant la hiérarchie de la carte arborescente.</p></li>
+<li><p><strong>values</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs des segments.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – Si les colonnes spécifiées n’existent pas dans les données.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.treemap.Treemap.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/treemap.html#Treemap.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.treemap.Treemap.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche la carte arborescente en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère la carte arborescente avec Plotly Express en utilisant les attributs
+<cite>path</cite>, <cite>values</cite> et <cite>height</cite>, puis l’affiche dans l’application Streamlit avec une mise en page personnalisée.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.linechart">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.linechart.LineChart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.linechart.</span></span><span class="sig-name descname"><span class="pre">LineChart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/linechart.html#LineChart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.linechart.LineChart" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher un graphique linéaire (Line Chart) en utilisant Plotly Express.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Express pour générer
+un graphique linéaire basé sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le graphique linéaire.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+<li><p><strong>line_color</strong> (<em>str</em><em>, </em><em>optional</em>) – La couleur de la ligne du graphique. Par défaut est None.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.linechart.LineChart.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.linechart.LineChart.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données utilisé pour créer le graphique linéaire.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.linechart.LineChart.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#src.visualizations.graphiques.linechart.LineChart.x" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.linechart.LineChart.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#src.visualizations.graphiques.linechart.LineChart.y" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.linechart.LineChart.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.linechart.LineChart.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur du graphique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.linechart.LineChart.line_color">
+<span class="sig-name descname"><span class="pre">line_color</span></span><a class="headerlink" href="#src.visualizations.graphiques.linechart.LineChart.line_color" title="Lien vers cette définition"></a></dt>
+<dd><p>La couleur de la ligne du graphique.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet LineChart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le graphique linéaire.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+<li><p><strong>line_color</strong> (<em>str</em><em>, </em><em>optional</em>) – La couleur de la ligne du graphique. Par défaut est None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – Si les colonnes spécifiées n’existent pas dans les données.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.linechart.LineChart.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/linechart.html#LineChart.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.linechart.LineChart.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche le graphique linéaire en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère le graphique linéaire avec Plotly Express en utilisant les attributs
+<cite>x</cite>, <cite>y</cite>, <cite>height</cite> et <cite>line_color</cite>, puis l’affiche dans l’application Streamlit avec une
+mise en page personnalisée.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.barchart">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.barchart.BarChart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.barchart.</span></span><span class="sig-name descname"><span class="pre">BarChart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/barchart.html#BarChart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.barchart.BarChart" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher un graphique à barres en utilisant Plotly Express.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Express pour générer
+un graphique à barres basé sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le graphique à barres.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.barchart.BarChart.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.barchart.BarChart.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données utilisé pour créer le graphique à barres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.barchart.BarChart.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#src.visualizations.graphiques.barchart.BarChart.x" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.barchart.BarChart.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#src.visualizations.graphiques.barchart.BarChart.y" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.barchart.BarChart.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.barchart.BarChart.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur du graphique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet BarChart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer le graphique à barres.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des x.</p></li>
+<li><p><strong>y</strong> (<em>str</em>) – Le nom de la colonne à utiliser pour les valeurs de l’axe des y.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.barchart.BarChart.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/barchart.html#BarChart.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.barchart.BarChart.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche le graphique à barres en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère le graphique à barres avec Plotly Express en utilisant les attributs
+<cite>x</cite>, <cite>y</cite> et <cite>height</cite>, puis l’affiche dans l’application Streamlit avec une mise en page personnalisée.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-src.visualizations.graphiques.histogramme">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.visualizations.graphiques.histogramme.</span></span><span class="sig-name descname"><span class="pre">Histogramme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rgb(100,</span> <span class="pre">149,</span> <span class="pre">237)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rgb(8,48,107)'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/histogramme.html#Histogramme"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <a class="reference internal" href="#src.visualizations.graphique.Graphique" title="src.visualizations.graphique.Graphique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graphique</span></code></a></p>
+<p>Classe pour créer et afficher un histogramme en utilisant Plotly.</p>
+<p>Cette classe hérite de la classe de base <cite>Graphique</cite> et utilise Plotly Graph Objects pour générer
+un histogramme basé sur les données fournies. Elle est conçue pour être affichée
+dans une application Streamlit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer l’histogramme.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à analyser pour l’axe des x.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+<li><p><strong>bin_size</strong> (<em>float</em><em>, </em><em>optional</em>) – La taille des bins pour l’histogramme. Par défaut est None.</p></li>
+<li><p><strong>bar_color</strong> (<em>str</em><em>, </em><em>optional</em>) – La couleur des barres de l’histogramme. Par défaut “rgb(100, 149, 237)”.</p></li>
+<li><p><strong>line_color</strong> (<em>str</em><em>, </em><em>optional</em>) – La couleur des lignes autour des barres. Par défaut “rgb(8,48,107)”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme.data" title="Lien vers cette définition"></a></dt>
+<dd><p>Le jeu de données utilisé pour créer l’histogramme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme.x" title="Lien vers cette définition"></a></dt>
+<dd><p>Le nom de la colonne à analyser pour l’axe des x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme.height" title="Lien vers cette définition"></a></dt>
+<dd><p>La hauteur du graphique en pixels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme.bin_size">
+<span class="sig-name descname"><span class="pre">bin_size</span></span><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme.bin_size" title="Lien vers cette définition"></a></dt>
+<dd><p>La taille des bins pour l’histogramme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme.bar_color">
+<span class="sig-name descname"><span class="pre">bar_color</span></span><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme.bar_color" title="Lien vers cette définition"></a></dt>
+<dd><p>La couleur des barres de l’histogramme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme.line_color">
+<span class="sig-name descname"><span class="pre">line_color</span></span><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme.line_color" title="Lien vers cette définition"></a></dt>
+<dd><p>La couleur des lignes autour des barres.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise un objet Histogramme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – Le jeu de données utilisé pour créer l’histogramme.</p></li>
+<li><p><strong>x</strong> (<em>str</em>) – Le nom de la colonne à analyser pour l’axe des x.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>optional</em>) – La hauteur du graphique en pixels. Par défaut à 400.</p></li>
+<li><p><strong>bin_size</strong> (<em>float</em><em>, </em><em>optional</em>) – La taille des bins pour l’histogramme. Par défaut est None.</p></li>
+<li><p><strong>bar_color</strong> (<em>str</em><em>, </em><em>optional</em>) – La couleur des barres de l’histogramme. Par défaut “rgb(100, 149, 237)”.</p></li>
+<li><p><strong>line_color</strong> (<em>str</em><em>, </em><em>optional</em>) – La couleur des lignes autour des barres. Par défaut “rgb(8,48,107)”.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.visualizations.graphiques.histogramme.Histogramme.afficher">
+<span class="sig-name descname"><span class="pre">afficher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/visualizations/graphiques/histogramme.html#Histogramme.afficher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.visualizations.graphiques.histogramme.Histogramme.afficher" title="Lien vers cette définition"></a></dt>
+<dd><p>Affiche l’histogramme en utilisant la fonction plotly_chart de Streamlit.</p>
+<p>Cette méthode génère l’histogramme avec Plotly Graph Objects en utilisant les attributs
+<cite>x</cite>, <cite>height</cite>, <cite>bin_size</cite>, <cite>bar_color</cite> et <cite>line_color</cite>, puis l’affiche dans l’application
+Streamlit avec une mise en page personnalisée.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em><em>, </em><em>optional</em>) – Clé unique pour le graphique dans Streamlit. Par défaut est None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="process.html" class="btn btn-neutral float-left" title="Processus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

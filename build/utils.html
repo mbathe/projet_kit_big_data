@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utils &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Processus" href="process.html" />
+    <link rel="prev" title="Scripts" href="scripts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Scripts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector.connection_string"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector.connection_string</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector.database_name"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector.database_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector.client"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector.client</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector.db"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector.db</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector.connect"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector.load_collection_as_dataframe"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector.load_collection_as_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.MongoDBConnector.MongoDBConnector.close"><code class="docutils literal notranslate"><span class="pre">MongoDBConnector.close()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#utils.helper_data.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils.helper_data.load_dataset_from_file"><code class="docutils literal notranslate"><span class="pre">load_dataset_from_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/utils.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utils.MongoDBConnector">
+<span id="utils"></span><h1>Utils<a class="headerlink" href="#module-utils.MongoDBConnector" title="Lien vers cette rubrique"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.MongoDBConnector.</span></span><span class="sig-name descname"><span class="pre">MongoDBConnector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/MongoDBConnector.html#MongoDBConnector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe pour se connecter à MongoDB et charger des données d’une collection en DataFrame.</p>
+<p>Cette classe facilite la connexion à une base de données MongoDB, le chargement de
+collections spécifiques en tant que DataFrame Pandas, et la gestion de la connexion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection_string</strong> (<em>str</em>) – URI de connexion à MongoDB.</p></li>
+<li><p><strong>database_name</strong> (<em>str</em>) – Nom de la base de données.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector.connection_string">
+<span class="sig-name descname"><span class="pre">connection_string</span></span><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector.connection_string" title="Lien vers cette définition"></a></dt>
+<dd><p>URI de connexion à MongoDB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector.database_name">
+<span class="sig-name descname"><span class="pre">database_name</span></span><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector.database_name" title="Lien vers cette définition"></a></dt>
+<dd><p>Nom de la base de données.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector.client">
+<span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector.client" title="Lien vers cette définition"></a></dt>
+<dd><p>Instance du client MongoDB après connexion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MongoClient or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector.db">
+<span class="sig-name descname"><span class="pre">db</span></span><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector.db" title="Lien vers cette définition"></a></dt>
+<dd><p>Instance de la base de données MongoDB après connexion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Database or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialise la connexion à MongoDB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection_string</strong> (<em>str</em>) – URI de connexion à MongoDB.</p></li>
+<li><p><strong>database_name</strong> (<em>str</em>) – Nom de la base de données.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/MongoDBConnector.html#MongoDBConnector.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector.connect" title="Lien vers cette définition"></a></dt>
+<dd><p>Établit une connexion avec MongoDB.</p>
+<p>Cette méthode tente de se connecter à MongoDB en utilisant l’URI de connexion fourni
+et initialise les attributs <cite>client</cite> et <cite>db</cite>. En cas d’échec de la connexion,
+une exception est levée.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Lève<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – Si une erreur survient lors de la connexion à MongoDB.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector.load_collection_as_dataframe">
+<span class="sig-name descname"><span class="pre">load_collection_as_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/utils/MongoDBConnector.html#MongoDBConnector.load_collection_as_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector.load_collection_as_dataframe" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge une collection MongoDB et retourne un DataFrame Pandas.</p>
+<p>Cette méthode récupère les documents d’une collection MongoDB spécifiée, applique
+des filtres, limite le nombre de documents si nécessaire, et projette les champs
+souhaités. Les données récupérées sont ensuite converties en DataFrame Pandas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection_name</strong> (<em>str</em>) – Nom de la collection à charger.</p></li>
+<li><p><strong>query</strong> (<em>dict</em><em>, </em><em>optional</em>) – Filtre MongoDB pour sélectionner les documents.
+Par défaut : None, pour charger tous les documents.</p></li>
+<li><p><strong>limit</strong> (<em>int</em><em>, </em><em>optional</em>) – Nombre maximum de documents à charger.
+Par défaut : None, pour ne pas limiter.</p></li>
+<li><p><strong>fields</strong> (<em>dict</em><em>, </em><em>optional</em>) – Projection des colonnes à inclure ou exclure.
+Par défaut : None, pour inclure toutes les colonnes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>DataFrame contenant les données de la collection.</dt><dd><p>Retourne un DataFrame vide si la collection est vide ou si aucun document ne correspond au filtre.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – Si la connexion à MongoDB n’a pas été établie avant l’appel de cette méthode.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.MongoDBConnector.MongoDBConnector.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/MongoDBConnector.html#MongoDBConnector.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.MongoDBConnector.MongoDBConnector.close" title="Lien vers cette définition"></a></dt>
+<dd><p>Ferme la connexion à MongoDB.</p>
+<p>Cette méthode ferme la connexion active avec MongoDB si elle est établie.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function" id="module-utils.helper_data">
+<dt class="sig sig-object py" id="utils.helper_data.load_dataset">
+<span class="sig-prename descclassname"><span class="pre">utils.helper_data.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_contents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/helper_data.html#load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.helper_data.load_dataset" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge un jeu de données à partir d’un répertoire contenant des fichiers CSV ou d’un seul fichier CSV.</p>
+<p>Paramètres :
+dir_name (str) : Le chemin d’accès au répertoire contenant les fichiers CSV ou le chemin d’accès à un seul fichier CSV.
+all_contents (bool, optionnel) : Si True, tous les fichiers CSV du répertoire sont chargés. Si False, seul le fichier spécifié est chargé. La valeur par défaut est True.</p>
+<p>Retourne :
+dict : Un dictionnaire dont les clés sont les noms de fichiers (sans les extensions) et les valeurs sont des DataFrames pandas contenant les données chargées.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.helper_data.load_dataset_from_file">
+<span class="sig-prename descclassname"><span class="pre">utils.helper_data.</span></span><span class="sig-name descname"><span class="pre">load_dataset_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_interactional</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils/helper_data.html#load_dataset_from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.helper_data.load_dataset_from_file" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-utils.static"></span></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="scripts.html" class="btn btn-neutral float-left" title="Scripts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="process.html" class="btn btn-neutral float-right" title="Processus" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

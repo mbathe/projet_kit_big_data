@@ -1,7 +1,7 @@
-Recettes
-========
+Welcom
+======
 
-.. automodule:: src.pages.Recettes
+.. automodule:: src.pages.recipes.Welcom
     :members:
     :undoc-members:
     :show-inheritance:

@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Processus &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Visualisations" href="visualizations.html" />
+    <link rel="prev" title="Utils" href="utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Processus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.recommandation.AdvancedRecipeRecommender"><code class="docutils literal notranslate"><span class="pre">AdvancedRecipeRecommender</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recommandation.AdvancedRecipeRecommender.content_based_recommendations"><code class="docutils literal notranslate"><span class="pre">AdvancedRecipeRecommender.content_based_recommendations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recommandation.AdvancedRecipeRecommender.recipe_clustering"><code class="docutils literal notranslate"><span class="pre">AdvancedRecipeRecommender.recipe_clustering()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.nutrition_preprocess.load_data"><code class="docutils literal notranslate"><span class="pre">load_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.nutrition_preprocess.clean_data"><code class="docutils literal notranslate"><span class="pre">clean_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.recipes.NutritionStats"><code class="docutils literal notranslate"><span class="pre">NutritionStats</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.NutritionStats.mean"><code class="docutils literal notranslate"><span class="pre">NutritionStats.mean</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.NutritionStats.median"><code class="docutils literal notranslate"><span class="pre">NutritionStats.median</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.NutritionStats.min"><code class="docutils literal notranslate"><span class="pre">NutritionStats.min</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.NutritionStats.max"><code class="docutils literal notranslate"><span class="pre">NutritionStats.max</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.NutritionStats.quartiles"><code class="docutils literal notranslate"><span class="pre">NutritionStats.quartiles</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.recipes.TemporalStats"><code class="docutils literal notranslate"><span class="pre">TemporalStats</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TemporalStats.date_min"><code class="docutils literal notranslate"><span class="pre">TemporalStats.date_min</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TemporalStats.date_max"><code class="docutils literal notranslate"><span class="pre">TemporalStats.date_max</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TemporalStats.total_days"><code class="docutils literal notranslate"><span class="pre">TemporalStats.total_days</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TemporalStats.submissions_per_year"><code class="docutils literal notranslate"><span class="pre">TemporalStats.submissions_per_year</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TemporalStats.submissions_per_month"><code class="docutils literal notranslate"><span class="pre">TemporalStats.submissions_per_month</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TemporalStats.submissions_per_weekday"><code class="docutils literal notranslate"><span class="pre">TemporalStats.submissions_per_weekday</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.recipes.ComplexityStats"><code class="docutils literal notranslate"><span class="pre">ComplexityStats</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.ComplexityStats.steps_stats"><code class="docutils literal notranslate"><span class="pre">ComplexityStats.steps_stats</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.ComplexityStats.time_stats"><code class="docutils literal notranslate"><span class="pre">ComplexityStats.time_stats</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.recipes.ContributorStats"><code class="docutils literal notranslate"><span class="pre">ContributorStats</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.ContributorStats.total_contributors"><code class="docutils literal notranslate"><span class="pre">ContributorStats.total_contributors</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.ContributorStats.contributions_per_user"><code class="docutils literal notranslate"><span class="pre">ContributorStats.contributions_per_user</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.ContributorStats.top_contributors"><code class="docutils literal notranslate"><span class="pre">ContributorStats.top_contributors</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.recipes.TagStats"><code class="docutils literal notranslate"><span class="pre">TagStats</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TagStats.total_unique_tags"><code class="docutils literal notranslate"><span class="pre">TagStats.total_unique_tags</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TagStats.most_common_tags"><code class="docutils literal notranslate"><span class="pre">TagStats.most_common_tags</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.TagStats.tags_per_recipe"><code class="docutils literal notranslate"><span class="pre">TagStats.tags_per_recipe</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.process.recipes.Recipe"><code class="docutils literal notranslate"><span class="pre">Recipe</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.initialize_session_state"><code class="docutils literal notranslate"><span class="pre">Recipe.initialize_session_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.detect_dataframe_anomalies"><code class="docutils literal notranslate"><span class="pre">Recipe.detect_dataframe_anomalies()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.clean_dataframe"><code class="docutils literal notranslate"><span class="pre">Recipe.clean_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.analyze_nutrition"><code class="docutils literal notranslate"><span class="pre">Recipe.analyze_nutrition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.analyze_temporal_distribution"><code class="docutils literal notranslate"><span class="pre">Recipe.analyze_temporal_distribution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.analyze_tags"><code class="docutils literal notranslate"><span class="pre">Recipe.analyze_tags()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.analyze_contributors"><code class="docutils literal notranslate"><span class="pre">Recipe.analyze_contributors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.analyze_recipe_dataset"><code class="docutils literal notranslate"><span class="pre">Recipe.analyze_recipe_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.analyze_recipe_complexity"><code class="docutils literal notranslate"><span class="pre">Recipe.analyze_recipe_complexity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.process.recipes.Recipe.fetch_data_from_mongodb"><code class="docutils literal notranslate"><span class="pre">Recipe.fetch_data_from_mongodb()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Processus</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/process.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-src.process.recommandation">
+<span id="processus"></span><h1>Processus<a class="headerlink" href="#module-src.process.recommandation" title="Lien vers cette rubrique"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.process.recommandation.AdvancedRecipeRecommender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.process.recommandation.</span></span><span class="sig-name descname"><span class="pre">AdvancedRecipeRecommender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipes_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/process/recommandation.html#AdvancedRecipeRecommender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recommandation.AdvancedRecipeRecommender" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Initialise le système de recommandation de recettes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>recipes_df</strong> (<em>pd.DataFrame</em>) – DataFrame contenant les informations des recettes</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recommandation.AdvancedRecipeRecommender.content_based_recommendations">
+<span class="sig-name descname"><span class="pre">content_based_recommendations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipe_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/src/process/recommandation.html#AdvancedRecipeRecommender.content_based_recommendations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recommandation.AdvancedRecipeRecommender.content_based_recommendations" title="Lien vers cette définition"></a></dt>
+<dd><p>Génère des recommandations basées sur la similarité de contenu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>recipe_id</strong> (<em>int</em>) – Identifiant de la recette de référence</p></li>
+<li><p><strong>top_n</strong> (<em>int</em><em>, </em><em>optional</em>) – Nombre de recommandations à retourner. Défaut à 5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame des recettes recommandées</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recommandation.AdvancedRecipeRecommender.recipe_clustering">
+<span class="sig-name descname"><span class="pre">recipe_clustering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/src/process/recommandation.html#AdvancedRecipeRecommender.recipe_clustering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recommandation.AdvancedRecipeRecommender.recipe_clustering" title="Lien vers cette définition"></a></dt>
+<dd><p>Réalise un clustering avancé des recettes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_clusters</strong> (<em>int</em><em>, </em><em>optional</em>) – Nombre de clusters. Défaut à 5.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame avec les clusters et coordonnées 2D</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function" id="module-src.process.nutrition_preprocess">
+<dt class="sig sig-object py" id="src.process.nutrition_preprocess.load_data">
+<span class="sig-prename descclassname"><span class="pre">src.process.nutrition_preprocess.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/process/nutrition_preprocess.html#load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.nutrition_preprocess.load_data" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge et prépare les données des recettes et des interactions, puis les fusionne en un seul DataFrame.</p>
+<p>Cette fonction effectue plusieurs étapes :
+1. Charge les fichiers CSV contenant les recettes et les interactions.
+2. Calcule la moyenne des notes et le nombre de notes pour chaque recette.
+3. Fusionne les données des recettes avec les données de notes.
+4. Transforme la colonne “nutrition” en listes de valeurs individuelles.
+5. Sépare les valeurs nutritionnelles en colonnes distinctes.
+6. Convertit ces valeurs en types numériques.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>Un DataFrame contenant les informations fusionnées et nettoyées sur les recettes,</dt><dd><p>incluant les colonnes “Moyenne des notes”, “Nombre de notes” et les valeurs nutritionnelles.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.process.nutrition_preprocess.clean_data">
+<span class="sig-prename descclassname"><span class="pre">src.process.nutrition_preprocess.</span></span><span class="sig-name descname"><span class="pre">clean_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/process/nutrition_preprocess.html#clean_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.nutrition_preprocess.clean_data" title="Lien vers cette définition"></a></dt>
+<dd><p>Nettoie les données en filtrant les recettes ayant trop peu de notes et en supprimant les valeurs aberrantes
+dans les données nutritionnelles.</p>
+<p>Cette fonction effectue les opérations suivantes :
+1. Filtre les recettes ayant moins de 5 notes.
+2. Supprime les valeurs nutritionnelles aberrantes dans les colonnes “Graisses”, “Graisse_saturées”,</p>
+<blockquote>
+<div><p>“Sucre”, “Sodium”, “Protéines”, “Glucides” en supprimant les valeurs supérieures à 100.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Supprime les recettes ayant plus de 800 calories.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – Le DataFrame contenant les données des recettes, y compris les valeurs nutritionnelles.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>Un DataFrame nettoyé, avec les valeurs aberrantes et les recettes ayant peu de notes supprimées.</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class" id="module-src.process.recipes">
+<dt class="sig sig-object py" id="src.process.recipes.NutritionStats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.process.recipes.</span></span><span class="sig-name descname"><span class="pre">NutritionStats</span></span><a class="reference internal" href="_modules/src/process/recipes.html#NutritionStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.NutritionStats" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.NutritionStats.mean">
+<span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#src.process.recipes.NutritionStats.mean" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.NutritionStats.median">
+<span class="sig-name descname"><span class="pre">median</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#src.process.recipes.NutritionStats.median" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.NutritionStats.min">
+<span class="sig-name descname"><span class="pre">min</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#src.process.recipes.NutritionStats.min" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.NutritionStats.max">
+<span class="sig-name descname"><span class="pre">max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#src.process.recipes.NutritionStats.max" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.NutritionStats.quartiles">
+<span class="sig-name descname"><span class="pre">quartiles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.NutritionStats.quartiles" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.process.recipes.TemporalStats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.process.recipes.</span></span><span class="sig-name descname"><span class="pre">TemporalStats</span></span><a class="reference internal" href="_modules/src/process/recipes.html#TemporalStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.TemporalStats" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TemporalStats.date_min">
+<span class="sig-name descname"><span class="pre">date_min</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#src.process.recipes.TemporalStats.date_min" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TemporalStats.date_max">
+<span class="sig-name descname"><span class="pre">date_max</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#src.process.recipes.TemporalStats.date_max" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TemporalStats.total_days">
+<span class="sig-name descname"><span class="pre">total_days</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.process.recipes.TemporalStats.total_days" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TemporalStats.submissions_per_year">
+<span class="sig-name descname"><span class="pre">submissions_per_year</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.TemporalStats.submissions_per_year" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TemporalStats.submissions_per_month">
+<span class="sig-name descname"><span class="pre">submissions_per_month</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.TemporalStats.submissions_per_month" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TemporalStats.submissions_per_weekday">
+<span class="sig-name descname"><span class="pre">submissions_per_weekday</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.TemporalStats.submissions_per_weekday" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.process.recipes.ComplexityStats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.process.recipes.</span></span><span class="sig-name descname"><span class="pre">ComplexityStats</span></span><a class="reference internal" href="_modules/src/process/recipes.html#ComplexityStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.ComplexityStats" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.ComplexityStats.steps_stats">
+<span class="sig-name descname"><span class="pre">steps_stats</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.ComplexityStats.steps_stats" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.ComplexityStats.time_stats">
+<span class="sig-name descname"><span class="pre">time_stats</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.ComplexityStats.time_stats" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.process.recipes.ContributorStats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.process.recipes.</span></span><span class="sig-name descname"><span class="pre">ContributorStats</span></span><a class="reference internal" href="_modules/src/process/recipes.html#ContributorStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.ContributorStats" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.ContributorStats.total_contributors">
+<span class="sig-name descname"><span class="pre">total_contributors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.process.recipes.ContributorStats.total_contributors" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.ContributorStats.contributions_per_user">
+<span class="sig-name descname"><span class="pre">contributions_per_user</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.ContributorStats.contributions_per_user" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.ContributorStats.top_contributors">
+<span class="sig-name descname"><span class="pre">top_contributors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.ContributorStats.top_contributors" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.process.recipes.TagStats">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.process.recipes.</span></span><span class="sig-name descname"><span class="pre">TagStats</span></span><a class="reference internal" href="_modules/src/process/recipes.html#TagStats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.TagStats" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">TypedDict</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TagStats.total_unique_tags">
+<span class="sig-name descname"><span class="pre">total_unique_tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#src.process.recipes.TagStats.total_unique_tags" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TagStats.most_common_tags">
+<span class="sig-name descname"><span class="pre">most_common_tags</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.TagStats.most_common_tags" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.process.recipes.TagStats.tags_per_recipe">
+<span class="sig-name descname"><span class="pre">tags_per_recipe</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#src.process.recipes.TagStats.tags_per_recipe" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.process.recipes.</span></span><span class="sig-name descname"><span class="pre">Recipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'RAW_recipes'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">datetime.datetime(1999,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">datetime.datetime(2018,</span> <span class="pre">12,</span> <span class="pre">31,</span> <span class="pre">0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.initialize_session_state">
+<span class="sig-name descname"><span class="pre">initialize_session_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.initialize_session_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.initialize_session_state" title="Lien vers cette définition"></a></dt>
+<dd><p>Initialiser l’état de session avec un jeu de données filtré.</p>
+<p>Cette fonction configure l’état de session avec le jeu de données approprié en fonction du site de déploiement
+et de la plage de dates. Elle gère les déploiements en ligne et locaux, en récupérant les données à partir de MongoDB ou
+en les chargeant à partir d’un fichier local.</p>
+<p>Paramètres:
+start_date (datetime or date): La date de début pour filtrer le jeu de données.
+end_date (datetime or date): La date de fin pour filtrer le jeu de données.</p>
+<p>Retourne:
+None</p>
+<p>Lève:
+Exception: Si une erreur se produit pendant le processus d’initialisation, elle enregistre l’erreur et la relance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.detect_dataframe_anomalies">
+<span class="sig-name descname"><span class="pre">detect_dataframe_anomalies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">std_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_score_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.detect_dataframe_anomalies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.detect_dataframe_anomalies" title="Lien vers cette définition"></a></dt>
+<dd><p>Détecter les anomalies dans le DataFrame à l’aide de diverses méthodes statistiques.</p>
+<p>Cette fonction effectue plusieurs techniques de détection d’anomalies sur le DataFrame,
+notamment la détection des valeurs manquantes, la détection des valeurs aberrantes basée sur l’écart-type,
+et la détection des valeurs aberrantes basée sur le score Z. Elle fournit également des informations sur les types de colonnes
+et les décomptes de valeurs uniques.</p>
+<p>Paramètres:
+std_threshold (float): Le nombre d’écarts-types à utiliser comme seuil</p>
+<blockquote>
+<div><p>pour identifier les valeurs aberrantes dans la méthode de l’écart-type.
+Par défaut à 3.0.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>z_score_threshold (float): Le seuil de score Z à utiliser pour identifier les valeurs</dt><dd><p>aberrantes dans la méthode du score Z. Par défaut à 3.0.</p>
+</dd>
+</dl>
+<p>Retourne:
+Dict[str, pd.DataFrame]: Un dictionnaire contenant divers DataFrames avec les</p>
+<blockquote>
+<div><p>anomalies détectées et les informations sur les données. Les clés du dictionnaire sont :
+- “missing_values”: DataFrame avec les nombres et pourcentages de valeurs manquantes
+- “std_outliers”: DataFrame avec les valeurs aberrantes basées sur l’écart-type
+- “z_score_outliers”: DataFrame avec les valeurs aberrantes basées sur le score Z
+- “column_info”: DataFrame avec les informations sur les colonnes (décomptes uniques, etc.)
+- “data_types”: DataFrame avec les types de données et des exemples de valeurs pour chaque colonne</p>
+</div></blockquote>
+<p>Lève:
+Exception: Si une erreur se produit pendant le processus de détection d’anomalies.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.clean_dataframe">
+<span class="sig-name descname"><span class="pre">clean_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cleaning_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'std'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.clean_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.clean_dataframe" title="Lien vers cette définition"></a></dt>
+<dd><p>Supprimer les anomalies du DataFrame en fonction des résultats de détection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>anomalies</strong> – Résultats de la détection d’anomalies</p></li>
+<li><p><strong>cleaning_method</strong> – Méthode de nettoyage (“std” ou “zscore”)</p></li>
+<li><p><strong>threshold</strong> – Seuil pour la détection d’anomalies</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.analyze_nutrition">
+<span class="sig-name descname"><span class="pre">analyze_nutrition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#src.process.recipes.NutritionStats" title="src.process.recipes.NutritionStats"><span class="pre">NutritionStats</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.analyze_nutrition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.analyze_nutrition" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyser les informations nutritionnelles.</p>
+<dl class="simple">
+<dt>Retourne :</dt><dd><p>Statistiques nutritionnelles pour chaque catégorie</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.analyze_temporal_distribution">
+<span class="sig-name descname"><span class="pre">analyze_temporal_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.process.recipes.TemporalStats" title="src.process.recipes.TemporalStats"><span class="pre">TemporalStats</span></a></span></span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.analyze_temporal_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.analyze_temporal_distribution" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse la distribution temporelle des recettes.</p>
+<dl class="simple">
+<dt>Args :</dt><dd><p>date_start : Date de début de l’analyse
+date_end : Date de fin de l’analyse</p>
+</dd>
+<dt>Returns :</dt><dd><p>Statistiques de distribution temporelle</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.analyze_tags">
+<span class="sig-name descname"><span class="pre">analyze_tags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#src.process.recipes.TagStats" title="src.process.recipes.TagStats"><span class="pre">TagStats</span></a></span></span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.analyze_tags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.analyze_tags" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse les étiquettes de recettes et génère des statistiques liées aux étiquettes.</p>
+<p>Cette fonction traite les étiquettes associées aux recettes dans l’ensemble de données,
+calculant diverses statistiques telles que le nombre total de balises uniques, les balises les plus courantes et des statistiques sur le nombre de balises par recette,
+les balises les plus courantes et des statistiques sur le nombre de balises par recette.
+Retourne :</p>
+<blockquote>
+<div><dl class="simple">
+<dt>TagStats<span class="classifier">Un dictionnaire contenant les statistiques suivantes relatives aux étiquettes :</span></dt><dd><ul class="simple">
+<li><p>“total_unique_tags” : Le nombre total de tags uniques dans toutes les recettes.</p></li>
+<li><p>“most_common_tags” : Un dictionnaire des 20 tags les plus courants et de leur fréquence.</p></li>
+<li><dl class="simple">
+<dt>“tags_per_recipe”<span class="classifier">Un dictionnaire contenant des statistiques sur le nombre de tags par recette :</span></dt><dd><ul>
+<li><p>“mean” : Le nombre moyen de tags par recette.</p></li>
+<li><p>“median” : Le nombre médian de tags par recette : Le nombre médian de tags par recette.</p></li>
+<li><p>“min” : Le nombre minimum de tags par recette : Le nombre minimum de tags pour une recette.</p></li>
+<li><p>“max” : Le nombre maximum de tags pour une recette : Le nombre maximum de tags pour une recette.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Lève :</dt><dd><p>Exception : Si une erreur se produit pendant le processus d’analyse des balises.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.analyze_contributors">
+<span class="sig-name descname"><span class="pre">analyze_contributors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.analyze_contributors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.analyze_contributors" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse les contributions par utilisateur.</p>
+<p>Cette fonction calcule le nombre total de contributeurs,
+les statistiques de contributions par utilisateur (moyenne, médiane, maximum),
+et les 10 principaux contributeurs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Un dictionnaire contenant les statistiques de contributions par utilisateur.
+Le dictionnaire a les clés suivantes :
+- “total_contributors”: Nombre total de contributeurs.
+- “contributions_per_user”: Statistiques de contributions par utilisateur (moyenne, médiane, maximum).
+- “top_contributors”: Les 10 principaux contributeurs avec leur nombre de contributions.</p>
+</dd>
+<dt class="field-even">Lève<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – Si une erreur se produit lors de l’analyse des contributions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.analyze_recipe_dataset">
+<span class="sig-name descname"><span class="pre">analyze_recipe_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.analyze_recipe_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.analyze_recipe_dataset" title="Lien vers cette définition"></a></dt>
+<dd><p>Effectuer une analyse complète de l’ensemble des données.</p>
+<dl class="simple">
+<dt>Retours :</dt><dd><p>Analyse complète de l’ensemble de données de la recette</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.analyze_recipe_complexity">
+<span class="sig-name descname"><span class="pre">analyze_recipe_complexity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.analyze_recipe_complexity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.analyze_recipe_complexity" title="Lien vers cette définition"></a></dt>
+<dd><p>Analyse la complexité des recettes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.process.recipes.Recipe.fetch_data_from_mongodb">
+<span class="sig-name descname"><span class="pre">fetch_data_from_mongodb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">connection_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/process/recipes.html#Recipe.fetch_data_from_mongodb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.process.recipes.Recipe.fetch_data_from_mongodb" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge les données depuis MongoDB en fonction d’un intervalle de dates et retourne un DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>connection_string</strong> – URI de connexion à MongoDB</p></li>
+<li><p><strong>database_name</strong> – Nom de la base de données</p></li>
+<li><p><strong>collection_name</strong> – Nom de la collection</p></li>
+<li><p><strong>start_date</strong> – Date de début (string ou datetime)</p></li>
+<li><p><strong>end_date</strong> – Date de fin (string ou datetime)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame contenant les données</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="utils.html" class="btn btn-neutral float-left" title="Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="visualizations.html" class="btn btn-neutral float-right" title="Visualisations" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

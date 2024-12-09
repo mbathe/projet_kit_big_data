@@ -5,13 +5,18 @@ import sys
 import sphinx_rtd_theme
 
 # Obtenir le chemin absolu du dossier contenant conf.py
+sys.path.append(os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '../..')))
+sys.path.append(os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '../../src/pages')))
 current_dir = os.path.abspath(os.path.dirname(__file__))
 
+sys.path.insert(0, os.path.abspath('../../src'))
 # Chemin vers le répertoire racine du projet
 project_dir = os.path.abspath(os.path.join(current_dir, '../..'))
 
 # Ajouter le chemin racine du projet à sys.path
-sys.path.insert(0, os.path.abspath('../'))  # ou './' selon la structure de votre projet
+# sys.path.insert(0, os.path.abspath('../'))  # ou './' selon la structure de votre projet
 
 
 project = 'bgdia700'

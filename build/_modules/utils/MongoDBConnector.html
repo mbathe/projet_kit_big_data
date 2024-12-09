@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils.MongoDBConnector &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">utils.MongoDBConnector</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de utils.MongoDBConnector</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># Configuration de logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;app.log&quot;</span><span class="p">)),</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="n">error_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;error.log&quot;</span><span class="p">))</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+    <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">error_handler</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MongoDBConnector">
+<a class="viewcode-back" href="../../utils.html#utils.MongoDBConnector.MongoDBConnector">[docs]</a>
+<span class="k">class</span> <span class="nc">MongoDBConnector</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe pour se connecter à MongoDB et charger des données d&#39;une collection en DataFrame.</span>
+
+<span class="sd">    Cette classe facilite la connexion à une base de données MongoDB, le chargement de</span>
+<span class="sd">    collections spécifiques en tant que DataFrame Pandas, et la gestion de la connexion.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        connection_string (str): URI de connexion à MongoDB.</span>
+<span class="sd">        database_name (str): Nom de la base de données.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        connection_string (str): URI de connexion à MongoDB.</span>
+<span class="sd">        database_name (str): Nom de la base de données.</span>
+<span class="sd">        client (MongoClient or None): Instance du client MongoDB après connexion.</span>
+<span class="sd">        db (Database or None): Instance de la base de données MongoDB après connexion.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">database_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise la connexion à MongoDB.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            connection_string (str): URI de connexion à MongoDB.</span>
+<span class="sd">            database_name (str): Nom de la base de données.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection_string</span> <span class="o">=</span> <span class="n">connection_string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">database_name</span> <span class="o">=</span> <span class="n">database_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="MongoDBConnector.connect">
+<a class="viewcode-back" href="../../utils.html#utils.MongoDBConnector.MongoDBConnector.connect">[docs]</a>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Établit une connexion avec MongoDB.</span>
+
+<span class="sd">        Cette méthode tente de se connecter à MongoDB en utilisant l&#39;URI de connexion fourni</span>
+<span class="sd">        et initialise les attributs `client` et `db`. En cas d&#39;échec de la connexion,</span>
+<span class="sd">        une exception est levée.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: Si une erreur survient lors de la connexion à MongoDB.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">connection_string</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">database_name</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecté à la base de données : </span><span class="si">{</span>
+<span class="w">                </span><span class="bp">self</span><span class="o">.</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecté à la base de données : </span><span class="si">{</span>
+<span class="w">                         </span><span class="bp">self</span><span class="o">.</span><span class="n">database_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;déconnecté&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors de la connexion à MongoDB : </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span></div>
+
+
+<div class="viewcode-block" id="MongoDBConnector.load_collection_as_dataframe">
+<a class="viewcode-back" href="../../utils.html#utils.MongoDBConnector.MongoDBConnector.load_collection_as_dataframe">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_collection_as_dataframe</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">collection_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fields</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Charge une collection MongoDB et retourne un DataFrame Pandas.</span>
+
+<span class="sd">        Cette méthode récupère les documents d&#39;une collection MongoDB spécifiée, applique</span>
+<span class="sd">        des filtres, limite le nombre de documents si nécessaire, et projette les champs</span>
+<span class="sd">        souhaités. Les données récupérées sont ensuite converties en DataFrame Pandas.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            collection_name (str): Nom de la collection à charger.</span>
+<span class="sd">            query (dict, optional): Filtre MongoDB pour sélectionner les documents.</span>
+<span class="sd">                Par défaut : None, pour charger tous les documents.</span>
+<span class="sd">            limit (int, optional): Nombre maximum de documents à charger.</span>
+<span class="sd">                Par défaut : None, pour ne pas limiter.</span>
+<span class="sd">            fields (dict, optional): Projection des colonnes à inclure ou exclure.</span>
+<span class="sd">                Par défaut : None, pour inclure toutes les colonnes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame contenant les données de la collection.</span>
+<span class="sd">                Retourne un DataFrame vide si la collection est vide ou si aucun document ne correspond au filtre.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            Exception: Si la connexion à MongoDB n&#39;a pas été établie avant l&#39;appel de cette méthode.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s2">&quot;La connexion à MongoDB n&#39;a pas été initialisée. Appelez `connect()` en premier.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;La connexion à MongoDB n&#39;a pas été initialisée. Appelez `connect()` en premier.&quot;</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">collection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db</span><span class="p">[</span><span class="n">collection_name</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">query</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">query</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span> <span class="k">if</span> <span class="n">fields</span> <span class="k">else</span> <span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">cursor</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
+
+            <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cursor</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s1">&#39;_id&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">fields</span> <span class="ow">or</span> <span class="n">fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;_id&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_id&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">df</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La collection &#39;</span><span class="si">{</span>
+<span class="w">                                </span><span class="n">collection_name</span><span class="si">}</span><span class="s2">&#39; est vide ou ne contient aucun document correspondant au filtre.&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors de la récupération des données de la collection &#39;</span><span class="si">{</span>
+<span class="w">                </span><span class="n">collection_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur lors de la récupération des données de la collection &#39;</span><span class="si">{</span>
+<span class="w">                          </span><span class="n">collection_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="MongoDBConnector.close">
+<a class="viewcode-back" href="../../utils.html#utils.MongoDBConnector.MongoDBConnector.close">[docs]</a>
+    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Ferme la connexion à MongoDB.</span>
+
+<span class="sd">        Cette méthode ferme la connexion active avec MongoDB si elle est établie.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Réinitialiser l&#39;attribut client</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Réinitialiser l&#39;attribut db si nécessaire</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connexion MongoDB fermée.&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

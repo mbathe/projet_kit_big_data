@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.process.recommandation &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">src.process.recommandation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de src.process.recommandation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># Configuration de logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;app.log&quot;</span><span class="p">)),</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="n">error_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;../..&#39;</span><span class="p">),</span> <span class="s2">&quot;error.log&quot;</span><span class="p">))</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">error_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+    <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
+
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">error_handler</span><span class="p">)</span>
+
+
+<span class="n">DEPLOIEMENT_SITE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DEPLOIEMENT_SITE&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AdvancedRecipeRecommender">
+<a class="viewcode-back" href="../../../process.html#src.process.recommandation.AdvancedRecipeRecommender">[docs]</a>
+<span class="k">class</span> <span class="nc">AdvancedRecipeRecommender</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recipes_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise le système de recommandation de recettes.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            recipes_df (pd.DataFrame): DataFrame contenant les informations des recettes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span> <span class="o">=</span> <span class="n">recipes_df</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess_data</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in __init__: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+    <span class="k">def</span> <span class="nf">_preprocess_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Effectue un prétraitement avancé des données de recettes.</span>
+
+<span class="sd">        Traitements réalisés :</span>
+<span class="sd">        - Nettoyage et standardisation des ingrédients</span>
+<span class="sd">        - Création d&#39;une matrice TF-IDF des ingrédients</span>
+<span class="sd">        - Normalisation des caractéristiques numériques</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Nettoie les ingrédients : convertit en chaîne de caractères lowercase</span>
+            <span class="k">if</span> <span class="n">DEPLOIEMENT_SITE</span> <span class="o">!=</span> <span class="s2">&quot;ONLINE&quot;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="s1">&#39;ingredients_cleaned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="s1">&#39;ingredients&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="s1">&#39;ingredients_cleaned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="s1">&#39;ingredients&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+            <span class="c1"># Vectorisation TF-IDF des ingrédients</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ingredient_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="s1">&#39;ingredients_cleaned&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Normalisation des caractéristiques numériques</span>
+            <span class="n">numeric_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;minutes&#39;</span><span class="p">,</span> <span class="s1">&#39;n_ingredients&#39;</span><span class="p">,</span> <span class="s1">&#39;n_steps&#39;</span><span class="p">]</span>
+            <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">numeric_features</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="n">numeric_features</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in _preprocess_data: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AdvancedRecipeRecommender.content_based_recommendations">
+<a class="viewcode-back" href="../../../process.html#src.process.recommandation.AdvancedRecipeRecommender.content_based_recommendations">[docs]</a>
+    <span class="k">def</span> <span class="nf">content_based_recommendations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recipe_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">top_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Génère des recommandations basées sur la similarité de contenu.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            recipe_id (int): Identifiant de la recette de référence</span>
+<span class="sd">            top_n (int, optional): Nombre de recommandations à retourner. Défaut à 5.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame des recettes recommandées</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Trouve l&#39;index de la recette de référence</span>
+            <span class="n">recipe_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+                                           <span class="o">==</span> <span class="n">recipe_id</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># Calcule la similarité cosinus entre la recette et toutes les autres</span>
+            <span class="n">cosine_sim</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ingredient_matrix</span><span class="p">[</span><span class="n">recipe_index</span><span class="p">],</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ingredient_matrix</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+            <span class="c1"># Récupère les indices des top_n recettes les plus similaires</span>
+            <span class="n">similar_indices</span> <span class="o">=</span> <span class="n">cosine_sim</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">top_n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">similar_indices</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in content_based_recommendations: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="AdvancedRecipeRecommender.recipe_clustering">
+<a class="viewcode-back" href="../../../process.html#src.process.recommandation.AdvancedRecipeRecommender.recipe_clustering">[docs]</a>
+    <span class="k">def</span> <span class="nf">recipe_clustering</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Réalise un clustering avancé des recettes.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            n_clusters (int, optional): Nombre de clusters. Défaut à 5.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame avec les clusters et coordonnées 2D</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Combine les features de la matrice d&#39;ingrédients et des caractéristiques numériques</span>
+            <span class="n">combined_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ingredient_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">numeric_features</span>
+            <span class="p">])</span>
+
+            <span class="c1"># Réduction de dimensionnalité avec PCA</span>
+            <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">features_2d</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">combined_features</span><span class="p">)</span>
+
+            <span class="c1"># Clustering K-means</span>
+            <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+            <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">combined_features</span><span class="p">)</span>
+
+            <span class="c1"># Création d&#39;un DataFrame de résultats</span>
+            <span class="n">cluster_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                <span class="s1">&#39;Recipe&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">recipes_df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;Cluster&#39;</span><span class="p">:</span> <span class="n">clusters</span><span class="p">,</span>
+                <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">features_2d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="n">features_2d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">})</span>
+
+            <span class="k">return</span> <span class="n">cluster_df</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in recipe_clustering: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

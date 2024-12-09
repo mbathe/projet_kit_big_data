@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.visualizations.grille &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=e6b791cb"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scripts.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Code du module</a></li>
+      <li class="breadcrumb-item active">src.visualizations.grille</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Code source de src.visualizations.grille</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+
+<div class="viewcode-block" id="Grille">
+<a class="viewcode-back" href="../../../visualizations.html#src.visualizations.grille.Grille">[docs]</a>
+<span class="k">class</span> <span class="nc">Grille</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe pour organiser et afficher des graphiques dans une grille à l&#39;aide de Streamlit.</span>
+
+<span class="sd">    Cette classe permet de disposer plusieurs graphiques dans une grille structurée selon</span>
+<span class="sd">    le nombre de lignes et de colonnes spécifié, avec des largeurs de colonnes personnalisées.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nb_lignes (int): Le nombre de lignes dans la grille.</span>
+<span class="sd">        nb_colonnes (int): Le nombre de colonnes dans la grille.</span>
+<span class="sd">        largeurs_colonnes (List[int]): Les poids relatifs des colonnes.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        nb_lignes (int): Le nombre de lignes dans la grille.</span>
+<span class="sd">        nb_colonnes (int): Le nombre de colonnes dans la grille.</span>
+<span class="sd">        largeurs_colonnes (List[int]): Les poids relatifs des colonnes.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nb_lignes</span><span class="p">,</span> <span class="n">nb_colonnes</span><span class="p">,</span> <span class="n">largeurs_colonnes</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialise une grille pour l&#39;affichage des graphiques.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            nb_lignes (int): Le nombre de lignes dans la grille.</span>
+<span class="sd">            nb_colonnes (int): Le nombre de colonnes dans la grille.</span>
+<span class="sd">            largeurs_colonnes (List[int]): Les poids relatifs des colonnes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_lignes</span> <span class="o">=</span> <span class="n">nb_lignes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nb_colonnes</span> <span class="o">=</span> <span class="n">nb_colonnes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">largeurs_colonnes</span> <span class="o">=</span> <span class="n">largeurs_colonnes</span>  <span class="c1"># Les poids relatifs des colonnes</span>
+
+<div class="viewcode-block" id="Grille.afficher">
+<a class="viewcode-back" href="../../../visualizations.html#src.visualizations.grille.Grille.afficher">[docs]</a>
+    <span class="k">def</span> <span class="nf">afficher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graphiques</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Affiche une liste de graphiques dans la grille.</span>
+
+<span class="sd">        Cette méthode organise les graphiques fournis dans une grille structurée selon</span>
+<span class="sd">        le nombre de lignes et de colonnes définies lors de l&#39;initialisation.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            graphiques (List[Dict]): Liste de dictionnaires contenant les graphiques et leurs titres à afficher.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            AssertionError: Si le nombre de graphiques dépasse le nombre de cellules disponibles dans la grille.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">graphiques</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_lignes</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_colonnes</span><span class="p">,</span> <span class="s2">&quot;Pas assez de cellules pour afficher tous les graphiques.&quot;</span>
+        <span class="n">idx_graphique</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_lignes</span><span class="p">):</span>
+            <span class="n">colonnes</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">largeurs_colonnes</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nb_colonnes</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">idx_graphique</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">graphiques</span><span class="p">):</span>
+                    <span class="k">with</span> <span class="n">colonnes</span><span class="p">[</span><span class="n">col</span><span class="p">]:</span>
+                        <span class="c1"># Conteneur pour le style personnalisé</span>
+                        <span class="n">container</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">container</span><span class="p">()</span>
+                        <span class="k">with</span> <span class="n">container</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">graphiques</span><span class="p">[</span><span class="n">idx_graphique</span><span class="p">][</span><span class="s1">&#39;titre&#39;</span><span class="p">]:</span>
+                                <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">graphiques</span><span class="p">[</span><span class="n">idx_graphique</span><span class="p">][</span><span class="s1">&#39;titre&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="n">graphiques</span><span class="p">[</span><span class="n">idx_graphique</span><span class="p">][</span><span class="s1">&#39;graphique&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">afficher</span><span class="p">()</span>
+                        <span class="c1"># Ajouter une classe personnalisée au conteneur</span>
+                        <span class="n">container</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;&lt;div class=&quot;graph-container&quot;&gt;&lt;/div&gt;&#39;</span><span class="p">,</span> <span class="n">unsafe_allow_html</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="n">idx_graphique</span> <span class="o">+=</span> <span class="mi">1</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

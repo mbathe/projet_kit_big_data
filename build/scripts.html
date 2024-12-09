@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scripts &mdash; Documentation bgdia700 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Utils" href="utils.html" />
+    <link rel="prev" title="Analyse Recipe" href="pages/recipes/Analyse_recipe.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            bgdia700
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenu</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pages/recettes.html">Recettes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/nutrition.html">Nutrition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/analyse_user.html">Analyse Utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Welcom.html">Welcom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/recipes/Analyse_recipe.html">Analyse Recipe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scripts.download_dataset.download_dataset_from_drive"><code class="docutils literal notranslate"><span class="pre">download_dataset_from_drive()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripts.mongo_data.safe_eval"><code class="docutils literal notranslate"><span class="pre">safe_eval()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripts.mongo_data.convert_dataframe_to_documents"><code class="docutils literal notranslate"><span class="pre">convert_dataframe_to_documents()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripts.mongo_data.load_dataframe_to_mongodb"><code class="docutils literal notranslate"><span class="pre">load_dataframe_to_mongodb()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scripts.mongo_data.DataFrameConverter"><code class="docutils literal notranslate"><span class="pre">DataFrameConverter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.mongo_data.DataFrameConverter.convert_dataframe_to_documents"><code class="docutils literal notranslate"><span class="pre">DataFrameConverter.convert_dataframe_to_documents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.mongo_data.DataFrameConverter.convert_raw_recipe_dataframe"><code class="docutils literal notranslate"><span class="pre">DataFrameConverter.convert_raw_recipe_dataframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scripts.mongo_data.DataFrameConverter.convert_raw_interaction_dataframe"><code class="docutils literal notranslate"><span class="pre">DataFrameConverter.convert_raw_interaction_dataframe()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">Processus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualisations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bgdia700</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Scripts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/scripts.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-scripts.download_dataset">
+<span id="scripts"></span><h1>Scripts<a class="headerlink" href="#module-scripts.download_dataset" title="Lien vers cette rubrique"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.download_dataset.download_dataset_from_drive">
+<span class="sig-prename descclassname"><span class="pre">scripts.download_dataset.</span></span><span class="sig-name descname"><span class="pre">download_dataset_from_drive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_directory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/download_dataset.html#download_dataset_from_drive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.download_dataset.download_dataset_from_drive" title="Lien vers cette définition"></a></dt>
+<dd><p>Télécharge un fichier ZIP depuis Google Drive et le décompresse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_id</strong> (<em>str</em>) – L’ID du fichier Google Drive</p></li>
+<li><p><strong>output_directory</strong> (<em>str</em>) – Répertoire de destination pour le téléchargement et la décompression</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>Chemin du fichier ZIP téléchargé</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function" id="module-scripts.mongo_data">
+<dt class="sig sig-object py" id="scripts.mongo_data.safe_eval">
+<span class="sig-prename descclassname"><span class="pre">scripts.mongo_data.</span></span><span class="sig-name descname"><span class="pre">safe_eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mongo_data.html#safe_eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mongo_data.safe_eval" title="Lien vers cette définition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mongo_data.convert_dataframe_to_documents">
+<span class="sig-prename descclassname"><span class="pre">scripts.mongo_data.</span></span><span class="sig-name descname"><span class="pre">convert_dataframe_to_documents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mongo_data.html#convert_dataframe_to_documents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mongo_data.convert_dataframe_to_documents" title="Lien vers cette définition"></a></dt>
+<dd><p>Converts a pandas DataFrame to a list of documents suitable for MongoDB insertion.</p>
+<p>This function iterates over each row in the DataFrame, converting specific columns
+from JSON strings to Python objects and handling date conversions. It’s particularly
+designed for processing recipe data with tags, nutrition information, steps, and ingredients.</p>
+<p>Parameters:
+df (pandas.DataFrame): The input DataFrame containing recipe data.</p>
+<p>Returns:
+list: A list of dictionaries, where each dictionary represents a document</p>
+<blockquote>
+<div><p>ready for insertion into MongoDB. The documents contain the following
+key modifications:
+- “tags”, “nutrition”, “steps”, and “ingredients” are converted from JSON strings</p>
+<blockquote>
+<div><p>to Python lists or dictionaries.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>“submitted” is converted to a datetime object.</p></li>
+</ul>
+</div></blockquote>
+<p>Note:
+This function assumes the presence of “tags”, “nutrition”, “steps”, “ingredients”,
+and “submitted” columns in the input DataFrame. It uses the <cite>safe_eval</cite> function
+to handle potential parsing errors.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.mongo_data.load_dataframe_to_mongodb">
+<span class="sig-prename descclassname"><span class="pre">scripts.mongo_data.</span></span><span class="sig-name descname"><span class="pre">load_dataframe_to_mongodb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_convertisseur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/mongo_data.html#load_dataframe_to_mongodb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mongo_data.load_dataframe_to_mongodb" title="Lien vers cette définition"></a></dt>
+<dd><p>Charge un DataFrame dans une collection MongoDB.</p>
+<p>Cette fonction se connecte à une base de données MongoDB, sélectionne une collection,
+convertit un DataFrame en documents MongoDB (selon le paramètre <cite>use_convertisseur</cite>),
+et insère les documents en lots dans la collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – Le DataFrame à charger.</p></li>
+<li><p><strong>connection_string</strong> (<em>str</em>) – La chaîne de connexion MongoDB.</p></li>
+<li><p><strong>database_name</strong> (<em>str</em>) – Le nom de la base de données MongoDB.</p></li>
+<li><p><strong>collection_name</strong> (<em>str</em>) – Le nom de la collection MongoDB.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – La taille des lots d’insertion. Par défaut, 1000.</p></li>
+<li><p><strong>use_convertisseur</strong> (<em>bool</em><em>, </em><em>optional</em>) – Si True, utilise la fonction <cite>convert_dataframe_to_documents</cite> pour convertir le DataFrame. Par défaut, True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.mongo_data.DataFrameConverter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.mongo_data.</span></span><span class="sig-name descname"><span class="pre">DataFrameConverter</span></span><a class="reference internal" href="_modules/scripts/mongo_data.html#DataFrameConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mongo_data.DataFrameConverter" title="Lien vers cette définition"></a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe utilitaire pour convertir différents types de DataFrames en documents MongoDB.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.mongo_data.DataFrameConverter.convert_dataframe_to_documents">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_dataframe_to_documents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required_columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/scripts/mongo_data.html#DataFrameConverter.convert_dataframe_to_documents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mongo_data.DataFrameConverter.convert_dataframe_to_documents" title="Lien vers cette définition"></a></dt>
+<dd><p>Convertit un DataFrame en une liste de documents MongoDB, après validation des colonnes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – Le DataFrame à convertir.</p></li>
+<li><p><strong>required_columns</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – Liste des colonnes nécessaires.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>Liste de documents compatibles MongoDB.</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.mongo_data.DataFrameConverter.convert_raw_recipe_dataframe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_raw_recipe_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/scripts/mongo_data.html#DataFrameConverter.convert_raw_recipe_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mongo_data.DataFrameConverter.convert_raw_recipe_dataframe" title="Lien vers cette définition"></a></dt>
+<dd><p>Convertit un DataFrame contenant des recettes en documents MongoDB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame des recettes.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>Liste de documents MongoDB.</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.mongo_data.DataFrameConverter.convert_raw_interaction_dataframe">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_raw_interaction_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/scripts/mongo_data.html#DataFrameConverter.convert_raw_interaction_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.mongo_data.DataFrameConverter.convert_raw_interaction_dataframe" title="Lien vers cette définition"></a></dt>
+<dd><p>Convertit un DataFrame contenant des avis utilisateurs en documents MongoDB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame des avis utilisateurs.</p>
+</dd>
+<dt class="field-even">Renvoie<span class="colon">:</span></dt>
+<dd class="field-even"><p>Liste de documents MongoDB.</p>
+</dd>
+<dt class="field-odd">Type renvoyé<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Dict]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="pages/recipes/Analyse_recipe.html" class="btn btn-neutral float-left" title="Analyse Recipe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="utils.html" class="btn btn-neutral float-right" title="Utils" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2024, Paul, Alexandre, Alexandre, Julian.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
