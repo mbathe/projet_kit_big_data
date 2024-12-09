@@ -126,6 +126,9 @@ streamlit run src/Recettes.py
 - **Streamlit Cloud** : [Lien de l'application](https://tpbgdia700-w9z9mmtuyekqgmkmtkctxq.streamlit.app/)
 - **VPS Local** : [http://158.178.192.72:8501/](http://158.178.192.72:8501/)
 
+### Documentation
+- **Documentation de l'application** : [https://documentation-projet-kit-big-data.readthedocs.io/en/latest/](https://documentation-projet-kit-big-data.readthedocs.io/en/latest/)
+
 
 ## 👥 Contributeurs
 
