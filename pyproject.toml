@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "projet_kit_big_data"
+name = "src"
 version = "0.1.0"
 description = "création d'une webapp Streamlit d'analyse de données pour le compte du projet KIT BIG DATA"
 authors = ["Mbathe Mekontchou Paul <paul.mbathe@telecom-paris.fr>", "Alexandre Desgrées du Loû <alexandre.desgrees@telecom-paris.fr>", "Alexandre Movsessian<movsessian@telecom-paris.fr>", "Julian Sliva<julian.sliva@telecom-paris.fr>"]
