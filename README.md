@@ -45,15 +45,19 @@ cd projet_kit_big_data
 ```bash
 poetry install
 ```
+#### Étape 3 : Activer l'environnement
+```bash
+poetry shell
+```
 
-#### Étape 3 : Télécharger le dataset
+#### Étape 4 : Télécharger le dataset
 Exécutez l'instruction suivante à la racine du projet pour télécharger le dataset et l'enregistrer à l'emplacement par défaut `./data/dataset/` (défini par la variable d'environnement **DOCKER_DOWNLOAD_DATASET_DIR**). Vous pouvez modifier cet emplacement en modifiant la valeur de cette variable.
 
 ```bash
-python script.py
+poetry run python script.py
 ```
 
-#### Étape 4 : Lancer l'application
+#### Étape 5 : Lancer l'application
 À la racine du répertoire du projet, exécutez la commande suivante :
 ```bash
 streamlit run src/Recettes.py
