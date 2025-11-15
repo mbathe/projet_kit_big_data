@@ -1,19 +1,19 @@
-# 🍲 Application Web d'Analyse de Recettes avec Streamlit
+# Application Web d'Analyse de Recettes avec Streamlit
 
-## 🎯 Objectif du Projet
+## Objectif du Projet
 
 Ce projet vise à développer une application web interactive utilisant Streamlit pour l'analyse approfondie de données culinaires. L'application met en pratique les compétences avancées en développement Python, analyse de données, et développement web.
 
 
-## ✨ Fonctionnalités Principales
+## Fonctionnalités Principales
 
-### 📊 Analyse de Recettes
+### Analyse de Recettes
 - Statistiques nutritionnelles détaillées
 - Visualisation des tendances culinaires
 - Analyse comparative des ingrédients
 - Système de recommandation personnalisé basé sur les préférences
 
-### 👥 Interactions Utilisateurs
+### Interactions Utilisateurs
 - Analyse des contributions des utilisateurs
 - Exploration des distributions des interactions
 - Visualisations interactives des données
@@ -31,7 +31,7 @@ Les variables d'environnement se trouvent dans le fichier `.env`
 - **Compte MongoDB Atlas ou base de données MongoDB**(optionnel, pour ligne ou en local à partie de mongodb) : [Installer MongoDB](https://www.mongodb.com/docs/manual/installation/)
 
 
-## 🚀 Modes de Déploiement
+## Modes de Déploiement
 
 ### 1. Déploiement Local (Développement)
 
@@ -124,7 +124,7 @@ streamlit run src/Recettes.py
 ```
 
 
-## 🌐 Déploiement en Ligne
+##  Déploiement en Ligne
 
 ### Plateformes
 - **Streamlit Cloud** : [Lien de l'application](https://tpbgdia700-w9z9mmtuyekqgmkmtkctxq.streamlit.app/)
@@ -134,7 +134,7 @@ streamlit run src/Recettes.py
 - **Documentation de l'application** : [https://documentation-projet-kit-big-data.readthedocs.io/en/latest/](https://documentation-projet-kit-big-data.readthedocs.io/en/latest/)
 
 
-## 👥 Contributeurs
+## Contributeurs
 
 ### Équipe de Développement
 
